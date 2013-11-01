@@ -13,11 +13,14 @@ The Jekyll content of my personal website.
 
 # Deploy
 
-## Stage
-
-## Production
-
 Currently on a server of mine I have a bare repo and a post-receive to build
 the site, move it to a directory that nginx is serving.
 
+## Stage
+
     git push deploy master
+
+## Production
+
+    git push deploy master
+
