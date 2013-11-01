@@ -5,7 +5,11 @@ The Jekyll content of my personal website.
 
 #Build for Development
 
+    rake dev:build
+
 #Build for Production
+
+    jekyll build
 
 ## Deploy
 
