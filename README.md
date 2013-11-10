@@ -14,7 +14,7 @@ The Jekyll content of my personal website.
 # Deploy
 
 Currently on a server of mine I have a bare repo and a post-receive to build
-the site, move it to a directory that nginx is serving. 
+the site, move it to a directory that nginx is serving.
 
 ## Stage
 
