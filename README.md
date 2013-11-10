@@ -18,6 +18,8 @@ the site, move it to a directory that nginx is serving.
 
 ## Stage
 
+TODO make this different
+
     git push deploy master
 
 ## Production
