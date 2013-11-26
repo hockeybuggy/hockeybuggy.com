@@ -22,5 +22,6 @@ the site.
 
 ## Production
 
+    git remote add deploy LOCATION_OF_DEPLOY_SERVER
     git push deploy master
 
