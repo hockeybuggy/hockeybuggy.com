@@ -17,6 +17,11 @@ Currently on a server of mine I have a bare repo and a post-receive to build
 the site.
 
 To set this server up:
+    # install rvm
+    # install ruby 2 and set to default
+    # install jekyll
+    # create folder for nginx to serve for development
+    # set up git hook
 
 ## Stage
 
