@@ -4,7 +4,7 @@ title: Wikipedia Page Of The Day
 ---
 
 <div id="wpotd">
-  <h1>Wpotd Posts</h1>
+  <h1>Wikipedia page of the day posts</h1>
   <ul class="posts">
     {% for post in site.categories.wpotd %}
       <li>
