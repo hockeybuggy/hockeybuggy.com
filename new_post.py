@@ -4,6 +4,8 @@ import sys
 import pystache
 import argparse
 import datetime
+import random
+import string
 from os import path
 
 templatesDirStr = "_templates"
@@ -36,10 +38,16 @@ def parseargs():
 
     return args
 
+def get_random_str(length):
+    return ''.join([random.choice(string.ascii_letters+string.digits) for ch in range(length)])
+
 def main(category, date, title):
-    with open(path.join(templatesDirStr,"post.mustache")) as f:
-        template = f.read()
-        print pystache.render(template, {"category":category, "date":date, "title":title})
+    outFilename = "{}_{}-{}.md".format(date, category, get_random_str(8))
+    with open(path.join(templatesDirStr,"post.mustache"), "r") as r:
+        template = r.read()
+        with open(path.join(outputDirStr, outFilename), "w") as w:
+            print "writing to file:", outFilename
+            w.write(pystache.render(template, {"category":category, "date":date, "title":title}))
 
 if __name__ == "__main__":
     args = parseargs()
