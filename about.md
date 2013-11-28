@@ -26,6 +26,8 @@ volunteering as a lifeguard on a canoe trip on the French river with [CBC][CBC].
 
 ## Technology used for this site
 
+This site is open source at [github][GITHUB]
+
 The site is built using [the static site generator Jekyll][JEKYLL]
 
 It also uses the markup language [Markdown][MARKDOWN].
@@ -39,3 +41,4 @@ This site is hosted, with thanks, by [Dexagon][DEXAGON]
 [JEKYLL]: http://jekyllrb.com
 [MARKDOWN]: http://daringfireball.net/projects/markdown/syntax#overview
 [DEXAGON]: http://www.dexagon.com
+[GITHUB]: http://github.com/hockeybuggy/hockeybuggy.com
