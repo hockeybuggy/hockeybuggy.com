@@ -11,3 +11,4 @@
     CSS3
     jQuery
     Jekyll
+    Git
