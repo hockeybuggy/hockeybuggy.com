@@ -5,9 +5,8 @@ title: About
 
 #This is the personal website of Douglas Anderson
 
-I am a Canadian left-handed redhead with many diverse interests.  I am a student
-perusing my undergraduate degree in computer science at the [University of
-Guelph][UOG].
+I am a Canadian left-handed redhead with interests.  I am a student perusing my
+undergraduate degree in computer science at the [University of Guelph][UOG].
 
 <img class="about_image" src="http://s.gravatar.com/avatar/609be367e4cef3f8ae9cf9a9add1b111?s=400" alt="A picture of Douglas in a tree"/>
 <img class="about_image" src="http://s.gravatar.com/avatar/cdb37c366e470231e3aa87a98f07f4c2?s=400" alt="A picture of Douglas on a bus"/>
@@ -21,6 +20,9 @@ summers working at camp I worked as a Counsellor(2009), Canoeing Instructor and
 member of the waterfront team (2010), director of Music & Drama (2011), and
 Administrative Assistant (2012). Because I wanted used my Canoeing instructors
 at camp, I also have my [NLS][NLS] allowing me to lifeguard in Canada.
+
+In the summer of 2013, I worked at Sears Canada doing marketing analytics and
+volunteering as a lifeguard on a canoe trip on the French river with [CBC][CBC].
 
 ## Technology used for this site
 
