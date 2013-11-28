@@ -42,7 +42,7 @@ def get_random_str(length):
     return ''.join([random.choice(string.ascii_letters+string.digits) for ch in range(length)])
 
 def main(category, date, title):
-    outFilename = "{}_{}-{}.md".format(date, category, get_random_str(8))
+    outFilename = "{}-{}_{}.md".format(date, category, get_random_str(8))
     with open(path.join(templatesDirStr,"post.mustache"), "r") as r:
         template = r.read()
         with open(path.join(outputDirStr, outFilename), "w") as w:

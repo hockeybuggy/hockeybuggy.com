@@ -3,7 +3,7 @@ layout: default
 title: About
 ---
 
-#personal website of Douglas James Anderson
+#Personal website of Douglas James Anderson
 
 I am a Canadian left-handed redhead with interests.  I am a student perusing my
 undergraduate degree in computer science at the [University of Guelph][UOG].
