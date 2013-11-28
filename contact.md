@@ -19,13 +19,13 @@ Douglas can be reached here at a whole bunch of places:
     </tr>
 
     <tr>
-        <td class="row_label">Linkedin :</td>
-        <td> <a href="http://www.linkedin.com/pub/douglas-anderson/32/36b/6">linkedin</a></td>
+        <td class="row_label">Github :</td>
+        <td> <a href="https://github.com/hockeybuggy">github</a></td>
     </tr>
 
     <tr>
-        <td class="row_label">Github :</td>
-        <td> <a href="https://github.com/hockeybuggy">github</a></td>
+        <td class="row_label">Linkedin :</td>
+        <td> <a href="http://www.linkedin.com/pub/douglas-anderson/32/36b/6">linkedin</a></td>
     </tr>
 
     <tr>
@@ -33,3 +33,4 @@ Douglas can be reached here at a whole bunch of places:
         <td> <a href="http://stackoverflow.com/users/1745922/douglas-anderson">stackoverflow</a></td>
     </tr>
 </table>
+
