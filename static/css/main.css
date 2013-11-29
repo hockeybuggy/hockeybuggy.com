@@ -163,10 +163,15 @@ ul.posts span {
   overflow: hidden;
 }
 
+
 .site .footer .contact {
   padding-right: 10px;
   float: left;
   margin-right: 3em;
+}
+
+.site .footer .contact p {
+  padding-right: 10px;
 }
 
 .site .footer .bubble {
