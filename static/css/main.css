@@ -126,6 +126,10 @@ ul.posts span {
 }
 
 .site .header .header-container a.extra {
+    padding-left: 15px;
+}
+
+.site .header .header-container a.extra {
   font-weight: bold;
   text-decoration: none;
   background-color: #00A0B0;
@@ -162,7 +166,6 @@ ul.posts span {
   margin-top: 2em;
   overflow: hidden;
 }
-
 
 .site .footer .contact {
   padding-right: 10px;
