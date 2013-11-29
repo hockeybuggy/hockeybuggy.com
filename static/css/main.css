@@ -86,6 +86,10 @@ ul.posts span {
   margin: 0px auto;
 }
 
+.site .header .title-container .title-subcontainer {
+    padding-left: 15px;
+}
+
 .site .header .title-container {
   background-color: #EB6841;
   float: left;
@@ -123,10 +127,6 @@ ul.posts span {
 .site .header .header-container ul li {
   list-style: none;
   float: left;
-}
-
-.site .header .header-container a.extra {
-    padding-left: 15px;
 }
 
 .site .header .header-container a.extra {
@@ -174,7 +174,7 @@ ul.posts span {
 }
 
 .site .footer .contact p {
-  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .site .footer .bubble {
