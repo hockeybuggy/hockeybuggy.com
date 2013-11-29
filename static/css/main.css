@@ -92,10 +92,6 @@ ul.posts span {
   width: 25%;
 }
 
-.site .header .title-container .title-subcontainer {
-  margin-left: 15px;
-  background-color: #00A0B0;
-}
 .site .header .title-container a.title {
   width: 100%;
   display: inline-block;
