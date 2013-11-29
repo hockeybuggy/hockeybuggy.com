@@ -35,6 +35,25 @@ In this case I followed the advice on the jekyll website and used the
 This is used to build the static site and copy it to a folder where it can be
 served.
 
+
+    #!/bin/bash
+    #
+
+    GIT_REPO=$HOME/<DEPLOY REPO>.git
+    TMP_GIT_CLONE=$HOME/tmp/hockeybuggy.com
+    LOCAL_SITE=$HOME/site/hockeybuggy.com
+    PUBLIC_WWW=/var/www/hockeybuggy.com
+
+    echo "Deploying..."
+    source $HOME/.bash_profile
+    git clone $GIT_REPO $TMP_GIT_CLONE
+    jekyll build -s $TMP_GIT_CLONE -d $LOCAL_SITE
+    echo "Moving to serving location on remote"
+    cp -r $LOCAL_SITE/* $PUBLIC_WWW
+    rm -Rf $TMP_GIT_CLONE $LOCAL_SITE
+    echo "Done."
+    exit
+
 ## dokku
 
 A cool option that I may look at in the future if dokku. It is a much more
