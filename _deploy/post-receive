@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+
+GIT_REPO=$HOME/deploy_production_hb.git
+TMP_GIT_CLONE=$HOME/tmp/hockeybuggy.com
+LOCAL_SITE=$HOME/site/hockeybuggy.com
+PUBLIC_WWW=/var/www/hockeybuggy.com
+
+echo "Deploying..."
+source $HOME/.bash_profile
+git clone $GIT_REPO $TMP_GIT_CLONE
+jekyll build -s $TMP_GIT_CLONE -d $LOCAL_SITE
+echo "Moving to serving location on remote"
+cp -r $LOCAL_SITE/* $PUBLIC_WWW
+rm -Rf $TMP_GIT_CLONE $LOCAL_SITE
+echo "Done."
+exit
