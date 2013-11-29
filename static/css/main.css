@@ -86,16 +86,16 @@ ul.posts span {
   margin: 0px auto;
 }
 
-.site .header .title-container .title-subcontainer {
-    margin-left: 15px;
-}
-
 .site .header .title-container {
   background-color: #EB6841;
   float: left;
   width: 25%;
 }
 
+.site .header .title-container .title-subcontainer {
+  margin-left: 15px;
+  background-color: #00A0B0;
+}
 .site .header .title-container a.title {
   width: 100%;
   display: inline-block;
