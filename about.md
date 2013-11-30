@@ -32,13 +32,10 @@ The site is built using [the static site generator Jekyll][JEKYLL]
 
 It also uses the markup language [Markdown][MARKDOWN].
 
-This site is hosted, with thanks, by [Dexagon][DEXAGON]
-
 [UOG]: http://www.socs.uoguelph.ca/
 [CBC]: http://campbigcanoe.ca
 [ORCKA]: http://www.orcka.ca/content/?page=116
 [NLS]: http://www.lifesavingsociety.com/lifeguarding/national-lifeguard/nls-pool.aspx
 [JEKYLL]: http://jekyllrb.com
 [MARKDOWN]: http://daringfireball.net/projects/markdown/syntax#overview
-[DEXAGON]: http://www.dexagon.com
 [GITHUB]: http://github.com/hockeybuggy/hockeybuggy.com
