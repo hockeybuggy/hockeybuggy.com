@@ -13,7 +13,7 @@ undergraduate degree in computer science at the [University of Guelph][UOG].
 
 I also am a [ORCKA][ORCKA] Basic canoeing instructor. I also have some other
 fancy sounding certifications like Canadian Style Paddling lvl 2 and Canoe
-Tripping lvl 2.
+Tripping level 2.
 
 I used these certifications at [Camp Big Canoe][CBC] since 2009.  During my
 summers working at camp I worked as a Counsellor(2009), Canoeing Instructor and
