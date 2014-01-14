@@ -1,1 +1,5 @@
-url:
+name: Hockeybuggy.com
+description: Musings of Douglas James Anderson
+url: http://0.0.0.0:4000
+markdown: redcarpet
+pygments: true

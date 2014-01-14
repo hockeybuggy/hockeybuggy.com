@@ -14,7 +14,7 @@ html, body { height: 100%; }
 
 body {
   background-color: #6a4a3c;
-  font: 13.34px Helvetica, Arial, sans-serif;
+  font: 13.34px "Open Sans", Helvetica, sans-serif;
   font-size: small;
   text-align: center;
 }
@@ -43,17 +43,22 @@ a:hover, a:focus  { color: #0161FD; }
 
 ul.posts {
   list-style-type: none;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
 }
 
 ul.posts li {
   line-height: 1.75em;
+  clear: both;
 }
 
-ul.posts span {
+ul.posts .date {
   color: #aaa;
-  font-family: Monaco, "Courier New", monospace;
   font-size: 80%;
+  font-family: Monaco, "Courier New", monospace;
+}
+
+ul.posts div {
+    float: right;
 }
 
 /*****************************************************************************/
@@ -84,6 +89,8 @@ ul.posts span {
 .site .header {
   background-color: #00A0B0;
   margin: 0px auto;
+  border-bottom: 4px solid #eee;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .site .header .title-container {
@@ -140,7 +147,11 @@ ul.posts span {
   text-decoration: underline;
 }
 
-.site .meta {
+.site .low-importance {
+  color: #aaa;
+}
+
+.site .date {
   color: #aaa;
 }
 
@@ -157,10 +168,10 @@ ul.posts span {
 .site .footer {
   font-size: 80%;
   background-color: #EB6841;
-  color: #666;
+  color: #444;
   border-top: 4px solid #eee;
-  margin-top: 2em;
   overflow: hidden;
+  clear: both;
 }
 
 .site .footer .contact {
