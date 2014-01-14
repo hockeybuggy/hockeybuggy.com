@@ -26,11 +26,13 @@ volunteering as a lifeguard on a canoe trip on the French river with [CBC][CBC].
 
 ## Technology used for this site
 
-This site is open source at [github][GITHUB]
+This site is open source at [github][GITHUB]. If you find a typo or issue with
+this website please let me know by either creating a github issue or by sending
+me an email.
 
-The site is built using [the static site generator Jekyll][JEKYLL]
+The site is built using the static site generator [Jekyll][JEKYLL]
 
-It also uses the markup language [Markdown][MARKDOWN].
+It also uses the wonderfully simple markup language [Markdown][MARKDOWN].
 
 [UOG]: http://www.socs.uoguelph.ca/
 [CBC]: http://campbigcanoe.ca
