@@ -91,6 +91,7 @@ ul.posts div {
   margin: 0px auto;
   border-bottom: 4px solid #eee;
   font-family: Helvetica, Arial, sans-serif;
+  text-shadow: black 1px 1px;
 }
 
 .site .header .title-container {
@@ -114,6 +115,7 @@ ul.posts div {
 .site .header .title-container a:hover {
   color: #000;
   text-decoration: underline;
+  text-shadow: none;
 }
 
 .site .header .header-container {
@@ -145,6 +147,7 @@ ul.posts div {
 .site .header .header-container a.extra:hover {
   color: #000;
   text-decoration: underline;
+  text-shadow: none;
 }
 
 .site .low-importance {
@@ -187,9 +190,7 @@ ul.posts div {
 .site .footer .bubble {
   float: right;
   margin-left: 6em;
-}
-
-.site .footer .bubble {
+  text-shadow: black 1px 1px;
   background-color: #00A0B0;
   height: 40px;
   width: 40px;
@@ -204,7 +205,8 @@ ul.posts div {
   color: #EDC951;
 }
 .site .footer .bubble i:hover {
-    color: #000;
+  text-shadow: none;
+  color: #000;
 }
 
 /*****************************************************************************/
