@@ -1,9 +1,14 @@
-hockeybuggy.com
-===============
+# hockeybuggy.com
+# ===============
 
 The Jekyll content of my personal website.
+## Dependencies
 
-#Build
+1. jekyll
+2. python
+3. pystache
+
+##Build
 
 To generate files:
 
@@ -13,25 +18,18 @@ Or for local development
 
     jekyll serve --watch --config _dev_config.yml
 
-# Deploy
+## Deploy
 
-Currently on a server of mine I have a bare repo and a post-receive to build
-the site.
+To deploy just push to the master branch on github.
 
-To set this server up:
+    git push origin master
 
-- install rvm
-- install ruby 2 and set to default
-- install jekyll
-- create folder for nginx to serve for development
-- set up git hook
+or with my configuration
 
-## Stage
+    git pom
 
-    git push deploy master
+## TODO
 
-## Production
-
-    git remote add deploy LOCATION_OF_DEPLOY_SERVER
-    git push deploy master
+- remove dependency to pystache. No sure what I should assume is installed on a
+  system.
 
