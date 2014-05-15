@@ -1,7 +1,7 @@
 # hockeybuggy.com
-# ===============
 
 The Jekyll content of my personal website.
+
 ## Dependencies
 
 1. jekyll
