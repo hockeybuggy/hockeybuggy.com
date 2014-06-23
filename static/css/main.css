@@ -154,17 +154,13 @@ ul.posts div {
   color: #aaa;
 }
 
-.site .date {
-  color: #aaa;
-}
-
 .site .divider {
   clear: both;
   height: 5px;
   background-color: #CC333F;
 }
 
-.site .content {
+.site article {
   padding: 0px 5px;
 }
 
