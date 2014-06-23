@@ -6,21 +6,21 @@
 
 /* Global Reset */
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 html, body { height: 100%; }
 
 body {
-  background-color: #6a4a3c;
-  font: 13.34px "Open Sans", Helvetica, sans-serif;
-  font-size: small;
-  text-align: center;
+    background-color: #6a4a3c;
+    font: 13.34px "Open Sans", Helvetica, sans-serif;
+    font-size: small;
+    text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 100%; 
+    font-size: 100%; 
 }
 
 h1 { 
@@ -29,37 +29,16 @@ h1 {
     margin-bottom: 0.75em;
     text-align:center;
 }
+
+h2 { font-size: 1.25em; }
+h3 { font-size: 1.10em; }
+
 p { margin: 1em 0; }
 
 a { color: #0645AD; }
 a:hover, a:focus  { color: #0161FD; }
 /*a:visited { color: #0645AD; }*/
 
-/*****************************************************************************/
-/*
-/* Home
-/*
-/*****************************************************************************/
-
-ul.posts {
-  list-style-type: none;
-  margin-bottom: 1.5em;
-}
-
-ul.posts li {
-  line-height: 1.75em;
-  clear: both;
-}
-
-ul.posts .date {
-  color: #aaa;
-  font-size: 80%;
-  font-family: Monaco, "Courier New", monospace;
-}
-
-ul.posts div {
-    float: right;
-}
 
 /*****************************************************************************/
 /*
@@ -207,6 +186,32 @@ ul.posts div {
 .site footer .bubble i:hover {
   text-shadow: none;
   color: #000;
+}
+
+/*****************************************************************************/
+/*
+/* Home
+/*
+/*****************************************************************************/
+
+ul.posts {
+  list-style-type: none;
+  margin-bottom: 1.5em;
+}
+
+ul.posts li {
+  line-height: 1.75em;
+  clear: both;
+}
+
+ul.posts .date {
+  color: #aaa;
+  font-size: 80%;
+  font-family: Monaco, "Courier New", monospace;
+}
+
+ul.posts div {
+    float: right;
 }
 
 /*****************************************************************************/
