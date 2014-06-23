@@ -164,6 +164,10 @@ ul.posts div {
   padding: 0px 5px;
 }
 
+.site section {
+  padding: 0px 5px;
+}
+
 .site footer {
   font-size: 80%;
   background-color: #EB6841;

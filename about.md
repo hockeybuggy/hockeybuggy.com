@@ -3,6 +3,8 @@ layout: default
 title: About
 ---
 
+<section>
+
 #Personal website of Douglas James Anderson
 
 I am a Canadian left-handed redhead with interests.  I am a student perusing my
@@ -33,6 +35,8 @@ me an email.
 The site is built using the static site generator [Jekyll][JEKYLL]
 
 It also uses the wonderfully simple markup language [Markdown][MARKDOWN].
+
+</section>
 
 [UOG]: http://www.socs.uoguelph.ca/
 [CBC]: http://campbigcanoe.ca
