@@ -34,26 +34,26 @@
         <div class="container">
           <div class="site">
 
-            <div class="header">
+            <header>
               <div class="title-container">
                 <a class="title" href="/">&nbsp;{{ site.name }}</a>
               </div>
-              <div class="header-container">
+              <nav class="header-container">
                 <ul>
-                  <li><a class="extra" href="/wpotd">wpotd</a></li>
-                  <li><a class="extra" href="/misc">misc</a></li>
-                  <li><a class="extra" href="/about.html">about</a></li>
-                  <li><a class="extra" href="/contact.html">contact</a></li>
+                  <li><a href="/wpotd">wpotd</a></li>
+                  <li><a href="/misc">misc</a></li>
+                  <li><a href="/about.html">about</a></li>
+                  <li><a href="/contact.html">contact</a></li>
                 </ul>
-              </div>
+              </nav>
               <div class="divider"></div>
-            </div>
+            </header>
 
             <div class="content">
                 {{ content }}
             </div>
 
-            <div class="footer">
+            <footer>
               <div class="divider"></div>
               <div class="contact">
                 <p>
@@ -70,7 +70,7 @@
               <div class="bubble">
                   <a href="{{ site.url }}/feed.xml"><i class="fa fa-rss fa-3x"></i></a>
               </div>
-            </div>
+            </footer>
 
           </div> <!-- end .site -->
         </div> <!-- end .container -->

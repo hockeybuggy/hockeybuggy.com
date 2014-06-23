@@ -86,7 +86,7 @@ ul.posts div {
   line-height: 1.5em;
 }
 
-.site .header {
+.site header {
   background-color: #00A0B0;
   margin: 0px auto;
   border-bottom: 4px solid #eee;
@@ -94,13 +94,13 @@ ul.posts div {
   text-shadow: black 1px 1px;
 }
 
-.site .header .title-container {
+.site header .title-container {
   background-color: #EB6841;
   float: left;
   width: 25%;
 }
 
-.site .header .title-container a.title {
+.site header .title-container a {
   width: 100%;
   display: inline-block;
   background-color: #00A0B0;
@@ -112,13 +112,13 @@ ul.posts div {
   text-decoration: none;
 }
 
-.site .header .title-container a:hover {
+.site header .title-container a:hover {
   color: #000;
   text-decoration: underline;
   text-shadow: none;
 }
 
-.site .header .header-container {
+.site header .header-container {
   background-color: #EB6841;
   width: 75%;
   height: 27px;
@@ -129,12 +129,12 @@ ul.posts div {
   float: left;
 }
 
-.site .header .header-container ul li {
+.site header .header-container ul li {
   list-style: none;
   float: left;
 }
 
-.site .header .header-container a.extra {
+.site header .header-container a {
   font-weight: bold;
   text-decoration: none;
   background-color: #00A0B0;
@@ -144,7 +144,7 @@ ul.posts div {
   border-radius: 10px 10px 10px 10px;
 }
 
-.site .header .header-container a.extra:hover {
+.site header .header-container a:hover {
   color: #000;
   text-decoration: underline;
   text-shadow: none;
@@ -168,7 +168,7 @@ ul.posts div {
   padding: 0px 5px;
 }
 
-.site .footer {
+.site footer {
   font-size: 80%;
   background-color: #EB6841;
   color: #444;
@@ -177,17 +177,17 @@ ul.posts div {
   clear: both;
 }
 
-.site .footer .contact {
+.site footer .contact {
   padding-right: 10px;
   float: left;
   margin-right: 3em;
 }
 
-.site .footer .contact p {
+.site footer .contact p {
   padding-left: 10px;
 }
 
-.site .footer .bubble {
+.site footer .bubble {
   float: right;
   margin-left: 6em;
   text-shadow: black 1px 1px;
@@ -199,12 +199,12 @@ ul.posts div {
   border-radius: 10px;
 }
 
-.site .footer .bubble i {
+.site footer .bubble i {
   vertical-align: baseline;
   text-decoration: none;
   color: #EDC951;
 }
-.site .footer .bubble i:hover {
+.site footer .bubble i:hover {
   text-shadow: none;
   color: #000;
 }
