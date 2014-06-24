@@ -5,8 +5,9 @@ The Jekyll content of my personal website.
 ## Dependencies
 
 1. jekyll
-2. python
-3. pystache
+2. ruby
+3. python
+4. pystache
 
 ##Build
 
@@ -17,6 +18,10 @@ To generate files:
 Or for local development
 
     jekyll serve --watch
+
+or with livereload (work in progress)
+
+    guard
 
 ## Deploy
 

@@ -2,3 +2,4 @@ name: Hockeybuggy.com
 description: Musings of Douglas James Anderson
 markdown: redcarpet
 pygments: true
+exclude: ["Gemfile", "Guardfile"]
