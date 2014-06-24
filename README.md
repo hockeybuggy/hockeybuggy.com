@@ -16,7 +16,7 @@ To generate files:
 
 Or for local development
 
-    jekyll serve --watch --config _dev_config.yml
+    jekyll serve --watch
 
 ## Deploy
 
