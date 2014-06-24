@@ -3,8 +3,6 @@ layout: default
 title: Wikipedia Page Of The Day
 ---
 
-<section id="wpotd">
-
 <h1>Wikipedia page of the day</h1>
 
 <p>
@@ -23,4 +21,3 @@ title: Wikipedia Page Of The Day
     {% endfor %}
 </ul>
 
-</section>

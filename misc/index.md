@@ -3,8 +3,6 @@ layout: default
 title: misc
 ---
 
-<section id="misc">
-
 <h1>Misc Posts</h1>
 
 <p>
@@ -21,4 +19,3 @@ title: misc
     {% endfor %}
 </ul>
 
-</section>

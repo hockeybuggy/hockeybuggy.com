@@ -3,8 +3,6 @@ layout: default
 title: hockeybuggy.com
 ---
 
-<section id="home">
-
 <h1>All Posts</h1>
 
 <p>
@@ -22,4 +20,3 @@ title: hockeybuggy.com
     {% endfor %}
 </ul>
 
-</section>
