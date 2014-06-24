@@ -139,11 +139,7 @@ a:hover, a:focus  { color: #0161FD; }
   background-color: #CC333F;
 }
 
-.site article {
-  padding: 0px 5px;
-}
-
-.site section {
+.site main {
   padding: 0px 5px;
 }
 
