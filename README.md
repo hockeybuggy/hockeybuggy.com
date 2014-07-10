@@ -6,8 +6,7 @@ The Jekyll content of my personal website.
 
 1. jekyll
 2. ruby
-3. python
-4. pystache
+3. python (To create new posts)
 
 ##Build
 
@@ -32,9 +31,4 @@ To deploy just push to the master branch on github.
 or with my configuration
 
     git pom
-
-## TODO
-
-- remove dependency to pystache. No sure what I should assume is installed on a
-  system.
 
