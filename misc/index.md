@@ -3,12 +3,12 @@ layout: default
 title: misc
 ---
 
-<h1>Misc Posts</h1>
+# Misc Posts
 
-<p>
-    This is a collection of odds and ends that I have written. Many of them
-    refer to the constuction of this site itself... but some aren't.
-</p>
+This is a collection of odds and ends that I have written. Many of them
+refer to the constuction of this site itself... but some aren't.
+
+<hr/>
 
 <ul class="posts">
     {% for post in site.categories.misc %}

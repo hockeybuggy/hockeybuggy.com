@@ -3,13 +3,13 @@ layout: default
 title: hockeybuggy.com
 ---
 
-<h1>All Posts</h1>
+# All Posts
 
-<p>
-    Welcome to <a href="/about">my</a> personal website. Occasionally I
-    write about things I learn, either from <a href="/wpotd">Wikipedia</a> or
-    <a href="misc">else where</a>. Check it out and feel free to contact me.
-</p>
+Welcome to [my][ABOUT] personal website. Occasionally I write about things I
+learn, either from Wikipedia or else where. Check it out and please feel free to
+[contact me][CONTACT] about anything.
+
+<hr/>
 
 <ul class="posts">
     {% for post in site.posts %}
@@ -20,3 +20,5 @@ title: hockeybuggy.com
     {% endfor %}
 </ul>
 
+[ABOUT]: /about.html
+[CONTACT]: /contact.html
