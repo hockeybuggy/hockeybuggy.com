@@ -23,7 +23,7 @@ After making changes the site can be generated with:
 
 Or for local development:
 
-    jekyll serve --watch
+    jekyll serve --watch --drafts
 
 ## Deploy
 
