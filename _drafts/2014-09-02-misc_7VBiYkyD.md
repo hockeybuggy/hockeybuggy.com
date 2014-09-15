@@ -20,6 +20,8 @@ but sometimes they are old treasures that I really like.
 <img class="center" src="{{ site.url }}/static/img/stateofthedotfiles-2014.jpg" alt="What my terminal looks like today"/>
 </a>
 
+------------
+
 ## Vim
 
 I really like Vim; I like it an (almost) embarrassing amount. It has taken me a
@@ -50,6 +52,18 @@ It also helps leep track of which is the current split window.
 
 ### Spellfile
 
+I am really bad at spelling. While English may be my first language I am pretty sure I am more proficient in several programing languages. Thankfully Vim can help me compensate for my shortcomings with `:set spell`. Once spelling is turned on misspellings are highlighted and can be managed with the following normal mode mappings:
+
+- `z=`: Show possible spelling corrections for the typo under the cursor
+- `zg`: Add the "typo" under the cursor to the spellfile. More on this later
+- `[s`: Move to previous typo
+- `]s`: Move to next typo
+
+The spellfile is the magical file of words that allow you to maintain your own
+supplemental dictionary. For example check out [mine][SPELLFILE]. Keeping it in
+revision control allows you to have your own dictionary on any machine you use.
+Take that Microsoft Office.
+
 ### Completions
 
 One my favorite feature of Vim is it's approach to completions. Some IDEs like
@@ -59,13 +73,13 @@ can be nice sometimes, it is **CRAZY** distracting. Vim will only give you a
 completion list when you ask for it and Vim has a number of different list you
 can choose from. From insert mode type:
 
-- ` <CTRL-n>`: Generic Complete
-- ` <CTRL-x><CTRL-n> `: Search among the current buffers to complete a word
-- ` <CTRL-x><CTRL-i> `: Search among the included files to complete a word
-- ` <CTRL-x><CTRL-f> `: Search among the current directory to complete a filename
-- ` <CTRL-x><CTRL-k> `: Search among the dictionary to complete a word
-- ` <CTRL-x><CTRL-l> `: Search among the current buffers to complete a whole line
-- ` <CTRL-x><CTRL-o> `: Context sensitive (language aware) search for a word
+- `<CTRL-n>`: Generic Complete
+- `<CTRL-x><CTRL-n>`: Search among the current buffers to complete a word
+- `<CTRL-x><CTRL-i>`: Search among the included files to complete a word
+- `<CTRL-x><CTRL-f>`: Search among the current directory to complete a filename
+- `<CTRL-x><CTRL-k>`: Search among the dictionary to complete a word
+- `<CTRL-x><CTRL-l>`: Search among the current buffers to complete a whole line
+- `<CTRL-x><CTRL-o>`: Context sensitive (language aware) search for a word
 
 For a comprehensive list take a look at the help page with `:help compl-keyword`
 
@@ -90,6 +104,8 @@ line.
 
 Another feature that is keeping me using zsh is what happens when the command
 you type is not found in the path.
+
+TODO finsh this
 
 ### Z directory jumper
 
@@ -126,6 +142,7 @@ which have been set up with a large font and light background.
 
 [AIRLINE]: https://github.com/bling/vim-airline
 [AIRLINEDEMO]: https://github.com/bling/vim-airline/wiki/screenshots/demo.gif
+[SPELLFILE]: https://github.com/hockeybuggy/dotfiles/blob/master/vim/spell/en.utf-8.add
 
 [ITERM2]: http://iterm2.com/
 [URXVT]: https://wiki.archlinux.org/index.php/rxvt-unicode
