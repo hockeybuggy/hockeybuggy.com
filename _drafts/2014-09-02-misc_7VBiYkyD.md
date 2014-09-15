@@ -6,14 +6,15 @@ categories: misc
 author: Douglas Anderson
 ---
 
+In this post I am gonna talk about the things in my configuration that I am
+really excited about. Warning: non-technical people may find this either super
+boring, undecipherable or both. Often the things I am excited about are recent
+changes, but sometimes they are old treasures that I really like.
+
 I spend quite a bit of time working on my [dotfiles][STATE]. The nicer the
 environment the easier it is to work. Since the beginning of the year I have
 made 63 commits, bringing the total to 292 since I started the keeping dotfiles
 since March 2012.
-
-In this post I am gonna talk about the things in my configuration that I am
-really excited about. Often the things I am excited about are recent changes,
-but sometimes they are old treasures that I really like.
 
 
 <a href="{{ site.url }}/static/img/stateofthedotfiles-2014.jpg">
@@ -137,18 +138,28 @@ rather than:
 
     > cd .dotfiles
 
-Pretty slick
-
-### Scripts
-
+Pretty slick.
 
 ------------
 
 ## Tmux
 
+Tmux is a bit of a god-send. I was having a hard time managing all my terminals
+and so I moved to the [window manager i3][I3]. It was a really cool way to
+manage my windows and was great for multiple monitors, but it was less than
+perfect for running Steam and meant that I was completely out of my element
+when I used a traditional window manager.
+
+Tmux allowed me to switch back to a 'traditional' window manager and keep my
+Vim and Shell in the same window. Tmux is also a great way to run multiple
+shells on a remote servers over only one ssh connection.
+
 ### TAT
 
 ### vim-tmux-navigator
+
+When you use Vim within a Tmux Session the line between Vim *Windows* and Tmux
+*Panes* can get pretty blurred; Sometimes blurred to a frustrating degree.
 
 ------------
 
@@ -175,6 +186,8 @@ which have been set up with a large font and light background.
 [SPELLFILE]: https://raw.githubusercontent.com/hockeybuggy/dotfiles/master/vim/spell/en.utf-8.add
 
 [Z]: https://github.com/rupa/z
+
+[i3]: http://i3wm.org/
 
 [ITERM2]: http://iterm2.com/
 [URXVT]: https://wiki.archlinux.org/index.php/rxvt-unicode
