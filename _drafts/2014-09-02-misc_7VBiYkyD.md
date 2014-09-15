@@ -160,6 +160,11 @@ shells on a remote servers over only one ssh connection.
 
 When you use Vim within a Tmux Session the line between Vim *Windows* and Tmux
 *Panes* can get pretty blurred; Sometimes blurred to a frustrating degree.
+Trying to remember whither you need to type `<Tmux Prefix> h` or `<CTRL>-w h`
+when you simply want to move to the right can get tiring.
+
+A really cool person called [Chris Toomey][CHRIS] created
+[vim-tmux-navigator][VIMTMUXNAVIGATOR].
 
 ------------
 
@@ -188,6 +193,8 @@ which have been set up with a large font and light background.
 [Z]: https://github.com/rupa/z
 
 [i3]: http://i3wm.org/
+[CHRIS]: https://github.com/christoomey
+[VIMTMUXNAVIGATOR]: https://github.com/christoomey/vim-tmux-navigator
 
 [ITERM2]: http://iterm2.com/
 [URXVT]: https://wiki.archlinux.org/index.php/rxvt-unicode
