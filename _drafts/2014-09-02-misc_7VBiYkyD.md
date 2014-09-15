@@ -95,7 +95,7 @@ the letter 'Z'. While most people call it 'Zee-shell' I patriotically call it
 
 ### My Favourite Features
 
-While I might have come to use zsh for the wrong reasons I think I have stayed
+While I might have come to use zsh for the wrong reasons, I think that I have stayed
 for the right ones. One of the most visually apparent is the **multi-line prompts**
 (you can see an example of it in the right pane of the image at the top). I
 really like having a multi-line prompt since I means that a lot of information
@@ -103,11 +103,41 @@ can be shown on the top line and long commands can still be typed on the second
 line.
 
 Another feature that is keeping me using zsh is what happens when the command
-you type is not found in the path.
+you type is not found in the path. This is what happens if your fingers slip in
+bash (ubuntu 14.04):
 
-TODO finsh this
+    (bash) > gti log
+    No command 'gti' found, did you mean:
+     Command 'gtg' from package 'gtg' (universe)
+     Command 'gt5' from package 'gt5' (universe)
+     Command 'ti' from package 'ti' (universe)
+    ... ETC ..
+     Command 'gtv' from package 'smpeg-gtv' (universe)
+    gti: command not found
+
+Which is totally and completely **useless**. zsh out of the box does this:
+
+    (zsh) > gti log
+    zsh: correct 'gti' to git' [nyae]?
+
+Useful. `y` will make the listed correction, `n` will execute the typed command
+anyways. `a` will **A**bort the whole thing. `e` will **E**dit the command.
 
 ### Z directory jumper
+
+I like to keep my home directory really well organized, but it can still be
+taxing to remember where I keep all the projects I hack away on. To combat this
+I make use of the [directory jumper Z][Z]. This awesome tool tracks highly used
+directories based on frecency. For example when I want to jump to my dotfile
+directory I just type:
+
+    > z dot
+
+rather than:
+
+    > cd .dotfiles
+
+Pretty slick
 
 ### Scripts
 
@@ -142,7 +172,9 @@ which have been set up with a large font and light background.
 
 [AIRLINE]: https://github.com/bling/vim-airline
 [AIRLINEDEMO]: https://github.com/bling/vim-airline/wiki/screenshots/demo.gif
-[SPELLFILE]: https://github.com/hockeybuggy/dotfiles/blob/master/vim/spell/en.utf-8.add
+[SPELLFILE]: https://raw.githubusercontent.com/hockeybuggy/dotfiles/master/vim/spell/en.utf-8.add
+
+[Z]: https://github.com/rupa/z
 
 [ITERM2]: http://iterm2.com/
 [URXVT]: https://wiki.archlinux.org/index.php/rxvt-unicode
