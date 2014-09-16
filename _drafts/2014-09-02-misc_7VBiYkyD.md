@@ -53,7 +53,11 @@ It also helps leep track of which is the current split window.
 
 ### Spellfile
 
-I am really bad at spelling. While English may be my first language I am pretty sure I am more proficient in several programing languages. Thankfully Vim can help me compensate for my shortcomings with `:set spell`. Once spelling is turned on misspellings are highlighted and can be managed with the following normal mode mappings:
+I am really bad at spelling. While English may be my first language I am pretty
+sure I am more proficient in several programing languages. Thankfully Vim can
+help me compensate for my shortcomings with `:set spell`. Once spelling is
+turned on misspellings are highlighted and can be managed with the following
+normal mode mappings:
 
 - `z=`: Show possible spelling corrections for the typo under the cursor
 - `zg`: Add the "typo" under the cursor to the spellfile. More on this later
@@ -154,21 +158,41 @@ Tmux allowed me to switch back to a 'traditional' window manager and keep my
 Vim and Shell in the same window. Tmux is also a great way to run multiple
 shells on a remote servers over only one ssh connection.
 
+### CTRL-a Prefix
+
+To interact with a Tmux instance you first type a control sequence, called a
+prefix, and then the mapping. By default this prefix is `<CTRL-b>`, but I am
+not a big fan. To type `<CTRL-b>` on a standard English keyboard, you have to
+take your entire left hand off the "home row".
+
+As an alternative prefix I, and many other people, use `<CTRL-a>`. It's a lot
+closer to the left control key, and if you the caps lock key into another
+control key, it is adjacent.
+
 ### TAT
 
 ### vim-tmux-navigator
 
 When you use Vim within a Tmux Session the line between Vim *Windows* and Tmux
 *Panes* can get pretty blurred; Sometimes blurred to a frustrating degree.
-Trying to remember whither you need to type `<Tmux Prefix> h` or `<CTRL>-w h`
+Trying to remember whither you need to type `<CTRL-a> h` or `<CTRL-w> h`
 when you simply want to move to the right can get tiring.
 
 A really cool person called [Chris Toomey][CHRIS] created
-[vim-tmux-navigator][VIMTMUXNAVIGATOR].
+[vim-tmux-navigator][VIMTMUXNAVIGATOR]. This really neat vim plugin allows you
+to move between Vim *Windows* and Tmux *Panes* as though they were a single
+homogeneous entity. Moving to the right is always `<CTRL-r>`.
 
 ------------
 
-## Terminal
+## Miscellaneous
+
+Some things in my dotfiles don't really fit in with the other sections. Hence
+this cleverly named section.
+
+### War on Caps Lock
+
+### Terminal
 
 While looking at a lot of other peoples configurations, I realized a lot of
 other people using [iTerm2][ITERM2]. However, Since I used Linux rather than OS
