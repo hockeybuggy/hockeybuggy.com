@@ -171,12 +171,34 @@ control key, it is adjacent.
 
 ### TAT
 
+When creating Tmux sessions to work on things, I was finding it super hard to
+come up with names for sessions. Every time I tried I was reminded of this:
+
+<blockquote>
+There are only two hard things in Computer Science: cache invalidation and
+naming things.
+<br/>
+-- Phil Karlton
+<cite>
+    <a href="http://martinfowler.com/bliki/TwoHardThings.html">(source: Martin Fowler)</a>
+</cite>
+</blockquote>
+
+[Thoughtbot][THOUGHTBOT] has an awesome solution to this in [their
+dotfiles][TAT]. This script either creates or attaches to a Tmux session with
+the same name as the working directory. Meaning that creating a sensiable named session is as easy as navigating to the root directory of a project and typing `tat`. Meaning that creating a new session to edit my dotfiles is as easy as:
+
+    > z dot
+    > tat
+
+Nifty.
+
 ### vim-tmux-navigator
 
 When you use Vim within a Tmux Session the line between Vim *Windows* and Tmux
 *Panes* can get pretty blurred; Sometimes blurred to a frustrating degree.
-Trying to remember whither you need to type `<CTRL-a> h` or `<CTRL-w> h`
-when you simply want to move to the right can get tiring.
+Trying to remember whither you need to type `<CTRL-a> h` or `<CTRL-w> h` when
+you simply want to move to the right can get tiring.
 
 A really cool person called [Chris Toomey][CHRIS] created
 [vim-tmux-navigator][VIMTMUXNAVIGATOR]. This really neat vim plugin allows you
@@ -243,6 +265,8 @@ which have been set up with a large font and light background.
 [Z]: https://github.com/rupa/z
 
 [i3]: http://i3wm.org/
+[THOUGHTBOT]: http://thoughtbot.com/
+[TAT]: https://github.com/thoughtbot/dotfiles/commits/master/bin/tat
 [CHRIS]: https://github.com/christoomey
 [VIMTMUXNAVIGATOR]: https://github.com/christoomey/vim-tmux-navigator
 
