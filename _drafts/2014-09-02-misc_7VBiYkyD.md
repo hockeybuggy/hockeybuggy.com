@@ -192,6 +192,32 @@ this cleverly named section.
 
 ### War on Caps Lock
 
+I really hate the caps lock key; I hate it almost to the point where I have
+considered writing tirades about how useless it is. But instead, I am gonna
+quickly rant about here. Feel free to skip it.
+
+`<rant>`
+
+Caps lock keys are artifacts from they days when pressing a key on a keyboard
+provided the energy to swing a little letter clad hammer aggressively at a
+piece of paper. To type an uppercase letter, the shift key would lift a tray of
+keys to change to a different set of hammers, so holding the shift key down
+would require quite a bit of force and would strain peoples pinkie finger. The
+caps lock key was added to reduce this strain. Pressing it once would lift the
+uppercase tray into place and pressing it again would lower it again.
+
+These days are long gone, but the key is not. Many computer users (without a
+disability) are able to type while holding the shift key if they really need
+too. Since I am able to, I opt to use one of the best placed keys on the
+keyboard for something useful: Another control key.
+
+Since I use Tmux and Vim so much having a better placed control key is really
+useful. When I am chording control with a key on the bottom row I use the left
+control key and when chording with a 'home' row or an top row key I use the
+"Caps Lock" key. It's pretty great.
+
+`</rant>`
+
 ### Terminal
 
 While looking at a lot of other peoples configurations, I realized a lot of
