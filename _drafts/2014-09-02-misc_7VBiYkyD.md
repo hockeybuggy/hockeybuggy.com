@@ -12,9 +12,8 @@ boring, undecipherable or both. Often the things I am excited about are recent
 changes, but sometimes they are old treasures that I really like.
 
 I spend quite a bit of time working on my [dotfiles][STATE]. The nicer the
-environment the easier it is to work. Since the beginning of the year I have
-made 63 commits, bringing the total to 292 since I started the keeping dotfiles
-since March 2012.
+environment, the easier it is to work.  Since the beginning of the year, I have
+made 63 commits, which brings my total to 292 since March 2012.
 
 
 <a href="{{ site.url }}/static/img/stateofthedotfiles-2014.jpg">
@@ -25,7 +24,7 @@ since March 2012.
 
 ## Vim
 
-I really like Vim; I like it an (almost) embarrassing amount. It has taken me a
+I really like Vim. I like it an (almost) embarrassing amount. It has taken me a
 while to build up my muscle memory but now that I have, it makes me look and
 feel like a wizard (the casting spell kind, not the helping people use software
 kind).
@@ -35,19 +34,21 @@ kind).
 For a long time, downloading the plugins I use for Vim was handled by [Tim
 Pope's][TPOPE] [Pathogen][PATHOGEN]. It's is a really great way to keep plugins
 out of your dotfiles revision history, but it's not perfect. The problem is
-that it relies on git submodules and git submodules [kinda][GITSUB1]
+that it relies on git submodules, and git submodules [kinda][GITSUB1]
 [suck][GITSUB2].
 
 ### Airline
 
 For quite some time I used custom statusline that was simple but did the job
-quite well. It communicate things like which git branch was active and which
+quite well. It communicated things like which git branch was active and which
 buffer was active. It's only issue was that it was sometimes difficult to see
 what mode Vim was in my peripheral vision.
 
 In a 'the grass looks greener over there' sort of move I switched to
 [airline][AIRLINE]. It not only solves the problem of losing track of modes but
-It also helps leep track of which is the current split window.
+It also helps keep track of which is the current split window. As iceing on the
+cake, it also tells me which line has trailing white-space or mixed
+indentation.
 
 ![Demonstration of Airline switching modes][AIRLINEDEMO]
 
@@ -92,11 +93,10 @@ For a comprehensive list take a look at the help page with `:help compl-keyword`
 
 ## Zsh
 
-If I told you that told you that I came to use zsh just because of the features
-it has over bash I would be lying. Another thing that made me really want to
-use it was the differences between the American and Canadian pronunciation of
-the letter 'Z'. While most people call it 'Zee-shell' I patriotically call it
-'Zed-Shell'.
+If I told you that I came to use zsh just because of the features it has over
+bash, I would be lying. Another thing that made me really want to use it was
+the differences between the American and Canadian pronunciation of the letter
+'Z'. While most people call it 'Zee-shell', I patriotically call it 'Zed-Shell'.
 
 ### My Favourite Features
 
@@ -107,8 +107,8 @@ really like having a multi-line prompt since I means that a lot of information
 can be shown on the top line and long commands can still be typed on the second
 line.
 
-Another feature that is keeping me using zsh is what happens when the command
-you type is not found in the path. This is what happens if your fingers slip in
+Another feature that is keeping me using zsh is what happens when the typed
+command is not found in the path. This is what happens if your fingers slip in
 bash (ubuntu 14.04):
 
     (bash) > gti log
@@ -116,7 +116,7 @@ bash (ubuntu 14.04):
      Command 'gtg' from package 'gtg' (universe)
      Command 'gt5' from package 'gt5' (universe)
      Command 'ti' from package 'ti' (universe)
-    ... ETC ..
+    ... ETC ...
      Command 'gtv' from package 'smpeg-gtv' (universe)
     gti: command not found
 
@@ -133,12 +133,12 @@ anyways. `a` will **A**bort the whole thing. `e` will **E**dit the command.
 I like to keep my home directory really well organized, but it can still be
 taxing to remember where I keep all the projects I hack away on. To combat this
 I make use of the [directory jumper Z][Z]. This awesome tool tracks highly used
-directories based on frecency. For example when I want to jump to my dotfile
-directory I just type:
+directories based on frecency (a portmanteau of recent and frequency). For
+example when I want to jump to my dotfiles directory I just type:
 
     > z dot
 
-rather than:
+Rather than:
 
     > cd .dotfiles
 
@@ -186,7 +186,9 @@ naming things.
 
 [Thoughtbot][THOUGHTBOT] has an awesome solution to this in [their
 dotfiles][TAT]. This script either creates or attaches to a Tmux session with
-the same name as the working directory. Meaning that creating a sensiable named session is as easy as navigating to the root directory of a project and typing `tat`. Meaning that creating a new session to edit my dotfiles is as easy as:
+the same name as the working directory. Meaning that creating a sensible named
+session is as easy as navigating to the root directory of a project and typing
+`tat`. Meaning that creating a new session to edit my dotfiles is as easy as:
 
     > z dot
     > tat
@@ -215,8 +217,9 @@ this cleverly named section.
 ### War on Caps Lock
 
 I really hate the caps lock key; I hate it almost to the point where I have
-considered writing tirades about how useless it is. But instead, I am gonna
-quickly rant about here. Feel free to skip it.
+considered writing tirades about how useless it is. I've almost disowned my
+sister over her persistence in keeping her caps lock key. But instead, I am
+gonna quickly rant about here. Feel free to skip it.
 
 `<rant>`
 
@@ -224,7 +227,7 @@ Caps lock keys are artifacts from they days when pressing a key on a keyboard
 provided the energy to swing a little letter clad hammer aggressively at a
 piece of paper. To type an uppercase letter, the shift key would lift a tray of
 keys to change to a different set of hammers, so holding the shift key down
-would require quite a bit of force and would strain peoples pinkie finger. The
+would require quite a bit of force and would strain people's pinkie finger. The
 caps lock key was added to reduce this strain. Pressing it once would lift the
 uppercase tray into place and pressing it again would lower it again.
 
@@ -233,9 +236,9 @@ disability) are able to type while holding the shift key if they really need
 too. Since I am able to, I opt to use one of the best placed keys on the
 keyboard for something useful: Another control key.
 
-Since I use Tmux and Vim so much having a better placed control key is really
+Since I use Tmux and Vim so much, having a better placed control key is really
 useful. When I am chording control with a key on the bottom row I use the left
-control key and when chording with a 'home' row or an top row key I use the
+control key and when chording with a 'home' row, or an top row key I use the
 "Caps Lock" key. It's pretty great.
 
 `</rant>`
@@ -243,13 +246,17 @@ control key and when chording with a 'home' row or an top row key I use the
 ### Terminal
 
 While looking at a lot of other peoples configurations, I realized a lot of
-other people using [iTerm2][ITERM2]. However, Since I used Linux rather than OS
+other people using [iTerm2][ITERM2]. However, since I used Linux rather than OS
 X, I have to use another terminal: [urxvt][URXVT]. It doesn't have the fancy
-GUI that iTerm2 has to configure the terminal which is fine for normal use
+GUI that iTerm2 has to configure the terminal, which is fine for normal use
 since I don't have to change options much once I have found a comfortable
 configuration. But I use a small font on a dark background, which is not great
 for presentations. To rectify this I use gnome-terminal and gvim (gnome-vim)
 which have been set up with a large font and light background.
+
+## TL;DR
+
+I have a pretty cool configuration.
 
 [STATE]:https://github.com/hockeybuggy/dotfiles/tree/533ddd69f50f7ac16d37a79fc0ae347a44abf754
 
