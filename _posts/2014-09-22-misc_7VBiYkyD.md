@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "State of the Dotfiles"
-date: 2014-09-02
+date: 2014-09-22
 categories: misc
 author: Douglas Anderson
 ---
