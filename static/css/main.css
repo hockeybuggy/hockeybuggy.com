@@ -211,8 +211,8 @@ ul.posts li {
   clear: both;
 }
 
-# Dates on the listing page
-ul.posts .date {
+/* Dates on the listing page*/
+.listing-date {
   color: #aaa;
   font-size: 80%;
   font-family: Monaco, "Courier New", monospace;

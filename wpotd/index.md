@@ -16,7 +16,9 @@ are a great way to spark interest in a topic. Enjoy!
     {% for post in site.categories.wpotd %}
     <li>
         <a href="{{ post.url }}">{{ post.title }}</a>
-        <div>&laquo; <span class="date">{{ post.date | date_to_string }}</span></div>
+        <div class="listing-date">&laquo;
+            <span>{{ post.date | date: "%F" }}</span>
+        </div>
     </li>
     {% endfor %}
 </ul>

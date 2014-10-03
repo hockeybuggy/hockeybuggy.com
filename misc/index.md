@@ -14,7 +14,9 @@ refer to the constuction of this site itself... but some aren't.
     {% for post in site.categories.misc %}
         <li>
         <a href="{{ post.url }}">{{ post.title }}</a>
-        <div>&laquo; <span class="date">{{ post.date | date_to_string }}</span></div>
+        <div class="listing-date">&laquo;
+            <span>{{ post.date | date: "%F" }}</span>
+        </div>
     </li>
     {% endfor %}
 </ul>

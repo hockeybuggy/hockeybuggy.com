@@ -15,7 +15,9 @@ learn, either from Wikipedia or else where. Check it out and please feel free to
     {% for post in site.posts %}
     <li>
         <a href="{{ post.url }}">{{ post.title }}</a>
-        <div>&laquo; <span class="date">{{ post.date | date_to_string }}</span></div>
+        <div class="listing-date">&laquo;
+            <span>{{ post.date | date: "%F" }}</span>
+        </div>
     </li>
     {% endfor %}
 </ul>
