@@ -136,8 +136,12 @@ a:hover, a:focus  { color: #0161FD; }
   text-shadow: none;
 }
 
-.site .low-importance {
+#post-date {
   color: #aaa;
+}
+
+#post-date time {
+  padding-right: 20px;
 }
 
 .site .divider {
@@ -207,6 +211,7 @@ ul.posts li {
   clear: both;
 }
 
+# Dates on the listing page
 ul.posts .date {
   color: #aaa;
   font-size: 80%;
