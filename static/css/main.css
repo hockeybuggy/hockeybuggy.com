@@ -150,6 +150,21 @@ a:hover, a:focus  { color: #0161FD; }
   background-color: #CC333F;
 }
 
+table {
+  border-width: 3px;
+  border-style: solid;
+  border-color: #333;
+  border-collapse: collapse;
+}
+
+table td,th{
+  padding-left: 4px;
+  padding-right: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #333;
+}
+
 .site main {
   padding: 0px 5px;
 }
