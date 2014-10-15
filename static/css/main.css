@@ -151,6 +151,7 @@ a:hover, a:focus  { color: #0161FD; }
 }
 
 table {
+  margin: 5px auto;
   border-width: 3px;
   border-style: solid;
   border-color: #333;
