@@ -3,9 +3,7 @@ layout: default
 title: Contact
 ---
 
-<section>
-
-#Contact
+# Contact
 
 Douglas can be reached here at a whole bunch of places:
 
@@ -36,4 +34,3 @@ Douglas can be reached here at a whole bunch of places:
     </tr>
 </table>
 
-</section>

@@ -3,8 +3,6 @@ layout: default
 title: About
 ---
 
-<section>
-
 # Personal website of Douglas James Anderson
 
 I am a Canadian left-handed redhead with interests. As well, I am a recent
@@ -44,8 +42,6 @@ pretty big fan of it and am proud to have contributed to the project with a
 simple documentation fix.
 
 It also uses the wonderfully simple markup language [Markdown][MARKDOWN].
-
-</section>
 
 [UOG]: http://www.socs.uoguelph.ca/
 [CBC]: http://campbigcanoe.ca
