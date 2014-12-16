@@ -100,7 +100,6 @@ a:hover, a:focus  { color: #0161FD; }
 
 .site header .title-container a:hover {
   color: #000;
-  text-decoration: underline;
   text-shadow: none;
 }
 
@@ -132,7 +131,6 @@ a:hover, a:focus  { color: #0161FD; }
 
 .site header .header-container a:hover {
   color: #000;
-  text-decoration: underline;
   text-shadow: none;
 }
 
