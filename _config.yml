@@ -2,3 +2,5 @@ name: Hockeybuggy.com
 description: Musings of Douglas James Anderson
 markdown: kramdown
 highlighter: pygments
+gems:
+  - jekyll-feed
