@@ -1,12 +1,10 @@
 ---
-layout: default
+layout: page
 title: About
+subtitle: >
+    I am a Canadian left-handed redhead with interests. I canoe and compute.
 ---
 
-# Personal website of Douglas James Anderson
-
-I am a Canadian left-handed redhead with interests. As well, I am a recent
-computer science graduate from the [University of Guelph][UOG].
 
 <img class="about_image" src="http://s.gravatar.com/avatar/609be367e4cef3f8ae9cf9a9add1b111?s=400" alt="A picture of Douglas in a tree"/>
 <img class="about_image" src="http://s.gravatar.com/avatar/cdb37c366e470231e3aa87a98f07f4c2?s=400" alt="A picture of Douglas on a bus"/>

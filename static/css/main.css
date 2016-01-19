@@ -159,9 +159,21 @@ footer .copyright {
 
 /*****************************************************************************/
 /*
-/* Post styles
+/* Page specific styles
 /*
 /*****************************************************************************/
+
+#contacts-list li{
+  list-style: none;
+  height: 10em;
+  text-align: center;
+}
+
+#contacts-list li div{
+  background-color: #ddd;
+  padding: 1em;
+}
+
 
 .post pre {
   font-family: monospace;
