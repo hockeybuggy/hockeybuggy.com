@@ -5,26 +5,26 @@
 /*****************************************************************************/
 
 /* Global Reset */
-/* * { */
-/*   margin: 0; */
-/*   padding: 0; */
-/* } */
-
 html, body { height: 100%; }
 
 body {
   background-color: #fff;
-  font: 13.34px "Open Sans", Helvetica, sans-serif;
+  font-family: 'Lora', 'Times New Roman', serif;
   font-size: small;
-  text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
   font-size: 100%;
+  font-family: "Open Sans", Helvetica, sans-serif;
 }
 
 h1 {
-  font-size: 1.5em;
+  font-size: 2em;
   margin-top: 0.75em;
   margin-bottom: 0.75em;
   text-align:center;
@@ -66,7 +66,7 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
 
 /*****************************************************************************/
 /*
-/* Site
+/* Site styles
 /*
 /*****************************************************************************/
 
@@ -80,9 +80,52 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
 /*$colour_5_b : #FEF7E0;*/
 /*$colour_link: #0645AD;*/
 
+
+.intro-header {
+  background: no-repeat center center;
+  background-color: #808080;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  margin-bottom: 50px;
+}
+
+.intro-header .site-heading,
+.intro-header .post-heading,
+.intro-header .page-heading {
+  text-align: center;
+  padding: 100px 0 50px;
+  color: white;
+}
+
+.navbar-custom {
+  background: #333; /* TODO Background colour */
+  font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.navbar-custom .navbar-brand {
+  color: white;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-custom .nav li a {
+  color: white;
+}
+.navbar-custom .nav li a:hover,
+.navbar-custom .nav li a:focus {
+  background: #111; /* TODO darker background */
+  color: rgba(255, 255, 255, 0.8);
+}
+
 footer {
-  background: #6A4A3C;
+  background: #333; /* TODO Background colour */
   padding: 50px 0 65px;
+  text-align: center;
 }
 
 footer .list-inline {
@@ -97,30 +140,26 @@ footer .bubble {
   margin-right: 0.5em;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
-  border-radius: 10px; /* future proofing */
-  background: #00A0B0;
+  border-radius: 10px;
+  background: #432;
+  /* TODO darkish colour*/
 }
 
 footer .list-inline a {
-  color: #EDC951;
+  color: #def;
+  color: #def; /* TODO light on dark text */
 }
 
 footer .copyright {
-  font-size: 14px;
-  text-align: center;
+  font-size: 16px;
   margin-bottom: 0;
+  color: #def; /* TODO light on dark text */
 }
 
-/*****************************************************************************/
-/*
-/* Home
-/*
-/*****************************************************************************/
-
 
 /*****************************************************************************/
 /*
-/* Posts
+/* Post styles
 /*
 /*****************************************************************************/
 
@@ -170,16 +209,3 @@ footer .copyright {
 .post .keysequence {
   text-align: center
 }
-
-
-/*****************************************************************************/
-/*
-/* About
-/*
-/*****************************************************************************/
-
-/*****************************************************************************/
-/*
-/* Contact
-/*
-/*****************************************************************************/
