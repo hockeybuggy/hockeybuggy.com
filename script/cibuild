@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 
-bundle exec jekyll build
-bundle exec htmlproof ./_site
+script/test
