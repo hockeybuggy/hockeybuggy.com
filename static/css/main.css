@@ -13,7 +13,7 @@
 html, body { height: 100%; }
 
 body {
-  background-color: #6a4a3c;
+  background-color: #fff;
   font: 13.34px "Open Sans", Helvetica, sans-serif;
   font-size: small;
   text-align: center;
@@ -44,7 +44,6 @@ p { margin: 1em 0; }
 
 a { color: #0645AD; }
 a:hover, a:focus  { color: #0161FD; }
-/*a:visited { color: #0645AD; }*/
 
 kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
   -moz-border-radius:3px;
@@ -81,150 +80,35 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
 /*$colour_5_b : #FEF7E0;*/
 /*$colour_link: #0645AD;*/
 
-.site {
-  background-color: #CDF5F9;
-  font-size: 115%;
-  text-align: justify;
-  width: 42em;
-  margin: 0em auto 2em;
-  line-height: 1.5em;
+footer {
+  background: #6A4A3C;
+  padding: 50px 0 65px;
 }
 
-.site header {
-  background-color: #00A0B0;
-  margin: 0px auto;
-  border-bottom: 4px solid #eee;
-  font-family: Helvetica, Arial, sans-serif;
-  text-shadow: black 1px 1px;
+footer .list-inline {
+  margin: 0;
+  margin-top: 2em;
+  padding: 0;
 }
 
-.site header .title-container {
-  background-color: #EB6841;
-  float: left;
-  width: 25%;
+footer .bubble {
+  padding: 0.25em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  background: #00A0B0;
 }
 
-.site header .title-container a {
-  width: 100%;
-  display: inline-block;
-  background-color: #00A0B0;
-  padding-bottom: 15px;
-  padding-top: 15px;
-  border-radius: 0px 0px 10px 0px;
+footer .list-inline a {
   color: #EDC951;
-  font-weight: bold;
-  text-decoration: none;
 }
 
-.site header .title-container a:hover {
-  color: #000;
-  text-shadow: none;
-}
-
-.site header .header-container {
-  background-color: #EB6841;
-  width: 75%;
-  height: 27px;
-  padding-top: 15px;
-  padding-bottom: 10px;
-  vertical-align: middle;
-  border-radius: 10px 0px 0px 0px;
-  float: left;
-}
-
-.site header .header-container ul li {
-  list-style: none;
-  float: left;
-}
-
-.site header .header-container a {
-  font-weight: bold;
-  text-decoration: none;
-  background-color: #00A0B0;
-  color: #EDC951;
-  margin-left: 1.5em;
-  padding: 7px 10px;
-  border-radius: 10px 10px 10px 10px;
-}
-
-.site header .header-container a:hover {
-  color: #000;
-  text-shadow: none;
-}
-
-#post-date {
-  color: #aaa;
-}
-
-#post-date time {
-  padding-right: 20px;
-}
-
-.site .divider {
-  clear: both;
-  height: 5px;
-  background-color: #CC333F;
-}
-
-table {
-  margin: 5px auto;
-  border-width: 3px;
-  border-style: solid;
-  border-color: #333;
-  border-collapse: collapse;
-}
-
-table td,th{
-  padding-left: 4px;
-  padding-right: 4px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #333;
-}
-
-.site main {
-  padding: 0px 5px;
-}
-
-.site footer {
-  font-size: 80%;
-  background-color: #EB6841;
-  color: #444;
-  border-top: 4px solid #eee;
-  overflow: hidden;
-  clear: both;
-}
-
-.site footer .contact {
-  padding-right: 10px;
-  float: left;
-  margin-right: 3em;
-}
-
-.site footer .contact p {
-  padding-left: 10px;
-}
-
-.site footer .bubble {
-  float: right;
-  margin-left: 6em;
-  text-shadow: black 1px 1px;
-  background-color: #00A0B0;
-  height: 40px;
-  width: 40px;
-  margin: 1em;
+footer .copyright {
+  font-size: 14px;
   text-align: center;
-  border-radius: 10px;
-}
-
-.site footer .bubble i {
-  vertical-align: baseline;
-  text-decoration: none;
-  color: #EDC951;
-}
-.site footer .bubble i:hover {
-  text-shadow: none;
-  color: #000;
+  margin-bottom: 0;
 }
 
 /*****************************************************************************/
@@ -233,26 +117,6 @@ table td,th{
 /*
 /*****************************************************************************/
 
-ul.posts {
-  list-style-type: none;
-  margin-bottom: 1.5em;
-}
-
-ul.posts li {
-  line-height: 1.75em;
-  clear: both;
-}
-
-/* Dates on the listing page*/
-.listing-date {
-  color: #aaa;
-  font-size: 80%;
-  font-family: Monaco, "Courier New", monospace;
-}
-
-ul.posts div {
-  float: right;
-}
 
 /*****************************************************************************/
 /*
@@ -260,7 +124,6 @@ ul.posts div {
 /*
 /*****************************************************************************/
 
-/* standard */
 .post pre {
   font-family: monospace;
   border: 1px solid #ddd;
@@ -315,29 +178,8 @@ ul.posts div {
 /*
 /*****************************************************************************/
 
-.about_image {
-  display: block;
-  margin: 0 auto;
-  padding: 5px;
-}
-
 /*****************************************************************************/
 /*
 /* Contact
 /*
 /*****************************************************************************/
-
-#contact_table,
-#contact_table tr {
-  width: 100%;
-}
-
-#contact_table tr td {
-  text-align: left;
-  width: 50%;
-}
-
-#contact_table tr td.row_label {
-  text-align: right;
-  padding-right: 1em;
-}
