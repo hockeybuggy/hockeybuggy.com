@@ -26,7 +26,7 @@ subtitle: >
 
   <li class="col-md-4">
     <div>
-      <a href="http://www.linkedin.com/pub/douglas-anderson/32/36b/6">Linkedin</a>
+      <a href="https://www.linkedin.com/in/douglas-anderson-00636b32">Linkedin</a>
     </div>
   </li>
 
