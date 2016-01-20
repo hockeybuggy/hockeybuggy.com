@@ -14,9 +14,8 @@
 html, body { height: 100%; }
 
 body {
-  background-color: #fff;
-  font-family: $serif-font;
-  font-size: small;
+    background-color: $colour_page_bg;
+    font-family: $serif-font;
 }
 
 h1, .h1,
@@ -25,31 +24,38 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  font-size: 100%;
-  font-family: $sans-font;
+    font-size: 100%;
+    font-family: $sans-font;
 }
 
 h1 {
-  font-size: 2em;
-  margin-top: 0.75em;
-  margin-bottom: 0.75em;
-  text-align:center;
+    font-size: 2em;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+    text-align:center;
 }
 
 h2 {
-  font-size: 1.25em;
-  margin-top: 0.75em;
+    font-size: 1.25em;
+    margin-top: 0.75em;
 }
 
 h3 {
-  font-size: 1.10em;
-  margin-top: 0.75em;
+    font-size: 1.10em;
+    margin-top: 0.75em;
 }
 
-p { margin: 1em 0; }
+p {
+    margin: 1em 0;
+}
 
-a { color: #0645AD; }
-a:hover, a:focus  { color: #0161FD; }
+a {
+    color: $colour_page_link;
+    &:hover,
+    &:focus {
+        color: $colour_page_link_other;
+    }
+}
 
 kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
   -moz-border-radius:3px;
@@ -62,7 +68,7 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
   box-shadow:0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
   color:#333;
   display:inline-block;
-  font-family:Arial,Helvetica,sans-serif;
+  font-family: $mono-font;
   font-size:11px;
   line-height:1.4;
   margin:0 .1em;
@@ -79,7 +85,7 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
 
 .intro-header {
     background: no-repeat center center;
-    background-color: #808080;
+    background-color: $colour_cover_bg;
     background-attachment: scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -92,34 +98,34 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
     .page-heading {
         text-align: center;
         padding: 100px 0 50px;
-        color: white;
+        color: $colour_cover_fg;
     }
 }
 
 .navbar-custom {
-    background: #333; /* TODO Background colour */
+    background: $colour_bg;
     font-family: $sans-font;
 
     .navbar-brand {
-      color: white;
+      color: $colour_fg;
     }
     .navbar-brand:hover,
     .navbar-brand:focus {
-      color: rgba(255, 255, 255, 0.8);
+      color: $colour_fg_highlight;
     }
 
     .nav li a {
-      color: white;
+      color: $colour_fg;
     }
     .nav li a:hover,
     .nav li a:focus {
-      background: #111; /* TODO darker background */
-      color: rgba(255, 255, 255, 0.8);
+      background: $colour_bg_highlight;
+      color: $colour_fg_highlight;
     }
 }
 
 footer {
-    background: #333; /* TODO Background colour */
+    background: $colour_bg;
     padding: 50px 0 65px;
     text-align: center;
 
@@ -136,19 +142,17 @@ footer {
       -moz-border-radius: 10px;
       -webkit-border-radius: 10px;
       border-radius: 10px;
-      background: #432;
-      /* TODO darkish colour*/
+      background: $colour_bg_other;
     }
 
     .list-inline a {
-      color: #def;
-      color: #def; /* TODO light on dark text */
+      color: $colour_fg_other;
     }
 
     footer .copyright {
       font-size: 16px;
       margin-bottom: 0;
-      color: #def; /* TODO light on dark text */
+      color: $colour_fg_other;
     }
 }
 
@@ -178,10 +182,6 @@ footer {
   padding: 0 .4em;
 }
 
-.post ul, .post ol {
-  margin-left: 1.35em;
-}
-
 .post code {
   border: 1px solid #000;
   background-color: #333;
@@ -209,9 +209,9 @@ footer {
 }
 
 .post blockquote {
-  background: #FEF7E0;
+  background: $colour_lowlight;
   padding: 5px;
-  border-left: 10px solid #EDC951;
+  border-left: 10px solid $colour_highlight;
 }
 
 .post .keysequence {
