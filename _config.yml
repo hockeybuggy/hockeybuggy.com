@@ -4,6 +4,8 @@ markdown: kramdown
 highlighter: pygments
 paginate: 10
 exclude: ["script"]
+sass:
+  sass_dir: "static/_sass"
 
 gems:
   - jekyll-feed

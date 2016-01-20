@@ -1,3 +1,9 @@
+---
+# This yaml leader ensures jekyll picks up this file.
+---
+
+@import "variables";
+
 /*****************************************************************************/
 /*
 /* Common
@@ -9,7 +15,7 @@ html, body { height: 100%; }
 
 body {
   background-color: #fff;
-  font-family: 'Lora', 'Times New Roman', serif;
+  font-family: $serif-font;
   font-size: small;
 }
 
@@ -20,7 +26,7 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
   font-size: 100%;
-  font-family: "Open Sans", Helvetica, sans-serif;
+  font-family: $sans-font;
 }
 
 h1 {
@@ -70,90 +76,80 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
 /*
 /*****************************************************************************/
 
-/*Colour Scheme: Ocean Five - http://bit.ly/9oo0N3 */
-/*$colour_1   : #00A0B0;*/
-/*$colour_1_b : #CDF5F9;*/
-/*$colour_2   : #6A4A3C;*/
-/*$colour_3   : #CC333F;*/
-/*$colour_4   : #EB6841;*/
-/*$colour_5   : #EDC951;*/
-/*$colour_5_b : #FEF7E0;*/
-/*$colour_link: #0645AD;*/
-
 
 .intro-header {
-  background: no-repeat center center;
-  background-color: #808080;
-  background-attachment: scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  margin-bottom: 50px;
-}
+    background: no-repeat center center;
+    background-color: #808080;
+    background-attachment: scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    margin-bottom: 50px;
 
-.intro-header .site-heading,
-.intro-header .post-heading,
-.intro-header .page-heading {
-  text-align: center;
-  padding: 100px 0 50px;
-  color: white;
+    .site-heading,
+    .post-heading,
+    .page-heading {
+        text-align: center;
+        padding: 100px 0 50px;
+        color: white;
+    }
 }
 
 .navbar-custom {
-  background: #333; /* TODO Background colour */
-  font-family: "Open Sans", Helvetica, sans-serif;
-}
+    background: #333; /* TODO Background colour */
+    font-family: $sans-font;
 
-.navbar-custom .navbar-brand {
-  color: white;
-}
-.navbar-custom .navbar-brand:hover,
-.navbar-custom .navbar-brand:focus {
-  color: rgba(255, 255, 255, 0.8);
-}
+    .navbar-brand {
+      color: white;
+    }
+    .navbar-brand:hover,
+    .navbar-brand:focus {
+      color: rgba(255, 255, 255, 0.8);
+    }
 
-.navbar-custom .nav li a {
-  color: white;
-}
-.navbar-custom .nav li a:hover,
-.navbar-custom .nav li a:focus {
-  background: #111; /* TODO darker background */
-  color: rgba(255, 255, 255, 0.8);
+    .nav li a {
+      color: white;
+    }
+    .nav li a:hover,
+    .nav li a:focus {
+      background: #111; /* TODO darker background */
+      color: rgba(255, 255, 255, 0.8);
+    }
 }
 
 footer {
-  background: #333; /* TODO Background colour */
-  padding: 50px 0 65px;
-  text-align: center;
-}
+    background: #333; /* TODO Background colour */
+    padding: 50px 0 65px;
+    text-align: center;
 
-footer .list-inline {
-  margin: 0;
-  margin-top: 2em;
-  padding: 0;
-}
+    .list-inline {
+      margin: 0;
+      margin-top: 2em;
+      padding: 0;
+    }
 
-footer .bubble {
-  padding: 0.25em;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  background: #432;
-  /* TODO darkish colour*/
-}
+    .bubble {
+      padding: 0.25em;
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      background: #432;
+      /* TODO darkish colour*/
+    }
 
-footer .list-inline a {
-  color: #def;
-  color: #def; /* TODO light on dark text */
-}
+    .list-inline a {
+      color: #def;
+      color: #def; /* TODO light on dark text */
+    }
 
-footer .copyright {
-  font-size: 16px;
-  margin-bottom: 0;
-  color: #def; /* TODO light on dark text */
+    footer .copyright {
+      font-size: 16px;
+      margin-bottom: 0;
+      color: #def; /* TODO light on dark text */
+    }
 }
 
 
