@@ -11,11 +11,13 @@
 /*****************************************************************************/
 
 /* Global Reset */
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+}
 
 body {
-    background-color: $colour_page_bg;
-    font-family: $serif-font;
+  background-color: $colour_page_bg;
+  font-family: $serif-font;
 }
 
 h1, .h1,
@@ -24,37 +26,37 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-    font-size: 100%;
-    font-family: $sans-font;
+  font-size: 100%;
+  font-family: $sans-font;
 }
 
 h1 {
-    font-size: 2em;
-    margin-top: 0.75em;
-    margin-bottom: 0.75em;
-    text-align:center;
+  font-size: 2em;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+  text-align:center;
 }
 
 h2 {
-    font-size: 1.25em;
-    margin-top: 0.75em;
+  font-size: 1.25em;
+  margin-top: 0.75em;
 }
 
 h3 {
-    font-size: 1.10em;
-    margin-top: 0.75em;
+  font-size: 1.10em;
+  margin-top: 0.75em;
 }
 
 p {
-    margin: 1em 0;
+  margin: 1em 0;
 }
 
 a {
-    color: $colour_page_link;
-    &:hover,
-    &:focus {
-        color: $colour_page_link_other;
-    }
+  color: $colour_page_link;
+  &:hover,
+  &:focus {
+    color: $colour_page_link_other;
+  }
 }
 
 kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
@@ -82,78 +84,89 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
 /*
 /*****************************************************************************/
 
+main {
+  background-color: $colour_page_bg_highlight;
+}
+
+
+.container {
+  padding: 0;
+}
 
 .intro-header {
-    background: no-repeat center center;
-    background-color: $colour_cover_bg;
-    background-attachment: scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    margin-bottom: 50px;
+  background: no-repeat center center;
+  background-color: $colour_cover_bg;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 
-    .site-heading,
-    .post-heading,
-    .page-heading {
-        text-align: center;
-        padding: 100px 0 50px;
-        color: $colour_cover_fg;
-    }
+  margin-bottom: 50px;
+  padding: 50px;
+
+  .site-heading,
+  .post-heading,
+  .page-heading {
+    text-align: center;
+    padding: 100px 0 50px;
+    color: $colour_cover_fg;
+  }
 }
 
 .navbar-custom {
-    background: $colour_bg;
-    font-family: $sans-font;
+  background: $colour_bg;
+  font-family: $sans-font;
+  margin-bottom: 0;
 
-    .navbar-brand {
-      color: $colour_fg;
-    }
-    .navbar-brand:hover,
-    .navbar-brand:focus {
-      color: $colour_fg_highlight;
-    }
+  .navbar-brand {
+    color: $colour_fg;
+  }
+  .navbar-brand:hover,
+  .navbar-brand:focus {
+    color: $colour_fg_highlight;
+  }
 
-    .nav li a {
-      color: $colour_fg;
-    }
-    .nav li a:hover,
-    .nav li a:focus {
-      background: $colour_bg_highlight;
-      color: $colour_fg_highlight;
-    }
+  .nav li a {
+    color: $colour_fg;
+  }
+  .nav li a:hover,
+  .nav li a:focus {
+    background: $colour_bg_highlight;
+    color: $colour_fg_highlight;
+  }
 }
 
 footer {
-    background: $colour_bg;
-    padding: 50px 0 65px;
-    text-align: center;
+  background: $colour_bg;
+  padding: 50px 0 65px;
+  text-align: center;
 
-    .list-inline {
-      margin: 0;
-      margin-top: 2em;
-      padding: 0;
-    }
+  .list-inline {
+    margin: 0;
+    margin-top: 2em;
+    padding: 0;
+  }
 
-    .bubble {
-      padding: 0.25em;
-      margin-left: 0.5em;
-      margin-right: 0.5em;
-      -moz-border-radius: 10px;
-      -webkit-border-radius: 10px;
-      border-radius: 10px;
-      background: $colour_bg_other;
-    }
+  .bubble {
+    padding: 0.25em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: $colour_bg_other;
+  }
 
-    .list-inline a {
-      color: $colour_fg_other;
-    }
+  .list-inline a {
+    color: $colour_fg_other;
+  }
 
-    footer .copyright {
-      font-size: 16px;
-      margin-bottom: 0;
-      color: $colour_fg_other;
-    }
+  footer .copyright {
+    font-size: 16px;
+    margin-bottom: 0;
+    color: $colour_fg_other;
+  }
 }
 
 

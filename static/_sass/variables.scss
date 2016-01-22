@@ -2,19 +2,15 @@ $serif-font: 'Lora', 'Times New Roman', serif;
 $sans-font: 'Open Sans', 'Helvetica', sans-serif;
 $mono-font: 'Monaco', monospace;
 
-/*Colour Scheme: Ocean Five - http://bit.ly/9oo0N3 */
+/*Colour Scheme: Royale - http://bit.ly/9oo0N3 */
+$colour_1: #E63946;
+$colour_2: #F1FAEE;
+$colour_3: #A8DADC;
+$colour_4: #457B9D;
+$colour_5: #1D3557;
 
-$colour_1   : #00A0B0;
-$colour_1_b : #CDF5F9;
-$colour_2   : #6A4A3C;
-$colour_3   : #CC333F;
-$colour_4   : #EB6841;
-$colour_5   : #EDC951;
-$colour_5_b : #FEF7E0;
-$colour_link: #0645AD;
-
-$colour_page_bg: #59A5A5;
-$colour_page_bg_highlight: #478484;
+$colour_page_bg: $colour_5;
+$colour_page_bg_highlight: $colour_2;
 
 $colour_page_link: #0161FD;
 $colour_page_link_other: #0126FD;
@@ -26,6 +22,7 @@ $colour_cover_fg: #fff;
 $colour_bg: #333;
 $colour_bg_highlight: #111;
 $colour_bg_other: #432;
+
 $colour_fg: #fff;
 $colour_fg_highlight: rgba(255, 255, 255, 0.8);
 $colour_fg_other: #def;
