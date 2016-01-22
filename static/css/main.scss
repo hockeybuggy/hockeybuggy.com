@@ -122,58 +122,40 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
 }
 
 .navbar-custom {
-  background: $colour_bg;
+  background: $colour_nav_bg;
   font-family: $sans-font;
   margin-bottom: 0;
 
   .navbar-brand {
-    color: $colour_fg;
+    color: $colour_nav_fg;
   }
   .navbar-brand:hover,
   .navbar-brand:focus {
-    color: $colour_fg_highlight;
+    color: $colour_nav_fg_highlight;
   }
 
   .nav li a {
-    color: $colour_fg;
+    color: $colour_nav_fg;
   }
   .nav li a:hover,
   .nav li a:focus {
-    background: $colour_bg_highlight;
-    color: $colour_fg_highlight;
+    background: $colour_nav_bg_highlight;
+    color: $colour_nav_fg_highlight;
+  }
+
+  span {
+    color: $colour_nav_fg;
   }
 }
 
-footer {
-  background: $colour_bg;
-  padding: 50px 0 65px;
-  text-align: center;
-
-  .list-inline {
-    margin: 0;
-    margin-top: 2em;
-    padding: 0;
-  }
-
-  .bubble {
-    padding: 0.25em;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: $colour_bg_other;
-  }
-
-  .list-inline a {
-    color: $colour_fg_other;
-  }
-
-  footer .copyright {
-    font-size: 16px;
-    margin-bottom: 0;
-    color: $colour_fg_other;
-  }
+.footer-bubble {
+  // padding: 10px;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  // -moz-border-radius: 10px;
+  // -webkit-border-radius: 10px;
+  // border-radius: 10px;
+  // background: $colour_nav_bg_other;
 }
 
 
