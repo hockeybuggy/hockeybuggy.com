@@ -1,0 +1,210 @@
+---
+# This yaml leader ensures jekyll picks up this file.
+---
+
+@import "variables";
+
+/*****************************************************************************/
+/*
+/* Common
+/*
+/*****************************************************************************/
+
+/* Global Reset */
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: $colour_page_bg;
+  font-family: $serif-font;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-size: 100%;
+  font-family: $sans-font;
+}
+
+h1 {
+  font-size: 2em;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+  text-align:center;
+}
+
+h2 {
+  font-size: 1.25em;
+  margin-top: 0.75em;
+}
+
+h3 {
+  font-size: 1.10em;
+  margin-top: 0.75em;
+}
+
+p {
+  margin: 1em 0;
+}
+
+a {
+  color: $colour_page_link;
+  &:hover,
+  &:focus {
+    color: $colour_page_link_other;
+  }
+}
+
+kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
+  -moz-border-radius:3px;
+  -moz-box-shadow:0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
+  -webkit-border-radius:3px;
+  -webkit-box-shadow:0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
+  background-color:#f7f7f7;
+  border:1px solid #ccc;
+  border-radius:3px;
+  box-shadow:0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
+  color:#333;
+  display:inline-block;
+  font-family: $mono-font;
+  font-size:11px;
+  line-height:1.4;
+  margin:0 .1em;
+  padding:.1em .6em;
+  text-shadow:0 1px 0 #fff;
+}
+
+/*****************************************************************************/
+/*
+/* Site styles
+/*
+/*****************************************************************************/
+
+#outer-container {
+  background-color: $colour_page_bg_highlight;
+}
+
+.meta {
+  font-family: $sans-font;
+}
+
+.container {
+  padding: 0;
+}
+
+.row {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.page-header {
+  background: no-repeat center center;
+  background-color: $colour_cover_bg;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+
+  margin: 0px;
+
+  .site-heading,
+  .post-heading,
+  .page-heading {
+    text-align: center;
+    padding: 75px 0 50px;
+    color: $colour_cover_fg;
+  }
+}
+
+.navbar-custom {
+  background: $colour_nav_bg;
+  font-family: $sans-font;
+  margin-bottom: 0;
+
+  .navbar-brand {
+    color: $colour_nav_fg;
+  }
+  .navbar-brand:hover,
+  .navbar-brand:focus {
+    color: $colour_nav_fg_highlight;
+  }
+
+  .nav li a {
+    color: $colour_nav_fg;
+  }
+  .nav li a:hover,
+  .nav li a:focus {
+    background: $colour_nav_bg_highlight;
+    color: $colour_nav_fg_highlight;
+  }
+
+  span {
+    color: $colour_nav_fg;
+  }
+}
+
+.footer-bubble {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+
+/*****************************************************************************/
+/*
+/* Page specific styles
+/*
+/*****************************************************************************/
+
+#contacts-list li{
+  list-style: none;
+  height: 10em;
+  text-align: center;
+}
+
+#contacts-list li div{
+  background-color: $colour_3;
+  padding: 1em;
+}
+
+
+pre,
+code {
+  font-family: $mono-font;
+  font-weight: bold;
+  border: 1px solid $colour_code_border;
+  padding: 0.2em 0.4em;
+  background-color: $colour_code_bg;
+  color: $colour_code_fg;
+}
+
+pre code {
+  border: none;
+  padding: 0 .2em;
+  color: $colour_code_fg;
+}
+
+pre.terminal {
+  border: 1px solid $colour_code_border;
+  background-color: $colour_code_bg;
+  color: $colour_code_fg;
+}
+
+.post img {
+  width:100%
+}
+
+blockquote {
+  background: $colour_blockquote_bg;
+  border-left: 10px solid $colour_blockquote_bg_highlight;
+  font-style: italic;
+  padding: 5px;
+}
+
+.keysequence {
+  text-align: center
+}

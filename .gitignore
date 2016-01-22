@@ -1,3 +1,5 @@
 _site/
 *.lock
 *.pyc
+.sass-cache
+tmp
