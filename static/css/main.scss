@@ -97,7 +97,7 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
   margin-right: 10px;
 }
 
-.intro-header {
+.page-header {
   background: no-repeat center center;
   background-color: $colour_cover_bg;
   background-attachment: scroll;
@@ -106,14 +106,13 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
   background-size: cover;
   -o-background-size: cover;
 
-  margin-bottom: 50px;
-  padding: 50px;
+  margin: 0px;
 
   .site-heading,
   .post-heading,
   .page-heading {
     text-align: center;
-    padding: 100px 0 50px;
+    padding: 75px 0 50px;
     color: $colour_cover_fg;
   }
 }
