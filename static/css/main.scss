@@ -177,45 +177,38 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
 }
 
 
-.post pre {
-  font-family: monospace;
-  border: 1px solid #ddd;
-  background-color: #333;
-  padding: 0 .4em;
+pre,
+code {
+  font-family: $mono-font;
+  font-weight: bold;
+  border: 1px solid $colour_code_border;
+  padding: 0.2em 0.4em;
+  background-color: $colour_code_bg;
+  color: $colour_code_fg;
 }
 
-.post code {
-  border: 1px solid #000;
-  background-color: #333;
-  color: #FFF;
-  padding: 0 .2em;
-}
-
-.post pre code {
+pre code {
   border: none;
+  padding: 0 .2em;
+  color: $colour_code_fg;
 }
 
-/* terminal */
-.post pre.terminal {
-  border: 1px solid #000;
-  background-color: #333;
-  color: #FFF;
-}
-
-.post pre.terminal code {
-  background-color: #333;
+pre.terminal {
+  border: 1px solid $colour_code_border;
+  background-color: $colour_code_bg;
+  color: $colour_code_fg;
 }
 
 .post img {
   width:100%
 }
 
-.post blockquote {
+blockquote {
   background: $colour_lowlight;
   padding: 5px;
   border-left: 10px solid $colour_highlight;
 }
 
-.post .keysequence {
+.keysequence {
   text-align: center
 }
