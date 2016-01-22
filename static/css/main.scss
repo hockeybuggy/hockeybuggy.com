@@ -84,13 +84,17 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
 /*
 /*****************************************************************************/
 
-main {
+#outer-container {
   background-color: $colour_page_bg_highlight;
 }
 
-
 .container {
   padding: 0;
+}
+
+.row {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .intro-header {
