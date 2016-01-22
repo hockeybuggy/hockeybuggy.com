@@ -88,6 +88,10 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
   background-color: $colour_page_bg_highlight;
 }
 
+.meta {
+  font-family: $sans-font;
+}
+
 .container {
   padding: 0;
 }

@@ -2,9 +2,10 @@
 layout: post
 title: "State of the Dotfiles"
 date: 2014-09-22
-editdate: '2014-10-03'
+edit-date: '2014-10-03'
 categories: misc
 author: Douglas Anderson
+header-img: "static/img/stateofthedotfiles-2014.jpg"
 ---
 
 In this post I am gonna talk about the things in my configuration that I am
@@ -15,11 +16,6 @@ changes, but sometimes they are old treasures that I really like.
 I spend quite a bit of time working on my [dotfiles][STATE]. The nicer the
 environment, the easier it is to work.  Since the beginning of the year, I have
 made 63 commits, which brings my total to 292 since March 2012.
-
-
-<a href="{{ site.url }}/static/img/stateofthedotfiles-2014.jpg">
-<img class="center" src="{{ site.url }}/static/img/stateofthedotfiles-2014.jpg" alt="What my terminal looks like today"/>
-</a>
 
 ------------
 
