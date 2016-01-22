@@ -5,10 +5,6 @@ subtitle: >
     I am a Canadian left-handed redhead with interests. I canoe and compute.
 ---
 
-
-<img class="about_image" src="http://s.gravatar.com/avatar/609be367e4cef3f8ae9cf9a9add1b111?s=400" alt="A picture of Douglas in a tree"/>
-<img class="about_image" src="http://s.gravatar.com/avatar/cdb37c366e470231e3aa87a98f07f4c2?s=400" alt="A picture of Douglas on a bus"/>
-
 Also, I am a [ORCKA][ORCKA] Basic canoeing instructor and have some other
 fancy sounding certifications like Canadian Style Paddling lvl 2 and Canoe
 Tripping level 2.
@@ -27,13 +23,13 @@ code][REPO].
 
 ## Colophon
 
-This site is open source at [github][GITHUB]. If you find a typo or issue with
-this website please let me know by either [creating a github
+This site is open source at [github][GITHUB]. If you find a typo or any issue
+with this website please let me know by either [creating a github
 issue][GITHUB-ISSUE] or by sending me an email.
 
 The site is built using the static site generator [Jekyll][JEKYLL]. I am a
-pretty big fan of it and am proud to have contributed to the project with a
-simple documentation fix.
+pretty big fan and it keeps getting better.
+
 
 [UOG]: http://www.socs.uoguelph.ca/
 [CBC]: http://campbigcanoe.ca
