@@ -1,8 +1,11 @@
 
 .navbar-custom {
   font-family: $sans-font;
+  margin-bottom: 0;
+
   background-color: $colour_nav_bg;
   border-color: $colour_nav_bg_highlight;
+
   .navbar-brand {
     color: $colour_nav_fg;
     &:hover, &:focus {
