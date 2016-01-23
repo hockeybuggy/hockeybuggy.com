@@ -3,6 +3,7 @@
 ---
 
 @import "variables";
+@import "bootstrap-custom-nav";
 
 /*****************************************************************************/
 /*
@@ -121,32 +122,6 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
   }
 }
 
-.navbar-custom {
-  background: $colour_nav_bg;
-  font-family: $sans-font;
-  margin-bottom: 0;
-
-  .navbar-brand {
-    color: $colour_nav_fg;
-  }
-  .navbar-brand:hover,
-  .navbar-brand:focus {
-    color: $colour_nav_fg_highlight;
-  }
-
-  .nav li a {
-    color: $colour_nav_fg;
-  }
-  .nav li a:hover,
-  .nav li a:focus {
-    background: $colour_nav_bg_highlight;
-    color: $colour_nav_fg_highlight;
-  }
-
-  span {
-    color: $colour_nav_fg;
-  }
-}
 
 .footer-bubble {
   margin-left: 0.5em;
