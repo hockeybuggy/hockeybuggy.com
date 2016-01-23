@@ -85,16 +85,13 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
 /*
 /*****************************************************************************/
 
-#outer-container {
-  background-color: $colour_page_bg_highlight;
-}
-
 .meta {
   font-family: $sans-font;
 }
 
-.container {
+#content-container {
   padding: 0;
+  background-color: $colour_page_bg_highlight;
 }
 
 .row {
@@ -124,6 +121,7 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
 
 
 .footer-bubble {
+  text-align: center;
   margin-left: 0.5em;
   margin-right: 0.5em;
 }
