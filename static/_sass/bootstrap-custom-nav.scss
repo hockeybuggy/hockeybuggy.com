@@ -1,63 +1,58 @@
 
-$bgDefault : $colour_nav_bg;
-$bgHighlight : $colour_nav_bg_highlight;
-$colDefault :$colour_nav_fg;
-$colHighlight : $colour_nav_fg_highlight;
-
 .navbar-custom {
   font-family: $sans-font;
-  background-color: $bgDefault;
-  border-color: $bgHighlight;
+  background-color: $colour_nav_bg;
+  border-color: $colour_nav_bg_highlight;
   .navbar-brand {
-    color: $colDefault;
+    color: $colour_nav_fg;
     &:hover, &:focus {
-      color: $colHighlight;
+      color: $colour_nav_fg_highlight;
     }
   }
   .navbar-text {
-    color: $colDefault;
+    color: $colour_nav_fg;
   }
   .navbar-nav {
     > li {
       > a {
-        color: $colDefault;
+        color: $colour_nav_fg;
         &:hover,  &:focus {
-          color: $colHighlight;
+          color: $colour_nav_fg_highlight;
         }
       }
     }
     > .active {
       > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight;
+        color: $colour_nav_fg_highlight;
+        background-color: $colour_nav_bg_highlight;
       }
     }
     > .open {
       > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight;
+        color: $colour_nav_fg_highlight;
+        background-color: $colour_nav_bg_highlight;
       }
     }
   }
 
   .navbar-toggle {
-    border-color: $bgHighlight;
+    border-color: $colour_nav_bg_highlight;
     &:hover, &:focus {
-      background-color: $bgHighlight;
+      background-color: $colour_nav_bg_highlight;
     }
     .icon-bar {
-      background-color: $colDefault;
+      background-color: $colour_nav_fg;
     }
   }
   .navbar-collapse,
   .navbar-form {
-    border-color: $colDefault;
+    border-color: $colour_nav_fg;
   }
 
   .navbar-link {
-    color: $colDefault;
+    color: $colour_nav_fg;
     &:hover {
-      color: $colHighlight;
+      color: $colour_nav_fg_highlight;
     }
   }
 }
@@ -65,15 +60,15 @@ $colHighlight : $colour_nav_fg_highlight;
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu {
     > li > a {
-      color: $colDefault;
+      color: $colour_nav_fg;
       &:hover, &:focus {
-        color: $colHighlight;
+        color: $colour_nav_fg_highlight;
       }
     }
     > .active {
       > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight;
+        color: $colour_nav_fg_highlight;
+        background-color: $colour_nav_bg_highlight;
       }
     }
   }
