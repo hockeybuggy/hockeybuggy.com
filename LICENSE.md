@@ -1,3 +1,12 @@
+---
+layout: page
+title: "Creative Commons Licence"
+---
+
+##TL;DR
+
+```
+
 Attribution 4.0 International
 
 =======================================================================
@@ -49,7 +58,7 @@ exhaustive, and do not form part of our licenses.
      such as asking that all changes be marked or described.
      Although not required by our licenses, you are encouraged to
      respect those requests where reasonable. More_considerations
-     for the public: 
+     for the public:
 	wiki.creativecommons.org/Considerations_for_licensees
 
 =======================================================================
@@ -391,3 +400,6 @@ the avoidance of doubt, this paragraph does not form part of the public
 licenses.
 
 Creative Commons may be contacted at creativecommons.org.
+```
+
+[SIMPLE_LINK]: http://creativecommons.org/licenses/by/4.0/
