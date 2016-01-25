@@ -2,12 +2,8 @@ name: Hockeybuggy.com
 description: Musings of Douglas James Anderson
 header_img: "static/img/wind-river-header.jpg"
 
-highlighter: pygments
 paginate: 10
 
-markdown: kramdown
-kramdown:
-  input: GFM
 sass:
   sass_dir: "static/_sass"
 
