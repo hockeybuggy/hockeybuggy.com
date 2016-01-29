@@ -1,11 +1,14 @@
-# hockeybuggy.com
 
-The Jekyll content of my personal website.
+[![Build Status](https://travis-ci.org/hockeybuggy/hockeybuggy.github.io.svg?branch=master)](https://travis-ci.org/hockeybuggy/hockeybuggy.github.io)
+
+# Hockeybuggy.com
+
+The personal website of Douglas James Anderson.
 
 ## Dependencies
 
-1. jekyll
-2. ruby
+1. ruby
+2. jekyll
 3. python (To create new posts)
 
 ## Making Changes
@@ -15,31 +18,32 @@ Download the repository and install dependencies:
     git clone git@github.com/hockeybuggy/hockeybuggy.github.io.git
     bundle install
 
+### Edit posts
+
 To write a new post start with:
 
-    ./new_post.py misc
+    ./script/new_post
 
-or to create a post with a specific date
+You can also use flags to set date or title
 
-    ./new_post.py wpotd --date 2014-12-15
+    ./script/new_post --title "great title" --date 2014-12-15
 
-## Build
+### Build the site
 
-After making changes the site can be generated with:
+Generate and watch the site with:
 
-    jekyll build
+    ./script/server
 
-Or for local development:
+### Run the tests
 
-    jekyll serve --watch --drafts
+If you want to check that the page does not lead to dead ends run the tests:
 
-## Deploy
+    ./script/test
 
-To deploy just push to the master branch on github:
+If you don't want to run them locally, CI will run the tests.
+
+### Deployment
+
+This site is hosted on Github Pages. To deploy just push to the master branch on github:
 
     git push origin master
-
-or with my git aliases:
-
-    git pom
-
