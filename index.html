@@ -23,6 +23,16 @@ subtitle: >
   <p class="post-meta">
     Posted by on {{ post.date | date: "%B %-d, %Y" }}
   </p>
+
+  <p class="post-excerpt">
+    {{ post.excerpt }}
+  </p>
+
+  <p class="post-readme">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+      Read More
+    </a>
+  </p>
 </div>
 
 <hr>
