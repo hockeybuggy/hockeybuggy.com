@@ -1,4 +1,7 @@
-# hockeybuggy.com
+
+[![Build Status](https://travis-ci.org/hockeybuggy/hockeybuggy.github.io.svg?branch=master)](https://travis-ci.org/hockeybuggy/hockeybuggy.github.io)
+
+# Hockeybuggy.com
 
 The personal website of Douglas James Anderson.
 
@@ -30,6 +33,14 @@ You can also use flags to set date or title
 Generate and watch the site with:
 
     ./script/server
+
+### Run the tests
+
+If you want to check that the page does not lead to dead ends run the tests:
+
+    ./script/test
+
+If you don't want to run them locally, CI will run the tests.
 
 ### Deployment
 
