@@ -8,7 +8,7 @@ subtitle: >
 <ul id="contacts-list">
   <li class="col-md-4">
     <div>
-      hockeybuggy&#64;gmail.com
+      <a href="mailto:hockeybuggy@gmail.com">hockeybuggy&#64;gmail.com</a>
     </div>
   </li>
 
