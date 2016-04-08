@@ -3,6 +3,7 @@
 ---
 
 @import "variables";
+@import "mixins";
 @import "bootstrap-custom-nav";
 @import "solarized-dark";
 
@@ -134,15 +135,20 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
 /*
 /*****************************************************************************/
 
-#contacts-list li{
+#contacts-list li {
   list-style: none;
   height: 10em;
   text-align: center;
-}
+  font-family: $sans-font;
+  font-size: 1.1em;
 
-#contacts-list li div{
-  background-color: $colour_3;
-  padding: 1em;
+  div {
+    @include rounded(1em);
+    background-color: $colour_3;
+    height: 5em;
+    padding: 2em;
+    margin-top: 3em;
+  }
 }
 
 
@@ -180,5 +186,5 @@ blockquote {
 }
 
 .keysequence {
-  text-align: center
+  text-align: center;
 }
