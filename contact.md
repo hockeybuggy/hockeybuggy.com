@@ -3,6 +3,7 @@ layout: page
 title: Contact
 subtitle: >
     Douglas can be reached at a whole bunch of places
+pgp_key: "D9B7 4215 C936 6F2A"
 ---
 
 <ul id="contacts-list">
@@ -33,6 +34,12 @@ subtitle: >
   <li class="col-md-4">
     <div>
       <a href="http://stackoverflow.com/users/1745922/douglas-anderson">Stackoverflow</a>
+    </div>
+  </li>
+
+  <li class="col-md-4">
+    <div>
+      <a href="https://keybase.io/hockeybuggy">{{ page.pgp_key }}</a>
     </div>
   </li>
 </ul>
