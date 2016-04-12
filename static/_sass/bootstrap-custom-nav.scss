@@ -21,6 +21,7 @@
         color: $colour_nav_fg;
         &:hover,  &:focus {
           color: $colour_nav_fg_highlight;
+          background-color: $colour_nav_bg_highlight;
         }
       }
     }
