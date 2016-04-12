@@ -105,12 +105,9 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
   background: no-repeat center center;
   background-color: $colour_cover_bg;
   background-attachment: scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
-  -o-background-size: cover;
 
-  margin: 0px;
+  margin: 0 0 2em 0;
 
   .site-heading,
   .post-heading,
@@ -143,7 +140,7 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
   font-size: 1.1em;
 
   div {
-    @include rounded(1em);
+    @include border-radius(1em);
     background-color: $colour_3;
     height: 5em;
     padding: 2em;
