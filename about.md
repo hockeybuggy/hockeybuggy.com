@@ -5,43 +5,29 @@ subtitle: >
     I am a Canadian left-handed redhead with interests. I canoe and compute.
 ---
 
-Also, I am a [ORCKA][ORCKA] Basic canoeing instructor and have some other
-fancy sounding certifications like Canadian Style Paddling lvl 2 and Canoe
-Tripping level 2.
-
-I used these certifications at [Camp Big Canoe][CBC] since 2009.  During my
-summers working at camp I worked as a Counsellor(2009), Canoeing Instructor and
-member of the waterfront team (2010), director of Music & Drama (2011), and
-Administrative Assistant (2012).
+I am a graduate of the University of Guelph with a degree in Computer Science
+from the faculty of Computing.  I worked at Camp Big Canoe for a number of years
+and keen canoeist.
 
 In the summer of 2014 I worked with professor [Fei Song][FEISONG] on a project
-performing sentiment analysis in twitter messages using the dataset from the
-[SEMEVAL 2013 workshop][SEMEVAL]. The simple system used a maximum entropy
-classifier implemented using python and [nltk][NLTK]. It's pretty cool stuff;
-You can read the paper I wrote about it [here][PAPER] or [checkout the
-code][REPO].
+performing sentiment analysis in twitter messages.  The simple system used a
+maximum entropy classifier with [nltk][NLTK].  You can read the paper I wrote
+about it [here][PAPER]
 
 ## Colophon
 
-This site is open source at [github][GITHUB]. If you find a typo or any issue
-with this website please let me know by either [creating a github
-issue][GITHUB-ISSUE] or by sending me an email.
+This site is open source and hosted on [github][GITHUB].  Feel free to send me
+an email or open a [github issue][GITHUB-ISSUE] if there is typo or error.
 
-The site is built using the static site generator [Jekyll][JEKYLL]. I am a
+The site is built using the static site generator [Jekyll][JEKYLL].  I am a
 pretty big fan and it keeps getting better.
 
-
-[UOG]: http://www.socs.uoguelph.ca/
-[CBC]: http://campbigcanoe.ca
-[ORCKA]: http://www.orcka.ca/content/?page=116
 
 [FEISONG]: http://www.cis.uoguelph.ca/~fsong/contactinfo.html
 [SEMEVAL]: http://www.cs.york.ac.uk/semeval-2013/task2/
 [NLTK]: http://www.nltk.org/
 [PAPER]: https://github.com/hockeybuggy/twitter-sentiment/raw/master/paper/djanderson-twitter-sentiment.pdf
-[REPO]: https://github.com/hockeybuggy/twitter-sentiment/
 
 [GITHUB]: http://github.com/hockeybuggy/hockeybuggy.com
 [GITHUB-ISSUE]: https://github.com/hockeybuggy/hockeybuggy.github.io/issues/new
 [JEKYLL]: http://jekyllrb.com
-[MARKDOWN]: http://daringfireball.net/projects/markdown/syntax#overview
