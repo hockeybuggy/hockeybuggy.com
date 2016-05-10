@@ -11,3 +11,4 @@ exclude: ["script"]
 gems:
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-sitemap
