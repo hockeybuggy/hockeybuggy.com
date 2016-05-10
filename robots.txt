@@ -1,3 +1,6 @@
 # robotstxt.org/
 # Robots, country men, lend me your ears
 User-agent: *
+
+# Not sure why but site maps are supposed to be absolute.
+Sitemap: /sitemap.xml
