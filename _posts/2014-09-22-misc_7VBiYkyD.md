@@ -276,4 +276,3 @@ I have a pretty cool configuration.
 
 [ITERM2]: http://iterm2.com/
 [URXVT]: https://wiki.archlinux.org/index.php/rxvt-unicode
-
