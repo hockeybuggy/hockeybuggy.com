@@ -19,12 +19,10 @@ about it [here][PAPER]
 This site is open source and hosted on [github][GITHUB].  Feel free to send me
 an email or open a [github issue][GITHUB-ISSUE] if there is typo or error.
 
-The site is built using the static site generator [Jekyll][JEKYLL].  I am a
-pretty big fan and it keeps getting better.
+The site is built using the static site generator [Jekyll][JEKYLL].
 
 
 [FEISONG]: http://www.cis.uoguelph.ca/~fsong/contactinfo.html
-[SEMEVAL]: http://www.cs.york.ac.uk/semeval-2013/task2/
 [NLTK]: http://www.nltk.org/
 [PAPER]: https://github.com/hockeybuggy/twitter-sentiment/raw/master/paper/djanderson-twitter-sentiment.pdf
 
