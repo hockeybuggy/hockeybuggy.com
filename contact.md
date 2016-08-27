@@ -9,7 +9,7 @@ pgp_key: "D9B7 4215 C936 6F2A"
 <ul id="contacts-list">
   <li class="col-md-4">
     <div>
-      <a href="mailto:hockeybuggy@gmail.com">hockeybuggy&#64;gmail.com</a>
+      <a href="mailto:hockeybuggy@gmail.com">Email</a>
     </div>
   </li>
 
