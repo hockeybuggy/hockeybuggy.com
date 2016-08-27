@@ -6,8 +6,9 @@ subtitle: >
 ---
 
 I am a graduate of the University of Guelph with a degree in Computer Science
-from the faculty of Computing.  I worked at Camp Big Canoe for a number of years
-and keen canoeist.
+from the faculty of Computing.  I worked at Camp Big Canoe for a number of
+years, doing various things from leading music and drama rotations to teaching
+canoing.
 
 In the summer of 2014 I worked with professor [Fei Song][FEISONG] on a project
 performing sentiment analysis in twitter messages.  The simple system used a
