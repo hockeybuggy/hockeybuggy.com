@@ -15,4 +15,4 @@ While some may people consider it a sad testament that her power is derived
 from her husbands rather then her own actions but I think that Graça should
 still be admired for her own merits.
 
-[page]: http://en.wikipedia.org/wiki/Gra%C3%A7a_Machel
+[page]: https://en.wikipedia.org/wiki/Gra%C3%A7a_Machel

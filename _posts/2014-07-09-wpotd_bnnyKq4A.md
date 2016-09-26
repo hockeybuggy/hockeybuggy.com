@@ -37,8 +37,8 @@ even prompted a rule to be created. The 'Pat Venditte' rule [8.01(f)] reads as f
 
 This rule weirdly makes a lot of sense.
 
-[switch_pitcher]: http://en.wikipedia.org/wiki/Switch_pitcher
-[dead_ball]: http://en.wikipedia.org/wiki/Dead-ball_era
-[tony]: http://en.wikipedia.org/wiki/Tony_Mullane
-[greg]: http://en.wikipedia.org/wiki/Greg_A._Harris
-[pat]: http://en.wikipedia.org/wiki/Pat_Venditte
+[switch_pitcher]: https://en.wikipedia.org/wiki/Switch_pitcher
+[dead_ball]: https://en.wikipedia.org/wiki/Dead-ball_era
+[tony]: https://en.wikipedia.org/wiki/Tony_Mullane
+[greg]: https://en.wikipedia.org/wiki/Greg_A._Harris
+[pat]: https://en.wikipedia.org/wiki/Pat_Venditte

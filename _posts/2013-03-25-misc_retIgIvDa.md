@@ -15,7 +15,7 @@ them responsibly. I found that I was (mostly) ready and stay on the home row
 most of the time when moving around.
 
 
-After reading [Practical Vim](http://pragprog.com/book/dnvim/practical-vim)
+After reading [Practical Vim](https://pragprog.com/book/dnvim/practical-vim)
 I started to use more word-wise operations (e.g. w,e,b,ge).
 The word-wise motions moves the cursor around based on word
 characters(a-zA-Z0-9). While

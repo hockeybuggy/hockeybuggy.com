@@ -17,6 +17,6 @@ reflector telescopes, but I learnt about [Speculum metal][speculum] and it's use
 mirrors. The telescope was rebuild in 1997.
 
 [medium]:    https://medium.com/starts-with-a-bang/87937d92369b
-[roberts]:   http://en.wikipedia.org/wiki/Isaac_Roberts
-[telescope]: http://en.wikipedia.org/wiki/Leviathan_of_Parsonstown
-[speculum]:  http://en.wikipedia.org/wiki/Speculum_metal
+[roberts]:   https://en.wikipedia.org/wiki/Isaac_Roberts
+[telescope]: https://en.wikipedia.org/wiki/Leviathan_of_Parsonstown
+[speculum]:  https://en.wikipedia.org/wiki/Speculum_metal

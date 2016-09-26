@@ -268,11 +268,11 @@ I have a pretty cool configuration.
 
 [Z]: https://github.com/rupa/z
 
-[i3]: http://i3wm.org/
-[THOUGHTBOT]: http://thoughtbot.com/
+[i3]: https://i3wm.org/
+[THOUGHTBOT]: https://thoughtbot.com/
 [TAT]: https://github.com/thoughtbot/dotfiles/commits/master/bin/tat
 [CHRIS]: https://github.com/christoomey
 [VIMTMUXNAVIGATOR]: https://github.com/christoomey/vim-tmux-navigator
 
-[ITERM2]: http://iterm2.com/
+[ITERM2]: https://iterm2.com/
 [URXVT]: https://wiki.archlinux.org/index.php/rxvt-unicode
