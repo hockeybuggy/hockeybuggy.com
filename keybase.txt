@@ -4,7 +4,7 @@ https://keybase.io/hockeybuggy
 
 I hereby claim:
 
-  * I am an admin of http://hockeybuggy.com
+  * I am an admin of https://hockeybuggy.com
   * I am hockeybuggy (https://keybase.io/hockeybuggy) on keybase.
   * I have a public key with fingerprint 2094 38E1 C441 3074 27F1  ACA4 D9B7 4215 C936 6F2A
 

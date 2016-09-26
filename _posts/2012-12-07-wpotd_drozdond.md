@@ -13,5 +13,5 @@ If you are looking for a interesting read I recommend the pages about the world
 of J. R. R. Tolkien. The scale of his fiction is amazing and full of detail that
 there is a wikipedia page on it.
 
-Take a look at the [The Fourth Age](http://en.wikipedia.org/wiki/Fourth_Age) if
+Take a look at the [The Fourth Age](https://en.wikipedia.org/wiki/Fourth_Age) if
 you want to know what happens to the world after the Lord of the Rings books.

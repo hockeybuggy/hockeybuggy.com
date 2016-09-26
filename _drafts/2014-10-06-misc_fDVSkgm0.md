@@ -119,5 +119,5 @@ Also from the graph you can see that I don't do much work at night on the
 weekends or dinner time on Sundays. Pretty cool!
 
 [ORIGINAL_GIST]: https://gist.github.com/textarcana/1306223
-[STOPWORDS]: http://en.wikipedia.org/wiki/Stop_words
+[STOPWORDS]: https://en.wikipedia.org/wiki/Stop_words
 

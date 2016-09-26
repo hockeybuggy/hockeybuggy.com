@@ -32,7 +32,7 @@ So now that I have to redo all of my markup I figured it was time for a new
 face for the site. I keep the same colour scheme(borrowed from:[here][COLOUR])
 and added some icons in the footer.
 
-[PELICAN]: http://docs.getpelican.com
-[JEKYLL]: http://jekyllrb.com
-[GITHUB]: http://pages.github.com
-[COLOUR]: http://bit.ly/9oo0N3
+[PELICAN]: https://docs.getpelican.com
+[JEKYLL]: https://jekyllrb.com
+[GITHUB]: https://pages.github.com
+[COLOUR]: https://bit.ly/9oo0N3

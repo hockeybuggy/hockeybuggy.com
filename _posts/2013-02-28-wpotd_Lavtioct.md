@@ -7,7 +7,7 @@ author: Douglas Anderson
 ---
 
 For myself, as a computer nerd, the program
-[ls](http://en.wikipedia.org/wiki/Ls) is my portal to all of my files.  It is a
+[ls](https://en.wikipedia.org/wiki/Ls) is my portal to all of my files.  It is a
 very simple program as it adheres to the Unix philosophy of "do one thing and
 do it well". All that ls does is list the files in a directory. Any directory! 
 

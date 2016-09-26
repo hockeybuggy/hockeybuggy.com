@@ -24,9 +24,9 @@ The site is built using the static site generator [Jekyll][JEKYLL].
 
 
 [FEISONG]: http://www.cis.uoguelph.ca/~fsong/contactinfo.html
-[NLTK]: http://www.nltk.org/
+[NLTK]: https://www.nltk.org/
 [PAPER]: https://github.com/hockeybuggy/twitter-sentiment/raw/master/paper/djanderson-twitter-sentiment.pdf
 
-[GITHUB]: http://github.com/hockeybuggy/hockeybuggy.com
+[GITHUB]: https://github.com/hockeybuggy/hockeybuggy.com
 [GITHUB-ISSUE]: https://github.com/hockeybuggy/hockeybuggy.github.io/issues/new
-[JEKYLL]: http://jekyllrb.com
+[JEKYLL]: https://jekyllrb.com
