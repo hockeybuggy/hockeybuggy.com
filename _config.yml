@@ -7,7 +7,7 @@ paginate: 10
 sass:
   sass_dir: "static/_sass"
 
-exclude: ["script"]
+exclude: ["script", "node_modules"]  # TODO minify and cat assets
 gems:
   - jekyll-feed
   - jekyll-paginate
