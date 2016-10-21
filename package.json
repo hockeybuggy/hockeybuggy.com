@@ -1,0 +1,15 @@
+{
+  "name": "hockeybuggy.github.io",
+  "version": "1.0.0",
+  "description": "My personal website",
+  "main": "index.html",
+  "repository": {
+    "url": "git@github.com:hockeybuggy/hockeybuggy.github.io.git",
+    "type": "git"
+  },
+  "author": "Douglas Anderson <hockeybuggy@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "2.2.0"
+  }
+}
