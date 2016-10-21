@@ -10,6 +10,7 @@
   "author": "Douglas Anderson <hockeybuggy@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bootstrap": "3.3.6",
     "jquery": "2.2.0"
   }
 }
