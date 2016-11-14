@@ -1,3 +1,4 @@
+
 ==================================================================
 https://keybase.io/hockeybuggy
 --------------------------------------------------------------------
@@ -6,25 +7,20 @@ I hereby claim:
 
   * I am an admin of https://hockeybuggy.com
   * I am hockeybuggy (https://keybase.io/hockeybuggy) on keybase.
-  * I have a public key with fingerprint 2094 38E1 C441 3074 27F1  ACA4 D9B7 4215 C936 6F2A
+  * I have a public key with fingerprint 3B94 9D9D 977F ED50 6290  8E0A 9892 CB40 1284 3ABE
 
 To do so, I am signing this object:
 
 {
     "body": {
         "key": {
-            "eldest_kid": "01013cf48095434d440bc343039370c9d82c29413984ff04ae546e1e214682faefc60a",
-            "fingerprint": "209438e1c441307427f1aca4d9b74215c9366f2a",
+            "eldest_kid": "0101166479a79bc8da8f5179ac3d327ec77cc2d71c1b84cc8ccfc0997d595999b7ea0a",
+            "fingerprint": "3b949d9d977fed5062908e0a9892cb4012843abe",
             "host": "keybase.io",
-            "key_id": "d9b74215c9366f2a",
-            "kid": "01013cf48095434d440bc343039370c9d82c29413984ff04ae546e1e214682faefc60a",
+            "key_id": "9892cb4012843abe",
+            "kid": "0101166479a79bc8da8f5179ac3d327ec77cc2d71c1b84cc8ccfc0997d595999b7ea0a",
             "uid": "10f9985f56d5f6b3a48988e0aea5ee19",
             "username": "hockeybuggy"
-        },
-        "revoke": {
-            "sig_ids": [
-                "773abb1eccc205593224265b45cb403687e06ed6ad9e71ad5dc465db134dce670f"
-            ]
         },
         "service": {
             "hostname": "hockeybuggy.com",
@@ -33,41 +29,41 @@ To do so, I am signing this object:
         "type": "web_service_binding",
         "version": 1
     },
-    "ctime": 1474923237,
+    "ctime": 1479166134,
     "expire_in": 157680000,
-    "prev": "228cd5356ef1ff3f5b4cc12bdde289fe787bf4012a3e4d238642ad14947356c9",
-    "seqno": 6,
+    "prev": "3e27887fd22f166a6bbbbc15e782ae6df91caff407677dbd26474fe2ddabeea7",
+    "seqno": 10,
     "tag": "signature"
 }
 
 which yields the signature:
 
 -----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
 
-owGtUltMFFcYXm7dFWwlImirlmZSpVLEmTNnbkuKXLS2odIbCVLawMyZM8sI7iyz
-y01iQBSqxCDVUoS0DyaCAS9VtCBEtCBGQVoCaFiMRNqUWgooKaUxjUpnSPvUPva8
-nPznfN/3f/+l+nk/i6/PaFtCaC+rRfrcmpQsqZOVvxcTkiYXEfZiIhsvXjhHxm5P
-RrYqE3aCpEiKRgrkSYGBNJQhJCVEQ5qkBZojkSDzAAEBUrTAQ0UhoYgZyGIKAwqy
-PFBErCCWFIkoQlGdDqy7dNXpMWQBKUCaxxSCBpXkIOAUSkQilAXJCCgGCTTLKsAk
-Zmluk2GYk0Q3jlY1480IMhbt/Qf+f/adtyhHkYog8IzCsDKjsBItQl7geUyKWGQw
-pgQT6Ma6U9yFDXSWhky7eQ5HEbEnitBxvpaNzda6VYfh203Y0wmOo0VJojBCCJAM
-I9AAQMAyEmSQBEma5TlMslhmRVnAHCXKjIwgy8gSZRSDMMuRCvGJoW0kzVfRorjZ
-qH8biEbaLsOdS9c8GtJyzE+Px+W2G8Y6CE+Ry4QXYCnjb6EMSXXKxqgMSj7W3arm
-JOyUkQd5VFOZghwUAA1oLorAhS5VxxmqiWA4lieNYybC+eaAAY9khmZYrFCKQitG
-YQhRQJJlDHhBwRzPSQokKSDSGMqA5lkIRJmCAuQMEjIb6sa5To2ws1GER3QYkkbz
-nKInT8fEnsCDvmv8LT6+lucCfM0dtgQuCf5nsSevBVtODNaEdOuzP7zoCr6IHfER
-rydd3SEOnKjxAqnwbEvMkO3tpqN+dWRuZtsLqkNQHs3MwCc9kT34RsktsLmz4vQ2
-eon/4faEC5V3ybMRJbU3Gz8OD9Zt7qaospHbXNrsNH0vLP6htT8zLvQlYl/7OXtD
-rGcq/D2/19zruxe8SUP+S8dQRztcnt7V2p/dVxxxv/+3sMnVE50j9E0+OTY5Wd/7
-sxgSdMG6b/egnPiptzFm6aWG9gNhEWzb1dqgwmUHRjuiS+LTwkaC8arcmeG04/3B
-rpbx9DvyA1g9cqSW37H7VBO/UQrUbNs+PB3+DjjzygclXVNgJ6xovt86J2b+lLjh
-KJkVs2ecaFtXeGja6hiY76vP2Xm5/f3e/BVd9+oTkpYXFHdZlapHfEr2St+TVfGD
-qUV1Y8TwtZUhvbOZg0N9aeWuuI0BsfyKheHEnPmU6WNX5C/myuuaI7y/VG2ijnxu
-E8c+22p9euzSKcvauPXeqvGHF5+2eC0jqa7hyiveuYLrD75t8Fvb8uzd1Zv5lqmF
-r1ftx9aDzVsbe0Iup3S75C1/nre1rSn79fiGgjfcZ5Y9awwt3V42EflqR0ra9VHy
-o72d22/c+WMm6HzpVxXfzL9cnad/V1Z+6Pu+sNZ1E5tsPw7UfLlgizzZwe23LHTV
-A/pNv3OPD9+ui3/8FlPKBdQHxN198hc=
-=Mxzp
+owGtUm1QVFUY3gUkIhLyYxCFtGtSCLL3+2MdJvxYBMzMYopA2Lkf5y53gL3r7rII
+SIAGmIQf/FLEprBCVpaKnNRwECYBERjKrFzCWGHAMERnMjUmxs5l6lf97D0/zrzn
+fZ7nPO97zuGn/XVB+qN1/YmL3jF26PunBF362uSOEkRQpSLEWILkgvkN5EnA4TTn
+KhJiRFAMxTCaJhmOZzhBZCWelSkMZiIhETgDRIYRRVxiMBETWFIUWVGURZTjGIni
+KI7jBAbwKI/EIbJitQC7za5YnVCWEDiSk+BiGBlIFErjHMoClOdYDhcFEsVwliR4
+AUBijurQGNCcwDtAvKLCM5iY5+39B/5/9l0wL4ehMsexlEzREiXTAsGTLMdqhgFP
+AYBxGtAB7FY+H0B0jipqdgssliKkNA6BBZciAm22WjP/BsWLaj5UsNlVpyqqeVrR
+6bQ5jBrZWWTT0IVAMP+tYxYUqwSnCRkuYHcoqhUxYhApOhVNGIM9w84xgoxDwG6b
+YgdmRUNQDM2iMLR7gEt7AzPAGZZlZAnHZcjgaQGGiFGAYXEe0JLMYSIvyyTK0Awj
+CRIOx0nKAJckOGnAM4jW2i6rCsWhqpO3QFGHYrHyzgI7QEqD3/WLDNDpg3SBC/y0
+j6YLfjLsn99XlhL62JS5uTy5ZRVfmpV6oeW9A6t7L0a4az9MxB1XG7IrV7Un+OGS
+vVFYEb/jHrGtZ2ej4lt52fXluqEdqGmPMyRwaevwqbTgPl3nUNWRTWunrhxcudg9
+OnO8abjk1Suh+dGzGb2+CX3QkjnP4MbyyZh7LzhiG9sXzixYtvtgMhf+wQPD/YFQ
+r8q2JUVXnUhBiYjruzJ7rpY+c6xhfNsjz8KPDN6A2mL19gO6hlSrNgwke8qe36q8
+OPtrYUzbxfQRz2Tu+mrikvBzx4/P6r2xFa8c/+WJ1yo+B1Tkt2+VTSU8HO+8VueJ
+nhhqr/zpOcPLc3t3Rrm7f6d143P1+1YPZCc48N7M8Y1BW8M+6feZR6ZTe259vcVw
+N/LNbqQpMOvP0eUv/WEeKb6RPZ2Wc5dmltzsenzz0UN3YtgPnxprmgl3+Ew3aV6/
+RVrXxqVmRh0yDZy8n1RbsKy6rWzRZ2PTdfhsxZF9Ec31mC90/8dHf/Mdmqyx5Jnq
+x1a8sbSFKkyN6Toxmbd8BNnPnA0/HaLmdhjW2EbuWM/Wve++YL58oDr9m76+wdtu
+/6/OnRnKMN2x7J35/rDLHnN98a1j33kNw3u6szYDPsTb9IU16dKaSqKa2v72uYGu
+xoaWp4qnU9Rr2+diDTdG2ZiO8xmzr58Up8pLBwdP9506PzHW29q8wdbpl9npr2+t
+SjsTFZD7Fw==
+=uqL4
 -----END PGP MESSAGE-----
 
 And finally, I am proving ownership of this host by posting or
@@ -76,3 +72,4 @@ appending to this document.
 View my publicly-auditable identity here: https://keybase.io/hockeybuggy
 
 ==================================================================
+
