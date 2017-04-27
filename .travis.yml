@@ -3,7 +3,9 @@ language: ruby
 rvm:
 - 2.0
 
-script: ./script/cibuild
+script:
+  - ./script/bootstrap
+  - ./script/cibuild
 
 env:
   global:

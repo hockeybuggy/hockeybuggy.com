@@ -2,5 +2,8 @@
 
 # TODO maybe I could jekyll doctor here?
 
+echo "==> Building site"
 bundle exec jekyll build
+
+echo "==> Running htmlproofer"
 bundle exec htmlproofer ./_site
