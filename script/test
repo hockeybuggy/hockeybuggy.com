@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# TODO maybe I could jekyll doctor here?
+echo "==> Checking config"
+bundle exec jekyll doctor
 
 echo "==> Building site"
 bundle exec jekyll build
