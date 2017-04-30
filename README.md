@@ -9,16 +9,20 @@ The personal website of Douglas James Anderson.
 ## Dependencies
 
 1. ruby
-2. jekyll
-3. python (To create new posts)
+1. jekyll
+1. yarn
+1. python (To create new posts)
 
 
 ## Making Changes
 
-Download the repository and install dependencies:
+Download the repository:
 
     git clone git@github.com/hockeybuggy/hockeybuggy.github.io.git
-    bundle install
+
+Install the dependencies:
+
+    ./script/bootstrap
 
 
 ### Edit posts
@@ -34,11 +38,7 @@ You can also use flags to set date or title
 
 ### Build the site
 
-Install the dependencies:
-
-    ./script/bootstrap
-
-Generate and watch the site with:
+Generate and watch for changes with:
 
     ./script/server
 
