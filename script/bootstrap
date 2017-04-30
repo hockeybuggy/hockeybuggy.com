@@ -2,3 +2,6 @@
 
 echo "==> Installing gem dependencies…"
 bundle install
+
+echo "==> Installing js dependencies…"
+yarn install
