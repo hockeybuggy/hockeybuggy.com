@@ -4,4 +4,9 @@ echo "==> Installing gem dependencies…"
 bundle install
 
 echo "==> Installing js dependencies…"
-yarn install
+
+if hash yarn 2>/dev/null; then
+    yarn install
+else
+    npm install
+fi
