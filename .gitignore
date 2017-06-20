@@ -1,5 +1,8 @@
 _site/
+static/vendor
+
+tmp
+
 *.pyc
 .sass-cache
-tmp
 node_modules

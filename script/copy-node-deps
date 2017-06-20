@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+TARGET=static/vendor
+mkdir $TARGET
+mkdir $TARGET/css
+mkdir $TARGET/js
+
+echo "Vendoring bootstrap"
+cp node_modules/bootstrap/dist/css/bootstrap.css $TARGET/css/bootstrap.css
+cp node_modules/bootstrap/dist/js/bootstrap.js $TARGET/js/boostrap.js
+
+echo "Vendoring font-awesome"
+cp node_modules/font-awesome/css/font-awesome.css $TARGET/css/font-awesome.css
+
+echo "Vendoring jquery"
+cp node_modules/jquery/dist/jquery.js $TARGET/js/jquery.js
