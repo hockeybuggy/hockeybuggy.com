@@ -3,14 +3,20 @@
 TARGET=static/vendor
 mkdir $TARGET
 mkdir $TARGET/css
+mkdir $TARGET/fonts
 mkdir $TARGET/js
 
-echo "Vendoring bootstrap"
-cp node_modules/bootstrap/dist/css/bootstrap.css $TARGET/css/bootstrap.css
-cp node_modules/bootstrap/dist/js/bootstrap.js $TARGET/js/boostrap.js
+echo "Vendoring bootstrap…"
+cp node_modules/bootstrap/dist/css/* $TARGET/css
+cp node_modules/bootstrap/dist/js/* $TARGET/js
+cp node_modules/bootstrap/dist/fonts/* $TARGET/fonts
+echo "done."
 
-echo "Vendoring font-awesome"
-cp node_modules/font-awesome/css/font-awesome.css $TARGET/css/font-awesome.css
+echo "Vendoring font-awesome…"
+cp node_modules/font-awesome/css/* $TARGET/css
+cp node_modules/font-awesome/fonts/* $TARGET/fonts
+echo "done."
 
-echo "Vendoring jquery"
-cp node_modules/jquery/dist/jquery.js $TARGET/js/jquery.js
+echo "Vendoring jquery…"
+cp node_modules/jquery/dist/* $TARGET/js
+echo "done."
