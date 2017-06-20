@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
 
+# Which node package manager. This has limitations when arguments differ.
+if hash yarn 2>/dev/null; then
+    NODE_PACMAN=yarn
+else
+    NODE_PACMAN=npm
+fi
+
 echo "==> Installing gem dependencies…"
 bundle install
 
-echo "==> Installing js dependencies…"
+echo "==> Installing node dependencies…"
+$NODE_PACMAN install
 
-if hash yarn 2>/dev/null; then
-    yarn install
-else
-    npm install
-fi
+echo "==> Vendoring node dependencies…"
+$NODE_PACMAN run build
