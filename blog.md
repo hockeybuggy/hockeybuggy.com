@@ -16,8 +16,7 @@ subtitle: >
     {% if post.subtitle %}
       <h3 class="post-subtitle">
           {{ post.subtitle }}
-      </h3>
-    {% endif %}
+      </h3> {% endif %}
   </a>
 
   <p class="post-meta">
