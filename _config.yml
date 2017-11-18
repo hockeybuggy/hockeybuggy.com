@@ -3,6 +3,7 @@ description: Musings of Douglas James Anderson
 header_img: "static/img/wind-river-header.jpg"
 
 paginate: 10
+paginate_path: "/blog/page:num/"
 
 sass:
   sass_dir: "static/_sass"
