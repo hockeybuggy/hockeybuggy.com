@@ -122,8 +122,10 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
 
 .footer-bubble {
   text-align: center;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+}
+
+#footer-container {
+  padding-left: 0;
 }
 
 
@@ -132,28 +134,6 @@ kbd {  /* Stolen from SO: http://meta.superuser.com/q/4788 */
 /* Page specific styles
 /*
 /*****************************************************************************/
-
-#contacts-list {
-  padding-bottom: 2em;
-  overflow: hidden;
-
-  li {
-    list-style: none;
-    height: 6em;
-    text-align: center;
-    font-family: $sans-font;
-    font-size: 1.1em;
-
-    div {
-      @include border-radius(1em);
-      background-color: $colour_3;
-      height: 5em;
-      padding: 2em;
-      margin-top: 2em;
-    }
-  }
-}
-
 
 pre,
 code {
