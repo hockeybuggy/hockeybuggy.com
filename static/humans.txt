@@ -10,7 +10,7 @@
 
     HTML5
     CSS3
-    jQuery
-    Jekyll
+    Hugo
+    Hugo-Coder - https://github.com/luizdepra/hugo-coder
     Markdown
     Git
