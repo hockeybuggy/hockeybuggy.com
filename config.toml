@@ -7,7 +7,7 @@ theme = "hugo-coder"
 
 googleAnalytics = "UA-11131562-1"
 
-pygmentsstyle = "bw"
+pygmentsstyle = "solarized-light"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
@@ -16,7 +16,7 @@ pygmentscodefencesguesssyntax = true
     info = "I curl, canoe, and compute."
     description = "Personal website of Douglas Anderson"
     keywords = "blog,developer,personal"
-    avatarurl = "images/avatar.jpg"
+    avatarurl = "/static/img/douglas-paddling.jpg"
 
     favicon_32 = "/static/img/favicon.ico"
     # favicon_16 = "/static/img/favicon-16x16.png"
@@ -27,9 +27,10 @@ pygmentscodefencesguesssyntax = true
     hidecopyright = false
 
     rtl = false
+    commit = true
 
     math = true
-    # custom_css = ["css/custom.css"]
+    custom_css = ["/static/main.css"]
 
 # Social links
 [[params.social]]
