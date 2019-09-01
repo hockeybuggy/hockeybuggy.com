@@ -1,0 +1,59 @@
+baseURL = "http://hockeybuggy.com/"
+disablePathToLower = true
+languageCode = "en-ca"
+title = "hockeybuggy.com"
+
+theme = "hugo-coder"
+
+pygmentsstyle = "bw"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+[params]
+    author = "Douglas Anderson"
+    info = "I curl, canoe, and compute."
+    description = "Personal website of Douglas Anderson"
+    keywords = "blog,developer,personal"
+    avatarurl = "images/avatar.jpg"
+
+    favicon_32 = "/img/favicon-32x32.png"
+    favicon_16 = "/img/favicon-16x16.png"
+
+    footercontent = "I go by both Doug or Douglas. He/Him"
+
+    hidecredits = true
+    hidecopyright = false
+
+    rtl = false
+
+    math = true
+    custom_css = ["css/custom.css"]
+
+# Social links
+[[params.social]]
+    name = "Github"
+    icon = "fab fa-github fa-2x"
+    weight = 1
+    url = "https://github.com/hockeybuggy/"
+[[params.social]]
+    name = "Twitter"
+    icon = "fab fa-twitter fa-2x"
+    weight = 2
+    url = "https://twitter.com/hockeybuggy/"
+[[params.social]]
+    name = "Keybase"
+    icon = "fab fa-keybase fa-2x"
+    weight = 3
+    url = "https://keybase.io/hockeybuggy"
+[[params.social]]
+    name = "Email"
+    icon = "fab fa-email fa-2x"
+    weight = 4
+    url = "mailto:://hockeybuggy@gmail.com"
+
+
+# Menu links
+[[menu.main]]
+    name = "Blog"
+    weight = 1
+    url  = "/posts/"
