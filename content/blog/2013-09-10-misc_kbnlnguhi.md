@@ -1,3 +1,9 @@
+---
+title: Migrated to Jekyll
+layout: post
+category: misc
+date: 2013-09-10 21:59:09
+---
 
 Around the beginning of April last year I started to have problems generating
 my site from it's source code. At the time it was using [Pelican][PELICAN] and

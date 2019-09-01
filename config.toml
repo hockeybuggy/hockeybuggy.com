@@ -5,6 +5,8 @@ title = "hockeybuggy.com"
 
 theme = "hugo-coder"
 
+googleAnalytics = "UA-11131562-1"
+
 pygmentsstyle = "bw"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
@@ -16,8 +18,8 @@ pygmentscodefencesguesssyntax = true
     keywords = "blog,developer,personal"
     avatarurl = "images/avatar.jpg"
 
-    favicon_32 = "/img/favicon-32x32.png"
-    favicon_16 = "/img/favicon-16x16.png"
+    favicon_32 = "/static/img/favicon.ico"
+    # favicon_16 = "/static/img/favicon-16x16.png"
 
     footercontent = "I go by both Doug or Douglas. He/Him"
 
@@ -27,7 +29,7 @@ pygmentscodefencesguesssyntax = true
     rtl = false
 
     math = true
-    custom_css = ["css/custom.css"]
+    # custom_css = ["css/custom.css"]
 
 # Social links
 [[params.social]]
@@ -41,19 +43,19 @@ pygmentscodefencesguesssyntax = true
     weight = 2
     url = "https://twitter.com/hockeybuggy/"
 [[params.social]]
+    name = "Email"
+    icon = "fas fa-at fa-2x"
+    weight = 3
+    url = "mailto:://hockeybuggy@gmail.com"
+[[params.social]]
     name = "Keybase"
     icon = "fab fa-keybase fa-2x"
-    weight = 3
-    url = "https://keybase.io/hockeybuggy"
-[[params.social]]
-    name = "Email"
-    icon = "fab fa-email fa-2x"
     weight = 4
-    url = "mailto:://hockeybuggy@gmail.com"
+    url = "https://keybase.io/hockeybuggy"
 
 
 # Menu links
 [[menu.main]]
     name = "Blog"
     weight = 1
-    url  = "/posts/"
+    url  = "/blog/"

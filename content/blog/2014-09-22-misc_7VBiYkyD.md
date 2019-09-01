@@ -1,3 +1,13 @@
+---
+layout: post
+title: "State of the Dotfiles"
+date: "2014-09-22"
+edit_date: "2014-10-03"
+categories: misc
+author: Douglas Anderson
+header_img: "static/img/stateofthedotfiles-2014.jpg"
+---
+
 
 In this post I am gonna talk about the things in my configuration that I am
 really excited about. Warning: non-technical people may find this either super
