@@ -1,6 +1,6 @@
 +++
 title = "A new a stylish look around the site. Thanks to sass"
-title = "adding-sass-files"
+slug = "adding-sass-files"
 date = 2013-01-31
 tags = ["sass", "development"]
 categories = ["meta"]
