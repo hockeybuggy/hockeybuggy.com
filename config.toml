@@ -1,4 +1,4 @@
-baseURL = "http://hockeybuggy.com/"
+baseURL = "https://hockeybuggy.com/"
 disablePathToLower = true
 languageCode = "en-ca"
 title = "hockeybuggy.com"
@@ -26,7 +26,6 @@ pygmentscodefencesguesssyntax = true
     hidecopyright = false
 
     rtl = false
-    commit = true
 
     math = true
     custom_css = ["/static/main.css"]
