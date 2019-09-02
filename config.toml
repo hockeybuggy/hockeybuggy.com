@@ -16,10 +16,9 @@ pygmentscodefencesguesssyntax = true
     info = "I curl, canoe, and compute."
     description = "Personal website of Douglas Anderson"
     keywords = "blog,developer,personal"
-    avatarurl = "/static/img/douglas-paddling.jpg"
+    avatarurl = "/static/img/douglas-paddling-square.jpg"
 
     favicon_32 = "/static/img/favicon.ico"
-    # favicon_16 = "/static/img/favicon-16x16.png"
 
     footercontent = "I go by both Doug or Douglas. He/Him"
 
