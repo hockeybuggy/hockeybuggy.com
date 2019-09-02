@@ -3,4 +3,4 @@
 User-agent: *
 
 # Not sure why but site maps are supposed to be absolute.
-Sitemap: /sitemap.xml
+Sitemap: https://hockeybuggy.com/sitemap.xml
