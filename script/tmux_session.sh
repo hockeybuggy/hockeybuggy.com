@@ -7,7 +7,7 @@ main() {
 
     if [ $? != 0 ]; then
         tmux new-session -s $SESS -n "vim" -d
-        tmux send-keys -t $SESS:1.1 "vim _config.yml _layouts/* _includes/* static/css/main.scss static/_sass/*" C-m
+        tmux send-keys -t $SESS:1.1 "vim config.toml content/blog/*" C-m
 
         tmux new-window -t $SESS -n "shell"
         tmux split-window -t $SESS:2 -h

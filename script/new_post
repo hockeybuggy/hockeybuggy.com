@@ -6,8 +6,7 @@ import random
 import string
 from os import path
 
-templatesDirStr = "_templates"
-outputDirStr = "_posts"
+outputDirStr = "content/blog"
 dateformat = "%Y-%m-%d"
 postTemplate = """\
 ---
