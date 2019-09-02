@@ -19,7 +19,7 @@ blog = "/blog/:year/:month/:slug/"
     info = "I curl, canoe, and compute."
     description = "Personal website of Douglas Anderson"
     keywords = "blog,developer,personal"
-    avatarurl = "/static/img/douglas-paddling-square.jpg"
+    avatarurl = "/static/img/douglas-paddling-square.webp"
 
     favicon_32 = "/static/img/favicon.ico"
 
