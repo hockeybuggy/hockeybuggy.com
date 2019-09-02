@@ -2,7 +2,7 @@
 title = "Migrated to Jekyll"
 slug = "migrated-to-jekyll"
 date = 2013-09-10T21:59:09
-tags = []
+tags = ["jekyll", "development"]
 categories = ["meta"]
 aliases = [
   "/blog/misc/2013/09/10/misc_kbnlnguhi.html",

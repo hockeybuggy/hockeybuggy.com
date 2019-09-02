@@ -3,8 +3,8 @@ title = "State of the Dotfiles"
 date = 2014-09-22
 edit_date = 2014-10-03
 header_img = "static/img/stateofthedotfiles-2014.jpg"
-tags = []
-categories = []
+tags = ["development", "vim"]
+categories = ["zsh", "vim"]
 aliases = [
   "/misc/2014/09/22/misc_7VBiYkyD.html",
 ]

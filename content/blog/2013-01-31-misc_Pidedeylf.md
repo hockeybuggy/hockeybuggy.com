@@ -1,7 +1,8 @@
 +++
 title = "A new a stylish look around the site. Thanks to sass"
+title = "adding-sass-files"
 date = 2013-01-31
-tags = []
+tags = ["sass", "development"]
 categories = ["meta"]
 aliases = [
   "/blog/misc/2013/01/31/misc_Pidedeylf.html",

@@ -2,8 +2,8 @@
 title = "Vim splitting shortcuts"
 slug = "vim-splitting-shortcuts"
 date = "2016-01-18"
-tags = []
-categories = []
+tags = ["development", "vim"]
+categories = ["vim"]
 aliases = [
   "/blog/misc/2016/01/18/misc_5CbDTnqb.html",
 ]

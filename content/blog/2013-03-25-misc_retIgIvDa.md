@@ -2,8 +2,8 @@
 title = "Moving beyond word-wise motions"
 slug = "moving-beymond-word-wise-motions"
 date = 2013-03-25
-tags = []
-categories = []
+tags = ["vim", "development"]
+categories = ["vim"]
 aliases = [
   "/misc/2013/03/26/misc_retIgIvDa.html",
 ]

@@ -2,8 +2,14 @@
 date = 2012-12-02
 title = "Taking this Pelican site live"
 slug = "taking-this-pelican-site-live"
-tags = []
-categories = []
+tags = [
+    "python",
+    "pelican",
+    "development",
+]
+categories = [
+    "meta",
+]
 aliases = [
   "/blog/misc/2016/08/26/misc_LanVaGlyp.html",
 ]
