@@ -1,0 +1,17 @@
+<footer class="footer">
+  <section class="container">
+    {{ with .Site.Params.footercontent | safeHTML }}
+      <p>{{.}}</p>
+    {{ end }}
+
+      <a href="/LICENSE" aria-label="licence">
+        <i class="fab fa-creative-commons"></i>
+      </a>
+      •
+      <a href="/blog/index.xml" aria-label="atom feed" >
+        <i class="fas fa-rss"></i>
+      </a>
+      •
+    {{ if not .Site.Params.hideCopyright }} © {{ now.Format "2006" }}{{ end }}
+  </section>
+</footer>

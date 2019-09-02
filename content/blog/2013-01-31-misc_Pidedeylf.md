@@ -2,8 +2,9 @@
 layout: post
 title: A new a stylish look around the site. Thanks to sass
 date: 2013-01-31
-categories: misc
 author: Douglas Anderson
+tags: []
+categories: []
 ---
 
 So if you have seen the site before this post you will have noticed that we(the
