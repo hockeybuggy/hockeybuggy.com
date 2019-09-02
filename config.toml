@@ -11,6 +11,9 @@ pygmentsstyle = "solarized-light"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
+[permalinks]
+blog = "/blog/:year/:month/:slug/"
+
 [params]
     author = "Douglas Anderson"
     info = "I curl, canoe, and compute."

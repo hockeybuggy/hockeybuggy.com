@@ -1,11 +1,12 @@
----
-layout: post
-title: A new a stylish look around the site. Thanks to sass
-date: 2013-01-31
-author: Douglas Anderson
-tags: []
-categories: []
----
++++
+title = "A new a stylish look around the site. Thanks to sass"
+date = 2013-01-31
+tags = []
+categories = ["meta"]
+aliases = [
+  "/blog/misc/2013/01/31/misc_Pidedeylf.html",
+]
++++
 
 So if you have seen the site before this post you will have noticed that we(the
 royal we [aka. we := I ])

@@ -1,11 +1,13 @@
----
-layout: post
-title: "Vim splitting shortcuts"
-date: 2016-01-18
-author: Douglas Anderson
-tags: []
-categories: []
----
++++
+title = "Vim splitting shortcuts"
+slug = "vim-splitting-shortcuts"
+date = "2016-01-18"
+tags = []
+categories = []
+aliases = [
+  "/blog/misc/2016/01/18/misc_5CbDTnqb.html",
+]
++++
 
 I have a quite a few leader mapped keys in my `.vimrc`, and I use some of them.
 The mapping that I use the most is to split the vim window to an existing

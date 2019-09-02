@@ -1,11 +1,13 @@
----
-layout: post
-title: "Moving beyond word-wise motions"
-date: 2013-03-25
-author: Douglas Anderson
-tags: []
-categories: []
----
++++
+title = "Moving beyond word-wise motions"
+slug = "moving-beymond-word-wise-motions"
+date = 2013-03-25
+tags = []
+categories = []
+aliases = [
+  "/misc/2013/03/26/misc_retIgIvDa.html",
+]
++++
 
 Recently I have been working quite a bit on my Vim skills. If you don't use Vim
 and don't want to read about a text editor you may wish to stop reading here.

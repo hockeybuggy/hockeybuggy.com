@@ -1,9 +1,13 @@
----
-title: Migrated to Jekyll
-layout: post
-category: misc
-date: 2013-09-10 21:59:09
----
++++
+title = "Migrated to Jekyll"
+slug = "migrated-to-jekyll"
+date = 2013-09-10T21:59:09
+tags = []
+categories = ["meta"]
+aliases = [
+  "/blog/misc/2013/09/10/misc_kbnlnguhi.html",
+]
++++
 
 Around the beginning of April last year I started to have problems generating
 my site from it's source code. At the time it was using [Pelican][PELICAN] and
