@@ -58,8 +58,9 @@ def get_random_str(length):
 
 def main(category, date, title):
     outFilename = "{}-{}_{}.md".format(date, category, get_random_str(8))
-    with open(path.join(outputDirStr, outFilename), "w") as w:
-        print "writing to file:", outFilename
+    outPath = path.join(outputDirStr, outFilename)
+    with open(outPath, "w") as w:
+        print "writing to file:", outPath
         w.write(postTemplate.format(title, date, category))
 
 
