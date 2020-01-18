@@ -32,7 +32,7 @@ various programming languages to generate a language appropriate binding that
 can be used to encode and decode messages.
 
 The documentation on [why you might want to use
-protobufs](https://developers.google.com/protocol-buffers/docs/overview#whynotxml)
+Protobufs](https://developers.google.com/protocol-buffers/docs/overview#whynotxml)
 does a good job of explaining their advantages. Using Protobufs have some
 trade-offs that likely make them not the most appropriate format for a hobby
 home automation project (such as not being human readable), but here we are.
@@ -77,7 +77,7 @@ struct from the Protobuf definition. That included adding the following to the
 build = "src/build.rs"
 ```
 
-and creating a `src/build.rs` file that looks like this:
+Creating a `src/build.rs` file that looks like this:
 
 ```rust
 
@@ -226,6 +226,6 @@ This was a fun thing to try out and I feel like I learned a few things from the 
 
 1. You could generate Rust structs from preexisting Protobufs allowing a typed boundary between languages.
 2. Tooling to this approach (as is) is imperfect since the generated file only exists at compile time.
-2. Async/Await in rust is wonderful and I am grateful of peoples hard work to make it happen.
+2. Async/Await in rust is wonderful and I am grateful of people's hard work to make it happen.
 
 I could picture reaching for Protobufs again in the future.
