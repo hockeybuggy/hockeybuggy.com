@@ -18,8 +18,8 @@ down sounds super frustrating).
 
 These smaller computers will need to encode the information in some format and
 send it to the central computer. Being a web developer I reached for familiar
-tools and decided to make the central server communicate via HTTP, but since I
-wanted to try something new instead of having the body of the HTTP messages be
+tools and decided to make the systems communicate via HTTP, but since I
+wanted to try something new: instead of having the body of the HTTP messages be
 a plain text format I decided to try using Protobufs.
 
 
@@ -31,16 +31,19 @@ defined message types in `.proto` files. These files can then be used by
 various programming languages to generate a language appropriate binding that
 can be used to encode and decode messages.
 
-Using Protobufs have some trade-offs that likely make them not the most
-appropriate format for a hobby home automation project, but here we are.
+The documentation on [why you might want to use
+protobufs](https://developers.google.com/protocol-buffers/docs/overview#whynotxml)
+does a good job of explaining their advantages. Using Protobufs have some
+trade-offs that likely make them not the most appropriate format for a hobby
+home automation project (such as not being human readable), but here we are.
 
 
 ## Generating Rust structs from a Protobuf
 
 I selected [the Prost library][PROST] somewhat arbitrarily since, in
 retrospect, I didn't look into
-(other)[https://github.com/stepancheg/rust-protobuf]
-(options)[https://github.com/tafia/quick-protobuf].
+[other](https://github.com/stepancheg/rust-protobuf)
+[options](https://github.com/tafia/quick-protobuf).
 
 I started off by installing Prost by adding this to my `Cargo.toml`:
 
