@@ -9,13 +9,13 @@ from os import path
 outputDirStr = "content/blog"
 dateformat = "%Y-%m-%d"
 postTemplate = """\
----
-layout: post
-title: "{}"
-date: {}
-categories: misc
-author: Douglas Anderson
----
++++
+title = "{}"
+slug = ""
+date = {}
+tags = ["development"]
+categories = ["misc"]
++++
 
 <!--copy goes here-->
 
