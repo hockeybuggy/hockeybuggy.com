@@ -49,11 +49,6 @@ blog = "/blog/:year/:month/:slug/"
     icon = "fas fa-at fa-2x"
     weight = 3
     url = "mailto:://hockeybuggy@gmail.com"
-[[params.social]]
-    name = "Keybase"
-    icon = "fab fa-keybase fa-2x"
-    weight = 4
-    url = "https://keybase.io/hockeybuggy"
 
 
 # Menu links
