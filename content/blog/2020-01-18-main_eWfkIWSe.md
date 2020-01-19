@@ -167,8 +167,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-The documentation for
-[`encode`](https://docs.rs/prost/0.6.1/prost/trait.Message.html#method.encode).
+The documentation for [`encode` can be found
+here.](https://docs.rs/prost/0.6.1/prost/trait.Message.html#method.encode).
 
 
 ### Receiving
