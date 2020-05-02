@@ -698,9 +698,9 @@ export type FileFieldsEnum =
   'childMarkdownRemark___frontmatter___date' |
   'childMarkdownRemark___frontmatter___slug' |
   'childMarkdownRemark___frontmatter___tags' |
-  'childMarkdownRemark___frontmatter___editdate' |
   'childMarkdownRemark___frontmatter___edit_date' |
   'childMarkdownRemark___frontmatter___header_img' |
+  'childMarkdownRemark___frontmatter___editdate' |
   'childMarkdownRemark___excerpt' |
   'childMarkdownRemark___rawMarkdownBody' |
   'childMarkdownRemark___fileAbsolutePath' |
@@ -1473,9 +1473,9 @@ export type MarkdownRemarkFieldsEnum =
   'frontmatter___date' |
   'frontmatter___slug' |
   'frontmatter___tags' |
-  'frontmatter___editdate' |
   'frontmatter___edit_date' |
   'frontmatter___header_img' |
+  'frontmatter___editdate' |
   'excerpt' |
   'rawMarkdownBody' |
   'fileAbsolutePath' |
@@ -1607,21 +1607,13 @@ export type MarkdownRemarkFrontmatter = {
   date?: Maybe<Scalars['Date']>;
   slug?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
-  editdate?: Maybe<Scalars['Date']>;
   edit_date?: Maybe<Scalars['Date']>;
   header_img?: Maybe<Scalars['String']>;
+  editdate?: Maybe<Scalars['Date']>;
 };
 
 
 export type MarkdownRemarkFrontmatterDateArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type MarkdownRemarkFrontmatterEditdateArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -1636,6 +1628,14 @@ export type MarkdownRemarkFrontmatterEdit_DateArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
+
+export type MarkdownRemarkFrontmatterEditdateArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
 export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   aliases?: Maybe<StringQueryOperatorInput>;
@@ -1643,9 +1643,9 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   date?: Maybe<DateQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<StringQueryOperatorInput>;
-  editdate?: Maybe<DateQueryOperatorInput>;
   edit_date?: Maybe<DateQueryOperatorInput>;
   header_img?: Maybe<StringQueryOperatorInput>;
+  editdate?: Maybe<DateQueryOperatorInput>;
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -2187,13 +2187,9 @@ export type SiteFieldsEnum =
   'buildTime' |
   'siteMetadata___title' |
   'siteMetadata___description' |
-  'siteMetadata___byline' |
   'siteMetadata___author___fullName' |
   'siteMetadata___author___preferredName' |
   'siteMetadata___author___preferredPronouns' |
-  'siteMetadata___social___github' |
-  'siteMetadata___social___twitter' |
-  'siteMetadata___social___email' |
   'port' |
   'host' |
   'polyfill' |
@@ -2817,9 +2813,7 @@ export type SitePluginSortInput = {
 export type SiteSiteMetadata = {
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
-  byline?: Maybe<Scalars['String']>;
   author?: Maybe<SiteSiteMetadataAuthor>;
-  social?: Maybe<SiteSiteMetadataSocial>;
 };
 
 export type SiteSiteMetadataAuthor = {
@@ -2837,21 +2831,7 @@ export type SiteSiteMetadataAuthorFilterInput = {
 export type SiteSiteMetadataFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
-  byline?: Maybe<StringQueryOperatorInput>;
   author?: Maybe<SiteSiteMetadataAuthorFilterInput>;
-  social?: Maybe<SiteSiteMetadataSocialFilterInput>;
-};
-
-export type SiteSiteMetadataSocial = {
-  github?: Maybe<Scalars['String']>;
-  twitter?: Maybe<Scalars['String']>;
-  email?: Maybe<Scalars['String']>;
-};
-
-export type SiteSiteMetadataSocialFilterInput = {
-  github?: Maybe<StringQueryOperatorInput>;
-  twitter?: Maybe<StringQueryOperatorInput>;
-  email?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SiteSortInput = {
@@ -2875,10 +2855,7 @@ export type StringQueryOperatorInput = {
 export type Unnamed_1_QueryVariables = {};
 
 
-export type Unnamed_1_Query = { site?: Maybe<{ siteMetadata?: Maybe<(
-      Pick<SiteSiteMetadata, 'title' | 'description'>
-      & { social?: Maybe<Pick<SiteSiteMetadataSocial, 'twitter'>> }
-    )> }> };
+export type Unnamed_1_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
 
 export type BlogIndexPageQueryVariables = {};
 
@@ -2898,7 +2875,7 @@ export type BlogPostBySlugQueryVariables = {
 };
 
 
-export type BlogPostBySlugQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, markdownRemark?: Maybe<(
+export type BlogPostBySlugQuery = { postBySlug?: Maybe<(
     Pick<MarkdownRemark, 'id' | 'excerpt' | 'html'>
     & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'date'>> }
   )> };

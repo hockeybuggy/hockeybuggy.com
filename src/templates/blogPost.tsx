@@ -4,12 +4,13 @@ import { graphql } from "gatsby";
 import { BaseLayout } from "../layouts";
 import SEO from "../components/seo";
 
+import { BlogPostBySlugQuery } from "../../graphql-types";
+
 const BlogPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark;
-  const siteTitle = data.site.siteMetadata.title;
+  const post = data.postBySlug;
 
   return (
-    <BaseLayout title={siteTitle}>
+    <BaseLayout>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -28,12 +29,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    postBySlug: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
       html

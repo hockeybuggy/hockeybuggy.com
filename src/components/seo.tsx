@@ -10,13 +10,13 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-type Content =
+type MetaItem =
   | { name: string; content: any }
   | { property: string; content: any };
 
 interface SEOProps {
   description: string;
-  meta?: Array<Content>;
+  meta?: Array<MetaItem>;
   title: string;
 }
 
@@ -28,9 +28,6 @@ const SEO = ({ description, meta = [], title }: SEOProps): JSX.Element => {
           siteMetadata {
             title
             description
-            social {
-              twitter
-            }
           }
         }
       }
@@ -69,7 +66,7 @@ const SEO = ({ description, meta = [], title }: SEOProps): JSX.Element => {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.social.twitter,
+          content: `https://twitter.com/hockeybuggy`,
         },
         {
           name: `twitter:title`,
@@ -82,19 +79,6 @@ const SEO = ({ description, meta = [], title }: SEOProps): JSX.Element => {
       ].concat(meta)}
     />
   );
-};
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-};
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
 };
 
 export default SEO;
