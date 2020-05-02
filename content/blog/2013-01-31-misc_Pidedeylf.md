@@ -1,13 +1,15 @@
-+++
-title = "A new a stylish look around the site. Thanks to sass"
-slug = "adding-sass-files"
-date = 2013-01-31
-tags = ["sass", "development"]
-categories = ["meta"]
-aliases = [
-  "/blog/misc/2013/01/31/misc_Pidedeylf.html",
-]
-+++
+---
+aliases:
+- /blog/misc/2013/01/31/misc_Pidedeylf.html
+categories:
+- meta
+date: "2013-01-31T00:00:00-05:00"
+slug: adding-sass-files
+tags:
+- sass
+- development
+title: A new a stylish look around the site. Thanks to sass
+---
 
 So if you have seen the site before this post you will have noticed that we(the
 royal we [aka. we := I ])

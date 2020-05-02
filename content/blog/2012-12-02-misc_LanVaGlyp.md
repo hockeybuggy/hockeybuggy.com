@@ -1,19 +1,16 @@
-+++
-date = 2012-12-02
-title = "Taking this Pelican site live"
-slug = "taking-this-pelican-site-live"
-tags = [
-    "python",
-    "pelican",
-    "development",
-]
-categories = [
-    "meta",
-]
-aliases = [
-  "/blog/misc/2016/08/26/misc_LanVaGlyp.html",
-]
-+++
+---
+aliases:
+- /blog/misc/2016/08/26/misc_LanVaGlyp.html
+categories:
+- meta
+date: "2012-12-02T00:00:00-05:00"
+slug: taking-this-pelican-site-live
+tags:
+- python
+- pelican
+- development
+title: Taking this Pelican site live
+---
 
 It is finally time to publish this website. I do not imagine that it is anyway
 complete. However I really do want to have something existent up and online.

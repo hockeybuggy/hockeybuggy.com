@@ -1,13 +1,15 @@
-+++
-title = "Moving beyond word-wise motions"
-slug = "moving-beymond-word-wise-motions"
-date = 2013-03-25
-tags = ["vim", "development"]
-categories = ["vim"]
-aliases = [
-  "/misc/2013/03/26/misc_retIgIvDa.html",
-]
-+++
+---
+aliases:
+- /misc/2013/03/26/misc_retIgIvDa.html
+categories:
+- vim
+date: "2013-03-25T00:00:00-04:00"
+slug: moving-beymond-word-wise-motions
+tags:
+- vim
+- development
+title: Moving beyond word-wise motions
+---
 
 Recently I have been working quite a bit on my Vim skills. If you don't use Vim
 and don't want to read about a text editor you may wish to stop reading here.

@@ -1,10 +1,14 @@
-+++
-title = "Experimenting with Protobufs generated types in Rust"
-slug = "experimenting-with-protobufs-generated-types-in-rust"
-date = 2020-01-18
-tags = ["development", "rust", "protobufs"]
-categories = ["misc"]
-+++
+---
+categories:
+- misc
+date: "2020-01-18T00:00:00-05:00"
+slug: experimenting-with-protobufs-generated-types-in-rust
+tags:
+- development
+- rust
+- protobufs
+title: Experimenting with Protobufs generated types in Rust
+---
 
 This past week I was thinking about what it would take to design and build a
 home heating monitoring and control system. A "normal" mid-week thought. I was
