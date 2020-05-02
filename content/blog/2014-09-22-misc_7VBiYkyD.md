@@ -11,6 +11,7 @@ tags:
 - development
 - vim
 title: State of the Dotfiles
+slug: state-of-the-dotfiles
 ---
 
 

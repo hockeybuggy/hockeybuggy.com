@@ -7,11 +7,14 @@ import Footer from "../components/footer";
 import Navigation from "../components/navigation";
 
 interface LayoutProps extends React.HTMLAttributes<any> {
+  className?: string;
   children: React.ReactNode;
 }
 
 const InnerContainer: React.FC<LayoutProps> = (props) => (
-  <main className="container">{props.children}</main>
+  <section className={classNames("container", props.className)}>
+    {props.children}
+  </section>
 );
 
 export const BaseLayout: React.FC<LayoutProps> = (props) => (
@@ -35,10 +38,18 @@ export const BaseLayout: React.FC<LayoutProps> = (props) => (
       />
     </Helmet>
 
-    <div className="header">
-      <Navigation />
-    </div>
-    <InnerContainer {...props} />
-    <Footer />
+    <main className="wrapper">
+      <div className="header">
+        <Navigation />
+      </div>
+      <div className="content">
+        <InnerContainer {...props} />
+      </div>
+      <Footer />
+    </main>
   </React.Fragment>
+);
+
+export const CenteredLayout: React.FC<LayoutProps> = (props) => (
+  <BaseLayout className="centered">{props.children}</BaseLayout>
 );
