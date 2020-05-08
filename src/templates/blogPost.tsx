@@ -6,21 +6,45 @@ import SEO from "../components/seo";
 
 import { BlogPostBySlugQuery } from "../../graphql-types";
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.postBySlug;
+const BlogPostTemplate = ({ data }: { data: BlogPostBySlugQuery }) => {
+  const {
+    title,
+    humanDate,
+    computerDate,
+    categories,
+    tags,
+  } = data.postBySlug!.frontmatter!;
+  const excerpt = data.postBySlug!.excerpt!;
+  const html = data.postBySlug!.html!;
 
   return (
-    <BaseLayout>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
+    <BaseLayout className="post">
+      <SEO title={title!} description={excerpt} />
       <article>
         <header>
-          <h1>{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <h1 className="post-title">{title}</h1>
+          <div className="post-meta">
+            <div className="date">
+              <span className="posted-on">
+                <i className="fas fa-calendar"></i>
+                <time dateTime={computerDate} />
+
+                {humanDate}
+              </span>
+            </div>
+
+            <div className="categories">
+              <i className="fas fa-folder"></i>
+              {(categories || []).join(", ")}
+            </div>
+
+            <div className="tags">
+              <i className="fas fa-tag"></i>
+              {(tags || []).join(", ")}
+            </div>
+          </div>
         </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <section dangerouslySetInnerHTML={{ __html: html }} />
         <hr />
       </article>
     </BaseLayout>
@@ -35,7 +59,10 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        humanDate: date(formatString: "MMMM DD, YYYY")
+        computerDate: date
+        categories
+        tags
       }
     }
   }

@@ -2877,7 +2877,10 @@ export type BlogPostBySlugQueryVariables = {
 
 export type BlogPostBySlugQuery = { postBySlug?: Maybe<(
     Pick<MarkdownRemark, 'id' | 'excerpt' | 'html'>
-    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'date'>> }
+    & { frontmatter?: Maybe<(
+      Pick<MarkdownRemarkFrontmatter, 'title' | 'categories' | 'tags'>
+      & { humanDate: MarkdownRemarkFrontmatter['date'], computerDate: MarkdownRemarkFrontmatter['date'] }
+    )> }
   )> };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
