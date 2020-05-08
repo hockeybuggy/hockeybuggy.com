@@ -38,6 +38,12 @@ Generate and watch the site with:
 
     ./script/server
 
+### Running the tests
+
+To check the built site with an headless browser test:
+
+    ./script/test
+
 
 ### Deployment
 
