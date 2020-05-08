@@ -2,6 +2,7 @@ import * as React from "react";
 import { PageProps, graphql } from "gatsby";
 
 import { CenteredLayout } from "../layouts";
+import SEO from "../components/seo";
 
 import { IndexPageQuery } from "../../graphql-types";
 
@@ -29,8 +30,14 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
 
   return (
     <CenteredLayout>
+      <SEO title={"Landing page for hockeybuggy.com"} />
       <div className="about">
-        <div className="avatar">Img here</div>
+        <div className="avatar">
+          <img
+            src="/static/img/douglas-paddling-square.webp"
+            alt="An image of Douglas paddling a canoe"
+          />
+        </div>
         <h1>{author.fullName!}</h1>
         <h2>{byline}</h2>
         <ul>

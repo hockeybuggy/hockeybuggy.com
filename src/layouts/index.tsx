@@ -28,13 +28,13 @@ export const BaseLayout: React.FC<LayoutProps> = (props) => (
         rel="stylesheet"
         href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
         integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
-        crossorigin="anonymous"
+        crossOrigin="anonymous"
       />
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
         integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU="
-        crossorigin="anonymous"
+        crossOrigin="anonymous"
       />
     </Helmet>
 

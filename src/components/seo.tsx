@@ -6,7 +6,6 @@
  */
 
 import React from "react";
-import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
@@ -15,7 +14,7 @@ type MetaItem =
   | { property: string; content: any };
 
 interface SEOProps {
-  description: string;
+  description?: string;
   meta?: Array<MetaItem>;
   title: string;
 }

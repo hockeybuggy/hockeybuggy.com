@@ -39,7 +39,7 @@ one of the figures greatly helped my understanding and I looked for a similar
 graph for these character-wise motions. Failing to find one I made one and
 thought I should share it here.
 
-<img class="center" src="{{ site.url }}/static/img/fasterthanwordwise-800.jpg" alt="An image I made explaining some of the character-wise motions"/>
+<img class="center" src="/static/img/fasterthanwordwise-800.jpg" alt="An image I made explaining some of the character-wise motions"/>
 
 These commands are complimented by the ; command that repeats the most recent
 motion. This becomes useful if you trying to move to a character and fall short
