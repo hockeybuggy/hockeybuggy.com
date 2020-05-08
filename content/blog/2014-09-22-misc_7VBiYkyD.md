@@ -1,14 +1,18 @@
-+++
-title = "State of the Dotfiles"
-date = 2014-09-22
-edit_date = 2014-10-03
-header_img = "static/img/stateofthedotfiles-2014.jpg"
-tags = ["development", "vim"]
-categories = ["zsh", "vim"]
-aliases = [
-  "/misc/2014/09/22/misc_7VBiYkyD.html",
-]
-+++
+---
+aliases:
+- /misc/2014/09/22/misc_7VBiYkyD.html
+categories:
+- zsh
+- vim
+date: "2014-09-22T00:00:00-04:00"
+edit_date: "2014-10-03T00:00:00-04:00"
+header_img: static/img/stateofthedotfiles-2014.jpg
+tags:
+- development
+- vim
+title: State of the Dotfiles
+slug: state-of-the-dotfiles
+---
 
 
 In this post I am gonna talk about the things in my configuration that I am

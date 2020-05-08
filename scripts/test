@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "==> Running end to end tests"
+yarn run test:e2e

@@ -7,8 +7,9 @@ The personal website of Douglas James Anderson.
 
 ## Dependencies
 
-1. hugo
-2. git
+This repo expects a version of node as well as yarn installed. This README
+assumes that [`fnm`](https://github.com/Schniz/fnm) is used (but there is
+nothing wrong with other methods of installing node).
 
 
 ## Making Changes
@@ -16,6 +17,8 @@ The personal website of Douglas James Anderson.
 Download the repository and install dependencies:
 
     git clone git@github.com/hockeybuggy/hockeybuggy.com.git
+    fnm use
+    yarn install
 
 
 ### Edit posts
@@ -34,6 +37,12 @@ You can also use flags to set date or title
 Generate and watch the site with:
 
     ./script/server
+
+### Running the tests
+
+To check the built site with an headless browser test:
+
+    ./script/test
 
 
 ### Deployment

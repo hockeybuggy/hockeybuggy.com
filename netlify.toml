@@ -1,0 +1,7 @@
+[build]
+  command = "yarn build"
+  functions = "lambda"
+  publish = "public"
+
+[dev]
+    autoLaunch = false

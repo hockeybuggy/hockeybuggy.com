@@ -1,13 +1,15 @@
-+++
-title = "Migrated to Jekyll"
-slug = "migrated-to-jekyll"
-date = 2013-09-10T21:59:09
-tags = ["jekyll", "development"]
-categories = ["meta"]
-aliases = [
-  "/blog/misc/2013/09/10/misc_kbnlnguhi.html",
-]
-+++
+---
+aliases:
+- /blog/misc/2013/09/10/misc_kbnlnguhi.html
+categories:
+- meta
+date: "2013-09-10T21:59:09-04:00"
+slug: migrated-to-jekyll
+tags:
+- jekyll
+- development
+title: Migrated to Jekyll
+---
 
 Around the beginning of April last year I started to have problems generating
 my site from it's source code. At the time it was using [Pelican][PELICAN] and
