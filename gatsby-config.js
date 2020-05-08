@@ -10,8 +10,12 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-typescript",
-    "gatsby-transformer-remark",
-    "gatsby-remark-prismjs",
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-prismjs`],
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {

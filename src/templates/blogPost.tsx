@@ -1,12 +1,12 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { PageProps, graphql } from "gatsby";
 
 import { BaseLayout } from "../layouts";
 import SEO from "../components/seo";
 
 import { BlogPostBySlugQuery } from "../../graphql-types";
 
-const BlogPostTemplate = ({ data }: { data: BlogPostBySlugQuery }) => {
+const BlogPostTemplate = ({ data }: PageProps<BlogPostBySlugQuery>) => {
   const {
     title,
     humanDate,

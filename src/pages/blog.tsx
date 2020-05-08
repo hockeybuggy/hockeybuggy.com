@@ -1,12 +1,12 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { PageProps, graphql } from "gatsby";
 import Link from "gatsby-link";
 
 import { BaseLayout } from "../layouts";
 
 import { BlogIndexPageQuery } from "../../graphql-types";
 
-const BlogIndex = ({ data }: { data: BlogIndexPageQuery }): JSX.Element => {
+const BlogIndex = ({ data }: PageProps<BlogIndexPageQuery>): JSX.Element => {
   // TODO use this in layout
   // const siteTitle = data.site!.siteMetadata!.title;
   const posts = data.allBlogPosts.edges;

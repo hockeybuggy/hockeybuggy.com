@@ -1,5 +1,5 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { PageProps, graphql } from "gatsby";
 
 import { CenteredLayout } from "../layouts";
 
@@ -24,7 +24,7 @@ const social = [
   },
 ];
 
-const IndexPage = ({ data }: { data: IndexPageQuery }): JSX.Element => {
+const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   const author = data.site!.siteMetadata!.author!;
 
   return (
@@ -36,7 +36,7 @@ const IndexPage = ({ data }: { data: IndexPageQuery }): JSX.Element => {
         <ul>
           {social.map((socialSite) => {
             return (
-              <li>
+              <li key={socialSite.label}>
                 <a aria-label={socialSite.label} href={socialSite.link}>
                   <i
                     className={socialSite.fontAwesomeIcon}
