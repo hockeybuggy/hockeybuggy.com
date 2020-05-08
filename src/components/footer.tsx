@@ -5,7 +5,10 @@ const Footer = (): JSX.Element => {
     <footer className="footer">
       <section className="container">
         <p>I go by both Doug or Douglas. He/Him</p>
-        <a href="/LICENSE" aria-label="licence">
+        <a
+          href="https://creativecommons.org/licenses/by/4.0/"
+          aria-label="licence"
+        >
           <i className="fab fa-creative-commons"></i>
         </a>
         •
