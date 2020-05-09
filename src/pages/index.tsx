@@ -27,10 +27,11 @@ const social = [
 
 const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   const author = data.site!.siteMetadata!.author!;
+  const description = data.site!.siteMetadata!.description!;
 
   return (
     <CenteredLayout>
-      <SEO title={"Landing page for hockeybuggy.com"} />
+      <SEO title={description} />
       <div className="about">
         <div className="avatar">
           <img
@@ -63,6 +64,7 @@ export const pageQuery = graphql`
   query IndexPage {
     site {
       siteMetadata {
+        description
         author {
           fullName
         }

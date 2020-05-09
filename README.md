@@ -47,6 +47,10 @@ To check the built site with an headless browser test:
 
     ./script/test
 
+To check just one page:
+
+    ./script/test landingPage
+
 To view the tests running:
 
     HEADLESS=false ./script/test

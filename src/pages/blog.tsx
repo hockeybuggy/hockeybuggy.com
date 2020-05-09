@@ -3,16 +3,17 @@ import { PageProps, graphql } from "gatsby";
 import Link from "gatsby-link";
 
 import { BaseLayout } from "../layouts";
+import SEO from "../components/seo";
 
 import { BlogIndexPageQuery } from "../../graphql-types";
 
 const BlogIndex = ({ data }: PageProps<BlogIndexPageQuery>): JSX.Element => {
-  // TODO use this in layout
-  // const siteTitle = data.site!.siteMetadata!.title;
   const posts = data.allBlogPosts.edges;
 
   return (
     <BaseLayout>
+      <SEO title={"Blog"} />
+
       <h1>Blog Posts</h1>
       {posts.map(({ node }) => {
         const frontmatter = node!.frontmatter!;

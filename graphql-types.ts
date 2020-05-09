@@ -2948,7 +2948,10 @@ export type BlogIndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<Site
 export type IndexPageQueryVariables = {};
 
 
-export type IndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<{ author?: Maybe<Pick<SiteSiteMetadataAuthor, 'fullName'>> }> }> };
+export type IndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
+      Pick<SiteSiteMetadata, 'description'>
+      & { author?: Maybe<Pick<SiteSiteMetadataAuthor, 'fullName'>> }
+    )> }> };
 
 export type BlogPostBySlugQueryVariables = {
   slug: Scalars['String'];
