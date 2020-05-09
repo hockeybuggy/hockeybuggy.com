@@ -1,9 +1,9 @@
-name: tests and linting
+name: typecheck and linting
 
 on: [push]
 
 jobs:
-  build:
+  typecheck-and-build:
     runs-on: ubuntu-latest
 
     steps:
