@@ -1,0 +1,10 @@
+
+pull_request_rules:
+  - name: Automatic merge dependencies with passing tests
+    conditions:
+      - label=dependencies
+      - status-success=run-tests
+      - status-success=typecheck-and-build
+    actions:
+      merge:
+        method: merge
