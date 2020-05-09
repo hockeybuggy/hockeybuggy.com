@@ -6,7 +6,9 @@ import SEO from "../components/seo";
 
 import { BlogPostBySlugQuery } from "../../graphql-types";
 
-const BlogPostTemplate = ({ data }: PageProps<BlogPostBySlugQuery>) => {
+const BlogPostTemplate = ({
+  data,
+}: PageProps<BlogPostBySlugQuery>): JSX.Element => {
   const {
     title,
     humanDate,
