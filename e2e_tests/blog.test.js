@@ -10,7 +10,9 @@ describe("/blog (Blog index Page)", () => {
   });
 
   it("should load without error", async () => {
-    const response = await page.goto(BLOG_PAGE.url);
+    const response = await page.goto(BLOG_PAGE.url, {
+      waitUntil: "networkidle2",
+    });
     expect(response.ok());
     expect(page.url()).toEqual(BLOG_PAGE.url);
     await page.screenshot({

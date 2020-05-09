@@ -7,17 +7,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Use Node.js 13.11.0
       uses: actions/setup-node@v1
       with:
         node-version: 13.11.0
+
     - name: Install
       run: |
         yarn install
+
     - name: Run Tests
       env:
         CI: true
         NODE_ENV: "prod"  # "test" was casusing SSR to fail.
       run: |
         yarn run test:e2e
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: e2e_test_screenshots
+        path: e2e_tests/screenshots
