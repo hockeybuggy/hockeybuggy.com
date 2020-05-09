@@ -44,6 +44,14 @@ To check the built site with an headless browser test:
 
     ./script/test
 
+To view the tests running:
+
+    HEADLESS=false ./script/test
+
+To view the tests running in slow motion:
+
+    SLOWMO=100 HEADLESS=false ./script/test
+
 
 ### Deployment
 
