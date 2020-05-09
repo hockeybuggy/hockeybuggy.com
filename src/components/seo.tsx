@@ -1,5 +1,5 @@
 import React from "react";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 type MetaItem =
@@ -31,7 +31,7 @@ const SEO = ({ description, meta = [], title }: SEOProps): JSX.Element => {
   return (
     <Helmet
       htmlAttributes={{
-        lang: "en",
+        lang: "en-ca",
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}

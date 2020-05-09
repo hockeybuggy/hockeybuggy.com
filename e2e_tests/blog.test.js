@@ -25,4 +25,8 @@ describe("/blog (Blog index Page)", () => {
   it("should have a title", async () => {
     expect(await page.title()).toEqual(BLOG_PAGE.expected.title);
   });
+
+  it("should many blog posts", async () => {
+    expect(await page.title()).toEqual(BLOG_PAGE.expected.title);
+  });
 });
