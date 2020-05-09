@@ -36,6 +36,7 @@ export const BaseLayout: React.FC<LayoutProps> = (props) => (
         integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU="
         crossOrigin="anonymous"
       />
+      <link rel="icon" href="/static/img/favicon.ico" />
     </Helmet>
 
     <main className="wrapper">

@@ -69,6 +69,15 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: "UA-11131562-1",
+        anonymize: true,
+        respectDNT: true,
+      },
+    },
     // This code generation should be close to last
     "gatsby-plugin-graphql-codegen",
   ],
