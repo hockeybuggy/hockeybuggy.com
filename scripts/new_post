@@ -10,9 +10,9 @@ outputDirStr = "content/blog"
 dateformat = "%Y-%m-%d"
 postTemplate = """\
 ---
-title = {}
-slug = ""
-date = {}
+title: {}
+slug: ""
+date: {}
 tags:
 - development
 categories:
