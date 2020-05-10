@@ -3,25 +3,26 @@ import { PageProps, graphql } from "gatsby";
 
 import { CenteredLayout } from "../layouts";
 import SEO from "../components/seo";
+import Icon from "../components/icon";
 
 import { IndexPageQuery } from "../../graphql-types";
 
 const byline = "I curl, canoe, and compute.";
 const social = [
   {
-    label: `GitHub`,
-    link: `https://github.com/hockeybuggy`,
-    fontAwesomeIcon: `fab fa-github fa-2x`,
+    label: "GitHub",
+    link: "https://github.com/hockeybuggy",
+    iconName: Icon.Names.GitHub,
   },
   {
-    label: `Twitter`,
-    link: `https://twitter.com/hockeybuggy`,
-    fontAwesomeIcon: `fab fa-twitter fa-2x`,
+    label: "Twitter",
+    link: "https://twitter.com/hockeybuggy",
+    iconName: Icon.Names.Twitter,
   },
   {
-    label: `Email`,
-    link: `mailto:://hockeybuggy@gmail.com`,
-    fontAwesomeIcon: `fas fa-at fa-2x`,
+    label: "Email",
+    link: "mailto:://hockeybuggy@gmail.com",
+    iconName: Icon.Names.Email,
   },
 ];
 
@@ -46,10 +47,11 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
             return (
               <li key={socialSite.label}>
                 <a aria-label={socialSite.label} href={socialSite.link}>
-                  <i
-                    className={socialSite.fontAwesomeIcon}
+                  <Icon
+                    name={socialSite.iconName}
+                    size={Icon.Sizes.Large}
                     aria-hidden="true"
-                  ></i>
+                  />
                 </a>
               </li>
             );
