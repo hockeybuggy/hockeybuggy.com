@@ -21,7 +21,7 @@ export const BaseLayout: React.FC<LayoutProps> = (props) => (
   <React.Fragment>
     <Helmet>
       <link
-        href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap"
         rel="stylesheet"
       />
       <link

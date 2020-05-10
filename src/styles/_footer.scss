@@ -6,4 +6,21 @@
   a {
     color: $link-color;
   }
+
+  #footer--first-line {
+    font-size: 1.1rem;
+    p {
+      margin: 0;
+    }
+  }
+
+  #footer--second-line {
+    display: flex;
+    justify-content: center;
+    font-family: $code-font-family;
+    span,
+    a {
+      padding: 0 0.5rem;
+    }
+  }
 }
