@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import Icon from "../components/icon";
+
 const Footer = (): JSX.Element => {
   return (
     <footer className="footer">
@@ -10,12 +12,12 @@ const Footer = (): JSX.Element => {
         <div id="footer--second-line">
           <a
             href="https://creativecommons.org/licenses/by/4.0/"
-            aria-label="licence"
+            aria-label="Creative commons licence"
           >
-            <i className="fab fa-creative-commons"></i>
+            <Icon name={Icon.Names.CreativeCommons} />
           </a>
-          <a href="/blog/index.xml" aria-label="atom feed">
-            <i className="fas fa-rss"></i>
+          <a href="/blog/index.xml" aria-label="blog atom feed">
+            <Icon name={Icon.Names.RSS} />
           </a>
           <span>©2020</span>
         </div>

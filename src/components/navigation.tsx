@@ -2,6 +2,8 @@ import * as React from "react";
 
 import Link from "gatsby-link";
 
+import Icon from "../components/icon";
+
 const Navigation = (): JSX.Element => {
   return (
     <nav className="navigation">
@@ -12,7 +14,7 @@ const Navigation = (): JSX.Element => {
 
         <input type="checkbox" id="menu-toggle" />
         <label className="menu-button float-right" htmlFor="menu-toggle">
-          <i className="fas fa-bars"></i>
+          <Icon name={Icon.Names.Bars} />
         </label>
 
         <ul className="navigation-list">

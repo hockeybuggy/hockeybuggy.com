@@ -3,6 +3,7 @@ import { PageProps, graphql } from "gatsby";
 
 import { BaseLayout } from "../layouts";
 import SEO from "../components/seo";
+import Icon from "../components/icon";
 
 import { BlogPostBySlugQuery } from "../../graphql-types";
 
@@ -28,20 +29,19 @@ const BlogPostTemplate = ({
           <div className="post-meta">
             <div className="date">
               <span className="posted-on">
-                <i className="fas fa-calendar"></i>
+                <Icon name={Icon.Names.Calendar} />
                 <time dateTime={computerDate} />
-
                 {humanDate}
               </span>
             </div>
 
             <div className="categories">
-              <i className="fas fa-folder"></i>
+              <Icon name={Icon.Names.Folder} />
               {(categories || []).join(", ")}
             </div>
 
             <div className="tags">
-              <i className="fas fa-tag"></i>
+              <Icon name={Icon.Names.Tag} />
               {(tags || []).join(", ")}
             </div>
           </div>
