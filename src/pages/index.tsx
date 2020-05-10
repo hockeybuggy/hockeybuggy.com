@@ -1,5 +1,7 @@
 import * as React from "react";
+
 import { PageProps, graphql } from "gatsby";
+import Img from "gatsby-image";
 
 import { CenteredLayout } from "../layouts";
 import SEO from "../components/seo";
@@ -35,10 +37,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
       <SEO title={description} />
       <div className="about">
         <div className="avatar">
-          <img
-            src="/static/img/douglas-paddling-square.webp"
-            alt="An image of Douglas paddling a canoe"
-          />
+          <Img fluid={data.avatarImage!.fluid!} />
         </div>
         <h1>{author.fullName!}</h1>
         <h2>{byline}</h2>
@@ -71,6 +70,20 @@ export const pageQuery = graphql`
         author {
           fullName
         }
+      }
+    }
+    avatarImage: imageSharp(
+      fluid: { originalName: { eq: "douglas-paddling.jpg" } }
+    ) {
+      id
+      fluid(maxWidth: 860) {
+        aspectRatio
+        base64
+        src
+        srcSet
+        srcWebp
+        srcSetWebp
+        sizes
       }
     }
   }

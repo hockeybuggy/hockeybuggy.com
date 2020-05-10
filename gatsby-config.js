@@ -11,10 +11,21 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-typescript",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [`gatsby-remark-autolink-headers`, `gatsby-remark-prismjs`],
+        plugins: [
+          `gatsby-remark-autolink-headers`,
+          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 860,
+            },
+          },
+        ],
       },
     },
     {
@@ -24,8 +35,13 @@ module.exports = {
         path: `${__dirname}/content/blog/`,
       },
     },
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: `${__dirname}/content/images/`,
+      },
+    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
     {
