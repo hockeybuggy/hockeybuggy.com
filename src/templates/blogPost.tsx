@@ -29,19 +29,19 @@ const BlogPostTemplate = ({
           <div className="post-meta">
             <div className="date">
               <span className="posted-on">
-                <Icon name={Icon.Names.Calendar} />
+                <Icon name={Icon.Names.Calendar} label="Publication date" />
                 <time dateTime={computerDate} />
                 {humanDate}
               </span>
             </div>
 
             <div className="categories">
-              <Icon name={Icon.Names.Folder} />
+              <Icon name={Icon.Names.Folder} label="Post categories" />
               {(categories || []).join(", ")}
             </div>
 
             <div className="tags">
-              <Icon name={Icon.Names.Tag} />
+              <Icon name={Icon.Names.Tag} label="Post tags" />
               {(tags || []).join(", ")}
             </div>
           </div>

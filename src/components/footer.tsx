@@ -14,10 +14,13 @@ const Footer = (): JSX.Element => {
             href="https://creativecommons.org/licenses/by/4.0/"
             aria-label="Creative commons licence"
           >
-            <Icon name={Icon.Names.CreativeCommons} />
+            <Icon
+              name={Icon.Names.CreativeCommons}
+              label="Creative Commons icon"
+            />
           </a>
           <a href="/blog/index.xml" aria-label="blog atom feed">
-            <Icon name={Icon.Names.RSS} />
+            <Icon name={Icon.Names.RSS} label="RSS feed icon" />
           </a>
           <span>©2020</span>
         </div>

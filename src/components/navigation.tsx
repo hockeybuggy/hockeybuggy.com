@@ -14,7 +14,7 @@ const Navigation = (): JSX.Element => {
 
         <input type="checkbox" id="menu-toggle" />
         <label className="menu-button float-right" htmlFor="menu-toggle">
-          <Icon name={Icon.Names.Bars} />
+          <Icon name={Icon.Names.Bars} label="Toggle menu" />
         </label>
 
         <ul className="navigation-list">
