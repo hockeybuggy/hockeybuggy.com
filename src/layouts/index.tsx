@@ -24,12 +24,6 @@ export const BaseLayout: React.FC<LayoutProps> = (props) => (
         href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap"
         rel="stylesheet"
       />
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-        integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU="
-        crossOrigin="anonymous"
-      />
       <link rel="icon" href="/static/img/favicon.ico" />
     </Helmet>
 
