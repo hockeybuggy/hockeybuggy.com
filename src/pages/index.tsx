@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { PageProps, graphql } from "gatsby";
-import Img from "gatsby-image";
+import Img, { FluidObject } from "gatsby-image";
 
 import { CenteredLayout } from "../layouts";
 import SEO from "../components/seo";
@@ -37,7 +37,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
       <SEO title={description} />
       <div className="about">
         <div className="avatar">
-          <Img fluid={data.avatarImage!.fluid!} />
+          <Img fluid={data.avatarImage!.fluid! as FluidObject} />
         </div>
         <h1>{author.fullName!}</h1>
         <h2>{byline}</h2>
