@@ -35,7 +35,7 @@ enum IconSizes {
 }
 
 // This function is used to gaurd against non-exhasutive icon name lookups.
-function exhasutiveCheck(_: never) {}
+function exhasutiveCheck(_: never) {} // eslint-disable-line
 
 function iconByName(name: IconNames): IconDefinition {
   switch (name) {
@@ -73,12 +73,16 @@ function sizeModifierBySize(size: undefined | IconSizes): SizeProp {
 
 const Icon = ({
   name,
+  label,
   size,
 }: {
   name: IconNames;
+  label: string;
   size?: IconSizes;
 }): JSX.Element => (
-  <FontAwesomeIcon icon={iconByName(name)} size={sizeModifierBySize(size)} />
+  <i aria-label={label}>
+    <FontAwesomeIcon icon={iconByName(name)} size={sizeModifierBySize(size)} />
+  </i>
 );
 Icon.Names = IconNames;
 Icon.Sizes = IconSizes;

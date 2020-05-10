@@ -51,6 +51,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
                     name={socialSite.iconName}
                     size={Icon.Sizes.Large}
                     aria-hidden="true"
+                    label=""
                   />
                 </a>
               </li>
