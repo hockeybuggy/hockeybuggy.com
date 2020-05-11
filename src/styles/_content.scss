@@ -17,6 +17,7 @@
         }
       }
     }
+
     footer {
       margin-top: 4rem;
       .see-also {
@@ -26,12 +27,14 @@
         }
       }
     }
+
     p {
       text-align: justify;
       text-justify: auto;
       hyphens: auto;
     }
   }
+
   .post {
     .post-title {
       margin-bottom: 0.75em;
@@ -44,6 +47,7 @@
         margin-left: 0;
         margin-right: 0.5rem;
       }
+
       .date {
         .posted-on {
           margin-left: 0;
@@ -52,10 +56,12 @@
       }
     }
   }
+
   figure {
     margin: 0;
     padding: 0;
   }
+
   figcaption p {
     text-align: center;
     font-style: italic;
@@ -69,11 +75,13 @@
     margin: 3.2rem 0 3.2rem 0;
     list-style: none;
     padding: 0;
+
     li {
       font-size: 1.8rem;
       @media only screen and (max-width: 768px) {
         margin: 1.6rem 0 1.6rem 0;
       }
+
       .date {
         display: inline-block;
         width: 20rem;
@@ -84,6 +92,7 @@
           text-align: left;
         }
       }
+
       .title {
         font-size: 1.8rem;
         color: $fg-color;
@@ -102,12 +111,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   .about {
     text-align: center;
+
     h1 {
       margin-top: 2rem;
       margin-bottom: 0.5rem;
     }
+
     h2 {
       margin-top: 1rem;
       margin-bottom: 0.5rem;
@@ -116,13 +128,16 @@
         font-size: 2rem;
       }
     }
+
     ul {
       list-style: none;
       margin: 3rem 0 1rem 0;
       padding: 0;
+
       li {
         display: inline-block;
         position: relative;
+
         a {
           color: $fg-color;
           text-transform: uppercase;
@@ -146,6 +161,7 @@
 
   .error {
     text-align: center;
+
     h1 {
       margin-top: 2rem;
       margin-bottom: 0.5rem;
@@ -154,6 +170,7 @@
         font-size: 3.2rem;
       }
     }
+
     h2 {
       margin-top: 2rem;
       margin-bottom: 3.2rem;
@@ -163,4 +180,8 @@
       }
     }
   }
+}
+
+.icon {
+  display: inline-block;
 }

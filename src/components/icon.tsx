@@ -80,7 +80,7 @@ const Icon = ({
   label: string;
   size?: IconSizes;
 }): JSX.Element => (
-  <i aria-label={label}>
+  <i className="icon" aria-label={label}>
     <FontAwesomeIcon icon={iconByName(name)} size={sizeModifierBySize(size)} />
   </i>
 );
