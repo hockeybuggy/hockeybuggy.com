@@ -44,11 +44,10 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         <ul>
           {social.map((socialSite) => {
             return (
-              <li key={socialSite.label}>
+              <li className="social-site" key={socialSite.label}>
                 <a aria-label={socialSite.label} href={socialSite.link}>
                   <Icon
                     name={socialSite.iconName}
-                    size={Icon.Sizes.Large}
                     aria-hidden="true"
                     label=""
                   />
