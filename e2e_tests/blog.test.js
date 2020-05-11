@@ -27,6 +27,21 @@ describe("/blog (Blog index Page)", () => {
   });
 
   it("should many blog posts", async () => {
-    expect(await page.title()).toEqual(BLOG_PAGE.expected.title);
+    // Top level page
+    const pageTitle = await page.$("h1");
+    expect(
+      await (await pageTitle.getProperty("textContent")).jsonValue()
+    ).toEqual("Blog Posts");
+
+    // Assert that page has blog post titles
+    const blogPostTitleElements = await page.$$("h3");
+    const blogPostTitles = await Promise.all(
+      blogPostTitleElements.map(async (blogTitleElement) => {
+        return await (
+          await blogTitleElement.getProperty("textContent")
+        ).jsonValue();
+      })
+    );
+    expect(blogPostTitles).toMatchSnapshot();
   });
 });

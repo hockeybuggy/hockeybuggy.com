@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`/blog (Blog index Page) should many blog posts 1`] = `
+Array [
+  "Switching to Gatsby",
+  "Experimenting with Protobufs generated types in Rust",
+  "Migrated to Hugo Static Site generator",
+  "Relative line numbers and you",
+  "Vim splitting shortcuts",
+  "Bashing long Python commands down to size",
+  "What's the deal with the name hockeybuggy?",
+  "State of the Dotfiles",
+  "Adding Semantics",
+  "Migrated to Jekyll",
+  "Moving beyond word-wise motions",
+  "A new a stylish look around the site. Thanks to sass",
+  "Taking this Pelican site live",
+]
+`;
