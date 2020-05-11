@@ -1,8 +1,12 @@
-.avatar img {
+.avatar {
+  margin: auto;
   width: 20rem;
   height: auto;
-  border-radius: 50%;
   @media only screen and (max-width: 768px) {
-    width: 10rem;
+    width: 14rem;
+  }
+
+  img {
+    border-radius: 50%;
   }
 }
