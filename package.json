@@ -9,6 +9,7 @@
   "private": true,
   "scripts": {
     "build": "gatsby build",
+    "serve": "gatsby serve",
     "dev": "netlify dev",
     "dev-gatsby": "gatsby develop",
     "lint": "eslint \"src/**/*.ts*\"",
