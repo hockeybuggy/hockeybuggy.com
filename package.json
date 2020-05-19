@@ -45,7 +45,7 @@
     "gatsby-remark-autolink-headers": "^2.3.2",
     "gatsby-remark-images": "^3.3.4",
     "gatsby-remark-prismjs": "^3.5.0",
-    "gatsby-source-filesystem": "^2.3.3",
+    "gatsby-source-filesystem": "^2.3.4",
     "gatsby-transformer-remark": "^2.8.9",
     "gatsby-transformer-sharp": "^2.4.1",
     "graphql": "^14.6.0",
