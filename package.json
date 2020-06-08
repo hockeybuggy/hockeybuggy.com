@@ -55,7 +55,7 @@
     "query-string": "^6.11.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.0",
-    "react-helmet": "^6.0.0",
+    "react-helmet": "^6.1.0",
     "sharp": "^0.25.3",
     "slugify": "^1.4.0",
     "yarn": "^1.22.4"
