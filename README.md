@@ -63,12 +63,12 @@ To view the tests running in slow motion:
 
 The tests will also run for every CI build. It will also upload the screenshots
 it takes as artifacts. You can find the artifacts by clicking the `...` [on a
-workflow](https://github.com/hockeybuggy/hockeybuggy.com/actions?query=workflow%3A%22end+to+end+tests%22+branch%3Amaster)
+workflow](https://github.com/hockeybuggy/hockeybuggy.com/actions?query=workflow%3A%22end+to+end+tests%22+branch%3Amain)
 and downloading the `zip` file.
 
 
 ### Deployment
 
-This site is hosted on Netlify. To deploy just push to the master branch on GitHub:
+This site is hosted on Netlify. To deploy just push to the main branch on GitHub:
 
-    git push origin master
+    git push origin main
