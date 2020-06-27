@@ -3,7 +3,7 @@
 ![tests and linting](https://github.com/hockeybuggy/hockeybuggy.com/workflows/tests%20and%20linting/badge.svg)
 ![end to end tests](https://github.com/hockeybuggy/hockeybuggy.com/workflows/end%20to%20end%20tests/badge.svg)
 [![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=hockeybuggy/hockeybuggy.com)](https://dependabot.com)
-![mergify]("https://img.shields.io/endpoint.svg?url=https://dashboard.mergify.io/badges/hockeybuggy/hockeybuggy.com&amp;style=flat")
+![mergify]("https://img.shields.io/endpoint.svg?url=https://dashboard.mergify.io/badges/hockeybuggy/hockeybuggy.com&style=flat")
 
 # Hockeybuggy.com
 
