@@ -15,6 +15,7 @@ const BLOG_PAGE = {
 };
 
 module.exports = {
+  BASE_URL,
   LANDING_PAGE,
   BLOG_PAGE,
 };
