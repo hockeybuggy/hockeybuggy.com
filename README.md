@@ -1,12 +1,19 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b608e87e-8c67-45b6-b677-58bbeee9e11c/deploy-status)](https://app.netlify.com/sites/hockeybuggy/deploys)
-
-![tests and linting](https://github.com/hockeybuggy/hockeybuggy.com/workflows/tests%20and%20linting/badge.svg)
-![end to end tests](https://github.com/hockeybuggy/hockeybuggy.com/workflows/end%20to%20end%20tests/badge.svg)
-[![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=hockeybuggy/hockeybuggy.com)](https://dependabot.com)
+[![Netlify Status][netlify-status]][netlify]
+[![Typecheck and Linting][typecheck-and-linting-status]][typecheck-and-linting]
+[![End to End Tests][e2e-tests-status]][e2e-tests]
+[![Dependabot][dependabot-status]][dependabot]
 [![Mergify Status][mergify-status]][mergify]
 
-[mergify]: https://mergify.io
+[dependabot-status]: https://api.dependabot.com/badges/status?host=github&repo=hockeybuggy/hockeybuggy.com
+[dependabot]: https://app.dependabot.com/accounts/hockeybuggy/repos/14051854
+[e2e-tests-status]: https://github.com/hockeybuggy/hockeybuggy.com/workflows/end%20to%20end%20tests/badge.svg
+[e2e-tests]: https://github.com/hockeybuggy/hockeybuggy.com/actions?query=workflow%3A%22end+to+end+tests%22+branch%3Amain
 [mergify-status]: https://img.shields.io/endpoint.svg?url=https://dashboard.mergify.io/badges/hockeybuggy/hockeybuggy.com&style=flat
+[mergify]: https://mergify.io
+[netlify-status]: https://img.shields.io/netlify/b608e87e-8c67-45b6-b677-58bbeee9e11c
+[netlify]: https://app.netlify.com/sites/hockeybuggy/deploys
+[typecheck-and-linting-status]: https://github.com/hockeybuggy/hockeybuggy.com/workflows/tests%20and%20linting/badge.svg
+[typecheck-and-linting]: https://github.com/hockeybuggy/hockeybuggy.com/actions?query=workflow%3A%22typecheck+and+linting%22+branch%3Amain
 
 # Hockeybuggy.com
 
