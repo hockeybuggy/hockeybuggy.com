@@ -20,11 +20,16 @@ const BlogIndex = ({ data }: PageProps<BlogIndexPageQuery>): JSX.Element => {
         const slug = frontmatter.slug!;
         const year = frontmatter.year!;
         const month = frontmatter.month!;
+        const day = frontmatter.day!;
         const title = frontmatter.title || slug;
         return (
           <article key={slug}>
             <header>
-              <small>{frontmatter.date}</small>
+              <small>
+                <time dateTime={`${year}-${month}-${day}`}>
+                  {frontmatter.date}
+                </time>
+              </small>
               <h3 style={{ margin: 0, marginBottom: "1.8rem" }}>
                 <Link to={`/blog/${year}/${month}/${slug}`}>{title}</Link>
               </h3>
@@ -55,6 +60,7 @@ export const pageQuery = graphql`
             slug
             year: date(formatString: "YYYY")
             month: date(formatString: "MM")
+            day: date(formatString: "DD")
           }
         }
       }
