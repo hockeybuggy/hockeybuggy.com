@@ -3077,7 +3077,10 @@ export type TagsQueryVariables = {
 
 export type TagsQuery = { allMarkdownRemark: (
     Pick<MarkdownRemarkConnection, 'totalCount'>
-    & { edges: Array<{ node: { fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> } }> }
+    & { edges: Array<{ node: { frontmatter?: Maybe<(
+          Pick<MarkdownRemarkFrontmatter, 'title' | 'slug'>
+          & { year: MarkdownRemarkFrontmatter['date'], month: MarkdownRemarkFrontmatter['date'] }
+        )> } }> }
   ) };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
