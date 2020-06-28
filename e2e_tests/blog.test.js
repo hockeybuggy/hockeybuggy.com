@@ -1,8 +1,5 @@
-const puppeteer = require("puppeteer");
-
 const { BASE_URL, BLOG_PAGE } = require("./pages");
-
-const iPhone = puppeteer.devices["iPhone 6"];
+const { loadPage } = require("./utils");
 
 // It seems a litte weird to manage this list of blog posts here in the tests.
 // This is done in order to use `describe.each` and ensure that each of the
@@ -77,15 +74,6 @@ let expectedBlogPosts = [
 ];
 
 describe("/blog (Blog index Page)", () => {
-  const loadPage = async () => {
-    await page.emulate(iPhone);
-    const response = await page.goto(BLOG_PAGE.url, {
-      waitUntil: "networkidle2",
-    });
-    expect(response.ok());
-    expect(page.url()).toEqual(BLOG_PAGE.url);
-  };
-
   it("should load without error", async () => {
     const errors = [];
     page.on("console", (msg) => {
@@ -94,7 +82,7 @@ describe("/blog (Blog index Page)", () => {
       }
     });
 
-    await loadPage();
+    await loadPage(page, BLOG_PAGE.url);
 
     expect(errors).toEqual([]);
 
@@ -105,7 +93,7 @@ describe("/blog (Blog index Page)", () => {
   });
 
   it("should have links to many blog posts", async () => {
-    await loadPage();
+    await loadPage(page, BLOG_PAGE.url);
 
     const blogPosts = await page.$$eval("article", (articles) =>
       articles.map((article) => {
@@ -126,18 +114,10 @@ const blogPosts = expectedBlogPosts.map((blogPost) => [
 ]);
 
 describe.each(blogPosts)("%s", (pathName, title) => {
-  const loadPage = async () => {
-    await page.emulate(iPhone);
-    const fullUrl = `${BASE_URL}${pathName}/`;
-    const response = await page.goto(fullUrl, {
-      waitUntil: "networkidle2",
-    });
-    expect(response.ok());
-    expect(page.url()).toEqual(fullUrl);
-  };
+  const fullUrl = `${BASE_URL}${pathName}/`;
 
   it("should have a title", async () => {
-    await loadPage();
+    await loadPage(page, fullUrl);
 
     expect(await page.title()).toEqual(`${title} | hockeybuggy.com`);
   });
@@ -150,7 +130,7 @@ describe.each(blogPosts)("%s", (pathName, title) => {
       }
     });
 
-    await loadPage();
+    await loadPage(page, fullUrl);
 
     expect(errors).toEqual([]);
   });

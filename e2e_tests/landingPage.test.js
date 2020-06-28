@@ -1,20 +1,7 @@
-const puppeteer = require("puppeteer");
-
 const { LANDING_PAGE } = require("./pages");
-
-const iPhone = puppeteer.devices["iPhone 6"];
+const { loadPage } = require("./utils");
 
 describe("/ (Landing Page)", () => {
-  const loadPage = async () => {
-    await page.emulate(iPhone);
-    const response = await page.goto(LANDING_PAGE.url, {
-      waitUntil: "networkidle2",
-    });
-
-    expect(response.ok());
-    expect(page.url()).toEqual(LANDING_PAGE.url);
-  };
-
   it("should load without error", async () => {
     const errors = [];
     page.on("console", (msg) => {
@@ -23,7 +10,7 @@ describe("/ (Landing Page)", () => {
       }
     });
 
-    await loadPage();
+    await loadPage(page, LANDING_PAGE.url);
 
     expect(errors).toEqual([]);
 
@@ -34,7 +21,7 @@ describe("/ (Landing Page)", () => {
   });
 
   it("should have a title", async () => {
-    await loadPage();
+    await loadPage(page, LANDING_PAGE.url);
     expect(await page.title()).toEqual(LANDING_PAGE.expected.title);
   });
 });
