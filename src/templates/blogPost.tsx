@@ -1,11 +1,31 @@
 import React from "react";
-import { PageProps, graphql } from "gatsby";
+import { Link, PageProps, graphql } from "gatsby";
 
 import { BaseLayout } from "../layouts";
 import SEO from "../components/seo";
 import Icon from "../components/icon";
 
 import { BlogPostBySlugQuery } from "../../graphql-types";
+
+/* intersperse: Return an array with the separator interspersed between
+ * each element of the input array.
+ *
+ * > _([1,2,3]).intersperse(0)
+ * [1,0,2,0,3]
+ *
+ * Borrowed lightly fron: https://stackoverflow.com/a/23619085/1745922
+ */
+function intersperse<X, Y>(arr: Array<X>, sep: Y): Array<X | Y> {
+  const result: Array<X | Y> = [];
+  if (arr.length === 0) {
+    return result;
+  }
+
+  result.push(arr[0]);
+  return arr.slice(1).reduce(function (xs, x, i) {
+    return xs.concat([sep, x]);
+  }, result);
+}
 
 const BlogPostTemplate = ({
   data,
@@ -42,7 +62,12 @@ const BlogPostTemplate = ({
 
             <div className="tags">
               <Icon name={Icon.Names.Tag} label="Post tags" />
-              {(tags || []).join(", ")}
+              {intersperse(
+                (tags || []).map((tag) => (
+                  <Link to={`/tags/${tag}`}>{tag}</Link>
+                )),
+                ", "
+              )}
             </div>
           </div>
         </header>
