@@ -1,6 +1,8 @@
 import React from "react";
-
 import { PageProps, Link, graphql } from "gatsby";
+
+import { BaseLayout } from "../layouts";
+import SEO from "../components/seo";
 
 import { TagsQuery } from "../../graphql-types";
 
@@ -14,7 +16,8 @@ const Tags = ({
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`;
   return (
-    <div>
+    <BaseLayout>
+      <SEO title={`Tag: ${tag}`} />
       <h1>{tagHeader}</h1>
       <ul>
         {edges.map(({ node }) => {
@@ -30,7 +33,7 @@ const Tags = ({
         })}
       </ul>
       <Link to="/tags">All tags</Link>
-    </div>
+    </BaseLayout>
   );
 };
 

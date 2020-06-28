@@ -1,14 +1,12 @@
 import React from "react";
-
 import { Link, PageProps, graphql } from "gatsby";
+
+import SEO from "../components/seo";
+import { BaseLayout } from "../layouts";
 
 import { TagsPageQuery } from "../../graphql-types";
 
-// Utilities
 import kebabCase from "lodash/kebabCase";
-// Components
-
-import { Helmet } from "react-helmet";
 
 const Tag = (tag: { totalCount: number; fieldValue: string }) => {
   return (
@@ -24,8 +22,8 @@ const TagsPage = ({ data }: PageProps<TagsPageQuery>) => {
   const title = data.site!.siteMetadata!.title!;
   const group = data.allMarkdownRemark.group;
   return (
-    <div>
-      <Helmet title={title} />
+    <BaseLayout>
+      <SEO title={"Tags"} />
       <div>
         <h1>Tags</h1>
         <ul>
@@ -34,7 +32,7 @@ const TagsPage = ({ data }: PageProps<TagsPageQuery>) => {
           ))}
         </ul>
       </div>
-    </div>
+    </BaseLayout>
   );
 };
 
