@@ -18,11 +18,13 @@ const Tags = ({
       <h1>{tagHeader}</h1>
       <ul>
         {edges.map(({ node }) => {
-          const slug = node.fields!.slug!;
+          const slug = node.frontmatter!.slug!;
+          const year = node.frontmatter!.year!;
+          const month = node.frontmatter!.month!;
           const title = node.frontmatter!.title!;
           return (
             <li key={slug}>
-              <Link to={slug}>{title}</Link>
+              <Link to={`/blog/${year}/${month}/${slug}`}>{title}</Link>
             </li>
           );
         })}
@@ -44,11 +46,11 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
-          fields {
-            slug
-          }
           frontmatter {
             title
+            slug
+            year: date(formatString: "YYYY")
+            month: date(formatString: "MM")
           }
         }
       }
