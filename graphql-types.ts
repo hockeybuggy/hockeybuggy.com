@@ -2963,6 +2963,11 @@ export type BlogIndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<Site
           & { year: MarkdownRemarkFrontmatter['date'], month: MarkdownRemarkFrontmatter['date'], day: MarkdownRemarkFrontmatter['date'] }
         )> } }> } };
 
+export type TagsPageQueryVariables = {};
+
+
+export type TagsPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, allMarkdownRemark: { group: Array<Pick<MarkdownRemarkGroupConnection, 'fieldValue' | 'totalCount'>> } };
+
 export type IndexPageQueryVariables = {};
 
 
@@ -2973,11 +2978,6 @@ export type IndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
     Pick<ImageSharp, 'id'>
     & { fluid?: Maybe<Pick<ImageSharpFluid, 'aspectRatio' | 'base64' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }
   )> };
-
-export type TagsPageQueryVariables = {};
-
-
-export type TagsPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, allMarkdownRemark: { group: Array<Pick<MarkdownRemarkGroupConnection, 'fieldValue' | 'totalCount'>> } };
 
 export type BlogPostBySlugQueryVariables = {
   slug: Scalars['String'];

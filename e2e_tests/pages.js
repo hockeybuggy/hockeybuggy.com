@@ -15,7 +15,7 @@ const BLOG_PAGE = {
 };
 
 const TAGS_PAGE = {
-  url: `${BASE_URL}/tags/`,
+  url: `${BASE_URL}/blog/tags/`,
   expected: {
     title: "Tags | hockeybuggy.com",
   },
