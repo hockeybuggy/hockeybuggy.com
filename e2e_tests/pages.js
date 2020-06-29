@@ -14,8 +14,16 @@ const BLOG_PAGE = {
   },
 };
 
+const TAGS_PAGE = {
+  url: `${BASE_URL}/tags/`,
+  expected: {
+    title: "Tags | hockeybuggy.com",
+  },
+};
+
 module.exports = {
   BASE_URL,
   LANDING_PAGE,
   BLOG_PAGE,
+  TAGS_PAGE,
 };

@@ -1,4 +1,4 @@
-const { BASE_URL, BLOG_PAGE } = require("./pages");
+const { TAGS_PAGE, BASE_URL, BLOG_PAGE } = require("./pages");
 const { loadPage } = require("./utils");
 
 // It seems a litte weird to manage this list of blog posts here in the tests.
@@ -72,6 +72,19 @@ let expectedBlogPosts = [
     postPathName: "/blog/2012/12/taking-this-pelican-site-live",
   },
 ];
+const expectedTagLinks = [
+  "/tags/development/",
+  "/tags/html/",
+  "/tags/jekyll/",
+  "/tags/misc/",
+  "/tags/pelican/",
+  "/tags/protobufs/",
+  "/tags/python/",
+  "/tags/rust/",
+  "/tags/sass/",
+  "/tags/vim/",
+  "/tags/zsh/",
+];
 
 describe("/blog (Blog index Page)", () => {
   it("should load without error", async () => {
@@ -112,7 +125,6 @@ const blogPosts = expectedBlogPosts.map((blogPost) => [
   blogPost.postPathName,
   blogPost.postTitle,
 ]);
-
 describe.each(blogPosts)("%s", (pathName, title) => {
   const fullUrl = `${BASE_URL}${pathName}/`;
 
@@ -121,7 +133,9 @@ describe.each(blogPosts)("%s", (pathName, title) => {
 
     expect(await page.title()).toEqual(`${title} | hockeybuggy.com`);
   });
+});
 
+describe("/tags (Blog tags index Page)", () => {
   it("should load without error", async () => {
     const errors = [];
     page.on("console", (msg) => {
@@ -130,8 +144,41 @@ describe.each(blogPosts)("%s", (pathName, title) => {
       }
     });
 
-    await loadPage(page, fullUrl);
+    await loadPage(page, TAGS_PAGE.url);
 
     expect(errors).toEqual([]);
+
+    // Not related to this specific assertion but while we're here:
+    await page.screenshot({
+      path: `e2e_tests/screenshots/tags_index_page.png`,
+    });
+  });
+
+  it("should have a title", async () => {
+    await loadPage(page, TAGS_PAGE.url);
+    expect(await page.title()).toEqual(TAGS_PAGE.expected.title);
+  });
+
+  it("should have links to many tags", async () => {
+    await loadPage(page, TAGS_PAGE.url);
+
+    const tagLinks = await page.$$eval(".content li", (items) => {
+      return items.map((item) => {
+        const postUrl = new URL(item.querySelector("a").href);
+        return postUrl.pathname;
+      });
+    });
+    expect(tagLinks).toEqual(expectedTagLinks);
+  });
+});
+
+describe.each(expectedTagLinks)("%s", (pathName) => {
+  const fullUrl = `${BASE_URL}${pathName}`;
+  const [_, title] = pathName.split("/").filter((x) => x !== "");
+
+  it(`should have a title including ${title}`, async () => {
+    await loadPage(page, fullUrl);
+
+    expect(await page.title()).toEqual(`Tag: ${title} | hockeybuggy.com`);
   });
 });
