@@ -53,12 +53,6 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: post.node.fields.slug,
       },
     });
-
-    createRedirect({
-      fromPath: `/blog/${year}/${month}/${slug}`,
-      toPath: `/blog/post/${year}/${month}/${slug}`,
-      isPermanent: true,
-    });
   });
 
   [

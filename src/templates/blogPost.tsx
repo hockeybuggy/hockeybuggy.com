@@ -64,7 +64,7 @@ const BlogPostTemplate = ({
               <Icon name={Icon.Names.Tag} label="Post tags" />
               {intersperse(
                 (tags || []).map((tag) => (
-                  <Link to={`/tags/${tag}`}>{tag}</Link>
+                  <Link to={`/blog/tags/${tag}`}>{tag}</Link>
                 )),
                 ", "
               )}
