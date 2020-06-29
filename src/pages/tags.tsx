@@ -28,7 +28,7 @@ const TagsPage = ({ data }: PageProps<TagsPageQuery>) => {
         <h1>Tags</h1>
         <ul>
           {group.map((e: any) => (
-            <Tag {...e} />
+            <Tag key={e.fieldValue} {...e} />
           ))}
         </ul>
       </div>
