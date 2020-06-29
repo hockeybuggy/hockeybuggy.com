@@ -61,6 +61,28 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  [
+    "/2020/05/switching-to-gatsby",
+    "/2020/01/experimenting-with-protobufs-generated-types-in-rust",
+    "/2019/09/migrated-to-hugo",
+    "/2016/08/relative-line-numbers-and-you",
+    "/2016/01/vim-splitting-shortcuts",
+    "/2015/03/long-python-commands-down-to-size",
+    "/2014/10/whats-the-deal-with-the-name-hockeybuggy",
+    "/2014/09/state-of-the-dotfiles",
+    "/2014/06/adding-semantics",
+    "/2013/09/migrated-to-jekyll",
+    "/2013/03/moving-beymond-word-wise-motions",
+    "/2013/01/adding-sass-files",
+    "/2012/12/taking-this-pelican-site-live",
+  ].map((path) => {
+    createRedirect({
+      fromPath: `/blog/${path}`,
+      toPath: `/blog/post/${path}`,
+      isPermanent: true,
+    });
+  });
+
   // Create pages for tags
   const tags = result.data.tagsGroup.group;
   tags.forEach((tag) => {
