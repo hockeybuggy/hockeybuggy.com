@@ -8,68 +8,68 @@ let expectedBlogPosts = [
   {
     postDate: "2020-05-10",
     postTitle: "Switching to Gatsby",
-    postPathName: "/blog/2020/05/switching-to-gatsby",
+    postPathName: "/blog/post/2020/05/switching-to-gatsby",
   },
   {
     postDate: "2020-01-18",
     postTitle: "Experimenting with Protobufs generated types in Rust",
     postPathName:
-      "/blog/2020/01/experimenting-with-protobufs-generated-types-in-rust",
+      "/blog/post/2020/01/experimenting-with-protobufs-generated-types-in-rust",
   },
   {
     postDate: "2019-09-08",
     postTitle: "Migrated to Hugo Static Site generator",
-    postPathName: "/blog/2019/09/migrated-to-hugo",
+    postPathName: "/blog/post/2019/09/migrated-to-hugo",
   },
   {
     postDate: "2016-08-26",
     postTitle: "Relative line numbers and you",
-    postPathName: "/blog/2016/08/relative-line-numbers-and-you",
+    postPathName: "/blog/post/2016/08/relative-line-numbers-and-you",
   },
   {
     postDate: "2016-01-18",
     postTitle: "Vim splitting shortcuts",
-    postPathName: "/blog/2016/01/vim-splitting-shortcuts",
+    postPathName: "/blog/post/2016/01/vim-splitting-shortcuts",
   },
   {
     postDate: "2015-03-18",
     postTitle: "Bashing long Python commands down to size",
-    postPathName: "/blog/2015/03/long-python-commands-down-to-size",
+    postPathName: "/blog/post/2015/03/long-python-commands-down-to-size",
   },
   {
     postDate: "2014-10-03",
     postTitle: "What's the deal with the name hockeybuggy?",
-    postPathName: "/blog/2014/10/whats-the-deal-with-the-name-hockeybuggy",
+    postPathName: "/blog/post/2014/10/whats-the-deal-with-the-name-hockeybuggy",
   },
   {
     postDate: "2014-09-22",
     postTitle: "State of the Dotfiles",
-    postPathName: "/blog/2014/09/state-of-the-dotfiles",
+    postPathName: "/blog/post/2014/09/state-of-the-dotfiles",
   },
   {
     postDate: "2014-06-23",
     postTitle: "Adding Semantics",
-    postPathName: "/blog/2014/06/adding-semantics",
+    postPathName: "/blog/post/2014/06/adding-semantics",
   },
   {
     postDate: "2013-09-11",
     postTitle: "Migrated to Jekyll",
-    postPathName: "/blog/2013/09/migrated-to-jekyll",
+    postPathName: "/blog/post/2013/09/migrated-to-jekyll",
   },
   {
     postDate: "2013-03-25",
     postTitle: "Moving beyond word-wise motions",
-    postPathName: "/blog/2013/03/moving-beymond-word-wise-motions",
+    postPathName: "/blog/post/2013/03/moving-beymond-word-wise-motions",
   },
   {
     postDate: "2013-01-31",
     postTitle: "A new a stylish look around the site. Thanks to sass",
-    postPathName: "/blog/2013/01/adding-sass-files",
+    postPathName: "/blog/post/2013/01/adding-sass-files",
   },
   {
     postDate: "2012-12-02",
     postTitle: "Taking this Pelican site live",
-    postPathName: "/blog/2012/12/taking-this-pelican-site-live",
+    postPathName: "/blog/post/2012/12/taking-this-pelican-site-live",
   },
 ];
 const expectedTagLinks = [

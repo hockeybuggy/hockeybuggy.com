@@ -94,6 +94,7 @@ module.exports = {
         respectDNT: true,
       },
     },
+    "gatsby-plugin-client-side-redirect",
     // This code generation should be close to last
     "gatsby-plugin-graphql-codegen",
   ],

@@ -31,7 +31,7 @@ const BlogIndex = ({ data }: PageProps<BlogIndexPageQuery>): JSX.Element => {
                 </time>
               </small>
               <h3 style={{ margin: 0, marginBottom: "1.8rem" }}>
-                <Link to={`/blog/${year}/${month}/${slug}`}>{title}</Link>
+                <Link to={`/blog/post/${year}/${month}/${slug}`}>{title}</Link>
               </h3>
             </header>
             <hr />
