@@ -1,17 +1,17 @@
 import React from "react";
 import { Link, PageProps, graphql } from "gatsby";
 
-import SEO from "../components/seo";
-import { BaseLayout } from "../layouts";
+import SEO from "../../components/seo";
+import { BaseLayout } from "../../layouts";
 
-import { TagsPageQuery } from "../../graphql-types";
+import { TagsPageQuery } from "../../../graphql-types";
 
 import kebabCase from "lodash/kebabCase";
 
 const Tag = (tag: { totalCount: number; fieldValue: string }) => {
   return (
     <li key={tag.fieldValue}>
-      <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+      <Link to={`/blog/tags/${kebabCase(tag.fieldValue)}/`}>
         {tag.fieldValue} ({tag.totalCount})
       </Link>
     </li>

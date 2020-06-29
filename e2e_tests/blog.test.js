@@ -73,17 +73,17 @@ let expectedBlogPosts = [
   },
 ];
 const expectedTagLinks = [
-  "/tags/development/",
-  "/tags/html/",
-  "/tags/jekyll/",
-  "/tags/misc/",
-  "/tags/pelican/",
-  "/tags/protobufs/",
-  "/tags/python/",
-  "/tags/rust/",
-  "/tags/sass/",
-  "/tags/vim/",
-  "/tags/zsh/",
+  "/blog/tags/development/",
+  "/blog/tags/html/",
+  "/blog/tags/jekyll/",
+  "/blog/tags/misc/",
+  "/blog/tags/pelican/",
+  "/blog/tags/protobufs/",
+  "/blog/tags/python/",
+  "/blog/tags/rust/",
+  "/blog/tags/sass/",
+  "/blog/tags/vim/",
+  "/blog/tags/zsh/",
 ];
 
 describe("/blog (Blog index Page)", () => {
@@ -135,7 +135,7 @@ describe.each(blogPosts)("%s", (pathName, title) => {
   });
 });
 
-describe("/tags (Blog tags index Page)", () => {
+describe("/blog/tags (Blog tags index Page)", () => {
   it("should load without error", async () => {
     const errors = [];
     page.on("console", (msg) => {
@@ -174,7 +174,7 @@ describe("/tags (Blog tags index Page)", () => {
 
 describe.each(expectedTagLinks)("%s", (pathName) => {
   const fullUrl = `${BASE_URL}${pathName}`;
-  const [_, title] = pathName.split("/").filter((x) => x !== "");
+  const [_1, _2, title] = pathName.split("/").filter((x) => x !== "");
 
   it(`should have a title including ${title}`, async () => {
     await loadPage(page, fullUrl);
