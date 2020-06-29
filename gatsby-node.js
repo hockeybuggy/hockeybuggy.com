@@ -3,7 +3,7 @@ const _ = require(`lodash`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
 
   const blogPostTemplate = path.resolve(`./src/templates/blogPost.tsx`);
   const tagTemplate = path.resolve("src/templates/tags.tsx");
@@ -47,11 +47,17 @@ exports.createPages = async ({ graphql, actions }) => {
   posts.forEach((post) => {
     const { year, month, slug } = post.node.frontmatter;
     createPage({
-      path: `/blog/${year}/${month}/${slug}`,
+      path: `/blog/post/${year}/${month}/${slug}`,
       component: blogPostTemplate,
       context: {
         slug: post.node.fields.slug,
       },
+    });
+
+    createRedirect({
+      fromPath: `/blog/${year}/${month}/${slug}`,
+      toPath: `/blog/post/${year}/${month}/${slug}`,
+      isPermanent: true,
     });
   });
 
