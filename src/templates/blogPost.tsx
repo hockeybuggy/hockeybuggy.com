@@ -22,7 +22,7 @@ function intersperse<X, Y>(arr: Array<X>, sep: Y): Array<X | Y> {
   }
 
   result.push(arr[0]);
-  return arr.slice(1).reduce(function (xs, x, i) {
+  return arr.slice(1).reduce(function (xs, x) {
     return xs.concat([sep, x]);
   }, result);
 }
@@ -64,7 +64,9 @@ const BlogPostTemplate = ({
               <Icon name={Icon.Names.Tag} label="Post tags" />
               {intersperse(
                 (tags || []).map((tag) => (
-                  <Link to={`/blog/tags/${tag}`}>{tag}</Link>
+                  <span key={tag!}>
+                    <Link to={`/blog/tags/${tag}`}>{tag}</Link>
+                  </span>
                 )),
                 ", "
               )}
