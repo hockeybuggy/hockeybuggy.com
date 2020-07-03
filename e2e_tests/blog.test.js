@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-var-requires, @typescript-eslint/no-unused-vars */
 const { TAGS_PAGE, BASE_URL, BLOG_PAGE } = require("./pages");
 const { loadPage } = require("./utils");
 
 // It seems a litte weird to manage this list of blog posts here in the tests.
 // This is done in order to use `describe.each` and ensure that each of the
 // blog posts load.
-let expectedBlogPosts = [
+const expectedBlogPosts = [
   {
     postDate: "2020-05-10",
     postTitle: "Switching to Gatsby",

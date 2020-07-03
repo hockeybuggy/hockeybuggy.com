@@ -8,7 +8,7 @@ import { TagsPageQuery } from "../../../graphql-types";
 
 import kebabCase from "lodash/kebabCase";
 
-const Tag = (tag: { totalCount: number; fieldValue: string }) => {
+const Tag = (tag: { totalCount: number; fieldValue: string }): JSX.Element => {
   return (
     <li key={tag.fieldValue}>
       <Link to={`/blog/tags/${kebabCase(tag.fieldValue)}/`}>
@@ -18,8 +18,7 @@ const Tag = (tag: { totalCount: number; fieldValue: string }) => {
   );
 };
 
-const TagsPage = ({ data }: PageProps<TagsPageQuery>) => {
-  const title = data.site!.siteMetadata!.title!;
+const TagsPage = ({ data }: PageProps<TagsPageQuery>): JSX.Element => {
   const group = data.allMarkdownRemark.group;
   return (
     <BaseLayout>
@@ -38,11 +37,6 @@ const TagsPage = ({ data }: PageProps<TagsPageQuery>) => {
 
 export const pageQuery = graphql`
   query TagsPage {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(limit: 2000) {
       group(field: frontmatter___tags) {
         fieldValue

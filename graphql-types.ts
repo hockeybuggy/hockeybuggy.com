@@ -2966,7 +2966,7 @@ export type BlogIndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<Site
 export type TagsPageQueryVariables = {};
 
 
-export type TagsPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, allMarkdownRemark: { group: Array<Pick<MarkdownRemarkGroupConnection, 'fieldValue' | 'totalCount'>> } };
+export type TagsPageQuery = { allMarkdownRemark: { group: Array<Pick<MarkdownRemarkGroupConnection, 'fieldValue' | 'totalCount'>> } };
 
 export type IndexPageQueryVariables = {};
 
