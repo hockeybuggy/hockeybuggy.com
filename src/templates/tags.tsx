@@ -27,12 +27,12 @@ const Tags = ({
           const title = node.frontmatter!.title!;
           return (
             <li key={slug}>
-              <Link to={`/blog/${year}/${month}/${slug}`}>{title}</Link>
+              <Link to={`/blog/post/${year}/${month}/${slug}`}>{title}</Link>
             </li>
           );
         })}
       </ul>
-      <Link to="/tags">All tags</Link>
+      <Link to="/blog/tags">All tags</Link>
     </BaseLayout>
   );
 };
