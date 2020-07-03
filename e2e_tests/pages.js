@@ -21,9 +21,17 @@ const TAGS_PAGE = {
   },
 };
 
+const CATEGORIES_PAGE = {
+  url: `${BASE_URL}/blog/categories/`,
+  expected: {
+    title: "Categories | hockeybuggy.com",
+  },
+};
+
 module.exports = {
   BASE_URL,
-  LANDING_PAGE,
   BLOG_PAGE,
+  CATEGORIES_PAGE,
+  LANDING_PAGE,
   TAGS_PAGE,
 };
