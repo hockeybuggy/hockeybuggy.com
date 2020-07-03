@@ -4,21 +4,21 @@ import { PageProps, Link, graphql } from "gatsby";
 import { BaseLayout } from "../layouts";
 import SEO from "../components/seo";
 
-import { TagsQuery } from "../../graphql-types";
+import { CategoriesQuery } from "../../graphql-types";
 
-const Tags = ({
+const Categories = ({
   pageContext,
   data,
-}: PageProps<TagsQuery, { tag: string }>): JSX.Element => {
-  const { tag } = pageContext;
+}: PageProps<CategoriesQuery, { category: string }>): JSX.Element => {
+  const { category } = pageContext;
   const { edges, totalCount } = data.allMarkdownRemark;
-  const tagHeader = `${totalCount} post${
+  const categoryHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`;
+  }  with the category "${category}"`;
   return (
     <BaseLayout>
-      <SEO title={`Tag: ${tag}`} />
-      <h1>{tagHeader}</h1>
+      <SEO title={`Category: ${category}`} />
+      <h1>{categoryHeader}</h1>
       <ul>
         {edges.map(({ node }) => {
           const slug = node.frontmatter!.slug!;
@@ -32,17 +32,17 @@ const Tags = ({
           );
         })}
       </ul>
-      <Link to="/blog/tags">All tags</Link>
+      <Link to="/blog/categories">All categories</Link>
     </BaseLayout>
   );
 };
 
 export const pageQuery = graphql`
-  query Tags($tag: String) {
+  query Categories($category: String) {
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      filter: { frontmatter: { categories: { in: [$category] } } }
     ) {
       totalCount
       edges {
@@ -59,4 +59,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default Tags;
+export default Categories;

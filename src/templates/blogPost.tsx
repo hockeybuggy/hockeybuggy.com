@@ -57,7 +57,14 @@ const BlogPostTemplate = ({
 
             <div className="categories">
               <Icon name={Icon.Names.Folder} label="Post categories" />
-              {(categories || []).join(", ")}
+              {intersperse(
+                (categories || []).map((tag) => (
+                  <span key={tag!}>
+                    <Link to={`/blog/categories/${tag}`}>{tag}</Link>
+                  </span>
+                )),
+                ", "
+              )}
             </div>
 
             <div className="tags">

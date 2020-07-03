@@ -86,6 +86,12 @@ const expectedTagLinks = [
   "/blog/tags/vim/",
   "/blog/tags/zsh/",
 ];
+const expectedCategoryLinks = [
+  "/blog/categories/meta/",
+  "/blog/categories/misc/",
+  "/blog/categories/vim/",
+  "/blog/categories/zsh/",
+];
 
 describe("/blog (Blog index Page)", () => {
   it("should load without error", async () => {
@@ -181,5 +187,16 @@ describe.each(expectedTagLinks)("%s", (pathName) => {
     await loadPage(page, fullUrl);
 
     expect(await page.title()).toEqual(`Tag: ${title} | hockeybuggy.com`);
+  });
+});
+
+describe.each(expectedCategoryLinks)("%s", (pathName) => {
+  const fullUrl = `${BASE_URL}${pathName}`;
+  const [_1, _2, title] = pathName.split("/").filter((x) => x !== "");
+
+  it(`should have a title including ${title}`, async () => {
+    await loadPage(page, fullUrl);
+
+    expect(await page.title()).toEqual(`Category: ${title} | hockeybuggy.com`);
   });
 });

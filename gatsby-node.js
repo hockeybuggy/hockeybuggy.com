@@ -7,6 +7,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const blogPostTemplate = path.resolve(`./src/templates/blogPost.tsx`);
   const tagTemplate = path.resolve("src/templates/tags.tsx");
+  const categoryTemplate = path.resolve("src/templates/categories.tsx");
 
   const result = await graphql(
     `
@@ -31,6 +32,12 @@ exports.createPages = async ({ graphql, actions }) => {
         }
         tagsGroup: allMarkdownRemark(limit: 2000) {
           group(field: frontmatter___tags) {
+            fieldValue
+          }
+        }
+
+        categoriesGroup: allMarkdownRemark(limit: 2000) {
+          group(field: frontmatter___categories) {
             fieldValue
           }
         }
@@ -63,6 +70,18 @@ exports.createPages = async ({ graphql, actions }) => {
       component: tagTemplate,
       context: {
         tag: tag.fieldValue,
+      },
+    });
+  });
+
+  // Create pages for categories
+  const categories = result.data.categoriesGroup.group;
+  categories.forEach((category) => {
+    createPage({
+      path: `/blog/categories/${_.kebabCase(category.fieldValue)}/`,
+      component: categoryTemplate,
+      context: {
+        category: category.fieldValue,
       },
     });
   });
