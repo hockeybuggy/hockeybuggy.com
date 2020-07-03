@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires, @typescript-eslint/no-unused-vars */
-const { TAGS_PAGE, BASE_URL, BLOG_PAGE } = require("./pages");
+const { CATEGORIES_PAGE, TAGS_PAGE, BASE_URL, BLOG_PAGE } = require("./pages");
 const { loadPage } = require("./utils");
 
 // It seems a litte weird to manage this list of blog posts here in the tests.
@@ -73,6 +73,7 @@ const expectedBlogPosts = [
     postPathName: "/blog/post/2012/12/taking-this-pelican-site-live",
   },
 ];
+const allBlogPostPaths = expectedBlogPosts.map((p) => p.postPathName);
 const expectedTagLinks = [
   "/blog/tags/development/",
   "/blog/tags/html/",
@@ -183,10 +184,62 @@ describe.each(expectedTagLinks)("%s", (pathName) => {
   const fullUrl = `${BASE_URL}${pathName}`;
   const [_1, _2, title] = pathName.split("/").filter((x) => x !== "");
 
-  it(`should have a title including ${title}`, async () => {
+  beforeAll(async () => {
     await loadPage(page, fullUrl);
+  });
 
+  it(`should have a title including ${title}`, async () => {
     expect(await page.title()).toEqual(`Tag: ${title} | hockeybuggy.com`);
+  });
+
+  it(`should have links to existing blog posts`, async () => {
+    const blogPostLinks = await page.$$eval(".content li", (items) => {
+      return items.map((item) => {
+        const postUrl = new URL(item.querySelector("a").href);
+        return postUrl.pathname;
+      });
+    });
+
+    blogPostLinks.forEach((link) => {
+      expect(allBlogPostPaths).toContain(link);
+    });
+  });
+});
+
+describe("/blog/categories (Blog categories index Page)", () => {
+  it("should load without error", async () => {
+    const errors = [];
+    page.on("console", (msg) => {
+      if (msg.type() === "error") {
+        errors.push({ errorMessage: msg.text() });
+      }
+    });
+
+    await loadPage(page, CATEGORIES_PAGE.url);
+
+    expect(errors).toEqual([]);
+
+    // Not related to this specific assertion but while we're here:
+    await page.screenshot({
+      path: `e2e_tests/screenshots/categories_index_page.png`,
+    });
+  });
+
+  it("should have a title", async () => {
+    await loadPage(page, CATEGORIES_PAGE.url);
+    expect(await page.title()).toEqual(CATEGORIES_PAGE.expected.title);
+  });
+
+  it("should have links to many categories", async () => {
+    await loadPage(page, CATEGORIES_PAGE.url);
+
+    const categoryLinks = await page.$$eval(".content li", (items) => {
+      return items.map((item) => {
+        const postUrl = new URL(item.querySelector("a").href);
+        return postUrl.pathname;
+      });
+    });
+    expect(categoryLinks).toEqual(expectedCategoryLinks);
   });
 });
 
@@ -194,9 +247,24 @@ describe.each(expectedCategoryLinks)("%s", (pathName) => {
   const fullUrl = `${BASE_URL}${pathName}`;
   const [_1, _2, title] = pathName.split("/").filter((x) => x !== "");
 
-  it(`should have a title including ${title}`, async () => {
+  beforeAll(async () => {
     await loadPage(page, fullUrl);
+  });
 
+  it(`should have a title including ${title}`, async () => {
     expect(await page.title()).toEqual(`Category: ${title} | hockeybuggy.com`);
+  });
+
+  it(`should have links to existing blog posts`, async () => {
+    const blogPostLinks = await page.$$eval(".content li", (items) => {
+      return items.map((item) => {
+        const postUrl = new URL(item.querySelector("a").href);
+        return postUrl.pathname;
+      });
+    });
+
+    blogPostLinks.forEach((link) => {
+      expect(allBlogPostPaths).toContain(link);
+    });
   });
 });
