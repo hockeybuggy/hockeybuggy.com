@@ -44,10 +44,16 @@
       border-bottom: solid 2px $alt-bg-color;
       transition: opacity 0.25s, max-height 0.15s linear;
     }
+
     .navigation-item {
       float: left;
       margin: 0;
       position: relative;
+
+      &[aria-current="page"] {
+        text-decoration: underline;
+      }
+
       @media only screen and (max-width: 768px) {
         float: none !important;
         text-align: center;
@@ -56,12 +62,14 @@
           line-height: 5rem;
         }
       }
+
       a,
       span {
         margin-left: 1rem;
         margin-right: 1rem;
       }
     }
+
     .menu-separator {
       @media only screen and (max-width: 768px) {
         border-top: 2px solid $fg-color;

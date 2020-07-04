@@ -11,7 +11,7 @@ const BlogIndex = ({ data }: PageProps<BlogIndexPageQuery>): JSX.Element => {
   const posts = data.allBlogPosts.edges;
 
   return (
-    <BaseLayout>
+    <BaseLayout pathname={"/blog/"}>
       <SEO title={"Blog"} />
 
       <h1>Blog Posts</h1>

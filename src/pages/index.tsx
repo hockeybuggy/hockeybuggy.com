@@ -33,7 +33,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   const description = data.site!.siteMetadata!.description!;
 
   return (
-    <CenteredLayout>
+    <CenteredLayout pathname={"/"}>
       <SEO title={description} />
       <div className="about">
         <div className="avatar">

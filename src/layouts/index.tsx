@@ -8,6 +8,7 @@ import Navigation from "../components/navigation";
 
 interface LayoutProps extends React.HTMLAttributes<any> {
   className?: string;
+  pathname?: string;
   children: React.ReactNode;
 }
 
@@ -17,28 +18,32 @@ const InnerContainer: React.FC<LayoutProps> = (props) => (
   </section>
 );
 
-export const BaseLayout: React.FC<LayoutProps> = (props) => (
-  <React.Fragment>
-    <Helmet>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap"
-        rel="stylesheet"
-      />
-      <link rel="icon" href="/static/img/favicon.ico" />
-    </Helmet>
+export const BaseLayout: React.FC<LayoutProps> = (props) => {
+  return (
+    <React.Fragment>
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="icon" href="/static/img/favicon.ico" />
+      </Helmet>
 
-    <main className="wrapper">
-      <div className="header">
-        <Navigation />
-      </div>
-      <div className="content">
-        <InnerContainer {...props} />
-      </div>
-      <Footer />
-    </main>
-  </React.Fragment>
-);
+      <main className="wrapper">
+        <div className="header">
+          <Navigation pathname={props.pathname} />
+        </div>
+        <div className="content">
+          <InnerContainer {...props} />
+        </div>
+        <Footer />
+      </main>
+    </React.Fragment>
+  );
+};
 
 export const CenteredLayout: React.FC<LayoutProps> = (props) => (
-  <BaseLayout className="centered">{props.children}</BaseLayout>
+  <BaseLayout className="centered" {...props}>
+    {props.children}
+  </BaseLayout>
 );

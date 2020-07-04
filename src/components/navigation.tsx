@@ -4,7 +4,7 @@ import Link from "gatsby-link";
 
 import Icon from "../components/icon";
 
-const Navigation = (): JSX.Element => {
+const Navigation = (props: { pathname?: string }): JSX.Element => {
   return (
     <nav className="navigation">
       <section className="container">
@@ -18,10 +18,16 @@ const Navigation = (): JSX.Element => {
         </label>
 
         <ul className="navigation-list">
-          <li className="navigation-item">
+          <li
+            aria-current={props.pathname === "/" ? "page" : undefined}
+            className="navigation-item"
+          >
             <Link to="/">Home</Link>
           </li>
-          <li className="navigation-item">
+          <li
+            aria-current={props.pathname === "/blog/" ? "page" : undefined}
+            className="navigation-item"
+          >
             <Link to="/blog/">Blog</Link>
           </li>
         </ul>
