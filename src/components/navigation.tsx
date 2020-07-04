@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import classNames from "classnames";
 import Link from "gatsby-link";
 
 import Icon from "../components/icon";
@@ -8,7 +9,12 @@ const Navigation = (props: { pathname?: string }): JSX.Element => {
   return (
     <nav className="navigation">
       <section className="container">
-        <Link to="/" className="navigation-title">
+        <Link
+          to="/"
+          className={classNames("navigation-title", {
+            active: props.pathname === "/",
+          })}
+        >
           hockeybuggy.com
         </Link>
 
