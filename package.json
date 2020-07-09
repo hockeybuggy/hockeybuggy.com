@@ -43,7 +43,7 @@
     "gatsby-plugin-sharp": "^2.6.18",
     "gatsby-plugin-typescript": "^2.4.13",
     "gatsby-remark-autolink-headers": "^2.3.10",
-    "gatsby-remark-images": "^3.3.17",
+    "gatsby-remark-images": "^3.3.18",
     "gatsby-remark-prismjs": "^3.5.9",
     "gatsby-source-filesystem": "^2.3.16",
     "gatsby-transformer-remark": "^2.8.23",
