@@ -76,6 +76,6 @@
     "netlify-lambda": "^2.0.0",
     "prettier": "^2.0.2",
     "puppeteer": "^2.1.1",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.7"
   }
 }
