@@ -112,6 +112,12 @@ const Navigation = (props: { pathname?: string }): JSX.Element => {
               Blog
             </Link>
           </li>
+          <li
+            aria-current={props.pathname === "/projects/" ? "page" : undefined}
+            className="navigation-item"
+          >
+            <Link to="/projects/">Projects</Link>
+          </li>
         </ul>
       </div>
     </nav>

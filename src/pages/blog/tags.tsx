@@ -37,7 +37,10 @@ const TagsPage = ({ data }: PageProps<TagsPageQuery>): JSX.Element => {
 
 export const pageQuery = graphql`
   query TagsPage {
-    allMarkdownRemark(limit: 2000) {
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { glob: "**/content/blog/*" } }
+      limit: 2000
+    ) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

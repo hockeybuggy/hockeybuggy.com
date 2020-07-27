@@ -13,6 +13,7 @@ exports.createPages = async ({ graphql, actions }) => {
     `
       {
         postsRemark: allMarkdownRemark(
+          filter: { fileAbsolutePath: { glob: "**/content/blog/*" } }
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
@@ -30,13 +31,19 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-        tagsGroup: allMarkdownRemark(limit: 2000) {
+        tagsGroup: allMarkdownRemark(
+          filter: { fileAbsolutePath: { glob: "**/content/blog/*" } }
+          limit: 2000
+        ) {
           group(field: frontmatter___tags) {
             fieldValue
           }
         }
 
-        categoriesGroup: allMarkdownRemark(limit: 2000) {
+        categoriesGroup: allMarkdownRemark(
+          filter: { fileAbsolutePath: { glob: "**/content/blog/*" } }
+          limit: 2000
+        ) {
           group(field: frontmatter___categories) {
             fieldValue
           }

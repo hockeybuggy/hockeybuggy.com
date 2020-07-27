@@ -1,5 +1,7 @@
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -25,6 +27,16 @@ export type Scalars = {
 
 
 
+
+export type BlurredOptions = {
+  /** Width of the generated low-res preview. Default is 20px */
+  width?: Maybe<Scalars['Int']>;
+  /**
+   * Force the output format for the low-res preview. Default is to use the same
+   * format as the input. You should rarely need to change this
+   */
+  toFormat?: Maybe<ImageFormat>;
+};
 
 export type BooleanQueryOperatorInput = {
   eq?: Maybe<Scalars['Boolean']>;
@@ -559,6 +571,7 @@ export type FileFieldsEnum =
   | 'childImageSharp___sizes___originalName'
   | 'childImageSharp___sizes___presentationWidth'
   | 'childImageSharp___sizes___presentationHeight'
+  | 'childImageSharp___gatsbyImageData'
   | 'childImageSharp___original___width'
   | 'childImageSharp___original___height'
   | 'childImageSharp___original___src'
@@ -845,9 +858,21 @@ export type ImageFit =
 
 export type ImageFormat = 
   | 'NO_CHANGE'
+  | 'AUTO'
   | 'JPG'
   | 'PNG'
   | 'WEBP';
+
+export type ImageLayout = 
+  | 'FIXED'
+  | 'FLUID'
+  | 'CONSTRAINED';
+
+export type ImagePlaceholder = 
+  | 'DOMINANT_COLOR'
+  | 'TRACED_SVG'
+  | 'BLURRED'
+  | 'NONE';
 
 export type ImageSharp = Node & {
   fixed?: Maybe<ImageSharpFixed>;
@@ -856,6 +881,7 @@ export type ImageSharp = Node & {
   fluid?: Maybe<ImageSharpFluid>;
   /** @deprecated Sizes was deprecated in Gatsby v2. It's been renamed to "fluid" https://example.com/write-docs-and-fix-this-example-link */
   sizes?: Maybe<ImageSharpSizes>;
+  gatsbyImageData: Scalars['JSON'];
   original?: Maybe<ImageSharpOriginal>;
   resize?: Maybe<ImageSharpResize>;
   id: Scalars['ID'];
@@ -961,6 +987,27 @@ export type ImageSharpSizesArgs = {
 };
 
 
+export type ImageSharpGatsbyImageDataArgs = {
+  layout?: Maybe<ImageLayout>;
+  maxWidth?: Maybe<Scalars['Int']>;
+  maxHeight?: Maybe<Scalars['Int']>;
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  placeholder?: Maybe<ImagePlaceholder>;
+  blurredOptions?: Maybe<BlurredOptions>;
+  tracedSVGOptions?: Maybe<Potrace>;
+  formats?: Maybe<Array<Maybe<ImageFormat>>>;
+  outputPixelDensities?: Maybe<Array<Maybe<Scalars['Float']>>>;
+  sizes?: Maybe<Scalars['String']>;
+  quality?: Maybe<Scalars['Int']>;
+  jpgOptions?: Maybe<JpgOptions>;
+  pngOptions?: Maybe<PngOptions>;
+  webpOptions?: Maybe<WebPOptions>;
+  transformOptions?: Maybe<TransformOptions>;
+  background?: Maybe<Scalars['String']>;
+};
+
+
 export type ImageSharpResizeArgs = {
   width?: Maybe<Scalars['Int']>;
   height?: Maybe<Scalars['Int']>;
@@ -1055,6 +1102,7 @@ export type ImageSharpFieldsEnum =
   | 'sizes___originalName'
   | 'sizes___presentationWidth'
   | 'sizes___presentationHeight'
+  | 'gatsbyImageData'
   | 'original___width'
   | 'original___height'
   | 'original___src'
@@ -1156,6 +1204,7 @@ export type ImageSharpFilterInput = {
   resolutions?: Maybe<ImageSharpResolutionsFilterInput>;
   fluid?: Maybe<ImageSharpFluidFilterInput>;
   sizes?: Maybe<ImageSharpSizesFilterInput>;
+  gatsbyImageData?: Maybe<JsonQueryOperatorInput>;
   original?: Maybe<ImageSharpOriginalFilterInput>;
   resize?: Maybe<ImageSharpResizeFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -1351,6 +1400,11 @@ export type IntQueryOperatorInput = {
   lte?: Maybe<Scalars['Int']>;
   in?: Maybe<Array<Maybe<Scalars['Int']>>>;
   nin?: Maybe<Array<Maybe<Scalars['Int']>>>;
+};
+
+export type JpgOptions = {
+  quality?: Maybe<Scalars['Int']>;
+  progressive?: Maybe<Scalars['Boolean']>;
 };
 
 
@@ -1696,6 +1750,11 @@ export type PageInfo = {
   totalCount: Scalars['Int'];
 };
 
+export type PngOptions = {
+  quality?: Maybe<Scalars['Int']>;
+  compressionSpeed?: Maybe<Scalars['Int']>;
+};
+
 export type Potrace = {
   turnPolicy?: Maybe<PotraceTurnPolicy>;
   turdSize?: Maybe<Scalars['Float']>;
@@ -1890,6 +1949,7 @@ export type QueryImageSharpArgs = {
   resolutions?: Maybe<ImageSharpResolutionsFilterInput>;
   fluid?: Maybe<ImageSharpFluidFilterInput>;
   sizes?: Maybe<ImageSharpSizesFilterInput>;
+  gatsbyImageData?: Maybe<JsonQueryOperatorInput>;
   original?: Maybe<ImageSharpOriginalFilterInput>;
   resize?: Maybe<ImageSharpResizeFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2497,12 +2557,42 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___plugins___id'
   | 'pluginCreator___pluginOptions___plugins___name'
   | 'pluginCreator___pluginOptions___plugins___version'
+  | 'pluginCreator___pluginOptions___plugins___nodeAPIs'
   | 'pluginCreator___pluginOptions___plugins___browserAPIs'
   | 'pluginCreator___pluginOptions___plugins___ssrAPIs'
   | 'pluginCreator___pluginOptions___plugins___pluginFilepath'
+  | 'pluginCreator___pluginOptions___isTSX'
+  | 'pluginCreator___pluginOptions___jsxPragma'
+  | 'pluginCreator___pluginOptions___allExtensions'
+  | 'pluginCreator___pluginOptions___base64Width'
+  | 'pluginCreator___pluginOptions___stripMetadata'
+  | 'pluginCreator___pluginOptions___defaultQuality'
+  | 'pluginCreator___pluginOptions___failOnError'
+  | 'pluginCreator___pluginOptions___offsetY'
+  | 'pluginCreator___pluginOptions___className'
   | 'pluginCreator___pluginOptions___maxWidth'
+  | 'pluginCreator___pluginOptions___linkImagesToOriginal'
+  | 'pluginCreator___pluginOptions___showCaptions'
+  | 'pluginCreator___pluginOptions___markdownCaptions'
+  | 'pluginCreator___pluginOptions___sizeByPixelDensity'
+  | 'pluginCreator___pluginOptions___backgroundColor'
+  | 'pluginCreator___pluginOptions___quality'
+  | 'pluginCreator___pluginOptions___withWebp'
+  | 'pluginCreator___pluginOptions___tracedSVG'
+  | 'pluginCreator___pluginOptions___loading'
+  | 'pluginCreator___pluginOptions___disableBgImageOnAlpha'
+  | 'pluginCreator___pluginOptions___disableBgImage'
   | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___path'
+  | 'pluginCreator___pluginOptions___indentedSyntax'
+  | 'pluginCreator___pluginOptions___indentType'
+  | 'pluginCreator___pluginOptions___indentWidth'
+  | 'pluginCreator___pluginOptions___linefeed'
+  | 'pluginCreator___pluginOptions___omitSourceMapUrl'
+  | 'pluginCreator___pluginOptions___precision'
+  | 'pluginCreator___pluginOptions___sourceComments'
+  | 'pluginCreator___pluginOptions___sourceMapContents'
+  | 'pluginCreator___pluginOptions___sourceMapEmbed'
   | 'pluginCreator___pluginOptions___feeds'
   | 'pluginCreator___pluginOptions___feeds___query'
   | 'pluginCreator___pluginOptions___feeds___output'
@@ -2510,6 +2600,8 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___trackingId'
   | 'pluginCreator___pluginOptions___anonymize'
   | 'pluginCreator___pluginOptions___respectDNT'
+  | 'pluginCreator___pluginOptions___head'
+  | 'pluginCreator___pluginOptions___pageTransitionDelay'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
@@ -2703,13 +2795,56 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___id'
   | 'pluginOptions___plugins___name'
   | 'pluginOptions___plugins___version'
+  | 'pluginOptions___plugins___pluginOptions___offsetY'
+  | 'pluginOptions___plugins___pluginOptions___className'
   | 'pluginOptions___plugins___pluginOptions___maxWidth'
+  | 'pluginOptions___plugins___pluginOptions___linkImagesToOriginal'
+  | 'pluginOptions___plugins___pluginOptions___showCaptions'
+  | 'pluginOptions___plugins___pluginOptions___markdownCaptions'
+  | 'pluginOptions___plugins___pluginOptions___sizeByPixelDensity'
+  | 'pluginOptions___plugins___pluginOptions___backgroundColor'
+  | 'pluginOptions___plugins___pluginOptions___quality'
+  | 'pluginOptions___plugins___pluginOptions___withWebp'
+  | 'pluginOptions___plugins___pluginOptions___tracedSVG'
+  | 'pluginOptions___plugins___pluginOptions___loading'
+  | 'pluginOptions___plugins___pluginOptions___disableBgImageOnAlpha'
+  | 'pluginOptions___plugins___pluginOptions___disableBgImage'
+  | 'pluginOptions___plugins___nodeAPIs'
   | 'pluginOptions___plugins___browserAPIs'
   | 'pluginOptions___plugins___ssrAPIs'
   | 'pluginOptions___plugins___pluginFilepath'
+  | 'pluginOptions___isTSX'
+  | 'pluginOptions___jsxPragma'
+  | 'pluginOptions___allExtensions'
+  | 'pluginOptions___base64Width'
+  | 'pluginOptions___stripMetadata'
+  | 'pluginOptions___defaultQuality'
+  | 'pluginOptions___failOnError'
+  | 'pluginOptions___offsetY'
+  | 'pluginOptions___className'
   | 'pluginOptions___maxWidth'
+  | 'pluginOptions___linkImagesToOriginal'
+  | 'pluginOptions___showCaptions'
+  | 'pluginOptions___markdownCaptions'
+  | 'pluginOptions___sizeByPixelDensity'
+  | 'pluginOptions___backgroundColor'
+  | 'pluginOptions___quality'
+  | 'pluginOptions___withWebp'
+  | 'pluginOptions___tracedSVG'
+  | 'pluginOptions___loading'
+  | 'pluginOptions___disableBgImageOnAlpha'
+  | 'pluginOptions___disableBgImage'
   | 'pluginOptions___name'
   | 'pluginOptions___path'
+  | 'pluginOptions___indentedSyntax'
+  | 'pluginOptions___indentType'
+  | 'pluginOptions___indentWidth'
+  | 'pluginOptions___linefeed'
+  | 'pluginOptions___omitSourceMapUrl'
+  | 'pluginOptions___precision'
+  | 'pluginOptions___sourceComments'
+  | 'pluginOptions___sourceMapContents'
+  | 'pluginOptions___sourceMapEmbed'
   | 'pluginOptions___feeds'
   | 'pluginOptions___feeds___query'
   | 'pluginOptions___feeds___output'
@@ -2717,6 +2852,8 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___trackingId'
   | 'pluginOptions___anonymize'
   | 'pluginOptions___respectDNT'
+  | 'pluginOptions___head'
+  | 'pluginOptions___pageTransitionDelay'
   | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
   | 'browserAPIs'
@@ -2834,13 +2971,44 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
+  isTSX?: Maybe<Scalars['Boolean']>;
+  jsxPragma?: Maybe<Scalars['String']>;
+  allExtensions?: Maybe<Scalars['Boolean']>;
+  base64Width?: Maybe<Scalars['Int']>;
+  stripMetadata?: Maybe<Scalars['Boolean']>;
+  defaultQuality?: Maybe<Scalars['Int']>;
+  failOnError?: Maybe<Scalars['Boolean']>;
+  offsetY?: Maybe<Scalars['Int']>;
+  className?: Maybe<Scalars['String']>;
   maxWidth?: Maybe<Scalars['Int']>;
+  linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
+  showCaptions?: Maybe<Scalars['Boolean']>;
+  markdownCaptions?: Maybe<Scalars['Boolean']>;
+  sizeByPixelDensity?: Maybe<Scalars['Boolean']>;
+  backgroundColor?: Maybe<Scalars['String']>;
+  quality?: Maybe<Scalars['Int']>;
+  withWebp?: Maybe<Scalars['Boolean']>;
+  tracedSVG?: Maybe<Scalars['Boolean']>;
+  loading?: Maybe<Scalars['String']>;
+  disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>;
+  disableBgImage?: Maybe<Scalars['Boolean']>;
   name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
+  indentedSyntax?: Maybe<Scalars['Boolean']>;
+  indentType?: Maybe<Scalars['String']>;
+  indentWidth?: Maybe<Scalars['Int']>;
+  linefeed?: Maybe<Scalars['String']>;
+  omitSourceMapUrl?: Maybe<Scalars['Boolean']>;
+  precision?: Maybe<Scalars['Int']>;
+  sourceComments?: Maybe<Scalars['Boolean']>;
+  sourceMapContents?: Maybe<Scalars['Boolean']>;
+  sourceMapEmbed?: Maybe<Scalars['Boolean']>;
   feeds?: Maybe<Array<Maybe<SitePluginPluginOptionsFeeds>>>;
   trackingId?: Maybe<Scalars['String']>;
   anonymize?: Maybe<Scalars['Boolean']>;
   respectDNT?: Maybe<Scalars['Boolean']>;
+  head?: Maybe<Scalars['Boolean']>;
+  pageTransitionDelay?: Maybe<Scalars['Int']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
@@ -2862,13 +3030,44 @@ export type SitePluginPluginOptionsFeedsFilterListInput = {
 
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
+  isTSX?: Maybe<BooleanQueryOperatorInput>;
+  jsxPragma?: Maybe<StringQueryOperatorInput>;
+  allExtensions?: Maybe<BooleanQueryOperatorInput>;
+  base64Width?: Maybe<IntQueryOperatorInput>;
+  stripMetadata?: Maybe<BooleanQueryOperatorInput>;
+  defaultQuality?: Maybe<IntQueryOperatorInput>;
+  failOnError?: Maybe<BooleanQueryOperatorInput>;
+  offsetY?: Maybe<IntQueryOperatorInput>;
+  className?: Maybe<StringQueryOperatorInput>;
   maxWidth?: Maybe<IntQueryOperatorInput>;
+  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
+  showCaptions?: Maybe<BooleanQueryOperatorInput>;
+  markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
+  sizeByPixelDensity?: Maybe<BooleanQueryOperatorInput>;
+  backgroundColor?: Maybe<StringQueryOperatorInput>;
+  quality?: Maybe<IntQueryOperatorInput>;
+  withWebp?: Maybe<BooleanQueryOperatorInput>;
+  tracedSVG?: Maybe<BooleanQueryOperatorInput>;
+  loading?: Maybe<StringQueryOperatorInput>;
+  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>;
+  disableBgImage?: Maybe<BooleanQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
+  indentedSyntax?: Maybe<BooleanQueryOperatorInput>;
+  indentType?: Maybe<StringQueryOperatorInput>;
+  indentWidth?: Maybe<IntQueryOperatorInput>;
+  linefeed?: Maybe<StringQueryOperatorInput>;
+  omitSourceMapUrl?: Maybe<BooleanQueryOperatorInput>;
+  precision?: Maybe<IntQueryOperatorInput>;
+  sourceComments?: Maybe<BooleanQueryOperatorInput>;
+  sourceMapContents?: Maybe<BooleanQueryOperatorInput>;
+  sourceMapEmbed?: Maybe<BooleanQueryOperatorInput>;
   feeds?: Maybe<SitePluginPluginOptionsFeedsFilterListInput>;
   trackingId?: Maybe<StringQueryOperatorInput>;
   anonymize?: Maybe<BooleanQueryOperatorInput>;
   respectDNT?: Maybe<BooleanQueryOperatorInput>;
+  head?: Maybe<BooleanQueryOperatorInput>;
+  pageTransitionDelay?: Maybe<IntQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -2878,6 +3077,7 @@ export type SitePluginPluginOptionsPlugins = {
   name?: Maybe<Scalars['String']>;
   version?: Maybe<Scalars['String']>;
   pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptions>;
+  nodeAPIs?: Maybe<Array<Maybe<Scalars['String']>>>;
   browserAPIs?: Maybe<Array<Maybe<Scalars['String']>>>;
   ssrAPIs?: Maybe<Array<Maybe<Scalars['String']>>>;
   pluginFilepath?: Maybe<Scalars['String']>;
@@ -2889,6 +3089,7 @@ export type SitePluginPluginOptionsPluginsFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   version?: Maybe<StringQueryOperatorInput>;
   pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsFilterInput>;
+  nodeAPIs?: Maybe<StringQueryOperatorInput>;
   browserAPIs?: Maybe<StringQueryOperatorInput>;
   ssrAPIs?: Maybe<StringQueryOperatorInput>;
   pluginFilepath?: Maybe<StringQueryOperatorInput>;
@@ -2899,11 +3100,37 @@ export type SitePluginPluginOptionsPluginsFilterListInput = {
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptions = {
+  offsetY?: Maybe<Scalars['Int']>;
+  className?: Maybe<Scalars['String']>;
   maxWidth?: Maybe<Scalars['Int']>;
+  linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
+  showCaptions?: Maybe<Scalars['Boolean']>;
+  markdownCaptions?: Maybe<Scalars['Boolean']>;
+  sizeByPixelDensity?: Maybe<Scalars['Boolean']>;
+  backgroundColor?: Maybe<Scalars['String']>;
+  quality?: Maybe<Scalars['Int']>;
+  withWebp?: Maybe<Scalars['Boolean']>;
+  tracedSVG?: Maybe<Scalars['Boolean']>;
+  loading?: Maybe<Scalars['String']>;
+  disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>;
+  disableBgImage?: Maybe<Scalars['Boolean']>;
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
+  offsetY?: Maybe<IntQueryOperatorInput>;
+  className?: Maybe<StringQueryOperatorInput>;
   maxWidth?: Maybe<IntQueryOperatorInput>;
+  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
+  showCaptions?: Maybe<BooleanQueryOperatorInput>;
+  markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
+  sizeByPixelDensity?: Maybe<BooleanQueryOperatorInput>;
+  backgroundColor?: Maybe<StringQueryOperatorInput>;
+  quality?: Maybe<IntQueryOperatorInput>;
+  withWebp?: Maybe<BooleanQueryOperatorInput>;
+  tracedSVG?: Maybe<BooleanQueryOperatorInput>;
+  loading?: Maybe<StringQueryOperatorInput>;
+  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>;
+  disableBgImage?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SitePluginSortInput = {
@@ -2955,6 +3182,19 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
+export type TransformOptions = {
+  grayscale?: Maybe<Scalars['Boolean']>;
+  duotone?: Maybe<DuotoneGradient>;
+  rotate?: Maybe<Scalars['Int']>;
+  trim?: Maybe<Scalars['Float']>;
+  cropFocus?: Maybe<ImageCropFocus>;
+  fit?: Maybe<ImageFit>;
+};
+
+export type WebPOptions = {
+  quality?: Maybe<Scalars['Int']>;
+};
+
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -2988,6 +3228,11 @@ export type IndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
     Pick<ImageSharp, 'id'>
     & { fluid?: Maybe<Pick<ImageSharpFluid, 'aspectRatio' | 'base64' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }
   )> };
+
+export type ProjectsIndexPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ProjectsIndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, allProjects: { edges: Array<{ node: { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'slug'>> } }> } };
 
 export type BlogPostBySlugQueryVariables = Exact<{
   slug: Scalars['String'];

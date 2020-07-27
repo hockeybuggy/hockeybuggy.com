@@ -42,7 +42,10 @@ const CategoriesPage = ({
 
 export const pageQuery = graphql`
   query CategoriesPage {
-    allMarkdownRemark(limit: 2000) {
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { glob: "**/content/blog/*" } }
+      limit: 2000
+    ) {
       group(field: frontmatter___categories) {
         fieldValue
         totalCount
