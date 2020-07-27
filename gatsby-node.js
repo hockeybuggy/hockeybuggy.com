@@ -8,6 +8,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const blogPostTemplate = path.resolve(`./src/templates/blogPost.tsx`);
   const tagTemplate = path.resolve("src/templates/tags.tsx");
   const categoryTemplate = path.resolve("src/templates/categories.tsx");
+  const projectTemplate = path.resolve(`./src/templates/project.tsx`);
 
   const result = await graphql(
     `
@@ -31,6 +32,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+
         tagsGroup: allMarkdownRemark(
           filter: { fileAbsolutePath: { glob: "**/content/blog/*" } }
           limit: 2000
@@ -46,6 +48,23 @@ exports.createPages = async ({ graphql, actions }) => {
         ) {
           group(field: frontmatter___categories) {
             fieldValue
+          }
+        }
+
+        projectsRemark: allMarkdownRemark(
+          filter: { fileAbsolutePath: { glob: "**/content/projects/*" } }
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 1000
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                slug
+              }
+            }
           }
         }
       }
@@ -89,6 +108,19 @@ exports.createPages = async ({ graphql, actions }) => {
       component: categoryTemplate,
       context: {
         category: category.fieldValue,
+      },
+    });
+  });
+
+  // Create project pages
+  const projects = result.data.projectsRemark.edges;
+  projects.forEach((project) => {
+    const { slug } = project.node.frontmatter;
+    createPage({
+      path: `/project/${slug}`,
+      component: projectTemplate,
+      context: {
+        slug: project.node.fields.slug,
       },
     });
   });

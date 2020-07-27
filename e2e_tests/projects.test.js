@@ -42,3 +42,17 @@ describe("/projects (Projects index Page)", () => {
     expect(projects).toEqual(expectedProjects);
   });
 });
+
+const projects = expectedProjects.map((project) => [
+  project.postPathName,
+  project.postTitle,
+]);
+describe.each(projects)("%s", (pathName, title) => {
+  const fullUrl = `${BASE_URL}${pathName}/`;
+
+  it("should have a title", async () => {
+    await loadPage(page, fullUrl);
+
+    expect(await page.title()).toEqual(`Project: ${title} | hockeybuggy.com`);
+  });
+});
