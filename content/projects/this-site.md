@@ -1,10 +1,13 @@
 ---
 title: This website
 slug: "this-site"
+github: "https://github.com/hockeybuggy/hockeybuggy.com"
 ---
 
 
 This my personal website is a place I use to try out new things.
+
+<!-- end -->
 
 
 ## History of the site

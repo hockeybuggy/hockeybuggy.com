@@ -714,6 +714,7 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___tags'
   | 'childMarkdownRemark___frontmatter___edit_date'
   | 'childMarkdownRemark___frontmatter___header_img'
+  | 'childMarkdownRemark___frontmatter___github'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
   | 'childMarkdownRemark___fileAbsolutePath'
@@ -1532,6 +1533,7 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___tags'
   | 'frontmatter___edit_date'
   | 'frontmatter___header_img'
+  | 'frontmatter___github'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -1666,6 +1668,7 @@ export type MarkdownRemarkFrontmatter = {
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   edit_date?: Maybe<Scalars['Date']>;
   header_img?: Maybe<Scalars['String']>;
+  github?: Maybe<Scalars['String']>;
 };
 
 
@@ -1693,6 +1696,7 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   tags?: Maybe<StringQueryOperatorInput>;
   edit_date?: Maybe<DateQueryOperatorInput>;
   header_img?: Maybe<StringQueryOperatorInput>;
+  github?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -2561,6 +2565,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___plugins___browserAPIs'
   | 'pluginCreator___pluginOptions___plugins___ssrAPIs'
   | 'pluginCreator___pluginOptions___plugins___pluginFilepath'
+<<<<<<< HEAD
   | 'pluginCreator___pluginOptions___isTSX'
   | 'pluginCreator___pluginOptions___jsxPragma'
   | 'pluginCreator___pluginOptions___allExtensions'
@@ -2570,6 +2575,9 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___failOnError'
   | 'pluginCreator___pluginOptions___offsetY'
   | 'pluginCreator___pluginOptions___className'
+=======
+  | 'pluginCreator___pluginOptions___excerpt_separator'
+>>>>>>> 324ac85... Add a github link to the projects
   | 'pluginCreator___pluginOptions___maxWidth'
   | 'pluginCreator___pluginOptions___linkImagesToOriginal'
   | 'pluginCreator___pluginOptions___showCaptions'
@@ -2813,6 +2821,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___browserAPIs'
   | 'pluginOptions___plugins___ssrAPIs'
   | 'pluginOptions___plugins___pluginFilepath'
+<<<<<<< HEAD
   | 'pluginOptions___isTSX'
   | 'pluginOptions___jsxPragma'
   | 'pluginOptions___allExtensions'
@@ -2822,6 +2831,9 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___failOnError'
   | 'pluginOptions___offsetY'
   | 'pluginOptions___className'
+=======
+  | 'pluginOptions___excerpt_separator'
+>>>>>>> 324ac85... Add a github link to the projects
   | 'pluginOptions___maxWidth'
   | 'pluginOptions___linkImagesToOriginal'
   | 'pluginOptions___showCaptions'
@@ -2971,6 +2983,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
+<<<<<<< HEAD
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
@@ -2980,6 +2993,9 @@ export type SitePluginPluginOptions = {
   failOnError?: Maybe<Scalars['Boolean']>;
   offsetY?: Maybe<Scalars['Int']>;
   className?: Maybe<Scalars['String']>;
+=======
+  excerpt_separator?: Maybe<Scalars['String']>;
+>>>>>>> 324ac85... Add a github link to the projects
   maxWidth?: Maybe<Scalars['Int']>;
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
   showCaptions?: Maybe<Scalars['Boolean']>;
@@ -3030,6 +3046,7 @@ export type SitePluginPluginOptionsFeedsFilterListInput = {
 
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
+<<<<<<< HEAD
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
@@ -3039,6 +3056,9 @@ export type SitePluginPluginOptionsFilterInput = {
   failOnError?: Maybe<BooleanQueryOperatorInput>;
   offsetY?: Maybe<IntQueryOperatorInput>;
   className?: Maybe<StringQueryOperatorInput>;
+=======
+  excerpt_separator?: Maybe<StringQueryOperatorInput>;
+>>>>>>> 324ac85... Add a github link to the projects
   maxWidth?: Maybe<IntQueryOperatorInput>;
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
   showCaptions?: Maybe<BooleanQueryOperatorInput>;
@@ -3232,7 +3252,10 @@ export type IndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
 export type ProjectsIndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProjectsIndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, allProjects: { edges: Array<{ node: { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'slug'>> } }> } };
+export type ProjectsIndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, allProjects: { edges: Array<{ node: (
+        Pick<MarkdownRemark, 'excerpt'>
+        & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'github' | 'slug'>> }
+      ) }> } };
 
 export type BlogPostBySlugQueryVariables = Exact<{
   slug: Scalars['String'];

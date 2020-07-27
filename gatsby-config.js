@@ -16,6 +16,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        excerpt_separator: `<!-- end -->`,
         plugins: [
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-prismjs`,
@@ -76,6 +77,7 @@ module.exports = {
             query: `
               {
                 allMarkdownRemark(
+                  filter: { fileAbsolutePath: { glob: "**/content/blog/*" } }
                   sort: { order: DESC, fields: [frontmatter___date] },
                 ) {
                   edges {
