@@ -28,10 +28,18 @@ const CATEGORIES_PAGE = {
   },
 };
 
+const PROJECTS_PAGE = {
+  url: `${BASE_URL}/projects/`,
+  expected: {
+    title: "Projects | hockeybuggy.com",
+  },
+};
+
 module.exports = {
   BASE_URL,
   BLOG_PAGE,
   CATEGORIES_PAGE,
   LANDING_PAGE,
+  PROJECTS_PAGE,
   TAGS_PAGE,
 };
