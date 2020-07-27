@@ -50,6 +50,7 @@ export const pageQuery = graphql`
       }
     }
     allBlogPosts: allMarkdownRemark(
+      filter: { fileAbsolutePath: { glob: "**/content/blog/*" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
