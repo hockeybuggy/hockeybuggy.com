@@ -3260,6 +3260,16 @@ export type CategoriesQuery = { allMarkdownRemark: (
         )> } }> }
   ) };
 
+export type ProjectBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type ProjectBySlugQuery = { projectBySlug?: Maybe<(
+    Pick<MarkdownRemark, 'id' | 'excerpt' | 'html'>
+    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }
+  )> };
+
 export type TagsQueryVariables = Exact<{
   tag?: Maybe<Scalars['String']>;
 }>;
