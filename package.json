@@ -58,7 +58,7 @@
     "react-dom": "^16.13.0",
     "react-helmet": "^6.1.0",
     "sharp": "^0.25.4",
-    "slugify": "^1.4.4",
+    "slugify": "^1.4.5",
     "yarn": "^1.22.4"
   },
   "devDependencies": {
