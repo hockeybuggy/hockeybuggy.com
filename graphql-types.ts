@@ -2579,12 +2579,21 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___excerpt_separator'
 >>>>>>> 324ac85... Add a github link to the projects
   | 'pluginCreator___pluginOptions___maxWidth'
+<<<<<<< HEAD
   | 'pluginCreator___pluginOptions___linkImagesToOriginal'
   | 'pluginCreator___pluginOptions___showCaptions'
   | 'pluginCreator___pluginOptions___markdownCaptions'
   | 'pluginCreator___pluginOptions___sizeByPixelDensity'
   | 'pluginCreator___pluginOptions___backgroundColor'
   | 'pluginCreator___pluginOptions___quality'
+=======
+  | 'pluginCreator___pluginOptions___pathPrefix'
+  | 'pluginCreator___pluginOptions___wrapperStyle'
+  | 'pluginCreator___pluginOptions___backgroundColor'
+  | 'pluginCreator___pluginOptions___linkImagesToOriginal'
+  | 'pluginCreator___pluginOptions___showCaptions'
+  | 'pluginCreator___pluginOptions___markdownCaptions'
+>>>>>>> 8f40541... Continue cleaning up the first `projects` page.
   | 'pluginCreator___pluginOptions___withWebp'
   | 'pluginCreator___pluginOptions___tracedSVG'
   | 'pluginCreator___pluginOptions___loading'
@@ -2806,18 +2815,30 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___pluginOptions___offsetY'
   | 'pluginOptions___plugins___pluginOptions___className'
   | 'pluginOptions___plugins___pluginOptions___maxWidth'
+<<<<<<< HEAD
   | 'pluginOptions___plugins___pluginOptions___linkImagesToOriginal'
   | 'pluginOptions___plugins___pluginOptions___showCaptions'
   | 'pluginOptions___plugins___pluginOptions___markdownCaptions'
   | 'pluginOptions___plugins___pluginOptions___sizeByPixelDensity'
   | 'pluginOptions___plugins___pluginOptions___backgroundColor'
   | 'pluginOptions___plugins___pluginOptions___quality'
+=======
+  | 'pluginOptions___plugins___pluginOptions___pathPrefix'
+  | 'pluginOptions___plugins___pluginOptions___wrapperStyle'
+  | 'pluginOptions___plugins___pluginOptions___backgroundColor'
+  | 'pluginOptions___plugins___pluginOptions___linkImagesToOriginal'
+  | 'pluginOptions___plugins___pluginOptions___showCaptions'
+  | 'pluginOptions___plugins___pluginOptions___markdownCaptions'
+>>>>>>> 8f40541... Continue cleaning up the first `projects` page.
   | 'pluginOptions___plugins___pluginOptions___withWebp'
   | 'pluginOptions___plugins___pluginOptions___tracedSVG'
   | 'pluginOptions___plugins___pluginOptions___loading'
   | 'pluginOptions___plugins___pluginOptions___disableBgImageOnAlpha'
   | 'pluginOptions___plugins___pluginOptions___disableBgImage'
+<<<<<<< HEAD
   | 'pluginOptions___plugins___nodeAPIs'
+=======
+>>>>>>> 8f40541... Continue cleaning up the first `projects` page.
   | 'pluginOptions___plugins___browserAPIs'
   | 'pluginOptions___plugins___ssrAPIs'
   | 'pluginOptions___plugins___pluginFilepath'
@@ -2835,12 +2856,21 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___excerpt_separator'
 >>>>>>> 324ac85... Add a github link to the projects
   | 'pluginOptions___maxWidth'
+<<<<<<< HEAD
   | 'pluginOptions___linkImagesToOriginal'
   | 'pluginOptions___showCaptions'
   | 'pluginOptions___markdownCaptions'
   | 'pluginOptions___sizeByPixelDensity'
   | 'pluginOptions___backgroundColor'
   | 'pluginOptions___quality'
+=======
+  | 'pluginOptions___pathPrefix'
+  | 'pluginOptions___wrapperStyle'
+  | 'pluginOptions___backgroundColor'
+  | 'pluginOptions___linkImagesToOriginal'
+  | 'pluginOptions___showCaptions'
+  | 'pluginOptions___markdownCaptions'
+>>>>>>> 8f40541... Continue cleaning up the first `projects` page.
   | 'pluginOptions___withWebp'
   | 'pluginOptions___tracedSVG'
   | 'pluginOptions___loading'
@@ -2997,12 +3027,21 @@ export type SitePluginPluginOptions = {
   excerpt_separator?: Maybe<Scalars['String']>;
 >>>>>>> 324ac85... Add a github link to the projects
   maxWidth?: Maybe<Scalars['Int']>;
+<<<<<<< HEAD
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
   showCaptions?: Maybe<Scalars['Boolean']>;
   markdownCaptions?: Maybe<Scalars['Boolean']>;
   sizeByPixelDensity?: Maybe<Scalars['Boolean']>;
   backgroundColor?: Maybe<Scalars['String']>;
   quality?: Maybe<Scalars['Int']>;
+=======
+  pathPrefix?: Maybe<Scalars['String']>;
+  wrapperStyle?: Maybe<Scalars['String']>;
+  backgroundColor?: Maybe<Scalars['String']>;
+  linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
+  showCaptions?: Maybe<Scalars['Boolean']>;
+  markdownCaptions?: Maybe<Scalars['Boolean']>;
+>>>>>>> 8f40541... Continue cleaning up the first `projects` page.
   withWebp?: Maybe<Scalars['Boolean']>;
   tracedSVG?: Maybe<Scalars['Boolean']>;
   loading?: Maybe<Scalars['String']>;
@@ -3060,12 +3099,21 @@ export type SitePluginPluginOptionsFilterInput = {
   excerpt_separator?: Maybe<StringQueryOperatorInput>;
 >>>>>>> 324ac85... Add a github link to the projects
   maxWidth?: Maybe<IntQueryOperatorInput>;
+<<<<<<< HEAD
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
   showCaptions?: Maybe<BooleanQueryOperatorInput>;
   markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
   sizeByPixelDensity?: Maybe<BooleanQueryOperatorInput>;
   backgroundColor?: Maybe<StringQueryOperatorInput>;
   quality?: Maybe<IntQueryOperatorInput>;
+=======
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
+  wrapperStyle?: Maybe<StringQueryOperatorInput>;
+  backgroundColor?: Maybe<StringQueryOperatorInput>;
+  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
+  showCaptions?: Maybe<BooleanQueryOperatorInput>;
+  markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
+>>>>>>> 8f40541... Continue cleaning up the first `projects` page.
   withWebp?: Maybe<BooleanQueryOperatorInput>;
   tracedSVG?: Maybe<BooleanQueryOperatorInput>;
   loading?: Maybe<StringQueryOperatorInput>;
@@ -3123,12 +3171,21 @@ export type SitePluginPluginOptionsPluginsPluginOptions = {
   offsetY?: Maybe<Scalars['Int']>;
   className?: Maybe<Scalars['String']>;
   maxWidth?: Maybe<Scalars['Int']>;
+<<<<<<< HEAD
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
   showCaptions?: Maybe<Scalars['Boolean']>;
   markdownCaptions?: Maybe<Scalars['Boolean']>;
   sizeByPixelDensity?: Maybe<Scalars['Boolean']>;
   backgroundColor?: Maybe<Scalars['String']>;
   quality?: Maybe<Scalars['Int']>;
+=======
+  pathPrefix?: Maybe<Scalars['String']>;
+  wrapperStyle?: Maybe<Scalars['String']>;
+  backgroundColor?: Maybe<Scalars['String']>;
+  linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
+  showCaptions?: Maybe<Scalars['Boolean']>;
+  markdownCaptions?: Maybe<Scalars['Boolean']>;
+>>>>>>> 8f40541... Continue cleaning up the first `projects` page.
   withWebp?: Maybe<Scalars['Boolean']>;
   tracedSVG?: Maybe<Scalars['Boolean']>;
   loading?: Maybe<Scalars['String']>;
@@ -3140,12 +3197,21 @@ export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   offsetY?: Maybe<IntQueryOperatorInput>;
   className?: Maybe<StringQueryOperatorInput>;
   maxWidth?: Maybe<IntQueryOperatorInput>;
+<<<<<<< HEAD
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
   showCaptions?: Maybe<BooleanQueryOperatorInput>;
   markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
   sizeByPixelDensity?: Maybe<BooleanQueryOperatorInput>;
   backgroundColor?: Maybe<StringQueryOperatorInput>;
   quality?: Maybe<IntQueryOperatorInput>;
+=======
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
+  wrapperStyle?: Maybe<StringQueryOperatorInput>;
+  backgroundColor?: Maybe<StringQueryOperatorInput>;
+  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
+  showCaptions?: Maybe<BooleanQueryOperatorInput>;
+  markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
+>>>>>>> 8f40541... Continue cleaning up the first `projects` page.
   withWebp?: Maybe<BooleanQueryOperatorInput>;
   tracedSVG?: Maybe<BooleanQueryOperatorInput>;
   loading?: Maybe<StringQueryOperatorInput>;
