@@ -1,14 +1,50 @@
-import * as React from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 import classNames from "classnames";
 import Link from "gatsby-link";
 
 import Icon from "../components/icon";
 
+function useOutsideAlerter(
+  ref: React.RefObject<any>,
+  outsideFn: () => void
+): void {
+  useEffect(() => {
+    /** Close the menu if clicked on outside of the element */
+    function handleClickOutside(event: MouseEvent): void {
+      if (ref.current && !ref.current.contains(event.target)) {
+        outsideFn();
+      }
+    }
+    /** Close the menu if focus goes to an element outside of the element */
+    function handleFocusOutside(event: FocusEvent): void {
+      if (ref.current && !ref.current.contains(event.target)) {
+        outsideFn();
+      }
+    }
+
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("focusin", handleFocusOutside);
+
+    return (): void => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("focusin", handleFocusOutside);
+    };
+  }, [ref]);
+}
+
 const Navigation = (props: { pathname?: string }): JSX.Element => {
+  const [menuState, setMenuState] = useState(false);
+  const wrapperRef = useRef(null);
+  useOutsideAlerter(wrapperRef, () => {
+    setMenuState(false);
+  });
+
   return (
     <nav className="navigation">
-      <section className="container">
+      <div className="container">
         <Link
           to="/"
           className={classNames("navigation-title", {
@@ -18,26 +54,45 @@ const Navigation = (props: { pathname?: string }): JSX.Element => {
           hockeybuggy.com
         </Link>
 
-        <input type="checkbox" id="menu-toggle" />
-        <label className="menu-button float-right" htmlFor="menu-toggle">
-          <Icon name={Icon.Names.Bars} label="Toggle menu" />
-        </label>
+        <button
+          id="menu-button"
+          className="menu-button"
+          onClick={(): void => setMenuState(!menuState)}
+          aria-label="Toggle menu"
+          aria-controls="menu-inner"
+        >
+          <Icon name={Icon.Names.Bars} label="" />
+        </button>
 
-        <ul className="navigation-list">
-          <li
-            aria-current={props.pathname === "/" ? "page" : undefined}
-            className="navigation-item"
+        {menuState ? (
+          <ul
+            className="navigation-list"
+            id="menu-inner"
+            role="menu"
+            aria-labelledby="menu-button"
+            ref={wrapperRef}
           >
-            <Link to="/">Home</Link>
-          </li>
-          <li
-            aria-current={props.pathname === "/blog/" ? "page" : undefined}
-            className="navigation-item"
-          >
-            <Link to="/blog/">Blog</Link>
-          </li>
-        </ul>
-      </section>
+            <li className="navigation-item" role="none">
+              <Link
+                to="/"
+                role="menuitem"
+                aria-current={props.pathname === "/" ? "page" : undefined}
+              >
+                Home
+              </Link>
+            </li>
+            <li className="navigation-item" role="none">
+              <Link
+                to="/blog/"
+                role="menuitem"
+                aria-current={props.pathname === "/blog/" ? "page" : undefined}
+              >
+                Blog
+              </Link>
+            </li>
+          </ul>
+        ) : null}
+      </div>
     </nav>
   );
 };
