@@ -1,7 +1,8 @@
 ---
-title: Clonename
+title: Clonenames
 slug: "clonenames"
 github: "https://github.com/hockeybuggy/clonenames"
+bannerImageName: "projects/clonenames/banner.png"
 ---
 
 A clone of the board game "Codenames". This project was in order to get
