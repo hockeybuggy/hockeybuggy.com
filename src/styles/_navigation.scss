@@ -29,19 +29,18 @@
   }
 
   .navigation-list {
+    background-color: $alt-bg-color;
     float: right;
     list-style: none;
     margin-bottom: 0;
     margin-top: 0;
+
     @media only screen and (max-width: 768px) {
       position: absolute;
       top: 6rem;
       right: 0;
       z-index: 5;
-      visibility: hidden;
-      opacity: 0;
       padding: 0;
-      max-height: 0;
       width: 100%;
       background-color: $bg-color;
       border-top: solid 2px $alt-bg-color;
@@ -53,10 +52,7 @@
       float: left;
       margin: 0;
       position: relative;
-
-      &[aria-current="page"] {
-        text-decoration: underline;
-      }
+      border-top: solid 1px $alt-bg-color;
 
       @media only screen and (max-width: 768px) {
         float: none !important;
@@ -69,8 +65,12 @@
 
       a,
       span {
+        display: block;
         margin-left: 1rem;
         margin-right: 1rem;
+        &[aria-current="page"] {
+          text-decoration: underline;
+        }
       }
     }
 
@@ -85,22 +85,13 @@
     }
   }
 
-  #menu-toggle {
-    display: none;
-    @media only screen and (max-width: 768px) {
-      &:checked + label {
-        color: $alt-bg-color;
-      }
-      &:checked + label + ul {
-        visibility: visible;
-        opacity: 1;
-        max-height: 100rem;
-      }
-    }
-  }
-
   .menu-button {
     display: none;
+    background: none;
+    border: none;
+
+    float: right;
+
     @media only screen and (max-width: 768px) {
       display: block;
       font-size: 2.4rem;
@@ -112,10 +103,6 @@
       &:focus {
         color: $link-color;
       }
-    }
-
-    i {
-      width: 1.6rem;
     }
   }
 }
