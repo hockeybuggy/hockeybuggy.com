@@ -1,10 +1,5 @@
 module.exports = {
   parser: "@typescript-eslint/parser",
-  extends: [
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
-  ],
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: "module", // Allows for the use of imports
@@ -12,6 +7,13 @@ module.exports = {
       jsx: true,
     },
   },
+  extends: [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended",
+    "prettier",
+  ],
+  plugins: ["jsx-a11y"],
   rules: {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
