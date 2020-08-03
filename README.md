@@ -53,6 +53,14 @@ Generate and watch the site with:
 
     ./script/server
 
+To simulate a production build locally:
+
+    yarn run build
+    cd public
+    python3 -m http.server 8888
+    cd -
+
+
 ### Running the tests
 
 To check the built site with an headless browser test:
