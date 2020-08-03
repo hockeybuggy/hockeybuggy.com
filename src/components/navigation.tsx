@@ -64,34 +64,33 @@ const Navigation = (props: { pathname?: string }): JSX.Element => {
           <Icon name={Icon.Names.Bars} label="" />
         </button>
 
-        {menuState ? (
-          <ul
-            className="navigation-list"
-            id="menu-inner"
-            role="menu"
-            aria-labelledby="menu-button"
-            ref={wrapperRef}
-          >
-            <li className="navigation-item" role="none">
-              <Link
-                to="/"
-                role="menuitem"
-                aria-current={props.pathname === "/" ? "page" : undefined}
-              >
-                Home
-              </Link>
-            </li>
-            <li className="navigation-item" role="none">
-              <Link
-                to="/blog/"
-                role="menuitem"
-                aria-current={props.pathname === "/blog/" ? "page" : undefined}
-              >
-                Blog
-              </Link>
-            </li>
-          </ul>
-        ) : null}
+        <ul
+          className="navigation-list"
+          id="menu-inner"
+          role="menu"
+          aria-labelledby="menu-button"
+          data-expanded={menuState}
+          ref={wrapperRef}
+        >
+          <li className="navigation-item" role="none">
+            <Link
+              to="/"
+              role="menuitem"
+              aria-current={props.pathname === "/" ? "page" : undefined}
+            >
+              Home
+            </Link>
+          </li>
+          <li className="navigation-item" role="none">
+            <Link
+              to="/blog/"
+              role="menuitem"
+              aria-current={props.pathname === "/blog/" ? "page" : undefined}
+            >
+              Blog
+            </Link>
+          </li>
+        </ul>
       </div>
     </nav>
   );

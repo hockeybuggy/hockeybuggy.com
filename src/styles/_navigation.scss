@@ -29,13 +29,13 @@
   }
 
   .navigation-list {
-    background-color: $alt-bg-color;
     float: right;
     list-style: none;
     margin-bottom: 0;
     margin-top: 0;
+    visibility: visible;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: $small-max-width) {
       position: absolute;
       top: 6rem;
       right: 0;
@@ -46,6 +46,10 @@
       border-top: solid 2px $alt-bg-color;
       border-bottom: solid 2px $alt-bg-color;
       transition: opacity 0.25s, max-height 0.15s linear;
+
+      &[data-expanded="false"] {
+        visibility: hidden;
+      }
     }
 
     .navigation-item {
@@ -54,7 +58,7 @@
       position: relative;
       border-top: solid 1px $alt-bg-color;
 
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: $small-max-width) {
         float: none !important;
         text-align: center;
         a,
@@ -75,7 +79,7 @@
     }
 
     .menu-separator {
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: $small-max-width) {
         border-top: 2px solid $fg-color;
         margin: 0 8rem;
         span {
@@ -92,7 +96,7 @@
 
     float: right;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: $small-max-width) {
       display: block;
       font-size: 2.4rem;
       font-weight: 400;
@@ -103,6 +107,10 @@
       &:focus {
         color: $link-color;
       }
+    }
+
+    i {
+      max-width: 2rem;
     }
   }
 }

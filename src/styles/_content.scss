@@ -11,7 +11,7 @@
         font-size: 4.2rem;
         line-height: 4.6rem;
         margin: 0;
-        @media only screen and (max-width: 768px) {
+        @media only screen and (max-width: $small-max-width) {
           font-size: 4rem;
           line-height: 4.4rem;
         }
@@ -78,7 +78,7 @@
 
     li {
       font-size: 1.8rem;
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: $small-max-width) {
         margin: 1.6rem 0 1.6rem 0;
       }
 
@@ -87,7 +87,7 @@
         width: 20rem;
         text-align: right;
         margin-right: 3rem;
-        @media only screen and (max-width: 768px) {
+        @media only screen and (max-width: $small-max-width) {
           display: block;
           text-align: left;
         }
