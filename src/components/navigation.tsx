@@ -6,39 +6,46 @@ import Link from "gatsby-link";
 import Icon from "../components/icon";
 
 function useOutsideAlerter(
-  ref: React.RefObject<any>,
+  refs: Array<React.RefObject<any>>,
   outsideFn: () => void
 ): void {
   useEffect(() => {
-    /** Close the menu if clicked on outside of the element */
-    function handleClickOutside(event: MouseEvent): void {
-      if (ref.current && !ref.current.contains(event.target)) {
-        outsideFn();
-      }
+    function eventTargetIsOutsideAllRefs(
+      event: MouseEvent | FocusEvent
+    ): boolean {
+      return refs.every((ref) => {
+        return ref.current && !ref.current.contains(event.target);
+      });
     }
-    /** Close the menu if focus goes to an element outside of the element */
-    function handleFocusOutside(event: FocusEvent): void {
-      if (ref.current && !ref.current.contains(event.target)) {
+
+    /** Close the menu if clicked outside of or focus moves outside of all of
+     * the pass refs */
+    function handleEventTargetOutsideRefs(
+      event: MouseEvent | FocusEvent
+    ): void {
+      console.log(event.target);
+      if (eventTargetIsOutsideAllRefs(event)) {
         outsideFn();
       }
     }
 
-    // Bind the event listener
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("focusin", handleFocusOutside);
+    // Bind the event listeners
+    document.addEventListener("mousedown", handleEventTargetOutsideRefs);
+    document.addEventListener("focusin", handleEventTargetOutsideRefs);
 
     return (): void => {
       // Unbind the event listener on clean up
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("focusin", handleFocusOutside);
+      document.removeEventListener("mousedown", handleEventTargetOutsideRefs);
+      document.removeEventListener("focusin", handleEventTargetOutsideRefs);
     };
-  }, [ref]);
+  }, [refs]);
 }
 
 const Navigation = (props: { pathname?: string }): JSX.Element => {
   const [menuState, setMenuState] = useState(false);
-  const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef, () => {
+  const navigationListRef = useRef(null);
+  const navigationToggleRef = useRef(null);
+  useOutsideAlerter([navigationListRef, navigationToggleRef], () => {
     setMenuState(false);
   });
 
@@ -48,13 +55,13 @@ const Navigation = (props: { pathname?: string }): JSX.Element => {
         setMenuState(false);
       }
     }
+    // Bind the event listeners
     document.addEventListener("keyup", handleKeyUp);
-
     return (): void => {
       // Unbind the event listener on clean up
       document.removeEventListener("keyup", handleKeyUp);
     };
-  }, [wrapperRef]);
+  });
 
   return (
     <nav className="navigation">
@@ -72,8 +79,9 @@ const Navigation = (props: { pathname?: string }): JSX.Element => {
           id="menu-button"
           className="menu-button"
           onClick={(): void => setMenuState(!menuState)}
-          aria-label="Toggle menu"
+          aria-label="Toggle navigation"
           aria-controls="menu-inner"
+          ref={navigationToggleRef}
         >
           <Icon name={Icon.Names.Bars} label="" />
         </button>
@@ -84,7 +92,7 @@ const Navigation = (props: { pathname?: string }): JSX.Element => {
           role="menu"
           aria-labelledby="menu-button"
           data-expanded={menuState}
-          ref={wrapperRef}
+          ref={navigationListRef}
         >
           <li className="navigation-item" role="none">
             <Link
