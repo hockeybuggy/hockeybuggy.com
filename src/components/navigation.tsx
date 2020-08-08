@@ -42,6 +42,20 @@ const Navigation = (props: { pathname?: string }): JSX.Element => {
     setMenuState(false);
   });
 
+  useEffect(() => {
+    function handleKeyUp(event: KeyboardEvent): void {
+      if (event.key === "Escape") {
+        setMenuState(false);
+      }
+    }
+    document.addEventListener("keyup", handleKeyUp);
+
+    return (): void => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("keyup", handleKeyUp);
+    };
+  }, [wrapperRef]);
+
   return (
     <nav className="navigation">
       <div className="container">
