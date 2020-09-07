@@ -46,7 +46,7 @@
     "gatsby-remark-images": "^3.3.24",
     "gatsby-remark-prismjs": "^3.5.10",
     "gatsby-source-filesystem": "^2.3.16",
-    "gatsby-transformer-remark": "^2.8.27",
+    "gatsby-transformer-remark": "^2.8.33",
     "gatsby-transformer-sharp": "^2.5.12",
     "graphql": "^14.7.0",
     "lodash": "^4.17.19",
