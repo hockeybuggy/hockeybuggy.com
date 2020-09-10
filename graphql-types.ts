@@ -1,4 +1,5 @@
 export type Maybe<T> = T | null;
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -1692,6 +1693,7 @@ export type PageInfo = {
   itemCount: Scalars['Int'];
   pageCount: Scalars['Int'];
   perPage?: Maybe<Scalars['Int']>;
+  totalCount: Scalars['Int'];
 };
 
 export type Potrace = {
@@ -2953,17 +2955,17 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
-export type Unnamed_1_QueryVariables = {};
+export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type Unnamed_1_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
 
-export type CategoriesPageQueryVariables = {};
+export type CategoriesPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type CategoriesPageQuery = { allMarkdownRemark: { group: Array<Pick<MarkdownRemarkGroupConnection, 'fieldValue' | 'totalCount'>> } };
 
-export type BlogIndexPageQueryVariables = {};
+export type BlogIndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type BlogIndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, allBlogPosts: { edges: Array<{ node: { frontmatter?: Maybe<(
@@ -2971,12 +2973,12 @@ export type BlogIndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<Site
           & { year: MarkdownRemarkFrontmatter['date'], month: MarkdownRemarkFrontmatter['date'], day: MarkdownRemarkFrontmatter['date'] }
         )> } }> } };
 
-export type TagsPageQueryVariables = {};
+export type TagsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type TagsPageQuery = { allMarkdownRemark: { group: Array<Pick<MarkdownRemarkGroupConnection, 'fieldValue' | 'totalCount'>> } };
 
-export type IndexPageQueryVariables = {};
+export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type IndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
@@ -2987,9 +2989,9 @@ export type IndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
     & { fluid?: Maybe<Pick<ImageSharpFluid, 'aspectRatio' | 'base64' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }
   )> };
 
-export type BlogPostBySlugQueryVariables = {
+export type BlogPostBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
-};
+}>;
 
 
 export type BlogPostBySlugQuery = { postBySlug?: Maybe<(
@@ -3000,9 +3002,9 @@ export type BlogPostBySlugQuery = { postBySlug?: Maybe<(
     )> }
   )> };
 
-export type CategoriesQueryVariables = {
+export type CategoriesQueryVariables = Exact<{
   category?: Maybe<Scalars['String']>;
-};
+}>;
 
 
 export type CategoriesQuery = { allMarkdownRemark: (
@@ -3013,9 +3015,9 @@ export type CategoriesQuery = { allMarkdownRemark: (
         )> } }> }
   ) };
 
-export type TagsQueryVariables = {
+export type TagsQueryVariables = Exact<{
   tag?: Maybe<Scalars['String']>;
-};
+}>;
 
 
 export type TagsQuery = { allMarkdownRemark: (
