@@ -2,6 +2,7 @@
 title: Dotfiles
 slug: "Dotfiles"
 github: "https://github.com/hockeybuggy/dotfiles"
+bannerImageName: "projects/dotfiles/banner.png"
 ---
 
 This "project" is my configuration files for setting up a computer. It contains

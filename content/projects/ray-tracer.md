@@ -2,6 +2,7 @@
 title: Ray Tracer
 slug: "ray-tracer"
 github: "https://github.com/hockeybuggy/ray_tracer"
+bannerImageName: "projects/ray-tracer/banner.png"
 ---
 
 Following along with the book [The Ray Tracer

@@ -1,6 +1,7 @@
 ---
 title: RGB Traveling Salesperson Art
 slug: "rgb-tsp-art"
+bannerImageName: "projects/rgb-tsp-art/banner.png"
 ---
 
 This is a creative project that I am very proud of and isn't software.
