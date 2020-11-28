@@ -3,6 +3,8 @@ module.exports = {
     dumpio: false,
     headless: process.env.HEADLESS !== "false",
     slowMo: process.env.SLOWMO ? process.env.SLOWMO : null,
+    ignoreDefaultArgs: ["--disable-extensions"],
+    args: ["--no-sandbox"],
   },
   browser: "chromium",
   browserContext: "default",
