@@ -1,6 +1,7 @@
 ---
 title: Recurring tasks
 slug: "recurring-tasks"
+order: 40
 github: "https://github.com/hockeybuggy/recurring_tasks"
 bannerImageName: "projects/recurring-tasks/banner.png"
 ---

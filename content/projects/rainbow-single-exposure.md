@@ -1,6 +1,7 @@
 ---
 title: Rainbow single exposure photo
 slug: "rainbow-single-exposure"
+order: 60
 bannerImageName: "projects/rainbow-single-exposure/banner.jpg"
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Dotfiles
-slug: "Dotfiles"
+slug: "dotfiles"
+order: 30
 github: "https://github.com/hockeybuggy/dotfiles"
 bannerImageName: "projects/dotfiles/banner.png"
 ---

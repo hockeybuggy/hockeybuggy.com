@@ -77,51 +77,52 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create blog posts pages.
   const posts = result.data.postsRemark.edges;
-  posts.forEach((post) => {
+  posts.forEach(post => {
     const { year, month, slug } = post.node.frontmatter;
     createPage({
       path: `/blog/post/${year}/${month}/${slug}`,
       component: blogPostTemplate,
       context: {
-        slug: post.node.fields.slug,
-      },
+        slug: post.node.fields.slug
+      }
     });
   });
 
   // Create pages for tags
   const tags = result.data.tagsGroup.group;
-  tags.forEach((tag) => {
+  tags.forEach(tag => {
     createPage({
       path: `/blog/tags/${_.kebabCase(tag.fieldValue)}/`,
       component: tagTemplate,
       context: {
-        tag: tag.fieldValue,
-      },
+        tag: tag.fieldValue
+      }
     });
   });
 
   // Create pages for categories
   const categories = result.data.categoriesGroup.group;
-  categories.forEach((category) => {
+  categories.forEach(category => {
     createPage({
       path: `/blog/categories/${_.kebabCase(category.fieldValue)}/`,
       component: categoryTemplate,
       context: {
-        category: category.fieldValue,
-      },
+        category: category.fieldValue
+      }
     });
   });
 
   // Create project pages
   const projects = result.data.projectsRemark.edges;
-  projects.forEach((project) => {
+  projects.forEach(project => {
     const { slug } = project.node.frontmatter;
     createPage({
       path: `/project/${slug}`,
       component: projectTemplate,
       context: {
         slug: project.node.fields.slug,
-      },
+        imagesSlug: `projects/${slug}`
+      }
     });
   });
 };
@@ -134,7 +135,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value
     });
   }
 };

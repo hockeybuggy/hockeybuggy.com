@@ -1,6 +1,7 @@
 ---
 title: Ray Tracer
 slug: "ray-tracer"
+order: 10
 github: "https://github.com/hockeybuggy/ray_tracer"
 bannerImageName: "projects/ray-tracer/banner.png"
 ---
