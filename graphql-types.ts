@@ -2569,7 +2569,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___plugins___browserAPIs'
   | 'pluginCreator___pluginOptions___plugins___ssrAPIs'
   | 'pluginCreator___pluginOptions___plugins___pluginFilepath'
-<<<<<<< HEAD
   | 'pluginCreator___pluginOptions___isTSX'
   | 'pluginCreator___pluginOptions___jsxPragma'
   | 'pluginCreator___pluginOptions___allExtensions'
@@ -2577,35 +2576,21 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___stripMetadata'
   | 'pluginCreator___pluginOptions___defaultQuality'
   | 'pluginCreator___pluginOptions___failOnError'
+  | 'pluginCreator___pluginOptions___excerpt_separator'
   | 'pluginCreator___pluginOptions___offsetY'
   | 'pluginCreator___pluginOptions___className'
-=======
-  | 'pluginCreator___pluginOptions___excerpt_separator'
->>>>>>> 324ac85... Add a github link to the projects
   | 'pluginCreator___pluginOptions___maxWidth'
-<<<<<<< HEAD
-<<<<<<< HEAD
   | 'pluginCreator___pluginOptions___linkImagesToOriginal'
   | 'pluginCreator___pluginOptions___showCaptions'
   | 'pluginCreator___pluginOptions___markdownCaptions'
   | 'pluginCreator___pluginOptions___sizeByPixelDensity'
   | 'pluginCreator___pluginOptions___backgroundColor'
   | 'pluginCreator___pluginOptions___quality'
-=======
-  | 'pluginCreator___pluginOptions___pathPrefix'
-  | 'pluginCreator___pluginOptions___wrapperStyle'
-  | 'pluginCreator___pluginOptions___backgroundColor'
-  | 'pluginCreator___pluginOptions___linkImagesToOriginal'
-  | 'pluginCreator___pluginOptions___showCaptions'
-  | 'pluginCreator___pluginOptions___markdownCaptions'
->>>>>>> 8f40541... Continue cleaning up the first `projects` page.
   | 'pluginCreator___pluginOptions___withWebp'
   | 'pluginCreator___pluginOptions___tracedSVG'
   | 'pluginCreator___pluginOptions___loading'
   | 'pluginCreator___pluginOptions___disableBgImageOnAlpha'
   | 'pluginCreator___pluginOptions___disableBgImage'
-=======
->>>>>>> 70634da... Start to show images for the projects.
   | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___indentedSyntax'
@@ -2822,37 +2807,21 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___pluginOptions___offsetY'
   | 'pluginOptions___plugins___pluginOptions___className'
   | 'pluginOptions___plugins___pluginOptions___maxWidth'
-<<<<<<< HEAD
-<<<<<<< HEAD
   | 'pluginOptions___plugins___pluginOptions___linkImagesToOriginal'
   | 'pluginOptions___plugins___pluginOptions___showCaptions'
   | 'pluginOptions___plugins___pluginOptions___markdownCaptions'
   | 'pluginOptions___plugins___pluginOptions___sizeByPixelDensity'
   | 'pluginOptions___plugins___pluginOptions___backgroundColor'
   | 'pluginOptions___plugins___pluginOptions___quality'
-=======
-  | 'pluginOptions___plugins___pluginOptions___pathPrefix'
-  | 'pluginOptions___plugins___pluginOptions___wrapperStyle'
-  | 'pluginOptions___plugins___pluginOptions___backgroundColor'
-  | 'pluginOptions___plugins___pluginOptions___linkImagesToOriginal'
-  | 'pluginOptions___plugins___pluginOptions___showCaptions'
-  | 'pluginOptions___plugins___pluginOptions___markdownCaptions'
->>>>>>> 8f40541... Continue cleaning up the first `projects` page.
   | 'pluginOptions___plugins___pluginOptions___withWebp'
   | 'pluginOptions___plugins___pluginOptions___tracedSVG'
   | 'pluginOptions___plugins___pluginOptions___loading'
   | 'pluginOptions___plugins___pluginOptions___disableBgImageOnAlpha'
   | 'pluginOptions___plugins___pluginOptions___disableBgImage'
-<<<<<<< HEAD
   | 'pluginOptions___plugins___nodeAPIs'
-=======
->>>>>>> 8f40541... Continue cleaning up the first `projects` page.
-=======
->>>>>>> 70634da... Start to show images for the projects.
   | 'pluginOptions___plugins___browserAPIs'
   | 'pluginOptions___plugins___ssrAPIs'
   | 'pluginOptions___plugins___pluginFilepath'
-<<<<<<< HEAD
   | 'pluginOptions___isTSX'
   | 'pluginOptions___jsxPragma'
   | 'pluginOptions___allExtensions'
@@ -2860,35 +2829,21 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
   | 'pluginOptions___failOnError'
+  | 'pluginOptions___excerpt_separator'
   | 'pluginOptions___offsetY'
   | 'pluginOptions___className'
-=======
-  | 'pluginOptions___excerpt_separator'
->>>>>>> 324ac85... Add a github link to the projects
   | 'pluginOptions___maxWidth'
-<<<<<<< HEAD
-<<<<<<< HEAD
   | 'pluginOptions___linkImagesToOriginal'
   | 'pluginOptions___showCaptions'
   | 'pluginOptions___markdownCaptions'
   | 'pluginOptions___sizeByPixelDensity'
   | 'pluginOptions___backgroundColor'
   | 'pluginOptions___quality'
-=======
-  | 'pluginOptions___pathPrefix'
-  | 'pluginOptions___wrapperStyle'
-  | 'pluginOptions___backgroundColor'
-  | 'pluginOptions___linkImagesToOriginal'
-  | 'pluginOptions___showCaptions'
-  | 'pluginOptions___markdownCaptions'
->>>>>>> 8f40541... Continue cleaning up the first `projects` page.
   | 'pluginOptions___withWebp'
   | 'pluginOptions___tracedSVG'
   | 'pluginOptions___loading'
   | 'pluginOptions___disableBgImageOnAlpha'
   | 'pluginOptions___disableBgImage'
-=======
->>>>>>> 70634da... Start to show images for the projects.
   | 'pluginOptions___name'
   | 'pluginOptions___path'
   | 'pluginOptions___indentedSyntax'
@@ -3026,7 +2981,6 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
-<<<<<<< HEAD
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
@@ -3034,35 +2988,21 @@ export type SitePluginPluginOptions = {
   stripMetadata?: Maybe<Scalars['Boolean']>;
   defaultQuality?: Maybe<Scalars['Int']>;
   failOnError?: Maybe<Scalars['Boolean']>;
+  excerpt_separator?: Maybe<Scalars['String']>;
   offsetY?: Maybe<Scalars['Int']>;
   className?: Maybe<Scalars['String']>;
-=======
-  excerpt_separator?: Maybe<Scalars['String']>;
->>>>>>> 324ac85... Add a github link to the projects
   maxWidth?: Maybe<Scalars['Int']>;
-<<<<<<< HEAD
-<<<<<<< HEAD
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
   showCaptions?: Maybe<Scalars['Boolean']>;
   markdownCaptions?: Maybe<Scalars['Boolean']>;
   sizeByPixelDensity?: Maybe<Scalars['Boolean']>;
   backgroundColor?: Maybe<Scalars['String']>;
   quality?: Maybe<Scalars['Int']>;
-=======
-  pathPrefix?: Maybe<Scalars['String']>;
-  wrapperStyle?: Maybe<Scalars['String']>;
-  backgroundColor?: Maybe<Scalars['String']>;
-  linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
-  showCaptions?: Maybe<Scalars['Boolean']>;
-  markdownCaptions?: Maybe<Scalars['Boolean']>;
->>>>>>> 8f40541... Continue cleaning up the first `projects` page.
   withWebp?: Maybe<Scalars['Boolean']>;
   tracedSVG?: Maybe<Scalars['Boolean']>;
   loading?: Maybe<Scalars['String']>;
   disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>;
   disableBgImage?: Maybe<Scalars['Boolean']>;
-=======
->>>>>>> 70634da... Start to show images for the projects.
   name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
   indentedSyntax?: Maybe<Scalars['Boolean']>;
@@ -3101,7 +3041,6 @@ export type SitePluginPluginOptionsFeedsFilterListInput = {
 
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
-<<<<<<< HEAD
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
@@ -3109,35 +3048,21 @@ export type SitePluginPluginOptionsFilterInput = {
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;
   failOnError?: Maybe<BooleanQueryOperatorInput>;
+  excerpt_separator?: Maybe<StringQueryOperatorInput>;
   offsetY?: Maybe<IntQueryOperatorInput>;
   className?: Maybe<StringQueryOperatorInput>;
-=======
-  excerpt_separator?: Maybe<StringQueryOperatorInput>;
->>>>>>> 324ac85... Add a github link to the projects
   maxWidth?: Maybe<IntQueryOperatorInput>;
-<<<<<<< HEAD
-<<<<<<< HEAD
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
   showCaptions?: Maybe<BooleanQueryOperatorInput>;
   markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
   sizeByPixelDensity?: Maybe<BooleanQueryOperatorInput>;
   backgroundColor?: Maybe<StringQueryOperatorInput>;
   quality?: Maybe<IntQueryOperatorInput>;
-=======
-  pathPrefix?: Maybe<StringQueryOperatorInput>;
-  wrapperStyle?: Maybe<StringQueryOperatorInput>;
-  backgroundColor?: Maybe<StringQueryOperatorInput>;
-  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
-  showCaptions?: Maybe<BooleanQueryOperatorInput>;
-  markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
->>>>>>> 8f40541... Continue cleaning up the first `projects` page.
   withWebp?: Maybe<BooleanQueryOperatorInput>;
   tracedSVG?: Maybe<BooleanQueryOperatorInput>;
   loading?: Maybe<StringQueryOperatorInput>;
   disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>;
   disableBgImage?: Maybe<BooleanQueryOperatorInput>;
-=======
->>>>>>> 70634da... Start to show images for the projects.
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   indentedSyntax?: Maybe<BooleanQueryOperatorInput>;
@@ -3190,58 +3115,34 @@ export type SitePluginPluginOptionsPluginsPluginOptions = {
   offsetY?: Maybe<Scalars['Int']>;
   className?: Maybe<Scalars['String']>;
   maxWidth?: Maybe<Scalars['Int']>;
-<<<<<<< HEAD
-<<<<<<< HEAD
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
   showCaptions?: Maybe<Scalars['Boolean']>;
   markdownCaptions?: Maybe<Scalars['Boolean']>;
   sizeByPixelDensity?: Maybe<Scalars['Boolean']>;
   backgroundColor?: Maybe<Scalars['String']>;
   quality?: Maybe<Scalars['Int']>;
-=======
-  pathPrefix?: Maybe<Scalars['String']>;
-  wrapperStyle?: Maybe<Scalars['String']>;
-  backgroundColor?: Maybe<Scalars['String']>;
-  linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
-  showCaptions?: Maybe<Scalars['Boolean']>;
-  markdownCaptions?: Maybe<Scalars['Boolean']>;
->>>>>>> 8f40541... Continue cleaning up the first `projects` page.
   withWebp?: Maybe<Scalars['Boolean']>;
   tracedSVG?: Maybe<Scalars['Boolean']>;
   loading?: Maybe<Scalars['String']>;
   disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>;
   disableBgImage?: Maybe<Scalars['Boolean']>;
-=======
->>>>>>> 70634da... Start to show images for the projects.
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   offsetY?: Maybe<IntQueryOperatorInput>;
   className?: Maybe<StringQueryOperatorInput>;
   maxWidth?: Maybe<IntQueryOperatorInput>;
-<<<<<<< HEAD
-<<<<<<< HEAD
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
   showCaptions?: Maybe<BooleanQueryOperatorInput>;
   markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
   sizeByPixelDensity?: Maybe<BooleanQueryOperatorInput>;
   backgroundColor?: Maybe<StringQueryOperatorInput>;
   quality?: Maybe<IntQueryOperatorInput>;
-=======
-  pathPrefix?: Maybe<StringQueryOperatorInput>;
-  wrapperStyle?: Maybe<StringQueryOperatorInput>;
-  backgroundColor?: Maybe<StringQueryOperatorInput>;
-  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
-  showCaptions?: Maybe<BooleanQueryOperatorInput>;
-  markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
->>>>>>> 8f40541... Continue cleaning up the first `projects` page.
   withWebp?: Maybe<BooleanQueryOperatorInput>;
   tracedSVG?: Maybe<BooleanQueryOperatorInput>;
   loading?: Maybe<StringQueryOperatorInput>;
   disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>;
   disableBgImage?: Maybe<BooleanQueryOperatorInput>;
-=======
->>>>>>> 70634da... Start to show images for the projects.
 };
 
 export type SitePluginSortInput = {
