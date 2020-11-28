@@ -1,0 +1,33 @@
+.projects {
+  article {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+
+    box-shadow: 0px 0px 5px 6px #eee;
+    padding: 1rem;
+
+    .header-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      margin-top: 1rem;
+
+      header {
+        margin: 0;
+
+        h3 {
+          margin: 0;
+        }
+      }
+    }
+
+    .read-more {
+      display: flex;
+      justify-content: right;
+    }
+  }
+}

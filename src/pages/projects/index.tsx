@@ -25,7 +25,7 @@ const ProjectsIndex = ({
   );
 
   return (
-    <BaseLayout pathname={"/projects/"}>
+    <BaseLayout className="projects" pathname={"/projects/"}>
       <SEO title={"Projects"} />
 
       <h1>Projects</h1>
@@ -41,21 +41,27 @@ const ProjectsIndex = ({
 
         return (
           <article key={slug}>
-            <header>
-              <h3 style={{ margin: 0, marginBottom: "1.8rem" }}>
-                <Link to={`/project/${slug}`}>{title}</Link>
-              </h3>
-            </header>
-            {github ? (
-              <div>
-                <a aria-label="Project's GitHub page" href={github}>
-                  <Icon name={Icon.Names.GitHub} aria-hidden="true" label="" />
-                </a>
-              </div>
-            ) : null}
+            <div className="header-row">
+              <header>
+                <h3>{title}</h3>
+              </header>
+              {github ? (
+                <div>
+                  <a aria-label="Project's GitHub page" href={github}>
+                    <Icon
+                      name={Icon.Names.GitHub}
+                      aria-hidden="true"
+                      label=""
+                    />
+                  </a>
+                </div>
+              ) : null}
+            </div>
             {bannerImage ? <Img fluid={bannerImage} /> : null}
             <section className="excerpt">{excerpt}</section>
-            <hr />
+            <div className="read-more">
+              <Link to={`/project/${slug}`}>Read more</Link>
+            </div>
           </article>
         );
       })}
