@@ -1,6 +1,7 @@
 ---
 title: Clonenames
 slug: "clonenames"
+order: 70
 github: "https://github.com/hockeybuggy/clonenames"
 bannerImageName: "projects/clonenames/banner.png"
 ---

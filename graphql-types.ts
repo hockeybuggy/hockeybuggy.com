@@ -714,6 +714,7 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___tags'
   | 'childMarkdownRemark___frontmatter___edit_date'
   | 'childMarkdownRemark___frontmatter___header_img'
+  | 'childMarkdownRemark___frontmatter___order'
   | 'childMarkdownRemark___frontmatter___github'
   | 'childMarkdownRemark___frontmatter___bannerImageName'
   | 'childMarkdownRemark___excerpt'
@@ -1534,6 +1535,7 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___tags'
   | 'frontmatter___edit_date'
   | 'frontmatter___header_img'
+  | 'frontmatter___order'
   | 'frontmatter___github'
   | 'frontmatter___bannerImageName'
   | 'excerpt'
@@ -1670,6 +1672,7 @@ export type MarkdownRemarkFrontmatter = {
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   edit_date?: Maybe<Scalars['Date']>;
   header_img?: Maybe<Scalars['String']>;
+  order?: Maybe<Scalars['Int']>;
   github?: Maybe<Scalars['String']>;
   bannerImageName?: Maybe<Scalars['String']>;
 };
@@ -1699,6 +1702,7 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   tags?: Maybe<StringQueryOperatorInput>;
   edit_date?: Maybe<DateQueryOperatorInput>;
   header_img?: Maybe<StringQueryOperatorInput>;
+  order?: Maybe<IntQueryOperatorInput>;
   github?: Maybe<StringQueryOperatorInput>;
   bannerImageName?: Maybe<StringQueryOperatorInput>;
 };
@@ -2409,12 +2413,14 @@ export type SitePageContext = {
   slug?: Maybe<Scalars['String']>;
   tag?: Maybe<Scalars['String']>;
   category?: Maybe<Scalars['String']>;
+  imagesSlug?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
   slug?: Maybe<StringQueryOperatorInput>;
   tag?: Maybe<StringQueryOperatorInput>;
   category?: Maybe<StringQueryOperatorInput>;
+  imagesSlug?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -2433,6 +2439,7 @@ export type SitePageFieldsEnum =
   | 'context___slug'
   | 'context___tag'
   | 'context___category'
+  | 'context___imagesSlug'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -3280,13 +3287,17 @@ export type CategoriesQuery = { allMarkdownRemark: (
 
 export type ProjectBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
+  imagesSlug: Scalars['String'];
 }>;
 
 
 export type ProjectBySlugQuery = { projectBySlug?: Maybe<(
     Pick<MarkdownRemark, 'id' | 'excerpt' | 'html'>
-    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }
-  )> };
+    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'bannerImageName'>> }
+  )>, projectImages: { edges: Array<{ node: (
+        Pick<File, 'base' | 'relativeDirectory'>
+        & { childImageSharp?: Maybe<{ fluid?: Maybe<Pick<ImageSharpFluid, 'aspectRatio' | 'base64' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }> }
+      ) }> } };
 
 export type TagsQueryVariables = Exact<{
   tag?: Maybe<Scalars['String']>;

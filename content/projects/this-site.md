@@ -1,6 +1,7 @@
 ---
 title: This website
 slug: "this-site"
+order: 20
 github: "https://github.com/hockeybuggy/hockeybuggy.com"
 bannerImageName: "projects/this-site/banner.png"
 ---

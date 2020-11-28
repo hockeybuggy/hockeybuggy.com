@@ -1,6 +1,7 @@
 ---
 title: RGB Traveling Salesperson Art
 slug: "rgb-tsp-art"
+order: 50
 bannerImageName: "projects/rgb-tsp-art/banner.png"
 ---
 

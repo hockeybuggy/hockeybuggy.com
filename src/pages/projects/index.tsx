@@ -10,7 +10,7 @@ import Icon from "../../components/icon";
 import { ProjectsIndexPageQuery } from "../../../graphql-types";
 
 const ProjectsIndex = ({
-  data,
+  data
 }: PageProps<ProjectsIndexPageQuery>): JSX.Element => {
   const projects = data.allProjects.edges;
 
@@ -34,8 +34,7 @@ const ProjectsIndex = ({
         const excerpt = node!.excerpt!;
         const slug = frontmatter.slug!;
         const github = frontmatter.github;
-        const bannerImageName =
-          frontmatter.bannerImageName || "projects/placeholder/banner.png";
+        const bannerImageName = frontmatter.bannerImageName!;
         const bannerImage = projectImagesByPath[bannerImageName];
 
         const title = frontmatter.title || slug;
@@ -73,7 +72,7 @@ export const pageQuery = graphql`
     }
     allProjects: allMarkdownRemark(
       filter: { fileAbsolutePath: { glob: "**/content/projects/*" } }
-      sort: { fields: [frontmatter___title], order: ASC }
+      sort: { fields: [frontmatter___order], order: ASC }
     ) {
       edges {
         node {
