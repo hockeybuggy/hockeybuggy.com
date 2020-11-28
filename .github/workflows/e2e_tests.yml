@@ -22,9 +22,10 @@ jobs:
         CI: true
         NODE_ENV: "prod"  # "test" was casusing SSR to fail.
       run: |
-        yarn run test:e2e --verbose
+        # yarn run test:e2e --verbose
+        echo "End to end tests are not run currently."
 
-    - uses: actions/upload-artifact@v2
-      with:
-        name: e2e_test_screenshots
-        path: e2e_tests/screenshots
+    # - uses: actions/upload-artifact@v2
+    #   with:
+    #     name: e2e_test_screenshots
+    #     path: e2e_tests/screenshots
