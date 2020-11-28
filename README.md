@@ -1,11 +1,8 @@
 [![Netlify Status][netlify-status]][netlify]
 [![Typecheck and Linting][typecheck-and-linting-status]][typecheck-and-linting]
 [![End to End Tests][e2e-tests-status]][e2e-tests]
-[![Dependabot][dependabot-status]][dependabot]
 [![Mergify Status][mergify-status]][mergify]
 
-[dependabot-status]: https://api.dependabot.com/badges/status?host=github&repo=hockeybuggy/hockeybuggy.com
-[dependabot]: https://app.dependabot.com/accounts/hockeybuggy/repos/14051854
 [e2e-tests-status]: https://github.com/hockeybuggy/hockeybuggy.com/workflows/end%20to%20end%20tests/badge.svg
 [e2e-tests]: https://github.com/hockeybuggy/hockeybuggy.com/actions?query=workflow%3A%22end+to+end+tests%22+branch%3Amain
 [mergify-status]: https://img.shields.io/endpoint.svg?url=https://dashboard.mergify.io/badges/hockeybuggy/hockeybuggy.com&style=flat
