@@ -1,14 +1,16 @@
 import React from "react";
 import { PageProps, graphql } from "gatsby";
+import Link from "gatsby-link";
 import Img, { FluidObject } from "gatsby-image";
 
 import { BaseLayout } from "../layouts";
 import SEO from "../components/seo";
+import Icon from "../components/icon";
 
 import { ProjectBySlugQuery } from "../../graphql-types";
 
 const ProjectTemplate = ({
-  data
+  data,
 }: PageProps<ProjectBySlugQuery>): JSX.Element => {
   const projectImages = data.projectImages.edges;
   const projectImagesByPath: Record<string, FluidObject> = projectImages.reduce(
@@ -20,7 +22,7 @@ const ProjectTemplate = ({
     {}
   );
 
-  const { title, bannerImageName } = data.projectBySlug!.frontmatter!;
+  const { title, bannerImageName, github } = data.projectBySlug!.frontmatter!;
   const excerpt = data.projectBySlug!.excerpt!;
   const html = data.projectBySlug!.html!;
   const bannerImage = projectImagesByPath[bannerImageName!];
@@ -28,14 +30,33 @@ const ProjectTemplate = ({
   return (
     <BaseLayout className="project">
       <SEO title={`Project: ${title!}`} description={excerpt} />
+
       <article>
-        <header>
-          <h1 className="project-title">{title}</h1>
-        </header>
+        <div className="header-row">
+          <header>
+            <h1 className="project-title">{title}</h1>
+          </header>
+          {github ? (
+            <div className="github-link">
+              <a aria-label="Project's GitHub page" href={github}>
+                <Icon
+                  name={Icon.Names.GitHub}
+                  aria-hidden="true"
+                  label=""
+                  size={Icon.Sizes.Large}
+                />
+              </a>
+            </div>
+          ) : null}
+        </div>
+
         {bannerImage ? <Img fluid={bannerImage} /> : null}
         <section dangerouslySetInnerHTML={{ __html: html }} />
-        <hr />
       </article>
+
+      <hr />
+
+      <Link to={`/projects/`}>◄ Back to projects</Link>
     </BaseLayout>
   );
 };
@@ -48,6 +69,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        github
         bannerImageName
       }
     }
