@@ -1,3 +1,4 @@
+// List page
 .projects {
   article {
     display: flex;
@@ -28,6 +29,25 @@
     .read-more {
       display: flex;
       justify-content: right;
+    }
+  }
+}
+
+// Details page
+.project {
+  .header-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: 1rem;
+
+    header {
+      margin: 0;
+    }
+
+    .github-link {
+      margin: auto 0;
     }
   }
 }

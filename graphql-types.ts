@@ -3293,7 +3293,7 @@ export type ProjectBySlugQueryVariables = Exact<{
 
 export type ProjectBySlugQuery = { projectBySlug?: Maybe<(
     Pick<MarkdownRemark, 'id' | 'excerpt' | 'html'>
-    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'bannerImageName'>> }
+    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'github' | 'bannerImageName'>> }
   )>, projectImages: { edges: Array<{ node: (
         Pick<File, 'base' | 'relativeDirectory'>
         & { childImageSharp?: Maybe<{ fluid?: Maybe<Pick<ImageSharpFluid, 'aspectRatio' | 'base64' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }> }

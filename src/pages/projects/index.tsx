@@ -10,7 +10,7 @@ import Icon from "../../components/icon";
 import { ProjectsIndexPageQuery } from "../../../graphql-types";
 
 const ProjectsIndex = ({
-  data
+  data,
 }: PageProps<ProjectsIndexPageQuery>): JSX.Element => {
   const projects = data.allProjects.edges;
 
@@ -52,6 +52,7 @@ const ProjectsIndex = ({
                       name={Icon.Names.GitHub}
                       aria-hidden="true"
                       label=""
+                      size={Icon.Sizes.Large}
                     />
                   </a>
                 </div>
