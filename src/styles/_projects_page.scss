@@ -7,8 +7,9 @@
     margin-top: 3rem;
     margin-bottom: 1rem;
 
-    box-shadow: 0px 0px 5px 6px #eee;
-    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0px 0px 6px 8px #eee;
+    padding: 8px 16px;
 
     .header-row {
       display: flex;
@@ -29,6 +30,8 @@
     .read-more {
       display: flex;
       justify-content: right;
+
+      padding: 8px;
     }
   }
 }
