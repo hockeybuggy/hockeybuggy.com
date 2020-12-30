@@ -2,6 +2,7 @@
 categories:
 - misc
 date: "2020-01-18T00:00:00-05:00"
+edit_date: "2020-12-30T00:00:00-05:00"
 slug: experimenting-with-protobufs-generated-types-in-rust
 tags:
 - development
@@ -53,10 +54,10 @@ I started off by installing Prost by adding this to my `Cargo.toml`:
 
 ```toml
 [dependencies]
-prost = "0.6"
+prost = "0.7"
 
 [build-dependencies]
-prost-build = "0.6"
+prost-build = "0.7"
 ```
 
 Then creating a minimal `.proto` file called `src/messages.proto`:
