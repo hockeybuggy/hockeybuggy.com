@@ -10,7 +10,7 @@ import Icon from "../../components/icon";
 import { ProjectsIndexPageQuery } from "../../../graphql-types";
 
 const ProjectsIndex = ({
-  data,
+  data
 }: PageProps<ProjectsIndexPageQuery>): JSX.Element => {
   const projects = data.allProjects.edges;
 
@@ -46,7 +46,7 @@ const ProjectsIndex = ({
                 <h3>{title}</h3>
               </header>
               {github ? (
-                <div>
+                <div className="github-link">
                   <a aria-label="Project's GitHub page" href={github}>
                     <Icon
                       name={Icon.Names.GitHub}
@@ -59,7 +59,9 @@ const ProjectsIndex = ({
               ) : null}
             </div>
             {bannerImage ? <Img fluid={bannerImage} /> : null}
-            <section className="excerpt">{excerpt}</section>
+            <section className="excerpt">
+              <p>{excerpt}</p>
+            </section>
             <div className="read-more">
               <Link to={`/project/${slug}`}>Read more</Link>
             </div>

@@ -3,19 +3,11 @@
   display: flex;
   margin-top: 1.6rem;
   margin-bottom: 3.2rem;
+
   article {
     header {
       margin-top: 6.4rem;
       margin-bottom: 3.2rem;
-      h1 {
-        font-size: 4.2rem;
-        line-height: 4.6rem;
-        margin: 0;
-        @media only screen and (max-width: $small-max-width) {
-          font-size: 4rem;
-          line-height: 4.4rem;
-        }
-      }
     }
 
     footer {
@@ -29,9 +21,7 @@
     }
 
     p {
-      text-align: justify;
-      text-justify: auto;
-      hyphens: auto;
+      text-indent: 1.5rem;
     }
   }
 
