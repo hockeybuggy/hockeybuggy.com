@@ -74,7 +74,7 @@
     "eslint-plugin-react": "^7.22.0",
     "jest": "^26.2.2",
     "jest-puppeteer": "^4.4.0",
-    "netlify-lambda": "^2.0.2",
+    "netlify-lambda": "^2.0.3",
     "prettier": "^2.0.2",
     "puppeteer": "^5.5.0",
     "typescript": "^3.9.7"
