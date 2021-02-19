@@ -33,7 +33,7 @@
     "@types/react-helmet": "^6.1.0",
     "add": "^2.0.6",
     "classnames": "^2.2.6",
-    "gatsby": "^2.32.3",
+    "gatsby": "^2.32.4",
     "gatsby-image": "^2.11.0",
     "gatsby-plugin-feed": "^2.13.0",
     "gatsby-plugin-google-analytics": "^2.11.0",
