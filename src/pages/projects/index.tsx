@@ -1,7 +1,7 @@
 import * as React from "react";
 import { PageProps, graphql } from "gatsby";
 import Link from "gatsby-link";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { getImage, GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 import { BaseLayout } from "../../layouts";
 import SEO from "../../components/seo";
@@ -15,14 +15,16 @@ const ProjectsIndex = ({
   const projects = data.allProjects.edges;
 
   const projectImages = data.allProjectImages.edges;
-  const projectImagesByPath: Record<string, FluidObject> = projectImages.reduce(
-    (accum: Record<string, FluidObject>, edge) => {
-      const path = `${edge.node!.relativeDirectory}/${edge.node!.base}`;
-      accum[path] = edge.node!.childImageSharp!.fluid! as FluidObject;
-      return accum;
-    },
-    {}
-  );
+  const projectImagesByPath: Record<
+    string,
+    IGatsbyImageData
+  > = projectImages.reduce((accum: Record<string, IGatsbyImageData>, edge) => {
+    const path = `${edge.node!.relativeDirectory}/${edge.node!.base}`;
+    accum[path] = getImage(
+      edge.node as { childImageSharp: { gatsbyImageData: IGatsbyImageData } }
+    )!;
+    return accum;
+  }, {});
 
   return (
     <BaseLayout className="projects" pathname={"/projects/"}>
@@ -60,7 +62,7 @@ const ProjectsIndex = ({
             </div>
             {bannerImage ? (
               <Link to={`/project/${slug}`}>
-                <GatsbyImage image={bannerImage} />
+                <GatsbyImage alt="" image={bannerImage} />
               </Link>
             ) : null}
             <section className="excerpt">

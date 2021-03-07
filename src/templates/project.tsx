@@ -20,7 +20,7 @@ const ProjectTemplate = ({
     IGatsbyImageData
   > = projectImages.reduce((accum: Record<string, IGatsbyImageData>, edge) => {
     const path = `${edge.node!.relativeDirectory}/${edge.node!.base}`;
-    accum[path] = edge.node!.childImageSharp!;
+    accum[path] = edge.node!.childImageSharp!.gatsbyImageData;
     return accum;
   }, {});
 
@@ -28,6 +28,7 @@ const ProjectTemplate = ({
   const excerpt = data.projectBySlug!.excerpt!;
   const html = data.projectBySlug!.html!;
   const bannerImage = projectImagesByPath[bannerImageName!];
+  console.log(bannerImage);
 
   return (
     <BaseLayout className="project">
