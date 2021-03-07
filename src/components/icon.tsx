@@ -68,7 +68,7 @@ function sizeModifierBySize(size: undefined | IconSizes): SizeProp {
     case IconSizes.Large:
       return "2x";
   }
-  exhasutiveCheck(name);
+  exhasutiveCheck(size);
 }
 
 const Icon = ({
