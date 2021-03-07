@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { PageProps, graphql } from "gatsby";
-import Img, { FluidObject } from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import { CenteredLayout } from "../layouts";
 import SEO from "../components/seo";
@@ -14,35 +14,39 @@ const social = [
   {
     label: "GitHub",
     link: "https://github.com/hockeybuggy",
-    iconName: Icon.Names.GitHub,
+    iconName: Icon.Names.GitHub
   },
   {
     label: "Twitter",
     link: "https://twitter.com/hockeybuggy",
-    iconName: Icon.Names.Twitter,
+    iconName: Icon.Names.Twitter
   },
   {
     label: "Email",
     link: "mailto:://hockeybuggy@gmail.com",
-    iconName: Icon.Names.Email,
-  },
+    iconName: Icon.Names.Email
+  }
 ];
 
 const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   const author = data.site!.siteMetadata!.author!;
   const description = data.site!.siteMetadata!.description!;
+  const avatarImage = data.avatarImage!.childrenImageSharp![0]!.gatsbyImageData;
 
   return (
     <CenteredLayout pathname={"/"}>
       <SEO title={description} />
       <div className="about">
         <div className="avatar">
-          <Img fluid={data.avatarImage!.fluid! as FluidObject} />
+          <GatsbyImage
+            alt="An image of the author (Douglas Anderson) paddling a canoe."
+            image={avatarImage}
+          />
         </div>
         <h1>{author.fullName!}</h1>
         <h2>{byline}</h2>
         <ul>
-          {social.map((socialSite) => {
+          {social.map(socialSite => {
             return (
               <li key={socialSite.label}>
                 <a aria-label={socialSite.label} href={socialSite.link}>
@@ -72,18 +76,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    avatarImage: imageSharp(
-      fluid: { originalName: { eq: "douglas-paddling.jpg" } }
-    ) {
-      id
-      fluid(maxWidth: 860) {
-        aspectRatio
-        base64
-        src
-        srcSet
-        srcWebp
-        srcSetWebp
-        sizes
+    avatarImage: file(relativePath: { eq: "douglas-paddling.jpg" }) {
+      childrenImageSharp {
+        gatsbyImageData(width: 180)
       }
     }
   }

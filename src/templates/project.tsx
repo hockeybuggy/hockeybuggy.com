@@ -1,7 +1,7 @@
 import React from "react";
 import { PageProps, graphql } from "gatsby";
 import Link from "gatsby-link";
-import Img, { FluidObject } from "gatsby-image";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 import { BaseLayout } from "../layouts";
 import SEO from "../components/seo";
@@ -13,14 +13,16 @@ const ProjectTemplate = ({
   data,
 }: PageProps<ProjectBySlugQuery>): JSX.Element => {
   const projectImages = data.projectImages.edges;
-  const projectImagesByPath: Record<string, FluidObject> = projectImages.reduce(
-    (accum: Record<string, FluidObject>, edge) => {
-      const path = `${edge.node!.relativeDirectory}/${edge.node!.base}`;
-      accum[path] = edge.node!.childImageSharp!.fluid! as FluidObject;
-      return accum;
-    },
-    {}
-  );
+
+  console.log(projectImages);
+  const projectImagesByPath: Record<
+    string,
+    IGatsbyImageData
+  > = projectImages.reduce((accum: Record<string, IGatsbyImageData>, edge) => {
+    const path = `${edge.node!.relativeDirectory}/${edge.node!.base}`;
+    accum[path] = edge.node!.childImageSharp!;
+    return accum;
+  }, {});
 
   const { title, bannerImageName, github } = data.projectBySlug!.frontmatter!;
   const excerpt = data.projectBySlug!.excerpt!;
@@ -50,7 +52,7 @@ const ProjectTemplate = ({
           ) : null}
         </div>
 
-        {bannerImage ? <Img fluid={bannerImage} /> : null}
+        {bannerImage ? <GatsbyImage alt="" image={bannerImage} /> : null}
         <section dangerouslySetInnerHTML={{ __html: html }} />
       </article>
 
@@ -81,15 +83,7 @@ export const pageQuery = graphql`
           base
           relativeDirectory
           childImageSharp {
-            fluid {
-              aspectRatio
-              base64
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
+            gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
           }
         }
       }

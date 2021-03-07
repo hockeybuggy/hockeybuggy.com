@@ -6,13 +6,14 @@ module.exports = {
     author: {
       fullName: "Douglas Anderson",
       preferredName: "Doug or Douglas",
-      preferredPronouns: "He/Him",
-    },
+      preferredPronouns: "He/Him"
+    }
   },
   plugins: [
     "gatsby-plugin-typescript",
-    "gatsby-transformer-sharp",
+    "gatsby-plugin-image",
     "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -23,32 +24,32 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 860,
-            },
-          },
-        ],
-      },
+              maxWidth: 860
+            }
+          }
+        ]
+      }
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "blog",
-        path: `${__dirname}/content/blog/`,
-      },
+        path: `${__dirname}/content/blog/`
+      }
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "projects",
-        path: `${__dirname}/content/projects/`,
-      },
+        path: `${__dirname}/content/projects/`
+      }
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: `${__dirname}/content/images/`,
-      },
+        path: `${__dirname}/content/images/`
+      }
     },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
@@ -70,7 +71,7 @@ module.exports = {
                   date: node.frontmatter.date,
                   url: postUrl,
                   guid: postUrl,
-                  custom_elements: [{ "content:encoded": node.html }],
+                  custom_elements: [{ "content:encoded": node.html }]
                 });
               });
             },
@@ -97,10 +98,10 @@ module.exports = {
               }
             `,
             output: "/blog/index.xml",
-            title: "Recent blog posts on hockeybuggy.com",
-          },
-        ],
-      },
+            title: "Recent blog posts on hockeybuggy.com"
+          }
+        ]
+      }
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -108,10 +109,10 @@ module.exports = {
         // The property ID; the tracking code won't be generated without it
         trackingId: "UA-11131562-1",
         anonymize: true,
-        respectDNT: true,
-      },
+        respectDNT: true
+      }
     },
     // This code generation should be close to last
-    "gatsby-plugin-graphql-codegen",
-  ],
+    "gatsby-plugin-graphql-codegen"
+  ]
 };

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { PageProps, graphql } from "gatsby";
 import Link from "gatsby-link";
-import Img, { FluidObject } from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import { BaseLayout } from "../../layouts";
 import SEO from "../../components/seo";
@@ -60,7 +60,7 @@ const ProjectsIndex = ({
             </div>
             {bannerImage ? (
               <Link to={`/project/${slug}`}>
-                <Img fluid={bannerImage} />
+                <GatsbyImage image={bannerImage} />
               </Link>
             ) : null}
             <section className="excerpt">
@@ -107,15 +107,7 @@ export const pageQuery = graphql`
           base
           relativeDirectory
           childImageSharp {
-            fluid {
-              aspectRatio
-              base64
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
+            gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
           }
         }
       }

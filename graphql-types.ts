@@ -643,8 +643,8 @@ export type MarkdownRemarkFrontmatter = {
   edit_date?: Maybe<Scalars['Date']>;
   header_img?: Maybe<Scalars['String']>;
   order?: Maybe<Scalars['Int']>;
-  bannerImageName?: Maybe<Scalars['String']>;
   github?: Maybe<Scalars['String']>;
+  bannerImageName?: Maybe<Scalars['String']>;
 };
 
 
@@ -1225,8 +1225,8 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   edit_date?: Maybe<DateQueryOperatorInput>;
   header_img?: Maybe<StringQueryOperatorInput>;
   order?: Maybe<IntQueryOperatorInput>;
-  bannerImageName?: Maybe<StringQueryOperatorInput>;
   github?: Maybe<StringQueryOperatorInput>;
+  bannerImageName?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MarkdownRemarkFieldsFilterInput = {
@@ -1473,8 +1473,8 @@ export type FileFieldsEnum =
   | 'childrenMarkdownRemark___frontmatter___edit_date'
   | 'childrenMarkdownRemark___frontmatter___header_img'
   | 'childrenMarkdownRemark___frontmatter___order'
-  | 'childrenMarkdownRemark___frontmatter___bannerImageName'
   | 'childrenMarkdownRemark___frontmatter___github'
+  | 'childrenMarkdownRemark___frontmatter___bannerImageName'
   | 'childrenMarkdownRemark___excerpt'
   | 'childrenMarkdownRemark___rawMarkdownBody'
   | 'childrenMarkdownRemark___fileAbsolutePath'
@@ -1538,8 +1538,8 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___edit_date'
   | 'childMarkdownRemark___frontmatter___header_img'
   | 'childMarkdownRemark___frontmatter___order'
-  | 'childMarkdownRemark___frontmatter___bannerImageName'
   | 'childMarkdownRemark___frontmatter___github'
+  | 'childMarkdownRemark___frontmatter___bannerImageName'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
   | 'childMarkdownRemark___fileAbsolutePath'
@@ -2456,8 +2456,8 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___edit_date'
   | 'frontmatter___header_img'
   | 'frontmatter___order'
-  | 'frontmatter___bannerImageName'
   | 'frontmatter___github'
+  | 'frontmatter___bannerImageName'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -3084,10 +3084,7 @@ export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 export type IndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
       Pick<SiteSiteMetadata, 'description'>
       & { author?: Maybe<Pick<SiteSiteMetadataAuthor, 'fullName'>> }
-    )> }>, avatarImage?: Maybe<(
-    Pick<ImageSharp, 'id'>
-    & { fluid?: Maybe<Pick<ImageSharpFluid, 'aspectRatio' | 'base64' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }
-  )> };
+    )> }>, avatarImage?: Maybe<{ childrenImageSharp?: Maybe<Array<Maybe<Pick<ImageSharp, 'gatsbyImageData'>>>> }> };
 
 export type ProjectsIndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3097,7 +3094,7 @@ export type ProjectsIndexPageQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<
         & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'github' | 'slug' | 'bannerImageName'>> }
       ) }> }, allProjectImages: { edges: Array<{ node: (
         Pick<File, 'base' | 'relativeDirectory'>
-        & { childImageSharp?: Maybe<{ fluid?: Maybe<Pick<ImageSharpFluid, 'aspectRatio' | 'base64' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }> }
+        & { childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
       ) }> } };
 
 export type BlogPostBySlugQueryVariables = Exact<{
@@ -3137,7 +3134,7 @@ export type ProjectBySlugQuery = { projectBySlug?: Maybe<(
     & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'github' | 'bannerImageName'>> }
   )>, projectImages: { edges: Array<{ node: (
         Pick<File, 'base' | 'relativeDirectory'>
-        & { childImageSharp?: Maybe<{ fluid?: Maybe<Pick<ImageSharpFluid, 'aspectRatio' | 'base64' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }> }
+        & { childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
       ) }> } };
 
 export type TagsQueryVariables = Exact<{
