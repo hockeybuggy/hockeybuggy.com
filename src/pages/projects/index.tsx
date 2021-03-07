@@ -58,7 +58,11 @@ const ProjectsIndex = ({
                 </div>
               ) : null}
             </div>
-            {bannerImage ? <Img fluid={bannerImage} /> : null}
+            {bannerImage ? (
+              <Link to={`/project/${slug}`}>
+                <Img fluid={bannerImage} />
+              </Link>
+            ) : null}
             <section className="excerpt">
               <p>{excerpt}</p>
             </section>
