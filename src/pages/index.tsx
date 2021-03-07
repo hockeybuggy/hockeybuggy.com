@@ -23,7 +23,7 @@ const social = [
   },
   {
     label: "Email",
-    link: "mailto:://hockeybuggy@gmail.com",
+    link: "mailto:hockeybuggy@gmail.com",
     iconName: Icon.Names.Email,
   },
 ];
