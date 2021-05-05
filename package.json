@@ -65,7 +65,7 @@
     "@types/jest-environment-puppeteer": "^4.4.1",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.5.1",
     "eslint": "^7.25.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-react": "^1.1.7",
