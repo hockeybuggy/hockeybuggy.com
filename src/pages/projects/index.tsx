@@ -59,7 +59,10 @@ const ProjectsIndex = ({
               ) : null}
             </div>
             {bannerImage ? (
-              <Link to={`/project/${slug}`}>
+              <Link
+                aria-label={`Read more about ${title}`}
+                to={`/project/${slug}`}
+              >
                 <Img fluid={bannerImage} />
               </Link>
             ) : null}
