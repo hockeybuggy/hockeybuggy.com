@@ -43,7 +43,7 @@ const ProjectsIndex = ({
           <article key={slug}>
             <div className="header-row">
               <header>
-                <h3>{title}</h3>
+                <h2>{title}</h2>
               </header>
               {github ? (
                 <div className="github-link">
