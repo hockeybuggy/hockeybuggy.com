@@ -8,12 +8,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
         node-version: 16.15.1
 
-    - name: Install
+    - name: Install dependancies
       run: |
         yarn install
 
@@ -22,10 +23,9 @@ jobs:
         CI: true
         NODE_ENV: "prod"  # "test" was casusing SSR to fail.
       run: |
-        # yarn run test:e2e --verbose
-        echo "End to end tests are not run currently."
+        yarn run test:e2e --verbose
 
-    # - uses: actions/upload-artifact@v2
-    #   with:
-    #     name: e2e_test_screenshots
-    #     path: e2e_tests/screenshots
+    - uses: actions/upload-artifact@v2
+      with:
+        name: e2e_test_screenshots
+        path: e2e_tests/screenshots
