@@ -7,7 +7,7 @@ import { BaseLayout } from "../../layouts";
 import SEO from "../../components/seo";
 import Icon from "../../components/icon";
 
-import { ProjectsIndexPageQuery } from "../../../graphql-types";
+import { ProjectsIndexPageQuery } from "../../__generated__/gatsby-types";
 
 const ProjectsIndex = ({
   data,

@@ -4,7 +4,7 @@ import { PageProps, Link, graphql } from "gatsby";
 import { BaseLayout } from "../layouts";
 import SEO from "../components/seo";
 
-import { TagsQuery } from "../../graphql-types";
+import { TagsQuery } from "../__generated__/gatsby-types";
 
 const Tags = ({
   pageContext,

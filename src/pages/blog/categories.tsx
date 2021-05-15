@@ -4,7 +4,7 @@ import { Link, PageProps, graphql } from "gatsby";
 import SEO from "../../components/seo";
 import { BaseLayout } from "../../layouts";
 
-import { CategoriesPageQuery } from "../../../graphql-types";
+import { CategoriesPageQuery } from "../../__generated__/gatsby-types";
 
 import kebabCase from "lodash/kebabCase";
 

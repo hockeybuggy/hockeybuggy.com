@@ -7,7 +7,7 @@ import { CenteredLayout } from "../layouts";
 import SEO from "../components/seo";
 import Icon from "../components/icon";
 
-import { IndexPageQuery } from "../../graphql-types";
+import { IndexPageQuery } from "../__generated__/gatsby-types";
 
 const byline = "I curl, canoe, and compute.";
 const social = [

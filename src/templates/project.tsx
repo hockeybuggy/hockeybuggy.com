@@ -7,7 +7,7 @@ import { BaseLayout } from "../layouts";
 import SEO from "../components/seo";
 import Icon from "../components/icon";
 
-import { ProjectBySlugQuery } from "../../graphql-types";
+import { ProjectBySlugQuery } from "../__generated__/gatsby-types";
 
 const ProjectTemplate = ({
   data,

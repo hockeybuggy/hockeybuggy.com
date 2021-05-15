@@ -4,7 +4,7 @@ import { PageProps, Link, graphql } from "gatsby";
 import { BaseLayout } from "../layouts";
 import SEO from "../components/seo";
 
-import { CategoriesQuery } from "../../graphql-types";
+import { CategoriesQuery } from "../__generated__/gatsby-types";
 
 const Categories = ({
   pageContext,

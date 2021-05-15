@@ -5,7 +5,7 @@ import { BaseLayout } from "../layouts";
 import SEO from "../components/seo";
 import Icon from "../components/icon";
 
-import { BlogPostBySlugQuery } from "../../graphql-types";
+import { BlogPostBySlugQuery } from "../__generated__/gatsby-types";
 
 /* intersperse: Return an array with the separator interspersed between
  * each element of the input array.

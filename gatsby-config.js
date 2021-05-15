@@ -112,6 +112,6 @@ module.exports = {
       },
     },
     // This code generation should be close to last
-    "gatsby-plugin-graphql-codegen",
+    "gatsby-plugin-typegen",
   ],
 };

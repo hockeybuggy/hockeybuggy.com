@@ -5,7 +5,7 @@ import Link from "gatsby-link";
 import { BaseLayout } from "../../layouts";
 import SEO from "../../components/seo";
 
-import { BlogIndexPageQuery } from "../../../graphql-types";
+import { BlogIndexPageQuery } from "../../__generated__/gatsby-types";
 
 const BlogIndex = ({ data }: PageProps<BlogIndexPageQuery>): JSX.Element => {
   const posts = data.allBlogPosts.edges;
