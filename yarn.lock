@@ -6976,10 +6976,10 @@ expand-tilde@^1.2.2:
   dependencies:
     os-homedir "^1.0.1"
 
-expect-puppeteer@^5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/expect-puppeteer/-/expect-puppeteer-5.0.3.tgz#5e2f7afc55ebabb38edcff45480955473e67a2a7"
-  integrity sha512-l5APxyanw4n+zmVCCRKY6BoialeLvNSunTeA4e5QdhGq1QGQCq9WBcw3NVcCO4bAk2yQLL2ZoUmYMD3Q9ZvroQ==
+expect-puppeteer@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/expect-puppeteer/-/expect-puppeteer-5.0.4.tgz#54bfdecabb2acb3e3f0d0292cd3dab2dd8ff5a81"
+  integrity sha512-NV7jSiKhK+byocxg9A+0av+Q2RSCP9bcLVRz7zhHaESeCOkuomMvl9oD+uo1K+NdqRCXhNkQlUGWlmtbrpR1qw==
 
 expect@^27.0.1:
   version "27.0.1"
@@ -10242,7 +10242,7 @@ jest-environment-jsdom@^27.0.1:
     jest-util "^27.0.1"
     jsdom "^16.6.0"
 
-"jest-environment-node@>=24 <=26", jest-environment-node@^26.6.2:
+"jest-environment-node@>=24 <=26":
   version "26.6.2"
   resolved "https://registry.yarnpkg.com/jest-environment-node/-/jest-environment-node-26.6.2.tgz#824e4c7fb4944646356f11ac75b229b0035f2b0c"
   integrity sha512-zhtMio3Exty18dy8ee8eJ9kjnRyZC1N4C1Nt/VShN1apyXc8rWGtJ9lI7vqiWcyyXS4BVSEn9lxAM2D+07/Tag==
@@ -10266,15 +10266,15 @@ jest-environment-node@^27.0.1:
     jest-mock "^27.0.1"
     jest-util "^27.0.1"
 
-jest-environment-puppeteer@^5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/jest-environment-puppeteer/-/jest-environment-puppeteer-5.0.3.tgz#5cff9d1aa75c16ad525e3acbddc322e90a87673b"
-  integrity sha512-KHUJKeFKFNgQPitZZCHSlw22FanCSV3EnM8GaqV8v3nPp1CqoPgFFYKrrX/Z5mCZhSgJfo2qMtinG2YAUSLpCg==
+jest-environment-puppeteer@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/jest-environment-puppeteer/-/jest-environment-puppeteer-5.0.4.tgz#ed64689bf200923828ca98761b4da36eb8ce31bc"
+  integrity sha512-wd4EDOD4QRi11QZ1IV8WsL1wlnnMUtcqtU0BNm+REzRtg78K2XHn3jS6YxGeXIOnsgrJeHxsD7DlRZ/GkFteLg==
   dependencies:
     chalk "^4.1.1"
     cwd "^0.10.0"
     jest-dev-server "^5.0.3"
-    jest-environment-node "^26.6.2"
+    jest-environment-node "^27.0.1"
     merge-deep "^3.0.3"
 
 jest-get-type@^25.2.6:
@@ -10405,13 +10405,13 @@ jest-pnp-resolver@^1.2.2:
   resolved "https://registry.yarnpkg.com/jest-pnp-resolver/-/jest-pnp-resolver-1.2.2.tgz#b704ac0ae028a89108a4d040b3f919dfddc8e33c"
   integrity sha512-olV41bKSMm8BdnuMsewT4jqlZ8+3TCARAXjZGT9jcoSnrfUnRCqnMoF9XEeoWjbzObpqF9dRhHQj0Xb9QdF6/w==
 
-jest-puppeteer@^5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/jest-puppeteer/-/jest-puppeteer-5.0.3.tgz#f34f91637b42dcf2407f80d18ad4598acc4c6be4"
-  integrity sha512-H432LFp1YlyLr4XIPSWp2xCupNMkgZwp9L5gIbIliwM5cyboronWYjwKb9mfE8ipfzz755MitEWqtw807fXEow==
+jest-puppeteer@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/jest-puppeteer/-/jest-puppeteer-5.0.4.tgz#c52e3379c11425ce974d025c1a8bf9f599da4b3f"
+  integrity sha512-IUOVKgHEaKsLqahZy/J/DvXB59SQx4AVpZKTRDvJzCdkvdGc3NVsNwUhovr6SK+HOK1TOiqAiXPTAPiIq3mkrg==
   dependencies:
-    expect-puppeteer "^5.0.3"
-    jest-environment-puppeteer "^5.0.3"
+    expect-puppeteer "^5.0.4"
+    jest-environment-puppeteer "^5.0.4"
 
 jest-regex-util@^27.0.1:
   version "27.0.1"
