@@ -51,6 +51,25 @@ module.exports = {
       },
     },
     "gatsby-plugin-react-helmet",
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Lato`,
+            variants: [`400`, `700`]
+          },
+          {
+            family: `Inconsolata`,
+            variants: [`400`, `700`]
+          },
+          {
+            family: `Merriweather`,
+            variants: [`400`, `700`]
+          },
+        ],
+      },
+    },
     "gatsby-plugin-sass",
     {
       resolve: "gatsby-plugin-feed",

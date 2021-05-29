@@ -23,6 +23,9 @@ This repo expects a version of node as well as yarn installed. This README
 assumes that [`fnm`](https://github.com/Schniz/fnm) is used (but there is
 nothing wrong with other methods of installing node).
 
+This also assumes that you have `yarn` and the
+[`netlify-cli`](https://www.npmjs.com/package/netlify-cli) installed.
+
 
 ## Making Changes
 
