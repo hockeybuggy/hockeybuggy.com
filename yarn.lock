@@ -8830,10 +8830,10 @@ gatsby-remark-images@^5.4.1:
     unist-util-select "^3.0.4"
     unist-util-visit-parents "^3.1.1"
 
-gatsby-remark-prismjs@^5.4.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-5.4.0.tgz#e0013a651163449b8aeb21a5a9596609fc4409c0"
-  integrity sha512-tDP/CBvMdPFQyKmhzMthJHEABYSWqx08G/67WhlbPFUTUF0JWElSe6bU+b181YtQ7cG2Y545Q/8l0Szk6u4+XQ==
+gatsby-remark-prismjs@^5.4.1:
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-5.4.1.tgz#65f0ee123129eb3f593022f9c08270dc3164c27e"
+  integrity sha512-FJ4hfbCd5KZwDbk5sjoLzdNN9o9dUs4ixVv5Gr/w7UO1nSnViL7kIqnN+PiINcV4Nqg72N1z30rSQTsjnuMpDQ==
   dependencies:
     "@babel/runtime" "^7.14.0"
     parse-numeric-range "^1.2.0"
