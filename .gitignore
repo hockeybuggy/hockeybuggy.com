@@ -1,6 +1,12 @@
 node_modules
+/.pnp
+.pnp.js
 public
 .cache
 
 .DS_Store
 !.github/
+
+# next.js
+/.next/
+/out/
