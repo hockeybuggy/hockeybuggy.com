@@ -23,6 +23,8 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-inferrable-types": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
+    // `next/link` `Link`s don't have `href`s on the `a` tags.
+    "jsx-a11y/anchor-is-valid": "off",
   },
   settings: {
     react: {

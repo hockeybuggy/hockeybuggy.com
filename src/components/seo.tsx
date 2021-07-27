@@ -1,6 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
 
 type MetaItem =
   | { name: string; content: any }
@@ -13,20 +12,10 @@ interface SEOProps {
 }
 
 const SEO = ({ description, meta = [], title }: SEOProps): JSX.Element => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-          }
-        }
-      }
-    `
-  );
+  const site: any = {}; // TODO this is not correct
 
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription =
+    description || "The personal website of Douglas Anderson";
 
   return (
     <Helmet
@@ -34,7 +23,7 @@ const SEO = ({ description, meta = [], title }: SEOProps): JSX.Element => {
         lang: "en-ca",
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | hockeybuggy.com`}
       meta={[
         {
           name: `description`,

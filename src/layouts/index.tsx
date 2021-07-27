@@ -6,6 +6,8 @@ import { Helmet } from "react-helmet";
 import Footer from "../components/footer";
 import Navigation from "../components/navigation";
 
+import "../styles/main.scss";
+
 interface LayoutProps extends React.HTMLAttributes<any> {
   className?: string;
   pathname?: string;

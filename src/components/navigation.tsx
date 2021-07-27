@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 
 import classNames from "classnames";
-import Link from "gatsby-link";
+import Link from "next/link";
 
 import Icon from "../components/icon";
 
@@ -65,13 +65,14 @@ const Navigation = (props: { pathname?: string }): JSX.Element => {
   return (
     <nav className="navigation">
       <div className="container">
-        <Link
-          to="/"
-          className={classNames("navigation-title", {
-            active: props.pathname === "/",
-          })}
-        >
-          hockeybuggy.com
+        <Link href="/">
+          <a
+            className={classNames("navigation-title", {
+              active: props.pathname === "/",
+            })}
+          >
+            hockeybuggy.com
+          </a>
         </Link>
 
         <button
@@ -94,28 +95,32 @@ const Navigation = (props: { pathname?: string }): JSX.Element => {
           ref={navigationListRef}
         >
           <li className="navigation-item" role="none">
-            <Link
-              to="/"
-              role="menuitem"
-              aria-current={props.pathname === "/" ? "page" : undefined}
-            >
-              Home
+            <Link href="/">
+              <a
+                role="menuitem"
+                aria-current={props.pathname === "/" ? "page" : undefined}
+              >
+                Home
+              </a>
             </Link>
           </li>
           <li className="navigation-item" role="none">
-            <Link
-              to="/blog/"
-              role="menuitem"
-              aria-current={props.pathname === "/blog/" ? "page" : undefined}
-            >
-              Blog
+            <Link href="/blog/">
+              <a
+                role="menuitem"
+                aria-current={props.pathname === "/blog/" ? "page" : undefined}
+              >
+                Blog
+              </a>
             </Link>
           </li>
           <li
             aria-current={props.pathname === "/projects/" ? "page" : undefined}
             className="navigation-item"
           >
-            <Link to="/projects/">Projects</Link>
+            <Link href="/projects/">
+              <a>Projects</a>
+            </Link>
           </li>
         </ul>
       </div>
