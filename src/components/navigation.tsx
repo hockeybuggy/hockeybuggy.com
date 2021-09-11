@@ -23,7 +23,6 @@ function useOutsideAlerter(
     function handleEventTargetOutsideRefs(
       event: MouseEvent | FocusEvent
     ): void {
-      console.log(event.target);
       if (eventTargetIsOutsideAllRefs(event)) {
         outsideFn();
       }
