@@ -10,14 +10,13 @@
   "scripts": {
     "build": "next build",
     "start": "next start",
-    "dev": "netlify dev",
-    "dev-gatsby": "gatsby develop",
+    "dev": "next",
     "lint": "eslint \"src/**/*.ts*\"",
     "typecheck": "tsc -p . --skipLibCheck",
     "format": "prettier --write \"src/**/*.ts*\"",
     "check-format": "prettier --check \"src/**/*.ts*\"",
     "test:e2e": "JEST_PUPPETEER_CONFIG=e2e_tests/jest-puppeteer.config.js jest --runInBand -c 'e2e_tests/jest.config.js'",
-    "clean": "gatsby clean"
+    "clean": "next clean"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",

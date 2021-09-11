@@ -5,7 +5,7 @@ import { CenteredLayout } from "../layouts";
 import SEO from "../components/seo";
 import Icon from "../components/icon";
 
-import douglasPaddling from "../../content/images/douglas-paddling.jpg";
+import douglasPaddling from "../content/images/douglas-paddling.jpg";
 
 const byline = "I curl, canoe, and compute.";
 const social = [
