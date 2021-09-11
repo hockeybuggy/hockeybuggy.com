@@ -22,7 +22,7 @@ const Footer = (): JSX.Element => {
           <a href="/blog/index.xml" aria-label="blog atom feed">
             <Icon name={Icon.Names.RSS} label="RSS feed icon" />
           </a>
-          <span>©2020</span>
+          <span>©2021</span>
         </div>
       </section>
     </footer>
