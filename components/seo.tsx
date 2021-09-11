@@ -12,8 +12,6 @@ interface SEOProps {
 }
 
 const SEO = ({ description, meta = [], title }: SEOProps): JSX.Element => {
-  const site: any = {}; // TODO this is not correct
-
   const metaDescription =
     description || "The personal website of Douglas Anderson";
 
