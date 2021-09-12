@@ -4,7 +4,6 @@ import { Post } from "../../models/blog";
 
 import markdownToHtml from "../../services/markdownToHtml";
 
-
 export class BlogPresentor {
   static getUrlForPost(post: Post): string {
     const { year, month, slug } = post;
