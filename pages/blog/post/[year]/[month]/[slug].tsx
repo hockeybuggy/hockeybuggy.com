@@ -7,12 +7,9 @@ import SEO from "../../../../../components/seo";
 import Icon from "../../../../../components/icon";
 
 import { intersperse } from "../../../../../services/utils";
-import {
-  Post,
-  getPostBySlug,
-  getAllPosts,
-  BlogPresentor,
-} from "../../../../../services/blog";
+import { Post } from "../../../../../models/blog";
+import { getPostBySlug, getAllPosts } from "../../../../../services/blog";
+import { BlogPresentor } from "../../../../../services/presentors/blog";
 
 interface Props {
   post: Post;

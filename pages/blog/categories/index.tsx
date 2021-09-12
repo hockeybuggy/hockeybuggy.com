@@ -12,7 +12,7 @@ interface Props {
   postsGroupedByCategory: Record<string, number>;
 }
 
-const Tag = ({
+const Category = ({
   category,
   count,
 }: {
@@ -37,10 +37,10 @@ const CategoriesIndexPage = ({
     <BaseLayout>
       <SEO title={"Categories"} />
       <div>
-        <h1>Tags</h1>
+        <h1>Categories</h1>
         <ul>
           {Object.entries(postsGroupedByCategory).map(([category, value]) => (
-            <Tag key={category} category={category} count={value} />
+            <Category key={category} category={category} count={value} />
           ))}
         </ul>
       </div>
