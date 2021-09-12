@@ -15,7 +15,7 @@ interface Props {
   html: string;
 }
 
-const BlogPostTemplate = ({ post, html }: Props): JSX.Element => {
+const BlogPostPage = ({ post, html }: Props): JSX.Element => {
   const { title, isoDate, categories, tags } = post;
   const excerpt = ""; // TODO get an exceprt
   const humanDate = isoDate; // TODO format this (to strip date)
@@ -109,4 +109,4 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   };
 }
 
-export default BlogPostTemplate;
+export default BlogPostPage;

@@ -42,7 +42,7 @@ export function getAllProjects(): Project[] {
     .map((fileName) => getProjectByFilename(fileName)!)
     .filter((project) => project !== null)
     // sort projects by order
-    .sort((project1, project2) => (project1.order > project2.order ? -1 : 1));
+    .sort((project1, project2) => (project1.order < project2.order ? -1 : 1));
   return projects;
 }
 
