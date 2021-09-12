@@ -1,6 +1,7 @@
 import * as React from "react";
 import { GetStaticPropsResult } from "next";
 import Link from "next/link";
+import { parseISO, format } from "date-fns";
 
 import { BaseLayout } from "../../layouts";
 import SEO from "../../components/seo";
@@ -19,7 +20,7 @@ const BlogIndex = ({ allPosts }: Props): JSX.Element => {
       <h1>Blog Posts</h1>
       {allPosts.map((post: Post) => {
         const slug = post.slug;
-        const date = post.isoDate;
+        const date = format(parseISO(post.isoDate), "yyyy-MM-dd");
         const year = post.year;
         const month = post.month;
         const day = post.day;
