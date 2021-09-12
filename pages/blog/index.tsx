@@ -3,8 +3,9 @@ import { GetStaticPropsResult } from "next";
 import Link from "next/link";
 
 import { BaseLayout } from "../../layouts";
-import { Post, getAllPosts } from "../../services/blog";
 import SEO from "../../components/seo";
+
+import { Post, getAllPosts } from "../../services/blog";
 
 interface Props {
   allPosts: Post[];

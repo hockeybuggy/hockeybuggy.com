@@ -4,8 +4,9 @@ import Link from "next/link";
 import kebabCase from "lodash/kebabCase";
 
 import { BaseLayout } from "../../../layouts";
-import { getAllPosts } from "../../../services/blog";
 import SEO from "../../../components/seo";
+
+import { getAllPosts } from "../../../services/blog";
 
 interface Props {
   postsGroupedByCategory: Record<string, number>;
