@@ -10,10 +10,10 @@
     "build": "next build",
     "start": "next start",
     "dev": "next",
-    "lint": "eslint \"src/**/*.ts*\"",
+    "lint": "eslint \"**/*.ts*\"",
     "typecheck": "tsc -p . --skipLibCheck",
-    "format": "prettier --write \"src/**/*.ts*\"",
-    "check-format": "prettier --check \"src/**/*.ts*\"",
+    "format": "prettier --write \"**/*.ts*\"",
+    "check-format": "prettier --check \"**/*.ts*\"",
     "test:e2e": "JEST_PUPPETEER_CONFIG=e2e_tests/jest-puppeteer.config.js jest --runInBand -c 'e2e_tests/jest.config.js'",
     "clean": "next clean"
   },
