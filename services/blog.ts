@@ -40,8 +40,8 @@ export function getPostByFilename(postFilename: string): Post | null {
     month: format(date, "LL"),
     day: format(date, "dd"),
     content: content,
-    tags: [],
-    categories: [],
+    tags: data.tags || [],
+    categories: data.categories || [],
   };
 }
 
