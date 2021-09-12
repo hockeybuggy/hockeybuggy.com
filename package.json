@@ -40,9 +40,11 @@
     "react-helmet": "^6.1.0",
     "rehype-autolink-headings": "^5.1.0",
     "rehype-slug": "^4.0.1",
+    "rehype-stringify": "^8.0.0",
     "remark": "13.0.0",
     "remark-gfm": "^1.0.0",
     "remark-html": "13.0.1",
+    "remark-rehype": "^8.1.0",
     "slugify": "^1.6.0"
   },
   "devDependencies": {
