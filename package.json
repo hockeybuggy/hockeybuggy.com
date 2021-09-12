@@ -27,6 +27,7 @@
     "add": "^2.0.6",
     "classnames": "^2.3.1",
     "date-fns": "^2.23.0",
+    "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
     "next": "11.0.1",
     "node-sass": "^5.0.0",
