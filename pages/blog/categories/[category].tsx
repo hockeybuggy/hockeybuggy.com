@@ -1,11 +1,12 @@
 import * as React from "react";
 import { GetStaticPropsResult, GetStaticPathsResult } from "next";
 import Link from "next/link";
+import uniq from "lodash/uniq";
 
 import { BaseLayout } from "../../../layouts";
-import { Post, getAllPosts } from "../../../services/blog";
 import SEO from "../../../components/seo";
-import uniq from "lodash/uniq";
+
+import { Post, getAllPosts } from "../../../services/blog";
 
 interface Props {
   posts: Post[];

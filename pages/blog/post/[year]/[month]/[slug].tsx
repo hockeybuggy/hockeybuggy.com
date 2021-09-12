@@ -3,13 +3,12 @@ import { GetStaticPropsResult, GetStaticPathsResult } from "next";
 import Link from "next/link";
 
 import { BaseLayout } from "../../../../../layouts";
+import SEO from "../../../../../components/seo";
+import Icon from "../../../../../components/icon";
 
 import markdownToHtml from "../../../../../services/markdownToHtml";
 import { intersperse } from "../../../../../services/utils";
 import { Post, getPostBySlug, getAllPosts } from "../../../../../services/blog";
-
-import SEO from "../../../../../components/seo";
-import Icon from "../../../../../components/icon";
 
 interface Props {
   post: Post;

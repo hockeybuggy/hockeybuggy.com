@@ -8,7 +8,7 @@ module.exports = {
   browserContext: "default",
   server: {
     debug: true,
-    command: "npm run dev-gatsby",
+    command: "npm run dev",
     launchTimeout: 45000,
     port: 8000,
     usedPortAction: "ignore",
