@@ -1,7 +1,9 @@
 import * as React from "react";
 import { ServerResponse } from "http";
-import { GetServerSideProps } from "next";
-import { getAllPosts, BlogPresentor } from "../../services/blog";
+import { GetServerSidePropsResult } from "next";
+
+import { getAllPosts } from "../../services/blog";
+import { BlogPresentor } from "../../services/presentors/blog";
 import { Feed } from "feed";
 
 const Sitemap: React.FC = () => null;
@@ -10,7 +12,7 @@ export async function getServerSideProps({
   res,
 }: {
   res: ServerResponse;
-}): Promise<GetServerSideProps> {
+}): Promise<GetServerSidePropsResult<Record<string, never>>> {
   const feed = new Feed({
     title: "Hockeybuggy.com",
     description: "The personal website of Douglas Anderson",

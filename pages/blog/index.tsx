@@ -5,7 +5,9 @@ import Link from "next/link";
 import { BaseLayout } from "../../layouts";
 import SEO from "../../components/seo";
 
-import { Post, getAllPosts, BlogPresentor } from "../../services/blog";
+import { Post } from "../../models/blog";
+import { getAllPosts } from "../../services/blog";
+import { BlogPresentor } from "../../services/presentors/blog";
 
 interface Props {
   allPosts: Post[];

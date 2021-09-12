@@ -1,25 +1,11 @@
 import fs from "fs";
 import { join } from "path";
-
 import matter from "gray-matter";
 import { parseISO, format } from "date-fns";
 
-import markdownToHtml from "../services/markdownToHtml";
+import { Post } from "../models/blog";
 
 const postsDirectory = join(process.cwd(), "content/blog/");
-
-export type Post = {
-  postFilename: string;
-  slug: string;
-  isoDate: string;
-  year: string;
-  month: string;
-  day: string;
-  title: string;
-  content: string;
-  categories: string[];
-  tags: string[];
-};
 
 function getPostFilenames(): string[] {
   return fs.readdirSync(postsDirectory);
@@ -59,24 +45,4 @@ export function getAllPosts(): Post[] {
 
 export function getPostBySlug(slug: string): Post | null {
   return getAllPosts().filter((post) => post.slug === slug)[0];
-}
-
-export class BlogPresentor {
-  static getUrlForPost(post: Post): string {
-    const { year, month, slug } = post;
-    return `/blog/post/${year}/${month}/${slug}`;
-  }
-
-  static getDateOfPost(post: Post): Date {
-    return parseISO(post.isoDate);
-  }
-
-  static getHumanReadableDateOfPost(post: Post): string {
-    return format(BlogPresentor.getDateOfPost(post), "yyyy-MM-dd");
-  }
-
-  static async getHtmlOfPost(post: Post): Promise<string> {
-    const html = await markdownToHtml(post.content || "");
-    return html;
-  }
 }

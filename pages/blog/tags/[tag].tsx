@@ -6,7 +6,8 @@ import uniq from "lodash/uniq";
 import { BaseLayout } from "../../../layouts";
 import SEO from "../../../components/seo";
 
-import { Post, getAllPosts } from "../../../services/blog";
+import { Post } from "../../../models/blog";
+import { getAllPosts } from "../../../services/blog";
 
 interface Props {
   posts: Post[];
