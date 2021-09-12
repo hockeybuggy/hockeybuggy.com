@@ -6,9 +6,13 @@ import { BaseLayout } from "../../../../../layouts";
 import SEO from "../../../../../components/seo";
 import Icon from "../../../../../components/icon";
 
-import markdownToHtml from "../../../../../services/markdownToHtml";
 import { intersperse } from "../../../../../services/utils";
-import { Post, getPostBySlug, getAllPosts } from "../../../../../services/blog";
+import {
+  Post,
+  getPostBySlug,
+  getAllPosts,
+  BlogPresentor,
+} from "../../../../../services/blog";
 
 interface Props {
   post: Post;
@@ -18,7 +22,7 @@ interface Props {
 const BlogPostPage = ({ post, html }: Props): JSX.Element => {
   const { title, isoDate, categories, tags } = post;
   const excerpt = ""; // TODO get an exceprt
-  const humanDate = isoDate; // TODO format this (to strip date)
+  const humanDate = BlogPresentor.getHumanReadableDateOfPost(post);
 
   return (
     <BaseLayout className="post">
@@ -79,7 +83,7 @@ export async function getStaticProps({
   params,
 }: Params): Promise<GetStaticPropsResult<Props>> {
   const post = getPostBySlug(params.slug)!;
-  const html = await markdownToHtml(post.content || "");
+  const html = await BlogPresentor.getHtmlOfPost(post);
 
   return {
     props: {
