@@ -61,21 +61,26 @@ meant that writing new blog posts would be as easy as cloning the repository
 and installing the executable. I also switched from using GitHub pages to
 Netlify (mostly in order to try something new).
 
+After Hugo this site was changed to use the Gatsby static site generator: [I
+wrote about it](/blog/post/2020/05/switching-to-gatsby). I first used Gatsby
+when I was making a wedding website for a friend. My friend and their partner
+had too much going on to leave them to edit pages so I wanted them to be able
+to edit content without having to learn how to commit things. I used Gatsby
+setup with AirTable as a source for content. I was quite pleased with how this
+turned out so I decided to port my personal blog to use Gatsby as well. I
+changed to use Gatsby and liked it well enough. My biggest struggles were
+related to the generation of types and my modest GraphQL ability. The thing I
+am most proud of with this incarnation of the website is the end to end tests.
+For every commit it uses [Puppeteer](https://github.com/puppeteer/puppeteer) to
+check that pages render, don't log any errors to the console, and take screen
+shots.
+
 
 ### Today
 
-Today this site is built using the Gatsby static site generator: [I wrote about
-it](/blog/post/2020/05/switching-to-gatsby). I first used Gatsby when I was
-making a wedding website for a friend. My friend and their partner wasn't super
-technical so I wanted them to be able to edit content without having to learn
-how to commit things. I used Gatsby setup with AirTable as a source for
-content. I was quite pleased with how this turned out so I decided to port my
-personal blog to use Gatsby as well.
-
-So far I have been enjoying it. I think the thing I am most proud of with this
-website is the end to end tests. For every commit it uses
-[Puppeteer](https://github.com/puppeteer/puppeteer) to check that pages render,
-don't log any errors to the console, and take screen shots.
+Today this uses `Next.js`. I got a chance to use it at work and enjoyed it.
+Since this was already a React based site converting it from the Gatsby
+implementation was possible.
 
 
 ## Plans for the future
