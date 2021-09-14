@@ -9,7 +9,7 @@ This image is a by-product of a "leadership training via photography" session
 that I did. It was captured with a single exposure and a programmable light
 ring.
 
-<!-- end -->
+<!-- excerpt -->
 
 For this project I borrowed my partner's SLR camera that allowed for manual
 control of the exposure length and turned it to the maximum. The small tripod I

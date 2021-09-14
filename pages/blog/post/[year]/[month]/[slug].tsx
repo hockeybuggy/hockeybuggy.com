@@ -14,11 +14,11 @@ import { BlogPresentor } from "../../../../../services/presentors/blog";
 interface Props {
   post: Post;
   html: string;
+  excerpt: string;
 }
 
-const BlogPostPage = ({ post, html }: Props): JSX.Element => {
+const BlogPostPage = ({ post, html, excerpt }: Props): JSX.Element => {
   const { title, isoDate, categories, tags } = post;
-  const excerpt = ""; // TODO get an exceprt
   const humanDate = BlogPresentor.getHumanReadableDateOfPost(post);
 
   return (
@@ -81,6 +81,7 @@ export async function getStaticProps({
 }: Params): Promise<GetStaticPropsResult<Props>> {
   const post = getPostBySlug(params.slug)!;
   const html = await BlogPresentor.getHtmlOfPost(post);
+  const excerpt = await BlogPresentor.getHtmlExcerptOfPost(post);
 
   return {
     props: {
@@ -88,6 +89,7 @@ export async function getStaticProps({
         ...post,
       },
       html,
+      excerpt,
     },
   };
 }

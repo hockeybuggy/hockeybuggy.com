@@ -41,13 +41,13 @@ export async function getServerSideProps({
         post
       )}`;
       const html = await BlogPresentor.getHtmlOfPost(post);
+      const excerpt = await BlogPresentor.getHtmlExcerptOfPost(post);
 
       feed.addItem({
         title: post.title,
         id: postUrl,
         link: postUrl,
-        // description: post.excerpt, // TODO
-        description: "",
+        description: excerpt,
         content: html,
         author: [
           {

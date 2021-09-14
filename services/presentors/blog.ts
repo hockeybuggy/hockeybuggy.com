@@ -2,7 +2,10 @@ import { parseISO, format } from "date-fns";
 
 import { Post } from "../../models/blog";
 
-import markdownToHtml from "../../services/markdownToHtml";
+import {
+  markdownToHtml,
+  markdownToHtmlExcerpt,
+} from "../../services/markdownToHtml";
 
 export class BlogPresentor {
   static getUrlForPost(post: Post): string {
@@ -19,7 +22,12 @@ export class BlogPresentor {
   }
 
   static async getHtmlOfPost(post: Post): Promise<string> {
-    const html = await markdownToHtml(post.content || "");
+    const html = await markdownToHtml(post.content);
+    return html;
+  }
+
+  static async getHtmlExcerptOfPost(post: Post): Promise<string> {
+    const html = await markdownToHtmlExcerpt(post.content);
     return html;
   }
 }
