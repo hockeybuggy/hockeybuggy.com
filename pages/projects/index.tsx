@@ -52,9 +52,11 @@ const ProjectsIndex = ({ projects, projectExcerpts }: Props): JSX.Element => {
                 href={ProjectPresentor.getUrlForProject(project)}
               >
                 <a>
-                  <Image
-                    src={require(`../../content/images/${project.bannerImageName}`)}
-                  />
+                  <div className="banner-image-container">
+                    <Image
+                      src={require(`../../content/images/${project.bannerImageName}`)}
+                    />
+                  </div>
                 </a>
               </Link>
             ) : null}
