@@ -14,4 +14,4 @@ version of the original image. I used this approach on a colour component
 version of an image and produced image that I eventually plotted using a XY pen
 plotter.
 
-<!-- end -->
+<!-- excerpt -->

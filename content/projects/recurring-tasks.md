@@ -10,5 +10,5 @@ A tool to periodically send myself emails of recurring tasks. A calendar app
 would also do this, but having recurring tasks in version control is something
 I wanted and writing this was quite fun.
 
-<!-- end -->
+<!-- excerpt -->
 

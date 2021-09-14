@@ -3,25 +3,27 @@ import { GetStaticPropsResult } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Project, getAllProjects } from "../../services/projects";
+import { Project } from "../../models/project";
+import { getAllProjects } from "../../services/projects";
+import { ProjectPresentor } from "../../services/presentors/project";
 
 import { BaseLayout } from "../../layouts";
 import SEO from "../../components/seo";
 import Icon from "../../components/icon";
 
 interface Props {
-  allProjects: Project[];
+  projects: Project[];
+  projectExcerpts: string[];
 }
 
-const ProjectsIndex = ({ allProjects }: Props): JSX.Element => {
+const ProjectsIndex = ({ projects, projectExcerpts }: Props): JSX.Element => {
   return (
     <BaseLayout className="projects" pathname={"/projects/"}>
       <SEO title={"Projects"} />
 
       <h1>Projects</h1>
-      {allProjects.map((project) => {
-        const excerpt = ""; // TODO add excerpt
-        // const bannerImageName = project.bannerImageName;
+      {projects.map((project, i) => {
+        const excerpt = projectExcerpts[i];
 
         const title = project.title || project.slug;
 
@@ -47,7 +49,7 @@ const ProjectsIndex = ({ allProjects }: Props): JSX.Element => {
             {project.bannerImageName ? (
               <Link
                 aria-label={`Read more about ${title}`}
-                href={`/project/${project.slug}`}
+                href={ProjectPresentor.getUrlForProject(project)}
               >
                 <a>
                   <Image
@@ -56,9 +58,10 @@ const ProjectsIndex = ({ allProjects }: Props): JSX.Element => {
                 </a>
               </Link>
             ) : null}
-            <section className="excerpt">
-              <p>{excerpt}</p>
-            </section>
+            <div
+              className="excerpt"
+              dangerouslySetInnerHTML={{ __html: excerpt }}
+            />
             <div className="read-more">
               <Link href={`/project/${project.slug}`}>Read more</Link>
             </div>
@@ -70,10 +73,16 @@ const ProjectsIndex = ({ allProjects }: Props): JSX.Element => {
 };
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
-  const allProjects = getAllProjects();
+  const projects = getAllProjects();
+  const projectExcerpts = await Promise.all(
+    projects.map(async (project) => {
+      const excerpt = await ProjectPresentor.getHtmlExcerptOfProject(project);
+      return excerpt;
+    })
+  );
 
   return {
-    props: { allProjects },
+    props: { projects, projectExcerpts },
   };
 }
 

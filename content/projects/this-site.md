@@ -10,7 +10,7 @@ bannerImageName: "projects/this-site/banner.png"
 This my personal website is a place I use to try out new things. This project
 has been running in some form or another for a little over 10 years now.
 
-<!-- end -->
+<!-- excerpt -->
 
 
 ## History of the site

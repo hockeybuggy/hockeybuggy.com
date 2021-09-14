@@ -3,17 +3,9 @@ import { join } from "path";
 
 import matter from "gray-matter";
 
-const projectDirectory = join(process.cwd(), "content/projects/");
+import { Project } from "../models/project";
 
-export type Project = {
-  projectFilename: string;
-  order: string;
-  slug: string;
-  title: string;
-  github: string | null;
-  bannerImageName: string;
-  content: string;
-};
+const projectDirectory = join(process.cwd(), "content/projects/");
 
 function getProjectFilenames(): string[] {
   return fs.readdirSync(projectDirectory);

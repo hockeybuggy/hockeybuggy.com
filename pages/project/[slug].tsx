@@ -7,21 +7,18 @@ import { BaseLayout } from "../../layouts";
 import SEO from "../../components/seo";
 import Icon from "../../components/icon";
 
-import markdownToHtml from "../../services/markdownToHtml";
-import {
-  Project,
-  getProjectBySlug,
-  getAllProjects,
-} from "../../services/projects";
+import { getProjectBySlug, getAllProjects } from "../../services/projects";
+import { ProjectPresentor } from "../../services/presentors/project";
+
+import { Project } from "../../models/project";
 
 interface Props {
   project: Project;
   html: string;
+  excerpt: string;
 }
 
-const ProjectPage = ({ project, html }: Props): JSX.Element => {
-  const excerpt = ""; // TODO get an exceprt
-
+const ProjectPage = ({ project, html, excerpt }: Props): JSX.Element => {
   return (
     <BaseLayout className="project">
       <SEO title={`Project: ${project.title!}`} description={excerpt} />
@@ -48,7 +45,7 @@ const ProjectPage = ({ project, html }: Props): JSX.Element => {
         {project.bannerImageName ? (
           <Link
             aria-label={`Read more about ${project.title}`}
-            href={`/project/${project.slug}`}
+            href={ProjectPresentor.getUrlForProject(project)}
           >
             <a>
               <Image
@@ -79,7 +76,8 @@ export async function getStaticProps({
   params,
 }: Params): Promise<GetStaticPropsResult<Props>> {
   const project = getProjectBySlug(params.slug)!;
-  const html = await markdownToHtml(project.content || "");
+  const html = await ProjectPresentor.getHtmlOfProject(project);
+  const excerpt = await ProjectPresentor.getHtmlExcerptOfProject(project);
 
   return {
     props: {
@@ -87,6 +85,7 @@ export async function getStaticProps({
         ...project,
       },
       html,
+      excerpt,
     },
   };
 }
