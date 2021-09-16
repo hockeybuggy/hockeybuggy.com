@@ -1,16 +1,18 @@
 import remark from "remark";
 import html from "remark-html";
 import gfm from "remark-gfm";
-import slug from "rehype-slug";
+import prism from "remark-prism";
 import excerpt from "remark-excerpt";
+import slug from "rehype-slug";
 import remarkRehype from "remark-rehype";
 import autolinkHeadings from "rehype-autolink-headings";
 import stringify from "rehype-stringify";
 
 export async function markdownToHtml(markdown: string): Promise<string> {
   const result = await remark()
-    .use(html)
     .use(gfm)
+    .use(html)
+    .use(prism)
     .use(remarkRehype)
     .use(slug)
     .use(autolinkHeadings)

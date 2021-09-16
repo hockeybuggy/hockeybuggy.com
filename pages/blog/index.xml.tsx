@@ -5,6 +5,10 @@ import { GetServerSidePropsResult } from "next";
 import { getAllPosts } from "../../services/blog";
 import { BlogPresentor } from "../../services/presentors/blog";
 import { Feed } from "feed";
+import {
+  markdownToHtml,
+  markdownToHtmlExcerpt,
+} from "../../services/markdownToHtml";
 
 const Sitemap: React.FC = () => null;
 
@@ -40,8 +44,8 @@ export async function getServerSideProps({
       const postUrl = `https://hockeybuggy.com/${BlogPresentor.getUrlForPost(
         post
       )}`;
-      const html = await BlogPresentor.getHtmlOfPost(post);
-      const excerpt = await BlogPresentor.getHtmlExcerptOfPost(post);
+      const html = await markdownToHtml(post.content);
+      const excerpt = await markdownToHtmlExcerpt(post.content);
 
       feed.addItem({
         title: post.title,

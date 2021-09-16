@@ -9,6 +9,10 @@ import Icon from "../../components/icon";
 
 import { getProjectBySlug, getAllProjects } from "../../services/projects";
 import { ProjectPresentor } from "../../services/presentors/project";
+import {
+  markdownToHtml,
+  markdownToHtmlExcerpt,
+} from "../../services/markdownToHtml";
 
 import { Project } from "../../models/project";
 
@@ -76,8 +80,8 @@ export async function getStaticProps({
   params,
 }: Params): Promise<GetStaticPropsResult<Props>> {
   const project = getProjectBySlug(params.slug)!;
-  const html = await ProjectPresentor.getHtmlOfProject(project);
-  const excerpt = await ProjectPresentor.getHtmlExcerptOfProject(project);
+  const html = await markdownToHtml(project.content);
+  const excerpt = await markdownToHtmlExcerpt(project.content);
 
   return {
     props: {

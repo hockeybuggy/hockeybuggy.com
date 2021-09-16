@@ -2,11 +2,6 @@ import { parseISO, format } from "date-fns";
 
 import { Post } from "../../models/blog";
 
-import {
-  markdownToHtml,
-  markdownToHtmlExcerpt,
-} from "../../services/markdownToHtml";
-
 export class BlogPresentor {
   static getUrlForPost(post: Post): string {
     const { year, month, slug } = post;
@@ -19,15 +14,5 @@ export class BlogPresentor {
 
   static getHumanReadableDateOfPost(post: Post): string {
     return format(BlogPresentor.getDateOfPost(post), "yyyy-MM-dd");
-  }
-
-  static async getHtmlOfPost(post: Post): Promise<string> {
-    const html = await markdownToHtml(post.content);
-    return html;
-  }
-
-  static async getHtmlExcerptOfPost(post: Post): Promise<string> {
-    const html = await markdownToHtmlExcerpt(post.content);
-    return html;
   }
 }
