@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Project } from "../../models/project";
 import { getAllProjects } from "../../services/projects";
 import { ProjectPresentor } from "../../services/presentors/project";
+import { markdownToHtmlExcerpt } from "../../services/markdownToHtml";
 
 import { BaseLayout } from "../../layouts";
 import SEO from "../../components/seo";
@@ -78,7 +79,7 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
   const projects = getAllProjects();
   const projectExcerpts = await Promise.all(
     projects.map(async (project) => {
-      const excerpt = await ProjectPresentor.getHtmlExcerptOfProject(project);
+      const excerpt = await markdownToHtmlExcerpt(project.content);
       return excerpt;
     })
   );

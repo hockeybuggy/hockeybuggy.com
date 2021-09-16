@@ -10,6 +10,10 @@ import { intersperse } from "../../../../../services/utils";
 import { Post } from "../../../../../models/blog";
 import { getPostBySlug, getAllPosts } from "../../../../../services/blog";
 import { BlogPresentor } from "../../../../../services/presentors/blog";
+import {
+  markdownToHtml,
+  markdownToHtmlExcerpt,
+} from "../../../../../services/markdownToHtml";
 
 interface Props {
   post: Post;
@@ -80,8 +84,8 @@ export async function getStaticProps({
   params,
 }: Params): Promise<GetStaticPropsResult<Props>> {
   const post = getPostBySlug(params.slug)!;
-  const html = await BlogPresentor.getHtmlOfPost(post);
-  const excerpt = await BlogPresentor.getHtmlExcerptOfPost(post);
+  const html = await markdownToHtml(post.content);
+  const excerpt = await markdownToHtmlExcerpt(post.content);
 
   return {
     props: {
