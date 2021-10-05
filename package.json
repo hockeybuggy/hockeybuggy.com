@@ -58,7 +58,7 @@
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "sharp": "^0.29.1",
-    "slugify": "^1.6.0"
+    "slugify": "^1.6.1"
   },
   "devDependencies": {
     "@types/expect-puppeteer": "^4.4.7",
