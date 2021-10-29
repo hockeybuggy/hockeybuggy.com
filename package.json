@@ -50,7 +50,7 @@
     "gatsby-transformer-sharp": "^3.14.0",
     "graphql": "^15.7.2",
     "lodash": "^4.17.21",
-    "node-sass": "^5.0.0",
+    "node-sass": "^6.0.1",
     "normalize.css": "^8.0.1",
     "prismjs": "^1.25.0",
     "query-string": "^7.0.1",
