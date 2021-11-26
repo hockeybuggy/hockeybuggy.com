@@ -72,7 +72,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.27.1",
     "jest": "^27.3.1",
-    "jest-puppeteer": "^6.0.1",
+    "jest-puppeteer": "^6.0.2",
     "netlify-lambda": "^2.0.15",
     "prettier": "^2.0.2",
     "puppeteer": "^11.0.0",
