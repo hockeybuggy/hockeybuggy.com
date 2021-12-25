@@ -37,18 +37,18 @@ Download the repository and install dependencies:
 
 To write a new post start with:
 
-    ./script/new_post
+    ./scripts/new_post
 
 You can also use flags to set date or title
 
-    ./script/new_post --title "great title" --date 2014-12-15
+    ./scripts/new_post --title "great title" --date 2014-12-15
 
 
 ### Build the site
 
 Generate and watch the site with:
 
-    ./script/server
+    ./scripts/server
 
 To simulate a production build locally:
 
@@ -62,19 +62,19 @@ To simulate a production build locally:
 
 To check the built site with an headless browser test:
 
-    ./script/test
+    ./scripts/test
 
 To check just one page:
 
-    ./script/test landingPage
+    ./scripts/test landingPage
 
 To view the tests running:
 
-    HEADLESS=false ./script/test
+    HEADLESS=false ./scripts/test
 
 To view the tests running in slow motion:
 
-    SLOWMO=100 HEADLESS=false ./script/test
+    SLOWMO=100 HEADLESS=false ./scripts/test
 
 The tests will also run for every CI build. It will also upload the screenshots
 it takes as artifacts. You can find the artifacts by clicking the `...` [on a
