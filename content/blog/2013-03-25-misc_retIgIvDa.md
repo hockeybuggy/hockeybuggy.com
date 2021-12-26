@@ -19,6 +19,8 @@ of months ago I gave myself the arrow keys back to see if I was ready to use
 them responsibly. I found that I was (mostly) ready and stay on the home row
 most of the time when moving around.
 
+<!-- excerpt -->
+
 
 After reading [Practical Vim](https://pragprog.com/book/dnvim/practical-vim)
 I started to use more word-wise operations (e.g. w,e,b,ge).
@@ -27,7 +29,6 @@ characters(a-zA-Z0-9). While
 this is much much faster then the hjkl motions, they feel slow when you know
 where in the text you want to go. The word-wise motions feel like they grind to
 a halt when they hit URLs because of how many sub "word" a URL is made of.
-
 
 The solution to this is the f, t, F, and T motions. These commands move to the
 next occurrence of the supplied character. The f command moves **F**orward to the

@@ -21,6 +21,9 @@ within but it was proving to be more effort than it was worth. But when site
 broke on the computer it original worked on, I become determined to find a new
 static site generator.
 
+<!-- excerpt -->
+
+
 ## Why Jekyll
 
 And now after what has been far to long a time I have decided to move my old

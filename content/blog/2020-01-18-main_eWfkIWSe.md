@@ -27,6 +27,8 @@ tools and decided to make the systems communicate via HTTP, but since I
 wanted to try something new: instead of having the body of the HTTP messages be
 a plain text format I decided to try using Protobufs.
 
+<!-- excerpt -->
+
 
 ## What is a Protobuf
 

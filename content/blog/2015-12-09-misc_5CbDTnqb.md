@@ -23,6 +23,8 @@ the buffer number is 2, I could type:
   <kbd>CR</kbd>
 </div>
 
+<!-- excerpt -->
+
 
 This is a simple mapping but I think an
 effective one since it's shorter and does not require the shift key.
