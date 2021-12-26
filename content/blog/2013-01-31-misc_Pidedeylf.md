@@ -15,6 +15,9 @@ So if you have seen the site before this post you will have noticed that we(the
 royal we [aka. we := I ])
 have gone though (and are going though) some changes in the layout of the site.
 
+<!-- excerpt -->
+
+
 This new change is a result of changing from the static css about a week ago. I
 knew that pelican had picked up less support but I did not realize the extent
 of the power of the webassets module. I wanted to start with precompiled css

@@ -14,6 +14,8 @@ title: State of the Dotfiles
 slug: state-of-the-dotfiles
 ---
 
+<!-- excerpt -->
+
 
 In this post I am gonna talk about the things in my configuration that I am
 really excited about. Warning: non-technical people may find this either super

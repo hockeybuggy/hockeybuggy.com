@@ -7,11 +7,16 @@ md.use(prism, {
 });
 
 export async function markdownToHtml(markdown: string): Promise<string> {
-  return md.render(markdown);
+  const excerptFreeMarkdown = markdown.replace("<!-- excerpt -->", "");
+  return md.render(excerptFreeMarkdown);
 }
 
 export async function markdownToHtmlExcerpt(markdown: string): Promise<string> {
-  // TODO split manually. I was unable to find a markdown-it plugin that worked
-  // in a similar way to the remark or rehype excerpt plugins.
-  return md.render(markdown);
+  const splits = markdown.split("<!-- excerpt -->");
+  if (splits.length !== 2) {
+    console.warn("Could not find `excerpt`");
+
+    return "";
+  }
+  return md.render(splits[0]);
 }

@@ -11,6 +11,9 @@ categories:
 This past week I decided to spend some time switching this website to use
 Gatsby. This comes on the heels of switching to Hugo at the end of last year.
 
+<!-- excerpt -->
+
+
 ## Why the switch?
 
 No big grand reason. The biggest reason to make the switch was my experience
