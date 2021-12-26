@@ -11,6 +11,7 @@ import {
   faBars,
   faAt,
   faRss,
+  faLink,
   faCalendar,
   faFolder,
   faTag,
@@ -18,10 +19,11 @@ import {
 
 enum IconNames {
   Bars,
-  Email,
-  RSS,
   Calendar,
+  Email,
   Folder,
+  Link,
+  RSS,
   Tag,
 
   GitHub,
@@ -51,6 +53,8 @@ function iconByName(name: IconNames): IconDefinition {
       return faTag;
     case IconNames.Folder:
       return faFolder;
+    case IconNames.Link:
+      return faLink;
     case IconNames.CreativeCommons:
       return faCreativeCommons;
     case IconNames.GitHub:
