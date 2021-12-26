@@ -2,6 +2,7 @@ node_modules
 /.pnp
 .pnp.js
 .cache
+tsconfig.tsbuildinfo
 
 .DS_Store
 !.github/
@@ -11,3 +12,4 @@ node_modules
 /out/
 
 public/blog/index.xml
+
