@@ -9,3 +9,5 @@ node_modules
 # next.js
 /.next/
 /out/
+
+public/blog/index.xml

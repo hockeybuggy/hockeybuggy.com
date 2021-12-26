@@ -15,5 +15,10 @@
     "target": "es5"
   },
   "include": ["next-env.d.ts", "declarations.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
 }

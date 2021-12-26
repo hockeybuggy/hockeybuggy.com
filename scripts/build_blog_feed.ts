@@ -1,22 +1,16 @@
-import * as React from "react";
-import { ServerResponse } from "http";
-import { GetServerSidePropsResult } from "next";
+import { writeFileSync, mkdirSync } from "fs";
 
-import { getAllPosts } from "../../services/blog";
-import { BlogPresentor } from "../../services/presentors/blog";
+import { getAllPosts } from "../services/blog";
+import { BlogPresentor } from "../services/presentors/blog";
 import { Feed } from "feed";
 import {
   markdownToHtml,
   markdownToHtmlExcerpt,
-} from "../../services/markdownToHtml";
+} from "../services/markdownToHtml";
 
-const Sitemap: React.FC = () => null;
+async function generate() {
+  console.log("Generating RSS feed for blog...");
 
-export async function getServerSideProps({
-  res,
-}: {
-  res: ServerResponse;
-}): Promise<GetServerSidePropsResult<Record<string, never>>> {
   const feed = new Feed({
     title: "Hockeybuggy.com",
     description: "The personal website of Douglas Anderson",
@@ -65,13 +59,12 @@ export async function getServerSideProps({
     })
   );
 
-  if (res) {
-    res.setHeader("Content-Type", "text/xml");
-    res.write(feed.atom1());
-    res.end();
-  }
+  const formatted = feed.atom1();
 
-  return { props: {} };
+  mkdirSync("public/blog", { recursive: true });
+  writeFileSync("public/blog/index.xml", formatted);
+
+  console.log("Done.");
 }
 
-export default Sitemap;
+generate();
