@@ -62,7 +62,7 @@ prost-build = "0.7"
 
 Then creating a minimal `.proto` file called `src/messages.proto`:
 
-```proto
+```protobuf
 syntax = "proto3";
 
 package messages;
@@ -215,7 +215,7 @@ if this was meant to be long living code).
 
 Each time the first program is run the second program will print:
 
-```
+```plaintext
 bytes = b"\n\x03foo"
 msg = ThermostatState { name: "foo", air_temp: 0.0, rad_temp: 0.0 }
 ```
