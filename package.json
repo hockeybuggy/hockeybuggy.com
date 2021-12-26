@@ -8,6 +8,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "prebuild": "ts-node ./scripts/build_blog_feed.ts",
     "start": "next start",
     "dev": "next",
     "lint": "eslint \"**/*.ts*\"",
@@ -41,7 +42,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "slugify": "^1.6.0"
+    "slugify": "^1.6.0",
+    "ts-node": "^10.4.0"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^12.0.7",
