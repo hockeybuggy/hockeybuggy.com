@@ -12,7 +12,7 @@ postTemplate = """\
 ---
 title: {}
 slug: ""
-date: {}
+date: "{}"
 tags:
 - development
 categories:
