@@ -1,31 +1,17 @@
-import remark from "remark";
-import html from "remark-html";
-import gfm from "remark-gfm";
-import prism from "remark-prism";
-import excerpt from "remark-excerpt";
-import slug from "rehype-slug";
-import remarkRehype from "remark-rehype";
-import autolinkHeadings from "rehype-autolink-headings";
-import stringify from "rehype-stringify";
+import MarkdownIt from "markdown-it";
+import prism from "markdown-it-prism";
+
+const md = new MarkdownIt();
+md.use(prism, {
+  defaultLangugage: "plaintext",
+});
 
 export async function markdownToHtml(markdown: string): Promise<string> {
-  const result = await remark()
-    .use(gfm)
-    .use(html)
-    .use(prism)
-    .use(remarkRehype)
-    .use(slug)
-    .use(autolinkHeadings)
-    .use(stringify)
-    .process(markdown);
-  return result.toString();
+  return md.render(markdown);
 }
 
 export async function markdownToHtmlExcerpt(markdown: string): Promise<string> {
-  const result = await remark()
-    .use(html)
-    .use(gfm)
-    .use(excerpt)
-    .process(markdown);
-  return result.toString();
+  // TODO split manually. I was unable to find a markdown-it plugin that worked
+  // in a similar way to the remark or rehype excerpt plugins.
+  return md.render(markdown);
 }
