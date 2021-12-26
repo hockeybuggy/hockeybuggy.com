@@ -35,7 +35,7 @@ async function generate() {
 
   await Promise.all(
     posts.map(async (post) => {
-      const postUrl = `https://hockeybuggy.com/${BlogPresentor.getUrlForPost(
+      const postUrl = `https://hockeybuggy.com${BlogPresentor.getUrlForPost(
         post
       )}`;
       const html = await markdownToHtml(post.content);
