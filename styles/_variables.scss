@@ -4,11 +4,17 @@ $heading-font-family: Lato, Helvetica, sans-serif;
 $code-font-family: "Inconsolata", monospace;
 
 // Colours
-$bg-color: #fafafa !default;
-$fg-color: #212121 !default;
-$alt-bg-color: #e0e0e0 !default;
-$alt-fg-color: #000 !default;
-$link-color: #1565c0 !default;
+$light-bg-color: #fafafa !default;
+$light-fg-color: #212121 !default;
+$light-alt-bg-color: #e0e0e0 !default;
+$light-alt-fg-color: #000 !default;
+$light-link-color: #1254a1 !default;
+
+$dark-bg-color: #212121 !default;
+$dark-fg-color: #fafafa !default;
+$dark-alt-bg-color: #1a1a1a !default;
+$dark-alt-fg-color: #e9e9e9 !default;
+$dark-link-color: #83b6f1 !default;
 
 // Breakpoints
 $small-max-width: 768px;

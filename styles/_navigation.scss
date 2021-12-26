@@ -9,13 +9,27 @@
     font-family: $heading-font-family;
     font-weight: 700;
     line-height: 6rem;
-    color: $fg-color;
+    color: $light-fg-color;
   }
 
   a {
     &:hover,
     &:focus {
-      color: $link-color;
+      color: $light-link-color;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    a,
+    span {
+      color: $dark-fg-color;
+    }
+
+    a {
+      &:hover,
+      &:focus {
+        color: $dark-link-color;
+      }
     }
   }
 
@@ -42,13 +56,19 @@
       z-index: 5;
       padding: 0;
       width: 100%;
-      background-color: $bg-color;
-      border-top: solid 2px $alt-bg-color;
-      border-bottom: solid 2px $alt-bg-color;
+      background-color: $light-bg-color;
+      border-top: solid 2px $light-alt-bg-color;
+      border-bottom: solid 2px $light-alt-bg-color;
       transition: opacity 0.25s, max-height 0.15s linear;
 
       &[data-expanded="false"] {
         visibility: hidden;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        background-color: $dark-bg-color;
+        border-top: solid 2px $dark-alt-bg-color;
+        border-bottom: solid 2px $dark-alt-bg-color;
       }
     }
 
@@ -58,12 +78,16 @@
       position: relative;
 
       @media only screen and (max-width: $small-max-width) {
-        border-top: solid 1px $alt-bg-color;
+        border-top: solid 1px $light-alt-bg-color;
         float: none !important;
         text-align: center;
         a,
         span {
           line-height: 5rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          border-top: solid 1px $dark-alt-bg-color;
         }
       }
 
@@ -80,10 +104,14 @@
 
     .menu-separator {
       @media only screen and (max-width: $small-max-width) {
-        border-top: 2px solid $fg-color;
+        border-top: 2px solid $light-fg-color;
         margin: 0 8rem;
         span {
           display: none;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          border-top: 2px solid $dark-alt-bg-color;
         }
       }
     }
@@ -101,11 +129,19 @@
       font-size: 2.4rem;
       font-weight: 400;
       line-height: 6rem;
-      color: $fg-color;
+      color: $light-fg-color;
       cursor: pointer;
       &:hover,
       &:focus {
-        color: $link-color;
+        color: $light-link-color;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        color: $dark-fg-color;
+        &:hover,
+        &:focus {
+          color: $dark-link-color;
+        }
       }
     }
 

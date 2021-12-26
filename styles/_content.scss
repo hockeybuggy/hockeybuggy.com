@@ -81,12 +81,12 @@
 
       .title {
         font-size: 1.8rem;
-        color: $fg-color;
+        color: $light-fg-color;
         font-family: $heading-font-family;
         font-weight: 700;
         &:hover,
         &:focus {
-          color: $link-color;
+          color: $light-link-color;
         }
       }
     }
