@@ -15,7 +15,6 @@ interface Props {
 }
 
 const CategoryPage = ({ posts, category }: Props): JSX.Element => {
-  console.log(posts);
   const totalCount = posts.length;
   const categoryHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"

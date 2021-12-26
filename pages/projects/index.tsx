@@ -56,6 +56,7 @@ const ProjectsIndex = ({ projects, projectExcerpts }: Props): JSX.Element => {
                   <div className="banner-image-container">
                     <Image
                       src={require(`../../content/images/${project.bannerImageName}`)}
+                      alt=""
                     />
                   </div>
                 </a>

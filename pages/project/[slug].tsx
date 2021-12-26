@@ -54,6 +54,7 @@ const ProjectPage = ({ project, html, excerpt }: Props): JSX.Element => {
             <a>
               <Image
                 src={require(`../../content/images/${project.bannerImageName}`)}
+                alt=""
               />
             </a>
           </Link>

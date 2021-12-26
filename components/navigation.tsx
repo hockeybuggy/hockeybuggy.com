@@ -37,7 +37,7 @@ function useOutsideAlerter(
       document.removeEventListener("mousedown", handleEventTargetOutsideRefs);
       document.removeEventListener("focusin", handleEventTargetOutsideRefs);
     };
-  }, [refs]);
+  }, [refs, outsideFn]);
 }
 
 const Navigation = (props: { pathname?: string }): JSX.Element => {
