@@ -2,7 +2,6 @@
 import * as React from "react";
 
 import { Html, Head, Main, NextScript } from "next/document";
-// import type { AppProps } from "next/app";
 
 function MyDocument(): JSX.Element {
   return (
