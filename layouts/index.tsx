@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import classNames from "classnames";
-import { Helmet } from "react-helmet";
 
 import Footer from "../components/footer";
 import Navigation from "../components/navigation";
@@ -21,14 +20,6 @@ const InnerContainer: React.FC<LayoutProps> = (props) => (
 export const BaseLayout: React.FC<LayoutProps> = (props) => {
   return (
     <React.Fragment>
-      <Helmet>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-        <link rel="icon" href="/static/img/favicon.ico" />
-      </Helmet>
-
       <main className="wrapper">
         <div className="header">
           <Navigation pathname={props.pathname} />

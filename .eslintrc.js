@@ -9,6 +9,8 @@ module.exports = {
   },
   extends: [
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "next",
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
     "prettier",
