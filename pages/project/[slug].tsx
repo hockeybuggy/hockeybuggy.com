@@ -22,7 +22,7 @@ interface Props {
   html: string;
   excerpt: string;
   base64Placeholder: string;
-  imgProps: string;
+  imgProps: any;
 }
 
 const ProjectPage = ({

@@ -1,13 +1,28 @@
 .avatar {
   width: 20rem;
   height: auto;
+  min-height: 20rem;
   margin: 0 auto;
+  position: relative;
 
   img {
     border-radius: 50%;
-    @media only screen and (max-width: $small-max-width) {
-      width: 10rem;
-    }
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+
+  .placeholder {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    display: block;
+    width: 20rem;
+    height: auto;
+    min-height: 20rem;
+    border-radius: 50%;
+    background-color: #9697a9;
   }
 }
 
