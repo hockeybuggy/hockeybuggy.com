@@ -6,7 +6,6 @@ import Script from "next/script";
 import { GA_TRACKING_ID, pageview } from "../services/gtag";
 
 import "../styles/main.scss";
-import "prismjs/themes/prism-solarizedlight.css";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const router = useRouter();
