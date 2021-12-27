@@ -4,6 +4,7 @@ slug: "this-site"
 order: 20
 github: "https://github.com/hockeybuggy/hockeybuggy.com"
 bannerImageName: "projects/this-site/banner.png"
+bannerAltText: "A screenshot of the header of this website."
 ---
 
 

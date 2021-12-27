@@ -21,6 +21,7 @@ export function getProjectByFilename(projectFilename: string): Project | null {
     projectFilename: projectFilename,
     content: content,
     bannerImageName: data["bannerImageName"],
+    bannerAltText: data["bannerAltText"],
     slug: data["slug"],
     order: data["order"],
     title: data["title"],

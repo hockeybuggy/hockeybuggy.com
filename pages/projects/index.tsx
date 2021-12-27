@@ -2,6 +2,7 @@ import * as React from "react";
 import { GetStaticPropsResult } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { getPlaiceholder } from "plaiceholder";
 
 import { Project } from "../../models/project";
 import { getAllProjects } from "../../services/projects";
@@ -13,11 +14,16 @@ import SEO from "../../components/seo";
 import Icon from "../../components/icon";
 
 interface Props {
-  projects: Project[];
-  projectExcerpts: string[];
+  projects: Array<Project>;
+  projectExcerpts: Array<string>;
+  projectImages: Array<Record<"img" | "base64", any>>;
 }
 
-const ProjectsIndex = ({ projects, projectExcerpts }: Props): JSX.Element => {
+const ProjectsIndex = ({
+  projects,
+  projectExcerpts,
+  projectImages,
+}: Props): JSX.Element => {
   return (
     <BaseLayout className="projects" pathname={"/projects/"}>
       <SEO title={"Projects"} />
@@ -25,6 +31,8 @@ const ProjectsIndex = ({ projects, projectExcerpts }: Props): JSX.Element => {
       <h1>Projects</h1>
       {projects.map((project, i) => {
         const excerpt = projectExcerpts[i];
+        const imgProps = projectImages[i].img;
+        const base64Placeholder = projectImages[i].base64;
 
         const title = project.title || project.slug;
 
@@ -55,8 +63,11 @@ const ProjectsIndex = ({ projects, projectExcerpts }: Props): JSX.Element => {
                 <a>
                   <div className="banner-image-container">
                     <Image
+                      alt={project.bannerAltText}
+                      placeholder="blur"
+                      blurDataURL={base64Placeholder}
+                      {...imgProps}
                       src={require(`../../content/images/${project.bannerImageName}`)}
-                      alt=""
                     />
                   </div>
                 </a>
@@ -84,9 +95,17 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
       return excerpt;
     })
   );
+  const projectImages = await Promise.all(
+    projects.map(async (project) => {
+      const { base64, img } = await getPlaiceholder(
+        `/../content/images/${project.bannerImageName}`
+      );
+      return { base64, img };
+    })
+  );
 
   return {
-    props: { projects, projectExcerpts },
+    props: { projects, projectExcerpts, projectImages },
   };
 }
 

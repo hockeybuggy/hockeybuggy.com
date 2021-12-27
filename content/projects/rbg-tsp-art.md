@@ -3,6 +3,7 @@ title: RGB Traveling Salesperson Art
 slug: "rgb-tsp-art"
 order: 50
 bannerImageName: "projects/rgb-tsp-art/banner.png"
+bannerAltText: "A close up image of a face drawn with 3 continous lines; one red line one blue line and one green line. The face is the face of Douglas."
 ---
 
 This is a creative project that I am very proud of and isn't software.

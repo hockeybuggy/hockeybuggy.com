@@ -4,6 +4,7 @@ slug: "dotfiles"
 order: 30
 github: "https://github.com/hockeybuggy/dotfiles"
 bannerImageName: "projects/dotfiles/banner.png"
+bannerAltText: "A screenshot of my configuration files or dotfiles. The image depicts some common vim settings."
 ---
 
 This "project" is my configuration files for setting up a computer. It contains
