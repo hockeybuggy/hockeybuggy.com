@@ -3,6 +3,7 @@ title: Rainbow single exposure photo
 slug: "rainbow-single-exposure"
 order: 60
 bannerImageName: "projects/rainbow-single-exposure/banner.jpg"
+bannerAltText: "A photograph of Douglas illuminated with a rainbow multiple exposure image."
 ---
 
 This image is a by-product of a "leadership training via photography" session

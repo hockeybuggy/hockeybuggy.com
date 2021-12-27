@@ -5,5 +5,6 @@ export type Project = {
   title: string;
   github: string | null;
   bannerImageName: string;
+  bannerAltText: string;
   content: string;
 };

@@ -4,6 +4,7 @@ slug: "ray-tracer"
 order: 10
 github: "https://github.com/hockeybuggy/ray_tracer"
 bannerImageName: "projects/ray-tracer/banner.png"
+bannerAltText: "A green ball sitting on a reflective black and white checkered floor."
 ---
 
 Following along with the book [The Ray Tracer

@@ -4,6 +4,7 @@ slug: "clonenames"
 order: 70
 github: "https://github.com/hockeybuggy/clonenames"
 bannerImageName: "projects/clonenames/banner.png"
+bannerAltText: "An image of a clode of the game Codenames."
 ---
 
 A clone of the board game "Codenames". This project was in order to get

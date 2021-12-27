@@ -2,6 +2,7 @@ import * as React from "react";
 import { GetStaticPropsResult, GetStaticPathsResult } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { getPlaiceholder } from "plaiceholder";
 
 import { BaseLayout } from "../../layouts";
 import SEO from "../../components/seo";
@@ -20,9 +21,17 @@ interface Props {
   project: Project;
   html: string;
   excerpt: string;
+  base64Placeholder: string;
+  imgProps: string;
 }
 
-const ProjectPage = ({ project, html, excerpt }: Props): JSX.Element => {
+const ProjectPage = ({
+  project,
+  html,
+  excerpt,
+  base64Placeholder,
+  imgProps,
+}: Props): JSX.Element => {
   return (
     <BaseLayout className="project">
       <SEO title={`Project: ${project.title!}`} description={excerpt} />
@@ -53,8 +62,11 @@ const ProjectPage = ({ project, html, excerpt }: Props): JSX.Element => {
           >
             <a>
               <Image
+                alt={project.bannerAltText}
+                placeholder="blur"
+                blurDataURL={base64Placeholder}
+                {...imgProps}
                 src={require(`../../content/images/${project.bannerImageName}`)}
-                alt=""
               />
             </a>
           </Link>
@@ -83,6 +95,9 @@ export async function getStaticProps({
   const project = getProjectBySlug(params.slug)!;
   const html = await markdownToHtml(project.content);
   const excerpt = await markdownToHtmlExcerpt(project.content);
+  const { base64, img } = await getPlaiceholder(
+    `/../content/images/${project.bannerImageName}`
+  );
 
   return {
     props: {
@@ -91,6 +106,8 @@ export async function getStaticProps({
       },
       html,
       excerpt,
+      base64Placeholder: base64,
+      imgProps: img,
     },
   };
 }
