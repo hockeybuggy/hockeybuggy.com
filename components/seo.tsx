@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
 
 type MetaItem =
   | { name: string; content: any }
@@ -11,52 +11,25 @@ interface SEOProps {
   title: string;
 }
 
-const SEO = ({ description, meta = [], title }: SEOProps): JSX.Element => {
+const SEO = ({ description, title }: SEOProps): JSX.Element => {
   const metaDescription =
     description || "The personal website of Douglas Anderson";
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang: "en-ca",
-      }}
-      title={title}
-      titleTemplate={`%s | hockeybuggy.com`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: `https://twitter.com/hockeybuggy`,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    />
+    <Head>
+      <meta name={`description`} content={metaDescription} />
+      <meta property={`og:title`} content={title} />
+      <meta property={`og:description`} content={metaDescription} />
+      <meta property={`og:type`} content={`website`} />
+      <meta name={`twitter:card`} content={`summary`} />
+      <meta
+        name={`twitter:creator`}
+        content={`https://twitter.com/hockeybuggy`}
+      />
+      <meta name={`twitter:title`} content={title} />
+      <meta name={`twitter:description`} content={metaDescription} />
+      <title>{title}</title>
+    </Head>
   );
 };
 
