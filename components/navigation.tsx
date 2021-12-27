@@ -83,7 +83,7 @@ const Navigation = (props: { pathname?: string }): JSX.Element => {
           aria-controls="menu-inner"
           ref={navigationToggleRef}
         >
-          <Icon name={Icon.Names.Bars} label="" />
+          <Icon name={Icon.Names.Bars} label="" width="24px" />
         </button>
 
         <ul

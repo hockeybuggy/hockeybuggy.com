@@ -75,17 +75,41 @@ function sizeModifierBySize(size: undefined | IconSizes): SizeProp {
   exhasutiveCheck(size);
 }
 
+function pxBySize(size: undefined | IconSizes): string {
+  switch (size) {
+    case undefined:
+    case IconSizes.Default:
+      return "16px";
+    case IconSizes.Large:
+      return "64px";
+  }
+  exhasutiveCheck(size);
+}
+
 const Icon = ({
   name,
   label,
   size,
+  width,
 }: {
   name: IconNames;
   label: string;
   size?: IconSizes;
+  width?: string;
 }): JSX.Element => (
-  <i className="icon" aria-label={label}>
-    <FontAwesomeIcon icon={iconByName(name)} size={sizeModifierBySize(size)} />
+  <i
+    className="icon"
+    aria-label={label}
+    style={{ width: width || pxBySize(size), height: width || pxBySize(size) }}
+  >
+    <FontAwesomeIcon
+      icon={iconByName(name)}
+      size={sizeModifierBySize(size)}
+      style={{
+        width: width || pxBySize(size),
+        height: width || pxBySize(size),
+      }}
+    />
   </i>
 );
 Icon.Names = IconNames;
