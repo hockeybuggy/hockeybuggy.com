@@ -32,7 +32,11 @@ const IndexPage = (): JSX.Element => {
       <SEO title="The personal website of Douglas Anderson" />
       <div className="about">
         <div className="avatar">
-          <Image src={douglasPaddling} alt="The website author" />
+          <Image
+            src={douglasPaddling}
+            alt="The website author wearing sunglasses a blue hat and shirt a red life jacket."
+          />
+          <span className="placeholder" />
         </div>
         <h1>Douglas Anderson</h1>
         <h2>{byline}</h2>
