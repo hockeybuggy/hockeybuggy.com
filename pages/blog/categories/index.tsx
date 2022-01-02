@@ -3,7 +3,7 @@ import { GetStaticPropsResult } from "next";
 import Link from "next/link";
 import kebabCase from "lodash/kebabCase";
 
-import { BaseLayout } from "../../../layouts";
+import { BlogLayout } from "../../../layouts";
 import SEO from "../../../components/seo";
 
 import { getAllPosts } from "../../../services/blog";
@@ -34,7 +34,7 @@ const CategoriesIndexPage = ({
   postsGroupedByCategory,
 }: Props): JSX.Element => {
   return (
-    <BaseLayout>
+    <BlogLayout>
       <SEO title={"Categories"} />
       <div>
         <h1>Categories</h1>
@@ -44,7 +44,7 @@ const CategoriesIndexPage = ({
           ))}
         </ul>
       </div>
-    </BaseLayout>
+    </BlogLayout>
   );
 };
 

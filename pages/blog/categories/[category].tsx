@@ -3,7 +3,7 @@ import { GetStaticPropsResult, GetStaticPathsResult } from "next";
 import Link from "next/link";
 import uniq from "lodash/uniq";
 
-import { BaseLayout } from "../../../layouts";
+import { BlogLayout } from "../../../layouts";
 import SEO from "../../../components/seo";
 
 import { Post } from "../../../models/blog";
@@ -20,7 +20,7 @@ const CategoryPage = ({ posts, category }: Props): JSX.Element => {
     totalCount === 1 ? "" : "s"
   } in the category "${category}"`;
   return (
-    <BaseLayout>
+    <BlogLayout>
       <SEO title={`Category: ${category}`} />
       <h1>{categoryHeader}</h1>
       <ul>
@@ -37,7 +37,7 @@ const CategoryPage = ({ posts, category }: Props): JSX.Element => {
         })}
       </ul>
       <Link href="/blog/categories">All categories</Link>
-    </BaseLayout>
+    </BlogLayout>
   );
 };
 type Params = {

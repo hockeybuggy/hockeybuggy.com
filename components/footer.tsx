@@ -3,7 +3,11 @@ import Link from "next/link";
 
 import Icon from "../components/icon";
 
-const Footer = (): JSX.Element => {
+interface Props {
+  showRSSLink?: boolean;
+}
+
+const Footer = (props: Props): JSX.Element => {
   return (
     <footer className="footer">
       <section className="container">
@@ -20,12 +24,14 @@ const Footer = (): JSX.Element => {
               label="Creative Commons icon"
             />
           </a>
-          <Link href="/blog/index.xml">
-            <a aria-label="blog atom feed">
-              <Icon name={Icon.Names.RSS} label="RSS feed icon" />
-            </a>
-          </Link>
-          <span>©2021</span>
+          {props.showRSSLink && (
+            <Link href="/blog/index.xml">
+              <a aria-label="blog atom feed">
+                <Icon name={Icon.Names.RSS} label="RSS feed icon" />
+              </a>
+            </Link>
+          )}
+          <span>©2022</span>
         </div>
       </section>
     </footer>
