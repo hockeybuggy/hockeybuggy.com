@@ -2,7 +2,7 @@ import * as React from "react";
 import { GetStaticPropsResult, GetStaticPathsResult } from "next";
 import Link from "next/link";
 
-import { BaseLayout } from "../../../../../layouts";
+import { BlogLayout } from "../../../../../layouts";
 import SEO from "../../../../../components/seo";
 import Icon from "../../../../../components/icon";
 
@@ -26,7 +26,7 @@ const BlogPostPage = ({ post, html, excerpt }: Props): JSX.Element => {
   const humanDate = BlogPresentor.getHumanReadableDateOfPost(post);
 
   return (
-    <BaseLayout className="post">
+    <BlogLayout className="post">
       <SEO title={title!} description={excerpt} />
       <article>
         <header>
@@ -68,7 +68,7 @@ const BlogPostPage = ({ post, html, excerpt }: Props): JSX.Element => {
         <section dangerouslySetInnerHTML={{ __html: html }} />
         <hr />
       </article>
-    </BaseLayout>
+    </BlogLayout>
   );
 };
 

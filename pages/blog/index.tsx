@@ -2,7 +2,7 @@ import * as React from "react";
 import { GetStaticPropsResult } from "next";
 import Link from "next/link";
 
-import { BaseLayout } from "../../layouts";
+import { BlogLayout } from "../../layouts";
 import SEO from "../../components/seo";
 
 import { Post } from "../../models/blog";
@@ -15,7 +15,7 @@ interface Props {
 
 const BlogIndex = ({ allPosts }: Props): JSX.Element => {
   return (
-    <BaseLayout pathname={"/blog/"}>
+    <BlogLayout pathname={"/blog/"}>
       <SEO title={"Blog"} />
 
       <h1>Blog Posts</h1>
@@ -40,7 +40,7 @@ const BlogIndex = ({ allPosts }: Props): JSX.Element => {
           </article>
         );
       })}
-    </BaseLayout>
+    </BlogLayout>
   );
 };
 

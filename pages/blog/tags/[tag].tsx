@@ -3,7 +3,7 @@ import { GetStaticPropsResult, GetStaticPathsResult } from "next";
 import Link from "next/link";
 import uniq from "lodash/uniq";
 
-import { BaseLayout } from "../../../layouts";
+import { BlogLayout } from "../../../layouts";
 import SEO from "../../../components/seo";
 
 import { Post } from "../../../models/blog";
@@ -20,7 +20,7 @@ const TagPage = ({ posts, tag }: Props): JSX.Element => {
     totalCount === 1 ? "" : "s"
   } in with the tag "${tag}"`;
   return (
-    <BaseLayout>
+    <BlogLayout>
       <SEO title={`Tag: ${tag}`} />
       <h1>{tagHeader}</h1>
       <ul>
@@ -37,7 +37,7 @@ const TagPage = ({ posts, tag }: Props): JSX.Element => {
         })}
       </ul>
       <Link href="/blog/tags">All tags</Link>
-    </BaseLayout>
+    </BlogLayout>
   );
 };
 type Params = {

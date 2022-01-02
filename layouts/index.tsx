@@ -9,6 +9,7 @@ interface LayoutProps extends React.HTMLAttributes<any> {
   className?: string;
   pathname?: string;
   children: React.ReactNode;
+  showRSSLink?: boolean;
 }
 
 const InnerContainer: React.FC<LayoutProps> = (props) => (
@@ -27,7 +28,7 @@ export const BaseLayout: React.FC<LayoutProps> = (props) => {
         <div className="content">
           <InnerContainer {...props} />
         </div>
-        <Footer />
+        <Footer showRSSLink={props.showRSSLink} />
       </main>
     </React.Fragment>
   );
@@ -38,3 +39,7 @@ export const CenteredLayout: React.FC<LayoutProps> = (props) => (
     {props.children}
   </BaseLayout>
 );
+
+export const BlogLayout: React.FC<LayoutProps> = (props) => {
+  return <BaseLayout showRSSLink {...props} />;
+};

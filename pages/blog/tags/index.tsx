@@ -3,7 +3,7 @@ import { GetStaticPropsResult } from "next";
 import Link from "next/link";
 import kebabCase from "lodash/kebabCase";
 
-import { BaseLayout } from "../../../layouts";
+import { BlogLayout } from "../../../layouts";
 import SEO from "../../../components/seo";
 
 import { getAllPosts } from "../../../services/blog";
@@ -26,7 +26,7 @@ const Tag = ({ tags, count }: { tags: string; count: number }): JSX.Element => {
 
 const TagsIndexPage = ({ postsGroupedByTag }: Props): JSX.Element => {
   return (
-    <BaseLayout>
+    <BlogLayout>
       <SEO title={"Tags"} />
       <div>
         <h1>Tags</h1>
@@ -36,7 +36,7 @@ const TagsIndexPage = ({ postsGroupedByTag }: Props): JSX.Element => {
           ))}
         </ul>
       </div>
-    </BaseLayout>
+    </BlogLayout>
   );
 };
 
