@@ -32,7 +32,7 @@
     "markdown-it": "^12.3.2",
     "markdown-it-anchor": "^8.4.1",
     "markdown-it-prism": "^2.2.2",
-    "next": "^12.0.8",
+    "next": "^12.0.9",
     "normalize.css": "^8.0.1",
     "plaiceholder": "^2.2.0",
     "query-string": "^7.1.0",
