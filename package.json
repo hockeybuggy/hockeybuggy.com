@@ -31,7 +31,7 @@
     "gray-matter": "^4.0.3",
     "markdown-it": "^12.3.2",
     "markdown-it-anchor": "^8.4.1",
-    "markdown-it-prism": "^2.2.2",
+    "markdown-it-prism": "^2.2.3",
     "next": "^12.1.0",
     "normalize.css": "^8.0.1",
     "plaiceholder": "^2.3.0",
