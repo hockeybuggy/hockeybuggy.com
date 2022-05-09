@@ -37,7 +37,7 @@
     "plaiceholder": "^2.3.0",
     "query-string": "^7.1.1",
     "react": "^18.1.0",
-    "react-dom": "^18.0.0",
+    "react-dom": "^18.1.0",
     "sharp": "^0.30.4",
     "slugify": "^1.6.5",
     "ts-node": "^10.7.0"
