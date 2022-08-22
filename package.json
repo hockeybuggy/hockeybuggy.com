@@ -46,7 +46,7 @@
     "@next/eslint-plugin-next": "^12.1.6",
     "@types/classnames": "^2.3.1",
     "@types/expect-puppeteer": "^5.0.1",
-    "@types/jest": "^28.1.6",
+    "@types/jest": "^28.1.7",
     "@types/jest-environment-puppeteer": "^5.0.2",
     "@types/lodash": "^4.14.184",
     "@types/markdown-it": "^12.2.3",
