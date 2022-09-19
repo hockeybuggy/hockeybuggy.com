@@ -30,7 +30,7 @@
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
     "markdown-it": "^13.0.1",
-    "markdown-it-anchor": "^8.6.4",
+    "markdown-it-anchor": "^8.6.5",
     "markdown-it-prism": "^2.3.0",
     "next": "^12.3.0",
     "normalize.css": "^8.0.1",
