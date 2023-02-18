@@ -1,19 +1,15 @@
 import type { AppProps } from "next/app";
 import Script from "next/script";
-import {
-  setupContext,
-  isProduction,
-  isDeployPreview,
-} from "../services/buildContext";
+import { setupTracking, isTrackingEnabled } from "../services/tracking";
 
 import "../styles/main.scss";
 
-setupContext(process.env.CONTEXT);
+setupTracking(process.env.PLAUSIBLE_ENABLED);
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
-      {(isProduction() || isDeployPreview()) && (
+      {isTrackingEnabled() && (
         <>
           <Script
             defer
