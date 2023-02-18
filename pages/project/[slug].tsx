@@ -60,15 +60,13 @@ const ProjectPage = ({
             aria-label={`Read more about ${project.title}`}
             href={ProjectPresentor.getUrlForProject(project)}
           >
-            <a>
-              <Image
-                alt={project.bannerAltText}
-                placeholder="blur"
-                blurDataURL={base64Placeholder}
-                {...imgProps}
-                src={require(`../../content/images/${project.bannerImageName}`)}
-              />
-            </a>
+            <Image
+              alt={project.bannerAltText}
+              placeholder="blur"
+              blurDataURL={base64Placeholder}
+              {...imgProps}
+              src={require(`../../content/images/${project.bannerImageName}`)}
+            />
           </Link>
         ) : null}
         <section dangerouslySetInnerHTML={{ __html: html }} />

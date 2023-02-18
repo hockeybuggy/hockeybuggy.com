@@ -60,17 +60,15 @@ const ProjectsIndex = ({
                 aria-label={`Read more about ${title}`}
                 href={ProjectPresentor.getUrlForProject(project)}
               >
-                <a>
-                  <div className="banner-image-container">
-                    <Image
-                      alt={project.bannerAltText}
-                      placeholder="blur"
-                      blurDataURL={base64Placeholder}
-                      {...imgProps}
-                      src={require(`../../content/images/${project.bannerImageName}`)}
-                    />
-                  </div>
-                </a>
+                <div className="banner-image-container">
+                  <Image
+                    alt={project.bannerAltText}
+                    placeholder="blur"
+                    blurDataURL={base64Placeholder}
+                    {...imgProps}
+                    src={require(`../../content/images/${project.bannerImageName}`)}
+                  />
+                </div>
               </Link>
             ) : null}
             <div

@@ -22,9 +22,7 @@ const Category = ({
   return (
     <li key={category}>
       <Link href={`/blog/categories/${kebabCase(category)}/`}>
-        <a>
-          {category} ({count})
-        </a>
+        {category} ({count})
       </Link>
     </li>
   );
