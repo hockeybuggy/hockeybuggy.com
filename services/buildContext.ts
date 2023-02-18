@@ -9,6 +9,7 @@ export function setupContext(contextEnv: string | undefined): void {
 }
 
 export function isProduction(): boolean {
+  console.log({ context });
   return context === "production";
 }
 
