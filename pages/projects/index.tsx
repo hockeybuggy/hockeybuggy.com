@@ -1,6 +1,6 @@
 import * as React from "react";
 import { GetStaticPropsResult } from "next";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { getPlaiceholder } from "plaiceholder";
 
