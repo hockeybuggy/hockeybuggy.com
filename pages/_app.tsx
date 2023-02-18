@@ -14,6 +14,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           src="https://plausible.io/js/script.js"
         ></Script>
       )}
+      <Script id="plausible-custom">
+        {`window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`}
+      </Script>
 
       <Component {...pageProps} />
     </>
