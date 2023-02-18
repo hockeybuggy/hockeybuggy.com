@@ -4,12 +4,13 @@ aliases:
 categories:
 - meta
 date: "2012-12-02T00:00:00-05:00"
+delisted: true
 slug: taking-this-pelican-site-live
 tags:
 - python
 - pelican
 - development
-title: Taking this Pelican site live
+title: Taking this site live
 ---
 
 It is finally time to publish this website. I do not imagine that it is anyway

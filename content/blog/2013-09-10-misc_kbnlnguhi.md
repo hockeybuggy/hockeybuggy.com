@@ -1,14 +1,15 @@
 ---
-aliases:
-- /blog/misc/2013/09/10/misc_kbnlnguhi.html
+title: Migrated to Jekyll
+slug: migrated-to-jekyll
+date: "2013-09-10T21:59:09-04:00"
+delisted: true
 categories:
 - meta
-date: "2013-09-10T21:59:09-04:00"
-slug: migrated-to-jekyll
 tags:
 - jekyll
 - development
-title: Migrated to Jekyll
+aliases:
+- /blog/misc/2013/09/10/misc_kbnlnguhi.html
 ---
 
 Around the beginning of April last year I started to have problems generating

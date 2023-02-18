@@ -1,17 +1,17 @@
 ---
-aliases:
-- /misc/2014/09/22/misc_7VBiYkyD.html
-categories:
-- zsh
-- vim
+title: State of the Dotfiles
+slug: state-of-the-dotfiles
 date: "2014-09-22T00:00:00-04:00"
 edit_date: "2014-10-03T00:00:00-04:00"
 header_img: static/img/stateofthedotfiles-2014.jpg
+aliases:
+- /misc/2014/09/22/misc_7VBiYkyD.html
 tags:
 - development
 - vim
-title: State of the Dotfiles
-slug: state-of-the-dotfiles
+categories:
+- zsh
+- vim
 ---
 
 <!-- excerpt -->

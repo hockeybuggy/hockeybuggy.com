@@ -1,6 +1,7 @@
 export type Post = {
   postFilename: string;
   slug: string;
+  delisted: boolean;
   isoDate: string;
   year: string;
   month: string;
