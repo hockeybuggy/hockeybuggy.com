@@ -1,11 +1,15 @@
 import { useEffect } from "react";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
-import Script from "next/script";
+// import Script from "next/script";
 
-import { GA_TRACKING_ID, pageview } from "../services/gtag";
+// import { GA_TRACKING_ID, pageview } from "../services/gtag";
 
 import "../styles/main.scss";
+
+const pageview = (url: string) => {
+  console.log(url);
+};
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const router = useRouter();
@@ -21,30 +25,6 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 
   return (
     <>
-      {GA_TRACKING_ID !== undefined && (
-        <>
-          {/* Global Site Tag (gtag.js) - Google Analytics */}
-          <Script
-            strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-          />
-          <Script
-            id="gtag-init"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_TRACKING_ID}', {
-                page_path: window.location.pathname,
-              });
-            `,
-            }}
-          />
-        </>
-      )}
-
       <Component {...pageProps} />
     </>
   );
