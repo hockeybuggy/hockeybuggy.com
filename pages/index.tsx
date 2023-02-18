@@ -1,5 +1,5 @@
 import * as React from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 import { CenteredLayout } from "../layouts";
 import SEO from "../components/seo";
@@ -35,6 +35,10 @@ const IndexPage = (): JSX.Element => {
           <Image
             src={douglasPaddling}
             alt="The website author wearing sunglasses a blue hat and shirt a red life jacket."
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+            }}
           />
           <span className="placeholder" />
         </div>
