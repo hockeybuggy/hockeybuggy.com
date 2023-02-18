@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
-// import Script from "next/script";
-
-// import { GA_TRACKING_ID, pageview } from "../services/gtag";
+import Script from "next/script";
 
 import "../styles/main.scss";
 
@@ -25,6 +23,12 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 
   return (
     <>
+      <Script
+        defer
+        data-domain="hockeybuggy.com"
+        src="https://plausible.io/js/script.js"
+      ></Script>
+
       <Component {...pageProps} />
     </>
   );
