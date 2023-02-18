@@ -29,7 +29,7 @@ const Footer = (props: Props): JSX.Element => {
               <Icon name={Icon.Names.RSS} label="RSS feed icon" />
             </Link>
           )}
-          <span>©2022</span>
+          <span>©2023</span>
         </div>
       </section>
     </footer>
