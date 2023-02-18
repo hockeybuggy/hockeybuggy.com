@@ -16,9 +16,7 @@ const Tag = ({ tags, count }: { tags: string; count: number }): JSX.Element => {
   return (
     <li key={tags}>
       <Link href={`/blog/tags/${kebabCase(tags)}/`}>
-        <a>
-          {tags} ({count})
-        </a>
+        {tags} ({count})
       </Link>
     </li>
   );
