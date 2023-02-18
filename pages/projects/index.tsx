@@ -1,6 +1,6 @@
 import * as React from "react";
 import { GetStaticPropsResult } from "next";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { getPlaiceholder } from "plaiceholder";
 
@@ -67,6 +67,10 @@ const ProjectsIndex = ({
                     blurDataURL={base64Placeholder}
                     {...imgProps}
                     src={require(`../../content/images/${project.bannerImageName}`)}
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                    }}
                   />
                 </div>
               </Link>

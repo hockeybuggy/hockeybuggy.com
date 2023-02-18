@@ -1,7 +1,7 @@
 import * as React from "react";
 import { GetStaticPropsResult, GetStaticPathsResult } from "next";
 import Link from "next/link";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { getPlaiceholder } from "plaiceholder";
 
 import { BaseLayout } from "../../layouts";
@@ -66,6 +66,10 @@ const ProjectPage = ({
               blurDataURL={base64Placeholder}
               {...imgProps}
               src={require(`../../content/images/${project.bannerImageName}`)}
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+              }}
             />
           </Link>
         ) : null}
