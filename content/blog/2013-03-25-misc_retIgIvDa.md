@@ -1,14 +1,14 @@
 ---
-aliases:
-- /misc/2013/03/26/misc_retIgIvDa.html
+title: Moving beyond word-wise motions
+slug: moving-beymond-word-wise-motions
+date: "2013-03-25T00:00:00-04:00"
 categories:
 - vim
-date: "2013-03-25T00:00:00-04:00"
-slug: moving-beymond-word-wise-motions
 tags:
 - vim
 - development
-title: Moving beyond word-wise motions
+aliases:
+- /misc/2013/03/26/misc_retIgIvDa.html
 ---
 
 Recently I have been working quite a bit on my Vim skills. If you don't use Vim

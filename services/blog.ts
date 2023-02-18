@@ -23,6 +23,7 @@ export function getPostByFilename(postFilename: string): Post | null {
     postFilename: postFilename,
     slug: data["slug"],
     title: data["title"],
+    delisted: data["delisted"] || false,
     isoDate: isoDate,
     year: format(date, "uuuu"),
     month: format(date, "LL"),

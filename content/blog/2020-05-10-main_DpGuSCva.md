@@ -2,6 +2,7 @@
 title: Switching to Gatsby
 slug: "switching-to-gatsby"
 date: "2020-05-10"
+delisted: true
 tags:
 - development
 categories:

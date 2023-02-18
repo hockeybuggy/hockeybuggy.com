@@ -46,9 +46,10 @@ const BlogIndex = ({ allPosts }: Props): JSX.Element => {
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
   const allPosts = getAllPosts();
+  const allListedPosts = allPosts.filter((post) => !post.delisted);
 
   return {
-    props: { allPosts },
+    props: { allPosts: allListedPosts },
   };
 }
 
