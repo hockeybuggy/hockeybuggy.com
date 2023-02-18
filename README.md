@@ -1,16 +1,14 @@
 [![Netlify Status][netlify-status]][netlify]
 [![Typecheck and Linting][typecheck-and-linting-status]][typecheck-and-linting]
 [![End to End Tests][e2e-tests-status]][e2e-tests]
-[![Mergify Status][mergify-status]][mergify]
 
-[e2e-tests-status]: https://github.com/hockeybuggy/hockeybuggy.com/workflows/end%20to%20end%20tests/badge.svg
-[e2e-tests]: https://github.com/hockeybuggy/hockeybuggy.com/actions?query=workflow%3A%22end+to+end+tests%22+branch%3Amain
-[mergify-status]: https://img.shields.io/endpoint.svg?url=https://dashboard.mergify.io/badges/hockeybuggy/hockeybuggy.com&style=flat
-[mergify]: https://mergify.io
+[e2e-tests-status]: https://github.com/hockeybuggy/hockeybuggy.com/actions/workflows/e2e_tests.yml/badge.svg
+[e2e-tests]: https://github.com/hockeybuggy/hockeybuggy.com/actions/workflows/e2e_tests.yml
 [netlify-status]: https://img.shields.io/netlify/b608e87e-8c67-45b6-b677-58bbeee9e11c
 [netlify]: https://app.netlify.com/sites/hockeybuggy/deploys
-[typecheck-and-linting-status]: https://github.com/hockeybuggy/hockeybuggy.com/workflows/tests%20and%20linting/badge.svg
-[typecheck-and-linting]: https://github.com/hockeybuggy/hockeybuggy.com/actions?query=workflow%3A%22typecheck+and+linting%22+branch%3Amain
+[typecheck-and-linting-status]: https://github.com/hockeybuggy/hockeybuggy.com/actions/workflows/tests_and_linting.yml/badge.svg
+[typecheck-and-linting]: https://github.com/hockeybuggy/hockeybuggy.com/actions/workflows/tests_and_linting.yml
+
 
 # Hockeybuggy.com
 
