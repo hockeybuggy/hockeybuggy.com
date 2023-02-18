@@ -4,7 +4,7 @@
   publish = ".next"
 
 [dev]
-    autoLaunch = false
+  autoLaunch = false
 
 [[redirects]]
   from = "/blog/2020/05/switching-to-gatsby"
