@@ -65,14 +65,13 @@ const Navigation = (props: { pathname?: string }): JSX.Element => {
   return (
     <nav className="navigation">
       <div className="container">
-        <Link href="/">
-          <a
-            className={classNames("navigation-title", {
-              active: props.pathname === "/",
-            })}
-          >
-            hockeybuggy.com
-          </a>
+        <Link
+          href="/"
+          className={classNames("navigation-title", {
+            active: props.pathname === "/",
+          })}
+        >
+          hockeybuggy.com
         </Link>
 
         <button
@@ -96,22 +95,22 @@ const Navigation = (props: { pathname?: string }): JSX.Element => {
         >
           <li className="navigation-item" role="none">
             <Link href="/">
-              <a
+              <div
                 role="menuitem"
                 aria-current={props.pathname === "/" ? "page" : undefined}
               >
                 Home
-              </a>
+              </div>
             </Link>
           </li>
           <li className="navigation-item" role="none">
             <Link href="/blog/">
-              <a
+              <div
                 role="menuitem"
                 aria-current={props.pathname === "/blog/" ? "page" : undefined}
               >
                 Blog
-              </a>
+              </div>
             </Link>
           </li>
           <li
