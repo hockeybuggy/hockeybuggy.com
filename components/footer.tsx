@@ -25,10 +25,8 @@ const Footer = (props: Props): JSX.Element => {
             />
           </a>
           {props.showRSSLink && (
-            <Link href="/blog/index.xml">
-              <a aria-label="blog atom feed">
-                <Icon name={Icon.Names.RSS} label="RSS feed icon" />
-              </a>
+            <Link href="/blog/index.xml" aria-label="blog atom feed">
+              <Icon name={Icon.Names.RSS} label="RSS feed icon" />
             </Link>
           )}
           <span>©2022</span>
