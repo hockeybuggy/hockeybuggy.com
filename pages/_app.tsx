@@ -4,7 +4,7 @@ import { setupTracking, isTrackingEnabled } from "../services/tracking";
 
 import "../styles/main.scss";
 
-setupTracking(process.env.PLAUSIBLE_ENABLED);
+setupTracking(process.env.NEXT_PUBLIC_PLAUSIBLE_ENABLED);
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
