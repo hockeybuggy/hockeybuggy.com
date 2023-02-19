@@ -3,35 +3,35 @@ const BASE_URL = "http://localhost:3000";
 const LANDING_PAGE = {
   url: `${BASE_URL}/`,
   expected: {
-    title: "The personal website of Douglas Anderson | hockeybuggy.com",
+    title: "The personal website of Douglas Anderson",
   },
 };
 
 const BLOG_PAGE = {
-  url: `${BASE_URL}/blog/`,
+  url: `${BASE_URL}/blog`,
   expected: {
-    title: "Blog | hockeybuggy.com",
+    title: "Blog",
   },
 };
 
 const TAGS_PAGE = {
-  url: `${BASE_URL}/blog/tags/`,
+  url: `${BASE_URL}/blog/tags`,
   expected: {
-    title: "Tags | hockeybuggy.com",
+    title: "Tags",
   },
 };
 
 const CATEGORIES_PAGE = {
-  url: `${BASE_URL}/blog/categories/`,
+  url: `${BASE_URL}/blog/categories`,
   expected: {
-    title: "Categories | hockeybuggy.com",
+    title: "Categories",
   },
 };
 
 const PROJECTS_PAGE = {
-  url: `${BASE_URL}/projects/`,
+  url: `${BASE_URL}/projects`,
   expected: {
-    title: "Projects | hockeybuggy.com",
+    title: "Projects",
   },
 };
 
