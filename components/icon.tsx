@@ -103,6 +103,7 @@ const Icon = ({
     style={{ width: width || pxBySize(size), height: width || pxBySize(size) }}
   >
     <FontAwesomeIcon
+      role="none"
       icon={iconByName(name)}
       size={sizeModifierBySize(size)}
       style={{

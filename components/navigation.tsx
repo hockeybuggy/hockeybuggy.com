@@ -93,29 +93,24 @@ const Navigation = (props: { pathname?: string }): JSX.Element => {
           data-expanded={menuState}
           ref={navigationListRef}
         >
-          <li className="navigation-item" role="none">
-            <Link href="/">
-              <div
-                role="menuitem"
-                aria-current={props.pathname === "/" ? "page" : undefined}
-              >
-                Home
-              </div>
-            </Link>
-          </li>
-          <li className="navigation-item" role="none">
-            <Link href="/blog/">
-              <div
-                role="menuitem"
-                aria-current={props.pathname === "/blog/" ? "page" : undefined}
-              >
-                Blog
-              </div>
-            </Link>
+          <li
+            className="navigation-item"
+            role="menuitem"
+            aria-current={props.pathname === "/" ? "page" : undefined}
+          >
+            <Link href="/">Home</Link>
           </li>
           <li
-            aria-current={props.pathname === "/projects/" ? "page" : undefined}
             className="navigation-item"
+            role="menuitem"
+            aria-current={props.pathname === "/blog/" ? "page" : undefined}
+          >
+            <Link href="/blog/">Blog</Link>
+          </li>
+          <li
+            className="navigation-item"
+            aria-current={props.pathname === "/projects/" ? "page" : undefined}
+            role="menuitem"
           >
             <Link href="/projects/">Projects</Link>
           </li>
