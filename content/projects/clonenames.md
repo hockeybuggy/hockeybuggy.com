@@ -111,6 +111,5 @@ would no longer be met.
 
 ## Demo!
 
-The game is currently <a href="https://clonenames.hockeybuggy.com/">deployed
-and accessible</a> if you would like to try it.
+The game is currently [deployed and accessible](https://clonenames.hockeybuggy.com/) if you would like to try it.
 
