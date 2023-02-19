@@ -8,9 +8,9 @@ module.exports = {
   browserContext: "default",
   server: {
     debug: true,
-    command: "npm run dev",
-    launchTimeout: 45000,
-    port: 3000,
+    command: "npm run start",
+    launchTimeout: 25000,
+    port: 4000,
     usedPortAction: "ignore",
   },
 };
