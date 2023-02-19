@@ -53,4 +53,4 @@ Another thing that can make these motions useful is to preface them with a
 count. If you do instead of taking the first occurrence of a character it will
 take the count'th occurrence.
 
-[FASTER_THAN_WORDWISE_IMG]: /static/img/fasterthanwordwise-800.jpg
+[FASTER_THAN_WORDWISE_IMG]: /static/img/blog/2013-03-25-misc_retIgIvDa/fasterthanwordwise-800.jpg
