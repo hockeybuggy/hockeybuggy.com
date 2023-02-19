@@ -9,7 +9,7 @@ module.exports = {
   server: {
     debug: true,
     command: "npm run start",
-    launchTimeout: 25000,
+    launchTimeout: 45000,
     port: 4000,
     usedPortAction: "ignore",
   },
