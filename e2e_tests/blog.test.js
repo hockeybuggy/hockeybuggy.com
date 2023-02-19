@@ -15,6 +15,7 @@ const expectedBlogPosts = [
     postDate: "2020-05-10",
     postTitle: "Switching to Gatsby",
     postPathName: "/blog/post/2020/05/switching-to-gatsby",
+    isDelisted: true,
   },
   {
     postDate: "2020-01-18",
@@ -26,6 +27,7 @@ const expectedBlogPosts = [
     postDate: "2019-09-08",
     postTitle: "Migrated to Hugo Static Site generator",
     postPathName: "/blog/post/2019/09/migrated-to-hugo",
+    isDelisted: true,
   },
   {
     postDate: "2016-08-26",
@@ -56,11 +58,13 @@ const expectedBlogPosts = [
     postDate: "2014-06-23",
     postTitle: "Adding Semantics",
     postPathName: "/blog/post/2014/06/adding-semantics",
+    isDelisted: true,
   },
   {
     postDate: "2013-09-11",
     postTitle: "Migrated to Jekyll",
     postPathName: "/blog/post/2013/09/migrated-to-jekyll",
+    isDelisted: true,
   },
   {
     postDate: "2013-03-25",
@@ -71,11 +75,13 @@ const expectedBlogPosts = [
     postDate: "2013-01-31",
     postTitle: "A new a stylish look around the site. Thanks to sass",
     postPathName: "/blog/post/2013/01/adding-sass-files",
+    isDelisted: true,
   },
   {
     postDate: "2012-12-02",
     postTitle: "Taking this site live",
     postPathName: "/blog/post/2012/12/taking-this-pelican-site-live",
+    isDelisted: true,
   },
 ];
 const allBlogPostPaths = expectedBlogPosts.map((p) => p.postPathName);
@@ -130,7 +136,13 @@ describe("/blog (Blog index Page)", () => {
         return { postTitle, postPathName, postDate };
       })
     );
-    expect(blogPosts).toEqual(expectedBlogPosts);
+
+    // Some blog posts can be found in the tags, and categories but not in the main index.
+    const indexListedBlogPosts = expectedBlogPosts.filter(
+      (blog) => !blog.isDelisted
+    );
+
+    expect(blogPosts).toEqual(indexListedBlogPosts);
   });
 });
 
