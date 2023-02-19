@@ -7,12 +7,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Use Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
-        node-version: 16.15.1
+        node-version: 16.19.1
 
     - name: Install dependancies
       run: |
@@ -25,7 +25,7 @@ jobs:
       run: |
         yarn run test:e2e --verbose
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       with:
         name: e2e_test_screenshots
         path: e2e_tests/screenshots
