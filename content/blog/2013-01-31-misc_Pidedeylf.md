@@ -28,7 +28,7 @@ research on scss I started to think about how the syntax is nice.
 
 Why do I prefer scss? Here are my thoughts:
 
-##Reason number 1:
+## Reason number 1:
 
 I prefer the usage of the '@mixin' and '@include' keywords that sass uses.
 The alternative syntax for less would be a mixin name prefixed by a period
@@ -64,7 +64,7 @@ When you are scanning though your code it would be nice to be able to see
 things as context free as possible so going through the hassle of writing more
 with scss is some-what worth it.
 
-##Reason number 2: 
+## Reason number 2: 
 
 I like '$' more the '@'.  @ is two keys farther away from the
 middle the $ which makes it kinda annoying when you are typing in a lot.
