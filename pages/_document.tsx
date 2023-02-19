@@ -5,7 +5,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 function MyDocument(): JSX.Element {
   return (
-    <Html>
+    <Html lang="en">
       <Head>
         <link
           href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap"
