@@ -99,6 +99,5 @@ few more chapters that I haven't gotten to yet, but I am quite content with
 where the project is now and may never choose to "finish".
 
 
-
 [FIRST_SPHERE]: /static/img/projects/ray-tracer/first_sphere.jpg
 [THREE_SPHERES]: /static/img/projects/ray-tracer/three_spheres.png
