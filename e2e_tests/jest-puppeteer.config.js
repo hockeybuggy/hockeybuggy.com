@@ -10,7 +10,7 @@ module.exports = {
     debug: true,
     command: "npm run dev",
     launchTimeout: 45000,
-    port: 8000,
+    port: 3000,
     usedPortAction: "ignore",
   },
 };
