@@ -80,7 +80,9 @@ const ProjectsIndex = ({
               dangerouslySetInnerHTML={{ __html: excerpt }}
             />
             <div className="read-more">
-              <Link href={`/project/${project.slug}`}>Read more</Link>
+              <Link href={ProjectPresentor.getUrlForProject(project)}>
+                Read more
+              </Link>
             </div>
           </article>
         );

@@ -11,5 +11,6 @@ tsconfig.tsbuildinfo
 /.next/
 /out/
 
+# We generate the following files via the prebuild script
+public/sitemap.xml
 public/blog/index.xml
-
