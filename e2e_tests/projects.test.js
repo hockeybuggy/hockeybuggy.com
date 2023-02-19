@@ -4,32 +4,32 @@ const { loadPage } = require("./utils");
 
 const expectedProjects = [
   {
-    postTitle: "Clonenames",
-    postPathName: "/project/clonenames",
+    postTitle: "Ray Tracer",
+    postPathName: "/project/ray-tracer",
+  },
+  {
+    postTitle: "This website",
+    postPathName: "/project/this-site",
   },
   {
     postTitle: "Dotfiles",
     postPathName: "/project/dotfiles",
   },
   {
-    postTitle: "Rainbow single exposure photo",
-    postPathName: "/project/rainbow-single-exposure",
-  },
-  {
-    postTitle: "Ray Tracer",
-    postPathName: "/project/ray-tracer",
+    postTitle: "Recurring tasks",
+    postPathName: "/project/recurring-tasks",
   },
   {
     postTitle: "RGB Traveling Salesperson Art",
     postPathName: "/project/rgb-tsp-art",
   },
   {
-    postTitle: "Recurring tasks",
-    postPathName: "/project/recurring-tasks",
+    postTitle: "Rainbow single exposure photo",
+    postPathName: "/project/rainbow-single-exposure",
   },
   {
-    postTitle: "This website",
-    postPathName: "/project/this-site",
+    postTitle: "Clonenames",
+    postPathName: "/project/clonenames",
   },
 ];
 
@@ -58,7 +58,7 @@ describe("/projects (Projects index Page)", () => {
     const projects = await page.$$eval("article", (articles) =>
       articles.map((article) => {
         const postTitle = article.querySelector("h2").textContent;
-        const postUrl = new URL(article.querySelector("a").href);
+        const postUrl = new URL(article.querySelector(".read-more a").href);
         const postPathName = postUrl.pathname;
         return { postTitle, postPathName };
       })
