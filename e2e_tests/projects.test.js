@@ -57,7 +57,7 @@ describe("/projects (Projects index Page)", () => {
 
     const projects = await page.$$eval("article", (articles) =>
       articles.map((article) => {
-        const postTitle = article.querySelector("h3").textContent;
+        const postTitle = article.querySelector("h2").textContent;
         const postUrl = new URL(article.querySelector("a").href);
         const postPathName = postUrl.pathname;
         return { postTitle, postPathName };
