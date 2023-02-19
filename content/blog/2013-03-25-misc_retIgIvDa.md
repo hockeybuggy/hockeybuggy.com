@@ -40,7 +40,7 @@ one of the figures greatly helped my understanding and I looked for a similar
 graph for these character-wise motions. Failing to find one I made one and
 thought I should share it here.
 
-<img class="center" src="/static/img/fasterthanwordwise-800.jpg" alt="An image I made explaining some of the character-wise motions"/>
+![An image I made explaining some of the character-wise motions][FASTER_THAN_WORDWISE_IMG]
 
 These commands are complimented by the ; command that repeats the most recent
 motion. This becomes useful if you trying to move to a character and fall short
@@ -53,3 +53,4 @@ Another thing that can make these motions useful is to preface them with a
 count. If you do instead of taking the first occurrence of a character it will
 take the count'th occurrence.
 
+[FASTER_THAN_WORDWISE_IMG]: /static/img/fasterthanwordwise-800.jpg
