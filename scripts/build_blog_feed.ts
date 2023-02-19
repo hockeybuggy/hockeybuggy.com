@@ -14,11 +14,11 @@ async function generate() {
   const feed = new Feed({
     title: "Hockeybuggy.com",
     description: "The personal website of Douglas Anderson",
-    id: "http://hockeybuggy.com/blog",
-    link: "http://hockeybuggy.com/blog",
+    id: "https://hockeybuggy.com/blog",
+    link: "https://hockeybuggy.com/blog",
     language: "en",
-    image: "http://hockeybuggy.com/image.png",
-    favicon: "http://hockeybuggy.com/favicon.ico",
+    image: "https://hockeybuggy.com/image.png",
+    favicon: "https://hockeybuggy.com/favicon.ico",
     copyright: "Creative commons 2021, Douglas Anderson",
     generator: "Feed with Next.js",
     feedLinks: {
