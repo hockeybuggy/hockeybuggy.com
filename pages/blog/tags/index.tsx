@@ -29,9 +29,13 @@ const TagsIndexPage = ({ postsGroupedByTag }: Props): JSX.Element => {
       <div>
         <h1>Tags</h1>
         <ul>
-          {Object.entries(postsGroupedByTag).map(([tags, value]) => (
-            <Tag key={tags} tags={tags} count={value} />
-          ))}
+          {Object.entries(postsGroupedByTag)
+            .sort((a, b) => {
+              return a[0].localeCompare(b[0]);
+            })
+            .map(([tags, value]) => (
+              <Tag key={tags} tags={tags} count={value} />
+            ))}
         </ul>
       </div>
     </BlogLayout>

@@ -4,6 +4,30 @@ const { loadPage } = require("./utils");
 
 const expectedProjects = [
   {
+    postTitle: "Clonenames",
+    postPathName: "/project/clonenames",
+  },
+  {
+    postTitle: "Dotfiles",
+    postPathName: "/project/dotfiles",
+  },
+  {
+    postTitle: "Rainbow single exposure photo",
+    postPathName: "/project/rainbow-single-exposure",
+  },
+  {
+    postTitle: "Ray Tracer",
+    postPathName: "/project/ray-tracer",
+  },
+  {
+    postTitle: "RGB Traveling Salesperson Art",
+    postPathName: "/project/rgb-tsp-art",
+  },
+  {
+    postTitle: "Recurring tasks",
+    postPathName: "/project/recurring-tasks",
+  },
+  {
     postTitle: "This website",
     postPathName: "/project/this-site",
   },
@@ -48,11 +72,11 @@ const projects = expectedProjects.map((project) => [
   project.postTitle,
 ]);
 describe.each(projects)("%s", (pathName, title) => {
-  const fullUrl = `${BASE_URL}${pathName}/`;
+  const fullUrl = `${BASE_URL}${pathName}`;
 
   it("should have a title", async () => {
     await loadPage(page, fullUrl);
 
-    expect(await page.title()).toEqual(`Project: ${title} | hockeybuggy.com`);
+    expect(await page.title()).toEqual(`Project: ${title}`);
   });
 });

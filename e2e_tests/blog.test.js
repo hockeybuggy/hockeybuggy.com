@@ -7,6 +7,11 @@ const { loadPage } = require("./utils");
 // blog posts load.
 const expectedBlogPosts = [
   {
+    postDate: "2021-12-26",
+    postTitle: "Switching to Next.js",
+    postPathName: "/blog/post/2021/12/switching-to-next-js",
+  },
+  {
     postDate: "2020-05-10",
     postTitle: "Switching to Gatsby",
     postPathName: "/blog/post/2020/05/switching-to-gatsby",
@@ -69,29 +74,29 @@ const expectedBlogPosts = [
   },
   {
     postDate: "2012-12-02",
-    postTitle: "Taking this Pelican site live",
+    postTitle: "Taking this site live",
     postPathName: "/blog/post/2012/12/taking-this-pelican-site-live",
   },
 ];
 const allBlogPostPaths = expectedBlogPosts.map((p) => p.postPathName);
 const expectedTagLinks = [
-  "/blog/tags/development/",
-  "/blog/tags/html/",
-  "/blog/tags/jekyll/",
-  "/blog/tags/misc/",
-  "/blog/tags/pelican/",
-  "/blog/tags/protobufs/",
-  "/blog/tags/python/",
-  "/blog/tags/rust/",
-  "/blog/tags/sass/",
-  "/blog/tags/vim/",
-  "/blog/tags/zsh/",
+  "/blog/tags/development",
+  "/blog/tags/html",
+  "/blog/tags/jekyll",
+  "/blog/tags/misc",
+  "/blog/tags/pelican",
+  "/blog/tags/protobufs",
+  "/blog/tags/python",
+  "/blog/tags/rust",
+  "/blog/tags/sass",
+  "/blog/tags/vim",
+  "/blog/tags/zsh",
 ];
 const expectedCategoryLinks = [
-  "/blog/categories/meta/",
-  "/blog/categories/misc/",
-  "/blog/categories/vim/",
-  "/blog/categories/zsh/",
+  "/blog/categories/meta",
+  "/blog/categories/misc",
+  "/blog/categories/vim",
+  "/blog/categories/zsh",
 ];
 
 describe("/blog (Blog index Page)", () => {
@@ -134,12 +139,12 @@ const blogPosts = expectedBlogPosts.map((blogPost) => [
   blogPost.postTitle,
 ]);
 describe.each(blogPosts)("%s", (pathName, title) => {
-  const fullUrl = `${BASE_URL}${pathName}/`;
+  const fullUrl = `${BASE_URL}${pathName}`;
 
   it("should have a title", async () => {
     await loadPage(page, fullUrl);
 
-    expect(await page.title()).toEqual(`${title} | hockeybuggy.com`);
+    expect(await page.title()).toEqual(`${title}`);
   });
 });
 
@@ -189,7 +194,7 @@ describe.each(expectedTagLinks)("%s", (pathName) => {
   });
 
   it(`should have a title including ${title}`, async () => {
-    expect(await page.title()).toEqual(`Tag: ${title} | hockeybuggy.com`);
+    expect(await page.title()).toEqual(`Tag: ${title}`);
   });
 
   it(`should have links to existing blog posts`, async () => {
@@ -252,7 +257,7 @@ describe.each(expectedCategoryLinks)("%s", (pathName) => {
   });
 
   it(`should have a title including ${title}`, async () => {
-    expect(await page.title()).toEqual(`Category: ${title} | hockeybuggy.com`);
+    expect(await page.title()).toEqual(`Category: ${title}`);
   });
 
   it(`should have links to existing blog posts`, async () => {
