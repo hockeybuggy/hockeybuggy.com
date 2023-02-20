@@ -1,6 +1,7 @@
 # Based on https://www.specialcase.dev/blog/sharing-steps-in-github-action-workflows/
 
-name: "Shared Steps"
+name: "Shared setup steps"
+description: "Used to share steps between jobs that install node dependancies for the project."
 runs:
   using: "composite"
   steps:
@@ -12,5 +13,6 @@ runs:
         cache: 'yarn'
 
     - name: Install
+      shell: bash
       run: |
         yarn install
