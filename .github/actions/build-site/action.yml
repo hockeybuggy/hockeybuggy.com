@@ -1,6 +1,7 @@
 # Based on https://www.specialcase.dev/blog/sharing-steps-in-github-action-workflows/
 
 name: "Shared steups to build the site"
+description: "Used to share steps between jobs that build the static site."
 runs:
   using: "composite"
   steps:
@@ -18,6 +19,6 @@ runs:
     - name: Build
       env:
         CI: "true"
+      shell: bash
       run: |
         yarn run build
-

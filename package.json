@@ -11,7 +11,7 @@
     "prebuild": "ts-node ./scripts/build_blog_feed.ts && ts-node ./scripts/build_sitemap.ts",
     "start": "next start",
     "dev": "next",
-    "start": "next build && next start -p 4000",
+    "start": "next start -p 4000",
     "lint": "eslint \"**/*.ts*\"",
     "typecheck": "tsc -p . --skipLibCheck && rm tsconfig.tsbuildinfo",
     "format": "prettier --write \"**/*.ts*\"",

@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: ./.github/actions/shared-steps
+    - uses: ./.github/actions/shared-setup
     - uses: ./.github/actions/build-site
     - name: Run Tests
       env:
