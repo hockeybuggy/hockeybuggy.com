@@ -1,9 +1,6 @@
 [![Netlify Status][netlify-status]][netlify]
-[![Typecheck and Linting][typecheck-and-linting-status]][typecheck-and-linting]
-[![End to End Tests][e2e-tests-status]][e2e-tests]
+[![Typechecking, linting, build, and end to end tests][typecheck-and-linting-status]][typecheck-and-linting]
 
-[e2e-tests-status]: https://github.com/hockeybuggy/hockeybuggy.com/actions/workflows/e2e_tests.yml/badge.svg
-[e2e-tests]: https://github.com/hockeybuggy/hockeybuggy.com/actions/workflows/e2e_tests.yml
 [netlify-status]: https://img.shields.io/netlify/b608e87e-8c67-45b6-b677-58bbeee9e11c
 [netlify]: https://app.netlify.com/sites/hockeybuggy/deploys
 [typecheck-and-linting-status]: https://github.com/hockeybuggy/hockeybuggy.com/actions/workflows/tests_and_linting.yml/badge.svg
