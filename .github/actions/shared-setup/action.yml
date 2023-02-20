@@ -17,15 +17,15 @@ runs:
       env:
         cache-name: cache-node-modules
       with:
-        path: ~/.npm
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+        path: ~/.node_modules
+        key: ${{ runner.os }}-node-modules-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
+          ${{ runner.os }}-node-modules-${{ env.cache-name }}-
+          ${{ runner.os }}-node-modules-
           ${{ runner.os }}-
 
     - name: Install npm packages
-      if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+      if: steps.cache-npm.outputs.cache-hit != 'true'
       shell: bash
       run: |
         yarn install
