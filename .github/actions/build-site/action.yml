@@ -6,17 +6,19 @@ runs:
   using: "composite"
   steps:
     # Based on: https://nextjs.org/docs/advanced-features/ci-build-caching#github-actions
-    - name: Cache
+    - name: Cache next build
+      id: cache-next-build
       uses: actions/cache@v3
       with:
         path: |
           ~/.npm
           ${{ github.workspace }}/.next/cache
-        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
         restore-keys: |
-          ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+          ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
 
     - name: Build
+      if: ${{ steps.cache-next-build.outputs.cache-hit != 'true' }}
       env:
         CI: "true"
       shell: bash
