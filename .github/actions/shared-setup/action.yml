@@ -24,13 +24,8 @@ runs:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
 
-    - name: List the state of node modules in the cache
-      if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
-      shell: bash
-      continue-on-error: true
-      run: npm list
-
     - name: Install npm packages
+      if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
       shell: bash
       run: |
         yarn install
