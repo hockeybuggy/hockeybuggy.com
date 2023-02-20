@@ -3,7 +3,7 @@ name: typecheck and linting
 on: [push]
 
 jobs:
-  typecheck-and-build:
+  install:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,12 +18,24 @@ jobs:
       run: |
         yarn install
 
+  build:
+    needs: install
+
+    runs-on: ubuntu-latest
+
+    steps:
     - name: Build
       env:
         CI: true
       run: |
         yarn run build
 
+  check-types-and-lint:
+    needs: install
+
+    runs-on: ubuntu-latest
+
+    steps:
     - name: Check Types
       run: |
         yarn run typecheck
@@ -35,3 +47,20 @@ jobs:
     - name: Check Formatting
       run: |
         yarn run check-format
+
+
+  run-end-to-end-tests:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Run Tests
+      env:
+        CI: true
+      run: |
+        yarn run test:e2e --verbose
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: e2e_test_screenshots
+        path: e2e_tests/screenshots
