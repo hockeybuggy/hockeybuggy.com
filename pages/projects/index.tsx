@@ -49,7 +49,7 @@ const ProjectsIndex = ({
                       name={Icon.Names.GitHub}
                       aria-hidden="true"
                       label=""
-                      size={Icon.Sizes.Large}
+                      width="100%"
                     />
                   </a>
                 </div>
