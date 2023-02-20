@@ -10,22 +10,8 @@ runs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16.19.1
-
-    - name: Cache node modules
-      id: cache-npm
-      uses: actions/cache@v3
-      env:
-        cache-name: cache-node-modules
-      with:
-        path: ~/.node_modules
-        key: ${{ runner.os }}-node-modules-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-node-modules-${{ env.cache-name }}-
-          ${{ runner.os }}-node-modules-
-          ${{ runner.os }}-
+        cache: 'yarn'
 
     - name: Install npm packages
-      if: steps.cache-npm.outputs.cache-hit != 'true'
       shell: bash
-      run: |
-        yarn install
+      run: yarn
