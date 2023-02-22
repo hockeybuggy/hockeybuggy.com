@@ -41,7 +41,7 @@ async function generate() {
 
   console.log("Adding pages for the blog...");
   pages.push({
-    loc: `${BASE}/blog/`,
+    loc: `${BASE}/blog`,
   });
   const allPosts = getAllPosts();
   const allListedPosts = allPosts.filter((post) => !post.delisted);
@@ -56,7 +56,7 @@ async function generate() {
 
   console.log("Adding pages for the projects...");
   pages.push({
-    loc: `${BASE}/projects/`,
+    loc: `${BASE}/projects`,
   });
   const allProjects = getAllProjects();
   allProjects.forEach((project) => {
