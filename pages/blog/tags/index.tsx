@@ -15,7 +15,7 @@ interface TagsIndexPageProps {
 const Tag = ({ tag, count }: { tag: string; count: number }): JSX.Element => {
   return (
     <li key={tag}>
-      <Link href={BlogPresentor.getUrlForCategoryPage(tag)}>
+      <Link href={BlogPresentor.getUrlForTagPage(tag)}>
         {tag} ({count})
       </Link>
     </li>

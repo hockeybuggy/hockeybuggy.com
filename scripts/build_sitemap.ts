@@ -56,8 +56,7 @@ async function generate() {
     loc: `${BASE}/blog`,
   });
   const allPosts = getAllPosts();
-  const allListedPosts = allPosts.filter((post) => !post.delisted);
-  allListedPosts.forEach((post) => {
+  allPosts.forEach((post) => {
     const postUrl = `${BASE}${BlogPresentor.getUrlForPost(post)}`;
     const postLastMod = post.isoDate;
     pages.push({
