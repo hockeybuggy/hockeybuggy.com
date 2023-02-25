@@ -8,6 +8,7 @@ import SEO from "../../../components/seo";
 
 import { Post } from "../../../models/blog";
 import { getAllPosts } from "../../../services/blog";
+import { BlogPresentor } from "../../../services/presentors/blog";
 
 interface Props {
   posts: Post[];
@@ -26,12 +27,10 @@ const CategoryPage = ({ posts, category }: Props): JSX.Element => {
       <ul>
         {posts.map((post) => {
           const slug = post.slug;
-          const year = post.year;
-          const month = post.month;
           const title = post.title;
           return (
             <li key={slug}>
-              <Link href={`/blog/post/${year}/${month}/${slug}`}>{title}</Link>
+              <Link href={BlogPresentor.getUrlForPost(post)}>{title}</Link>
             </li>
           );
         })}

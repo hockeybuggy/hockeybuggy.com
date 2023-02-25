@@ -1,15 +1,18 @@
 import React from "react";
 import { GetStaticPropsResult } from "next";
 import Link from "next/link";
-import kebabCase from "lodash/kebabCase";
 
 import { BlogLayout } from "../../../layouts";
 import SEO from "../../../components/seo";
 
-import { getAllPosts } from "../../../services/blog";
+import {
+  getAllPosts,
+  getCategoryCountsFromPosts,
+} from "../../../services/blog";
+import { BlogPresentor } from "../../../services/presentors/blog";
 
-interface Props {
-  postsGroupedByCategory: Record<string, number>;
+interface CategoriesIndexPageProps {
+  categoryCounts: Record<string, number>;
 }
 
 const Category = ({
@@ -21,7 +24,7 @@ const Category = ({
 }): JSX.Element => {
   return (
     <li key={category}>
-      <Link href={`/blog/categories/${kebabCase(category)}/`}>
+      <Link href={BlogPresentor.getUrlForCategoryPage(category)}>
         {category} ({count})
       </Link>
     </li>
@@ -29,16 +32,16 @@ const Category = ({
 };
 
 const CategoriesIndexPage = ({
-  postsGroupedByCategory,
-}: Props): JSX.Element => {
+  categoryCounts,
+}: CategoriesIndexPageProps): JSX.Element => {
   return (
     <BlogLayout>
       <SEO title={"Categories"} />
       <div>
         <h1>Categories</h1>
         <ul>
-          {Object.entries(postsGroupedByCategory).map(([category, value]) => (
-            <Category key={category} category={category} count={value} />
+          {Object.entries(categoryCounts).map(([category, count]) => (
+            <Category key={category} category={category} count={count} />
           ))}
         </ul>
       </div>
@@ -46,22 +49,14 @@ const CategoriesIndexPage = ({
   );
 };
 
-export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
+export async function getStaticProps(): Promise<
+  GetStaticPropsResult<CategoriesIndexPageProps>
+> {
   const allPosts = getAllPosts();
-  // Filter to posts that have the category
-  const postsGroupedByCategory: Record<string, number> = {};
-  allPosts.forEach((post) => {
-    post.categories.forEach((category) => {
-      if (postsGroupedByCategory[category] === undefined) {
-        postsGroupedByCategory[category] = 1;
-      } else {
-        postsGroupedByCategory[category] += 1;
-      }
-    });
-  });
+  const categoryCounts = getCategoryCountsFromPosts(allPosts);
 
   return {
-    props: { postsGroupedByCategory },
+    props: { categoryCounts },
   };
 }
 

@@ -1,40 +1,40 @@
 import React from "react";
 import { GetStaticPropsResult } from "next";
 import Link from "next/link";
-import kebabCase from "lodash/kebabCase";
 
 import { BlogLayout } from "../../../layouts";
 import SEO from "../../../components/seo";
 
-import { getAllPosts } from "../../../services/blog";
+import { getAllPosts, getTagCountsFromPosts } from "../../../services/blog";
+import { BlogPresentor } from "../../../services/presentors/blog";
 
-interface Props {
-  postsGroupedByTag: Record<string, number>;
+interface TagsIndexPageProps {
+  tagCounts: Record<string, number>;
 }
 
-const Tag = ({ tags, count }: { tags: string; count: number }): JSX.Element => {
+const Tag = ({ tag, count }: { tag: string; count: number }): JSX.Element => {
   return (
-    <li key={tags}>
-      <Link href={`/blog/tags/${kebabCase(tags)}/`}>
-        {tags} ({count})
+    <li key={tag}>
+      <Link href={BlogPresentor.getUrlForCategoryPage(tag)}>
+        {tag} ({count})
       </Link>
     </li>
   );
 };
 
-const TagsIndexPage = ({ postsGroupedByTag }: Props): JSX.Element => {
+const TagsIndexPage = ({ tagCounts }: TagsIndexPageProps): JSX.Element => {
   return (
     <BlogLayout>
       <SEO title={"Tags"} />
       <div>
         <h1>Tags</h1>
         <ul>
-          {Object.entries(postsGroupedByTag)
+          {Object.entries(tagCounts)
             .sort((a, b) => {
               return a[0].localeCompare(b[0]);
             })
-            .map(([tags, value]) => (
-              <Tag key={tags} tags={tags} count={value} />
+            .map(([tag, value]) => (
+              <Tag key={tag} tag={tag} count={value} />
             ))}
         </ul>
       </div>
@@ -42,22 +42,15 @@ const TagsIndexPage = ({ postsGroupedByTag }: Props): JSX.Element => {
   );
 };
 
-export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
+export async function getStaticProps(): Promise<
+  GetStaticPropsResult<TagsIndexPageProps>
+> {
   const allPosts = getAllPosts();
   // Filter to posts that have the tags
-  const postsGroupedByTag: Record<string, number> = {};
-  allPosts.forEach((post) => {
-    post.tags.forEach((tags) => {
-      if (postsGroupedByTag[tags] === undefined) {
-        postsGroupedByTag[tags] = 1;
-      } else {
-        postsGroupedByTag[tags] += 1;
-      }
-    });
-  });
+  const tagCounts = getTagCountsFromPosts(allPosts);
 
   return {
-    props: { postsGroupedByTag },
+    props: { tagCounts },
   };
 }
 
