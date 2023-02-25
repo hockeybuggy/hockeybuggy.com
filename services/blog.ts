@@ -47,3 +47,35 @@ export function getAllPosts(): Post[] {
 export function getPostBySlug(slug: string): Post | null {
   return getAllPosts().filter((post) => post.slug === slug)[0];
 }
+
+export function getCategoryCountsFromPosts(
+  posts: Array<Post>
+): Record<string, number> {
+  const postsGroupedByCategory: Record<string, number> = {};
+  posts.forEach((post) => {
+    post.categories.forEach((category) => {
+      if (postsGroupedByCategory[category] === undefined) {
+        postsGroupedByCategory[category] = 1;
+      } else {
+        postsGroupedByCategory[category] += 1;
+      }
+    });
+  });
+  return postsGroupedByCategory;
+}
+
+export function getTagCountsFromPosts(
+  posts: Array<Post>
+): Record<string, number> {
+  const postsGroupedByTag: Record<string, number> = {};
+  posts.forEach((post) => {
+    post.tags.forEach((tags) => {
+      if (postsGroupedByTag[tags] === undefined) {
+        postsGroupedByTag[tags] = 1;
+      } else {
+        postsGroupedByTag[tags] += 1;
+      }
+    });
+  });
+  return postsGroupedByTag;
+}

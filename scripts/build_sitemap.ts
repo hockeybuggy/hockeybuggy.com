@@ -1,31 +1,43 @@
 import { writeFileSync, mkdirSync } from "fs";
 
-import { getAllPosts } from "../services/blog";
+import {
+  getAllPosts,
+  getCategoryCountsFromPosts,
+  getTagCountsFromPosts,
+} from "../services/blog";
 import { getAllProjects } from "../services/projects";
 import { BlogPresentor } from "../services/presentors/blog";
 import { ProjectPresentor } from "../services/presentors/project";
 
-// Based roughly on this: https://www.sitemaps.org/protocol.html
 interface SiteMapPageInfo {
   loc: string;
   lastmod?: string;
 }
 
+function renderUrl({ loc, lastmod }: SiteMapPageInfo) {
+  if (lastmod) {
+    return `
+    <url>
+      <loc>${`${loc}`}</loc>
+      <lastmod>${`${lastmod}`}</lastmod>
+    </url>
+`;
+  }
+  return `
+    <url>
+      <loc>${`${loc}`}</loc>
+    </url>
+`;
+}
+
 function generateSiteMap(pages: Array<SiteMapPageInfo>) {
   return `<?xml version="1.0" encoding="UTF-8"?>
-   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-     ${pages
-       .map(({ loc, lastmod }) => {
-         return `
-       <url>
-           <loc>${`${loc}`}</loc>
-           ${lastmod ? `<lastmod>${`${lastmod}`}</lastmod>` : ""}
-       </url>
-     `;
-       })
-       .join("")}
-   </urlset>
- `;
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages
+    .map((pageInfo) => renderUrl(pageInfo))
+    .join("")}
+  </urlset>
+</xml>
+`;
 }
 
 const BASE = "https://hockeybuggy.com";
@@ -52,6 +64,22 @@ async function generate() {
       loc: postUrl,
       lastmod: postLastMod,
     });
+  });
+  pages.push({
+    loc: `${BASE}/blog/categories`,
+  });
+  const postsGroupedByCategory = getCategoryCountsFromPosts(allPosts);
+  Object.keys(postsGroupedByCategory).forEach((category) => {
+    const loc = `${BASE}${BlogPresentor.getUrlForCategoryPage(category)}`;
+    pages.push({ loc });
+  });
+  pages.push({
+    loc: `${BASE}/blog/tags`,
+  });
+  const postsGroupedByTag = getTagCountsFromPosts(allPosts);
+  Object.keys(postsGroupedByTag).forEach((tag) => {
+    const loc = `${BASE}${BlogPresentor.getUrlForTagPage(tag)}`;
+    pages.push({ loc });
   });
 
   console.log("Adding pages for the projects...");
