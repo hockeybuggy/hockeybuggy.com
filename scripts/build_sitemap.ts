@@ -36,7 +36,6 @@ function generateSiteMap(pages: Array<SiteMapPageInfo>) {
     .map((pageInfo) => renderUrl(pageInfo))
     .join("")}
   </urlset>
-</xml>
 `;
 }
 
