@@ -68,7 +68,7 @@
     "jest-puppeteer": "^8.0.5",
     "prettier": "^2.8.6",
     "puppeteer": "^19.7.5",
-    "sass": "^1.59.3",
+    "sass": "^1.60.0",
     "typescript": "^5.0.2"
   }
 }
