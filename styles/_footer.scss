@@ -21,7 +21,10 @@
     font-family: $code-font-family;
     span,
     a {
+      display: flex;
       padding: 0 0.5rem;
+      min-width: 28px;
+      min-height: 22px;
     }
   }
 }
