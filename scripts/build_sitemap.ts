@@ -8,6 +8,7 @@ import {
 import { getAllProjects } from "../services/projects";
 import { BlogPresentor } from "../services/presentors/blog";
 import { ProjectPresentor } from "../services/presentors/project";
+import { getBaseUrl } from "../services/url";
 
 interface SiteMapPageInfo {
   loc: string;
@@ -39,7 +40,7 @@ function generateSiteMap(pages: Array<SiteMapPageInfo>) {
 `;
 }
 
-const BASE = "https://hockeybuggy.com";
+const BASE = getBaseUrl();
 
 async function generate() {
   console.log("Generating Sitemap...");

@@ -1,5 +1,8 @@
 import React from "react";
+import { useRouter } from "next/router";
 import Head from "next/head";
+
+import { getBaseUrl } from "../services/url";
 
 type MetaItem =
   | { name: string; content: any }
@@ -14,6 +17,8 @@ interface SEOProps {
 const SEO = ({ description, title }: SEOProps): JSX.Element => {
   const metaDescription =
     description || "The personal website of Douglas Anderson";
+  const router = useRouter();
+  const canonicalUrl = `${getBaseUrl()}${router.asPath}`.replace(/\/$/, "");
 
   return (
     <Head>
@@ -28,6 +33,8 @@ const SEO = ({ description, title }: SEOProps): JSX.Element => {
       />
       <meta name={`twitter:title`} content={title} />
       <meta name={`twitter:description`} content={metaDescription} />
+      <link rel="canonical" href={canonicalUrl} key="canonical" />
+
       <title>{title}</title>
     </Head>
   );
