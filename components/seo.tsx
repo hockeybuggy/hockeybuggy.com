@@ -18,7 +18,9 @@ const SEO = ({ description, title }: SEOProps): JSX.Element => {
   const metaDescription =
     description || "The personal website of Douglas Anderson";
   const router = useRouter();
-  const canonicalUrl = `${getBaseUrl()}${router.asPath}`.replace(/\/$/, "");
+  const canonicalUrl = `${getBaseUrl()}${router.asPath}`
+    .replace(/index.html$/, "")
+    .replace(/\/$/, "");
 
   return (
     <Head>
