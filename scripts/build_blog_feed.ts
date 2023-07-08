@@ -36,7 +36,7 @@ async function generate() {
   await Promise.all(
     posts.map(async (post) => {
       const postUrl = `https://hockeybuggy.com${BlogPresentor.getUrlForPost(
-        post
+        post,
       )}`;
       const html = await markdownToHtml(post.content);
       const excerpt = await markdownToHtmlExcerpt(post.content);
@@ -56,7 +56,7 @@ async function generate() {
         ],
         date: BlogPresentor.getDateOfPost(post),
       });
-    })
+    }),
   );
 
   const formatted = feed.atom1();

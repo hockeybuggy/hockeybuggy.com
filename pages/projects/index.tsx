@@ -97,15 +97,15 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
     projects.map(async (project) => {
       const excerpt = await markdownToHtmlExcerpt(project.content);
       return excerpt;
-    })
+    }),
   );
   const projectImages = await Promise.all(
     projects.map(async (project) => {
       const { base64, img } = await getPlaiceholder(
-        `/../content/images/${project.bannerImageName}`
+        `/../content/images/${project.bannerImageName}`,
       );
       return { base64, img };
-    })
+    }),
   );
 
   return {

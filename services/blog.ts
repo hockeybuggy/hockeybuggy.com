@@ -49,7 +49,7 @@ export function getPostBySlug(slug: string): Post | null {
 }
 
 export function getCategoryCountsFromPosts(
-  posts: Array<Post>
+  posts: Array<Post>,
 ): Record<string, number> {
   const postsGroupedByCategory: Record<string, number> = {};
   posts.forEach((post) => {
@@ -65,7 +65,7 @@ export function getCategoryCountsFromPosts(
 }
 
 export function getTagCountsFromPosts(
-  posts: Array<Post>
+  posts: Array<Post>,
 ): Record<string, number> {
   const postsGroupedByTag: Record<string, number> = {};
   posts.forEach((post) => {
