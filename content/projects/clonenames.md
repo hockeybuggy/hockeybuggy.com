@@ -11,6 +11,9 @@ A clone of the board game "Codenames". This project was in order to get
 practice with FaunaDB and was written at the start of the Covid-19 pandemic
 (when online Codenames was all the rage).
 
+In October of 2022 I decided that I had learned what I wanted to learn and
+archived the public repo.
+
 <!-- excerpt -->
 
 
@@ -111,5 +114,5 @@ would no longer be met.
 
 ## Demo!
 
-The game is currently [deployed and accessible](https://clonenames.hockeybuggy.com/) if you would like to try it.
+The game is currently [deployed and accessible](https://clonenames.hockeybuggy.com/] if you would like to try it.
 
