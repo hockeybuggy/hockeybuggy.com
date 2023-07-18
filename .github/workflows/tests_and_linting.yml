@@ -36,6 +36,20 @@ jobs:
     - uses: ./.github/actions/build-site
 
 
+  run-prebuild-tests:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: ./.github/actions/shared-setup
+    - uses: ./.github/actions/build-site
+    - name: Run Tests
+      env:
+        CI: true
+      run: |
+        yarn run test:prebuild --verbose
+
+
   run-end-to-end-tests:
     needs: build
     runs-on: ubuntu-latest
