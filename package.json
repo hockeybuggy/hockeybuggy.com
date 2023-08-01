@@ -63,7 +63,7 @@
     "jest-puppeteer": "^9.0.0",
     "libxmljs": "^1.0.9",
     "prettier": "^3.0.0",
-    "puppeteer": "^20.8.0",
+    "puppeteer": "^20.9.0",
     "sass": "^1.63.6",
     "ts-jest": "^29.1.1",
     "typescript": "^5.1.6"
