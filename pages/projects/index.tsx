@@ -66,7 +66,9 @@ const ProjectsIndex = ({
                     placeholder="blur"
                     blurDataURL={base64Placeholder}
                     {...imgProps}
-                    src={require(`../../content/images/${project.bannerImageName}`)}
+                    src={require(
+                      `../../content/images/${project.bannerImageName}`,
+                    )}
                     style={{
                       maxWidth: "100%",
                       height: "auto",
