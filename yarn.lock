@@ -1191,10 +1191,10 @@
   dependencies:
     classnames "*"
 
-"@types/expect-puppeteer@^5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@types/expect-puppeteer/-/expect-puppeteer-5.0.3.tgz#dec156fedaf9f00b81ee09feabc91d51d8c5c22f"
-  integrity sha512-NIqATm95VmFbc2s9v1L3yj9ZS9/rCrtptSgBsvW8mcw2KFpLFQqXPyEbo0Vju1eiBieI38jRGWgpbVuUKfQVoQ==
+"@types/expect-puppeteer@^5.0.6":
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/@types/expect-puppeteer/-/expect-puppeteer-5.0.6.tgz#67b1b258ea0dcce56541e51c9cd941c8f1d0d684"
+  integrity sha512-71TRn11EozNfUYredjmVRuwtVnk0ZJIUmUcJhpMr0ffQ9M32RNUgz/w0G4nfgcAx9GAuBQhJ0lBZxLbkj+eZkA==
   dependencies:
     "@types/jest" "*"
     "@types/puppeteer" "^5.4.0"
