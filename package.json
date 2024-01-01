@@ -41,7 +41,7 @@
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.0.3",
     "@types/classnames": "^2.3.1",
-    "@types/expect-puppeteer": "^5.0.3",
+    "@types/expect-puppeteer": "^5.0.6",
     "@types/jest": "^29.5.10",
     "@types/jest-environment-puppeteer": "^5.0.6",
     "@types/lodash": "^4.14.202",
