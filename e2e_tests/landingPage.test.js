@@ -1,5 +1,5 @@
-const { LANDING_PAGE } = require("./pages");
-const { loadPage } = require("./utils");
+import { LANDING_PAGE } from "./pages";
+import { loadPage } from "./utils";
 
 describe("/ (Landing Page)", () => {
   it("should load without error", async () => {

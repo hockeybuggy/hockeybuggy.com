@@ -8,5 +8,4 @@ module.exports = {
     context: true,
     jestPuppeteer: true,
   },
-  // @typescript-eslint/no-var-requires
 };

@@ -4,6 +4,9 @@ node_modules
 .cache
 tsconfig.tsbuildinfo
 
+.yarn
+.yarnrc.yml
+
 .DS_Store
 !.github/
 

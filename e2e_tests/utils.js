@@ -1,5 +1,6 @@
-const puppeteer = require("puppeteer");
-const iPhone = puppeteer.devices["iPhone 6"];
+import puppeteer from "puppeteer";
+
+const iPhone = puppeteer.KnownDevices["iPhone 6"];
 
 /* This helper function takes a Puppetter `page` and a `url` and loads the
  * page, responding when all requests have completed.
@@ -13,6 +14,4 @@ const loadPage = async (page, url) => {
   expect(page.url()).toEqual(url);
 };
 
-module.exports = {
-  loadPage,
-};
+export { loadPage };

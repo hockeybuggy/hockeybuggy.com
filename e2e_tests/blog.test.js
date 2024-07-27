@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires, @typescript-eslint/no-unused-vars */
-const { CATEGORIES_PAGE, TAGS_PAGE, BASE_URL, BLOG_PAGE } = require("./pages");
-const { loadPage } = require("./utils");
+import { CATEGORIES_PAGE, TAGS_PAGE, BASE_URL, BLOG_PAGE } from "./pages";
+import { loadPage } from "./utils";
 
 // It seems a litte weird to manage this list of blog posts here in the tests.
 // This is done in order to use `describe.each` and ensure that each of the
