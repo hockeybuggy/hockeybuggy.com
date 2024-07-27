@@ -28,7 +28,7 @@
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^8.6.7",
     "markdown-it-prism": "^2.3.0",
-    "next": "^13.5.3",
+    "next": "^14.2.5",
     "normalize.css": "^8.0.1",
     "plaiceholder": "^2.5.0",
     "query-string": "^8.1.0",
