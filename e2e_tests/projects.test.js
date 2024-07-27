@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires, @typescript-eslint/no-unused-vars */
-const { BASE_URL, PROJECTS_PAGE } = require("./pages");
-const { loadPage } = require("./utils");
+import { BASE_URL, PROJECTS_PAGE } from "./pages";
+import { loadPage } from "./utils";
 
 const expectedProjects = [
   {
