@@ -7,6 +7,9 @@ tsconfig.tsbuildinfo
 .DS_Store
 !.github/
 
+.yarn
+.yarnrc.yml
+
 # next.js
 /.next/
 /out/

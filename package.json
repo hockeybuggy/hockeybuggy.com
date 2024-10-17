@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "yarn prebuild && next build",
     "prebuild": "ts-node ./scripts/build_blog_feed.ts && ts-node ./scripts/build_sitemap.ts",
     "start": "next start -p 4000",
     "dev": "next",
@@ -67,5 +67,6 @@
     "sass": "^1.71.1",
     "ts-jest": "^29.2.5",
     "typescript": "^5.2.2"
-  }
+  },
+  "packageManager": "yarn@4.5.0"
 }
