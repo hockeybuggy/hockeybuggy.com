@@ -4063,6 +4063,7 @@ __metadata:
     gray-matter: "npm:^4.0.3"
     jest: "npm:^29.7.0"
     libxmljs: "npm:^1.0.11"
+    lodash: "npm:^4.17.21"
     markdown-it: "npm:^14.1.0"
     markdown-it-anchor: "npm:^8.6.7"
     markdown-it-prism: "npm:^2.3.0"
@@ -5328,6 +5329,13 @@ __metadata:
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
   checksum: 10c0/402fa16a1edd7538de5b5903a90228aa48eb5533986ba7fa26606a49db2572bf414ff73a2c9f5d5fd36b31c46a5d5c7e1527749c07cbcf965ccff5fbdf32c506
+  languageName: node
+  linkType: hard
+
+"lodash@npm:^4.17.21":
+  version: 4.17.21
+  resolution: "lodash@npm:4.17.21"
+  checksum: 10c0/d8cbea072bb08655bb4c989da418994b073a608dffa608b09ac04b43a791b12aeae7cd7ad919aa4c925f33b48490b5cfe6c1f71d827956071dae2e7bb3a6b74c
   languageName: node
   linkType: hard
 
