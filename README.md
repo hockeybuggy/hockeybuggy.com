@@ -25,6 +25,7 @@ Download the repository and install dependencies:
 
     git clone git@github.com/hockeybuggy/hockeybuggy.com.git
     fnm use
+    corepack enable
     yarn install
 
 
