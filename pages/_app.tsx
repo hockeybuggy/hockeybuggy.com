@@ -1,3 +1,4 @@
+import React from "react";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 import { setupTracking, isTrackingEnabled } from "../services/tracking";
@@ -6,7 +7,7 @@ import "../styles/main.scss";
 
 setupTracking(process.env.NEXT_PUBLIC_PLAUSIBLE_ENABLED);
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+function MyApp({ Component, pageProps }: AppProps): React.ReactElement {
   return (
     <>
       {isTrackingEnabled() && (

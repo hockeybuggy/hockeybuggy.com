@@ -7,7 +7,7 @@ interface Props {
   showRSSLink?: boolean;
 }
 
-const Footer = (props: Props): JSX.Element => {
+const Footer = (props: Props): React.ReactElement => {
   return (
     <footer className="footer">
       <section className="container">

@@ -26,7 +26,7 @@ const social = [
   },
 ];
 
-const IndexPage = (): JSX.Element => {
+const IndexPage = (): React.ReactElement => {
   return (
     <CenteredLayout pathname={"/"}>
       <SEO title="The personal website of Douglas Anderson" />

@@ -14,7 +14,7 @@ interface SEOProps {
   title: string;
 }
 
-const SEO = ({ description, title }: SEOProps): JSX.Element => {
+const SEO = ({ description, title }: SEOProps): React.ReactElement => {
   const metaDescription =
     description || "The personal website of Douglas Anderson";
   const router = useRouter();

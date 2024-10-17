@@ -11,6 +11,7 @@ import creativeCommonsIcon from "./svgs/creativeCommons";
 import githubIcon from "./svgs/github";
 import twitterIcon from "./svgs/twitter";
 
+/* eslint-disable no-unused-vars */
 enum IconNames {
   Bars,
   Calendar,
@@ -29,6 +30,7 @@ enum IconSizes {
   Default,
   Large,
 }
+/* eslint-enable no-unused-vars */
 
 // This function is used to guard against non-exhaustive icon name lookups.
 function exhasutiveCheck(_: never) {} // eslint-disable-line
@@ -80,7 +82,7 @@ const Icon = ({
   label: string;
   size?: IconSizes;
   width?: string;
-}): JSX.Element => (
+}): React.ReactElement => (
   <i
     className="icon"
     aria-label={label}
