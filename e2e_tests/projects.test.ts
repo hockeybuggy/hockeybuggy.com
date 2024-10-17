@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires, @typescript-eslint/no-unused-vars */
-const { BASE_URL, PROJECTS_PAGE } = require("./pages");
-const { loadPage } = require("./utils");
+import { BASE_URL, PROJECTS_PAGE } from "./pages";
+import { loadPage } from "./utils";
 
 const expectedProjects = [
   {
@@ -35,7 +35,7 @@ const expectedProjects = [
 
 describe("/projects (Projects index Page)", () => {
   it("should load without error", async () => {
-    const errors = [];
+    const errors: Array<{ errorMessage: string }> = [];
     page.on("console", (msg) => {
       if (msg.type() === "error") {
         errors.push({ errorMessage: msg.text() });
@@ -57,11 +57,13 @@ describe("/projects (Projects index Page)", () => {
 
     const projects = await page.$$eval("article", (articles) =>
       articles.map((article) => {
-        const postTitle = article.querySelector("h2").textContent;
-        const postUrl = new URL(article.querySelector(".read-more a").href);
+        const postTitle = article.querySelector("h2")?.textContent;
+        const postUrl = new URL(
+          (article.querySelector(".read-more a") as unknown as any)?.href || "",
+        );
         const postPathName = postUrl.pathname;
         return { postTitle, postPathName };
-      })
+      }),
     );
     expect(projects).toEqual(expectedProjects);
   });

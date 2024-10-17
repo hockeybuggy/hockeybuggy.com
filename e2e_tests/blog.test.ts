@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-var-requires, @typescript-eslint/no-unused-vars */
-const { CATEGORIES_PAGE, TAGS_PAGE, BASE_URL, BLOG_PAGE } = require("./pages");
-const { loadPage } = require("./utils");
+/* eslint-disable no-unused-vars */
+import { CATEGORIES_PAGE, TAGS_PAGE, BASE_URL, BLOG_PAGE } from "./pages";
+import { loadPage } from "./utils";
 
 // It seems a litte weird to manage this list of blog posts here in the tests.
 // This is done in order to use `describe.each` and ensure that each of the
@@ -107,7 +107,7 @@ const expectedCategoryLinks = [
 
 describe("/blog (Blog index Page)", () => {
   it("should load without error", async () => {
-    const errors = [];
+    const errors: Array<{ errorMessage: string }> = [];
     page.on("console", (msg) => {
       if (msg.type() === "error") {
         errors.push({ errorMessage: msg.text() });
@@ -129,10 +129,10 @@ describe("/blog (Blog index Page)", () => {
 
     const blogPosts = await page.$$eval("article", (articles) =>
       articles.map((article) => {
-        const postTitle = article.querySelector("h2").textContent;
-        const postUrl = new URL(article.querySelector("a").href);
+        const postTitle = article.querySelector("h2")?.textContent;
+        const postUrl = new URL(article.querySelector("a")?.href || "");
         const postPathName = postUrl.pathname;
-        const postDate = article.querySelector("time").dateTime;
+        const postDate = article.querySelector("time")?.dateTime;
         return { postTitle, postPathName, postDate };
       })
     );
@@ -162,7 +162,7 @@ describe.each(blogPosts)("%s", (pathName, title) => {
 
 describe("/blog/tags (Blog tags index Page)", () => {
   it("should load without error", async () => {
-    const errors = [];
+    const errors: Array<{ errorMessage: string }> = [];
     page.on("console", (msg) => {
       if (msg.type() === "error") {
         errors.push({ errorMessage: msg.text() });
@@ -189,7 +189,7 @@ describe("/blog/tags (Blog tags index Page)", () => {
 
     const tagLinks = await page.$$eval(".content li", (items) => {
       return items.map((item) => {
-        const postUrl = new URL(item.querySelector("a").href);
+        const postUrl = new URL(item.querySelector("a")?.href || "");
         return postUrl.pathname;
       });
     });
@@ -212,7 +212,7 @@ describe.each(expectedTagLinks)("%s", (pathName) => {
   it(`should have links to existing blog posts`, async () => {
     const blogPostLinks = await page.$$eval(".content li", (items) => {
       return items.map((item) => {
-        const postUrl = new URL(item.querySelector("a").href);
+        const postUrl = new URL(item.querySelector("a")?.href || "");
         return postUrl.pathname;
       });
     });
@@ -225,7 +225,7 @@ describe.each(expectedTagLinks)("%s", (pathName) => {
 
 describe("/blog/categories (Blog categories index Page)", () => {
   it("should load without error", async () => {
-    const errors = [];
+    const errors: Array<{ errorMessage: string }> = [];
     page.on("console", (msg) => {
       if (msg.type() === "error") {
         errors.push({ errorMessage: msg.text() });
@@ -252,7 +252,7 @@ describe("/blog/categories (Blog categories index Page)", () => {
 
     const categoryLinks = await page.$$eval(".content li", (items) => {
       return items.map((item) => {
-        const postUrl = new URL(item.querySelector("a").href);
+        const postUrl = new URL(item.querySelector("a")?.href || "");
         return postUrl.pathname;
       });
     });
@@ -275,7 +275,7 @@ describe.each(expectedCategoryLinks)("%s", (pathName) => {
   it(`should have links to existing blog posts`, async () => {
     const blogPostLinks = await page.$$eval(".content li", (items) => {
       return items.map((item) => {
-        const postUrl = new URL(item.querySelector("a").href);
+        const postUrl = new URL(item.querySelector("a")?.href || "");
         return postUrl.pathname;
       });
     });
