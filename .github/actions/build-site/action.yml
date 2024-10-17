@@ -6,7 +6,7 @@ runs:
   using: "composite"
   steps:
     - name: Cache next build cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: |
           ${{ github.workspace }}/.next/cache
@@ -16,7 +16,7 @@ runs:
 
     - name: Cache next build
       id: cache-next-build
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: |
           ${{ github.workspace }}/public
