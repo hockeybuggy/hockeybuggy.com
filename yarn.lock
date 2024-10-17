@@ -442,6 +442,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint/compat@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@eslint/compat@npm:1.2.0"
+  peerDependencies:
+    eslint: ^9.10.0
+  peerDependenciesMeta:
+    eslint:
+      optional: true
+  checksum: 10c0/ad79bf1ef14462f829288c4e2ca8eeffdf576fa923d3f8a07e752e821bdbe5fd79360fe6254e9ddfe7eada2e4e3d22a7ee09f5d21763e67bc4fbc331efb3c3e9
+  languageName: node
+  linkType: hard
+
 "@eslint/eslintrc@npm:^2.1.4":
   version: 2.1.4
   resolution: "@eslint/eslintrc@npm:2.1.4"
@@ -463,6 +475,13 @@ __metadata:
   version: 8.57.1
   resolution: "@eslint/js@npm:8.57.1"
   checksum: 10c0/b489c474a3b5b54381c62e82b3f7f65f4b8a5eaaed126546520bf2fede5532a8ed53212919fed1e9048dcf7f37167c8561d58d0ba4492a4244004e7793805223
+  languageName: node
+  linkType: hard
+
+"@eslint/js@npm:^9.12.0":
+  version: 9.12.0
+  resolution: "@eslint/js@npm:9.12.0"
+  checksum: 10c0/325650a59a1ce3d97c69441501ebaf415607248bacbe8c8ca35adc7cb73b524f592f266a75772f496b06f3239e3ee1996722a242148085f0ee5fb3dd7065897c
   languageName: node
   linkType: hard
 
@@ -4038,6 +4057,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hockeybuggy.com@workspace:."
   dependencies:
+    "@eslint/compat": "npm:^1.2.0"
+    "@eslint/js": "npm:^9.12.0"
     "@next/eslint-plugin-next": "npm:^14.2.5"
     "@types/classnames": "npm:^2.3.1"
     "@types/jest": "npm:^29.5.12"

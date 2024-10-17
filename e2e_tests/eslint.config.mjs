@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   env: {
     jest: true,
   },
@@ -8,5 +8,4 @@ module.exports = {
     context: true,
     jestPuppeteer: true,
   },
-  // @typescript-eslint/no-var-requires
 };
