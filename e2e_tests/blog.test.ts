@@ -134,12 +134,12 @@ describe("/blog (Blog index Page)", () => {
         const postPathName = postUrl.pathname;
         const postDate = article.querySelector("time")?.dateTime;
         return { postTitle, postPathName, postDate };
-      })
+      }),
     );
 
     // Some blog posts can be found in the tags, and categories but not in the main index.
     const indexListedBlogPosts = expectedBlogPosts.filter(
-      (blog) => !blog.isDelisted
+      (blog) => !blog.isDelisted,
     );
 
     expect(blogPosts).toEqual(indexListedBlogPosts);
