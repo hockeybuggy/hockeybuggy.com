@@ -12,7 +12,13 @@ interface TagsIndexPageProps {
   tagCounts: Record<string, number>;
 }
 
-const Tag = ({ tag, count }: { tag: string; count: number }): JSX.Element => {
+const Tag = ({
+  tag,
+  count,
+}: {
+  tag: string;
+  count: number;
+}): React.ReactElement => {
   return (
     <li key={tag}>
       <Link href={BlogPresentor.getUrlForTagPage(tag)}>
@@ -22,7 +28,9 @@ const Tag = ({ tag, count }: { tag: string; count: number }): JSX.Element => {
   );
 };
 
-const TagsIndexPage = ({ tagCounts }: TagsIndexPageProps): JSX.Element => {
+const TagsIndexPage = ({
+  tagCounts,
+}: TagsIndexPageProps): React.ReactElement => {
   return (
     <BlogLayout>
       <SEO title={"Tags"} />

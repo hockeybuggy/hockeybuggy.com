@@ -13,7 +13,7 @@ interface Props {
   allPosts: Post[];
 }
 
-const BlogIndex = ({ allPosts }: Props): JSX.Element => {
+const BlogIndex = ({ allPosts }: Props): React.ReactElement => {
   return (
     <BlogLayout pathname={"/blog/"}>
       <SEO title={"Blog"} />

@@ -3,7 +3,7 @@ import { BaseLayout } from "../layouts";
 
 import { track } from "../services/tracking";
 
-const NotFoundPage = (): JSX.Element => {
+const NotFoundPage = (): React.ReactElement => {
   useEffect(() => {
     track("404", { props: { path: document.location.pathname } });
   }, []);

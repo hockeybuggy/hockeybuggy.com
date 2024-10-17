@@ -21,7 +21,7 @@ const Category = ({
 }: {
   category: string;
   count: number;
-}): JSX.Element => {
+}): React.ReactElement => {
   return (
     <li key={category}>
       <Link href={BlogPresentor.getUrlForCategoryPage(category)}>
@@ -33,7 +33,7 @@ const Category = ({
 
 const CategoriesIndexPage = ({
   categoryCounts,
-}: CategoriesIndexPageProps): JSX.Element => {
+}: CategoriesIndexPageProps): React.ReactElement => {
   return (
     <BlogLayout>
       <SEO title={"Categories"} />

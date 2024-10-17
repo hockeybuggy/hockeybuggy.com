@@ -14,7 +14,7 @@ interface Props {
   tag: string;
 }
 
-const TagPage = ({ posts, tag }: Props): JSX.Element => {
+const TagPage = ({ posts, tag }: Props): React.ReactElement => {
   const totalCount = posts.length;
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"

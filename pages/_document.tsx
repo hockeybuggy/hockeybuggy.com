@@ -1,9 +1,8 @@
-/* eslint-disable @next/next/no-page-custom-font */
 import * as React from "react";
 
 import { Html, Head, Main, NextScript } from "next/document";
 
-function MyDocument(): JSX.Element {
+function MyDocument(): React.ReactElement {
   return (
     <Html lang="en">
       <Head>

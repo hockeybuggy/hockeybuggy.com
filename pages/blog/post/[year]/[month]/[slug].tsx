@@ -40,7 +40,7 @@ interface Props {
   excerpt: string;
 }
 
-const BlogPostPage = ({ post, html, excerpt }: Props): JSX.Element => {
+const BlogPostPage = ({ post, html, excerpt }: Props): React.ReactElement => {
   const { title, isoDate, categories, tags } = post;
   const humanDate = BlogPresentor.getHumanReadableDateOfPost(post);
 
@@ -67,7 +67,7 @@ const BlogPostPage = ({ post, html, excerpt }: Props): JSX.Element => {
                     <Link href={`/blog/categories/${tag}`}>{tag}</Link>
                   </span>
                 )),
-                ", ",
+                ", "
               )}
             </div>
 
@@ -79,7 +79,7 @@ const BlogPostPage = ({ post, html, excerpt }: Props): JSX.Element => {
                     <Link href={`/blog/tags/${tag}`}>{tag}</Link>
                   </span>
                 )),
-                ", ",
+                ", "
               )}
             </div>
           </div>
