@@ -7,11 +7,11 @@ import Icon from "../components/icon";
 
 function useOutsideAlerter(
   refs: Array<React.RefObject<any>>,
-  outsideFn: () => void
+  outsideFn: () => void,
 ): void {
   useEffect(() => {
     function eventTargetIsOutsideAllRefs(
-      event: MouseEvent | FocusEvent
+      event: MouseEvent | FocusEvent,
     ): boolean {
       return refs.every((ref) => {
         return ref.current && !ref.current.contains(event.target);
@@ -21,7 +21,7 @@ function useOutsideAlerter(
     /** Close the menu if clicked outside of or focus moves outside of all of
      * the pass refs */
     function handleEventTargetOutsideRefs(
-      event: MouseEvent | FocusEvent
+      event: MouseEvent | FocusEvent,
     ): void {
       if (eventTargetIsOutsideAllRefs(event)) {
         outsideFn();
