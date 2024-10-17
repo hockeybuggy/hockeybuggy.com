@@ -35,7 +35,7 @@ const PROJECTS_PAGE = {
   },
 };
 
-module.exports = {
+export {
   BASE_URL,
   BLOG_PAGE,
   CATEGORIES_PAGE,
