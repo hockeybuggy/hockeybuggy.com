@@ -98,7 +98,7 @@ export async function getStaticProps({
   const html = await markdownToHtml(project.content);
   const excerpt = await markdownToHtmlExcerpt(project.content);
   const { base64, img } = await getPlaiceholder(
-    `/../content/images/${project.bannerImageName}`
+    `/../content/images/${project.bannerImageName}`,
   );
 
   return {
