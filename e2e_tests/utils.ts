@@ -10,7 +10,7 @@ const loadPage = async (page: any, url: string) => {
   const response = await page.goto(url, {
     waitUntil: "networkidle2",
   });
-  expect(response.ok());
+  expect(response.ok()).toBe(true);
   expect(page.url()).toEqual(url);
 };
 

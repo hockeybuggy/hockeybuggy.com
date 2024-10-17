@@ -45,6 +45,16 @@ export default tseslint.config(
     // enable jest rules on test files
     files: ["e2e_tests/**"],
     ...jestPlugin.configs["flat/recommended"],
+    languageOptions: {
+      globals: {
+        ...jestPlugin.configs["flat/recommended"].languageOptions.globals,
+        page: true,
+        browser: true,
+        context: true,
+        puppeteerConfig: true,
+        jestPuppeteer: true,
+      },
+    },
   },
   {
     // enable jest rules on test files
