@@ -41,8 +41,9 @@ interface Props {
 }
 
 const BlogPostPage = ({ post, html, excerpt }: Props): React.ReactElement => {
-  const { title, isoDate, categories, tags } = post;
+  const { title, isoDate, isoEditDate, categories, tags } = post;
   const humanDate = BlogPresentor.getHumanReadableDateOfPost(post);
+  const humanEditDate = BlogPresentor.getHumanReadableEditDateOfPost(post);
 
   return (
     <BlogLayout className="post">
@@ -51,11 +52,26 @@ const BlogPostPage = ({ post, html, excerpt }: Props): React.ReactElement => {
         <header>
           <h1 className="post-title">{title}</h1>
           <div className="post-meta">
-            <div className="date">
-              <Icon name={Icon.Names.Calendar} label="Publication date" />
-              <time dateTime={isoDate} />
-              {humanDate}
-            </div>
+            {humanEditDate ? (
+              <>
+                <div className="date">
+                  <Icon name={Icon.Names.Calendar} label="Publication date" />
+                  <time dateTime={isoDate} />
+                  Publication date: {humanDate}
+                </div>
+                <div className="date">
+                  <Icon name={Icon.Names.Calendar} label="Edit date" />
+                  <time dateTime={isoEditDate} />
+                  Edit date: {humanEditDate}
+                </div>
+              </>
+            ) : (
+              <div className="date">
+                <Icon name={Icon.Names.Calendar} label="Publication date" />
+                <time dateTime={isoDate} />
+                {humanDate}
+              </div>
+            )}
 
             <div className="categories">
               <Icon name={Icon.Names.Folder} label="Post categories" />
