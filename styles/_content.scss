@@ -27,6 +27,12 @@
     }
 
     .post-meta {
+      div {
+        display: flex;
+        align-items: center;
+        height: 3rem;
+      }
+
       i {
         text-align: center;
         width: 1.6rem;
