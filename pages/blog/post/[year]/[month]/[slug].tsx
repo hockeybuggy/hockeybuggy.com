@@ -52,11 +52,9 @@ const BlogPostPage = ({ post, html, excerpt }: Props): React.ReactElement => {
           <h1 className="post-title">{title}</h1>
           <div className="post-meta">
             <div className="date">
-              <span className="posted-on">
-                <Icon name={Icon.Names.Calendar} label="Publication date" />
-                <time dateTime={isoDate} />
-                {humanDate}
-              </span>
+              <Icon name={Icon.Names.Calendar} label="Publication date" />
+              <time dateTime={isoDate} />
+              {humanDate}
             </div>
 
             <div className="categories">
