@@ -6,7 +6,6 @@ import Icon from "../components/icon";
 interface Props {
   showRSSLink?: boolean;
 }
-
 const Footer = (props: Props): React.ReactElement => {
   return (
     <footer className="footer">
@@ -29,7 +28,7 @@ const Footer = (props: Props): React.ReactElement => {
               <Icon name={Icon.Names.RSS} label="RSS feed icon" />
             </Link>
           )}
-          <span>©2023</span>
+          <span>©2024</span>
         </div>
       </section>
     </footer>
