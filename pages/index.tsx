@@ -15,11 +15,6 @@ const social = [
     iconName: Icon.Names.GitHub,
   },
   {
-    label: "Twitter",
-    link: "https://twitter.com/hockeybuggy",
-    iconName: Icon.Names.Twitter,
-  },
-  {
     label: "Email",
     link: "mailto:hockeybuggy@gmail.com",
     iconName: Icon.Names.Email,
