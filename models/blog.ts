@@ -3,6 +3,7 @@ export type Post = {
   slug: string;
   delisted: boolean;
   isoDate: string;
+  isoEditDate?: string;
   year: string;
   month: string;
   day: string;

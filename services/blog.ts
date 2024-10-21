@@ -17,6 +17,7 @@ export function getPostByFilename(postFilename: string): Post | null {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
   const isoDate = data["date"];
+  const isoEditDate = data["edit_date"] || null;
   const date = parseISO(isoDate);
 
   return {
@@ -25,6 +26,7 @@ export function getPostByFilename(postFilename: string): Post | null {
     title: data["title"],
     delisted: data["delisted"] || false,
     isoDate: isoDate,
+    isoEditDate: isoEditDate,
     year: format(date, "uuuu"),
     month: format(date, "LL"),
     day: format(date, "dd"),

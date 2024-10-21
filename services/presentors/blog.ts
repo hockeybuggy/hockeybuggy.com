@@ -21,7 +21,16 @@ export class BlogPresentor {
     return parseISO(post.isoDate);
   }
 
+  static getEditDateOfPost(post: Post): Date | null {
+    return post.isoEditDate ? parseISO(post.isoEditDate) : null;
+  }
+
   static getHumanReadableDateOfPost(post: Post): string {
     return format(BlogPresentor.getDateOfPost(post), "yyyy-MM-dd");
+  }
+
+  static getHumanReadableEditDateOfPost(post: Post): string | null {
+    const editDate = BlogPresentor.getEditDateOfPost(post);
+    return editDate ? format(editDate, "yyyy-MM-dd") : null;
   }
 }
