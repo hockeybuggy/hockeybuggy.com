@@ -69,6 +69,7 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
       params: { category },
     };
   });
+  console.log("getStaticPaths: blog categories after");
 
   return {
     paths,

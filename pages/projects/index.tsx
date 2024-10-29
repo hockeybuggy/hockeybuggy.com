@@ -96,12 +96,16 @@ const ProjectsIndex = ({
 export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
   console.log("getStaticProps: projects index");
   const projects = getAllProjects();
+
+  console.log("getStaticProps: projects excerpts before");
   const projectExcerpts = await Promise.all(
     projects.map(async (project) => {
       const excerpt = await markdownToHtmlExcerpt(project.content);
       return excerpt;
     }),
   );
+  console.log("getStaticProps: projects excerpts after");
+  console.log("getStaticProps: projects images before");
   const projectImages = await Promise.all(
     projects.map(async (project) => {
       const { base64, img } = await getPlaiceholder(
@@ -110,6 +114,7 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
       return { base64, img };
     }),
   );
+  console.log("getStaticProps: projects images after");
 
   return {
     props: { projects, projectExcerpts, projectImages },
