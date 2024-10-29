@@ -116,6 +116,7 @@ type Params = {
 export async function getStaticProps({
   params,
 }: Params): Promise<GetStaticPropsResult<Props>> {
+  console.log(`getStaticProps: blog post ${params.slug}`);
   const post = getPostBySlug(params.slug)!;
   const html = await markdownToHtml(post.content);
   const excerpt = await markdownToHtmlExcerpt(post.content);

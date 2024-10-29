@@ -48,6 +48,7 @@ type Params = {
 export async function getStaticProps({
   params,
 }: Params): Promise<GetStaticPropsResult<Props>> {
+  console.log(`getStaticProps: blog category ${params.category}`);
   const allPostsMatchingCategory = getAllPosts().filter((post) => {
     return post.categories.includes(params.category);
   });

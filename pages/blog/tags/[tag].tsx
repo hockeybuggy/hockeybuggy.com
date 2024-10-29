@@ -49,6 +49,7 @@ type Params = {
 export async function getStaticProps({
   params,
 }: Params): Promise<GetStaticPropsResult<Props>> {
+  console.log(`getStaticProps: blog tag ${params.tag}`);
   const allPostsMatchingTag = getAllPosts().filter((post) => {
     return post.tags.includes(params.tag);
   });

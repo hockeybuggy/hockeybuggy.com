@@ -94,6 +94,7 @@ const ProjectsIndex = ({
 };
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
+  console.log("getStaticProps: projects index");
   const projects = getAllProjects();
   const projectExcerpts = await Promise.all(
     projects.map(async (project) => {
