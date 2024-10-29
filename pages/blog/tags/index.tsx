@@ -53,6 +53,7 @@ const TagsIndexPage = ({
 export async function getStaticProps(): Promise<
   GetStaticPropsResult<TagsIndexPageProps>
 > {
+  console.log("getStaticProps: blog tags index");
   const allPosts = getAllPosts();
   // Filter to posts that have the tags
   const tagCounts = getTagCountsFromPosts(allPosts);
