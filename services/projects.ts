@@ -9,7 +9,10 @@ const projectDirectory = join(process.cwd(), "content/projects/");
 
 function getProjectFilenames(): string[] {
   console.log(`reading projests directory: ${projectDirectory}`);
-  return fs.readdirSync(projectDirectory);
+  // return fs.readdirSync(projectDirectory);
+  const result = fs.readdirSync(projectDirectory);
+  console.log(`reading project directory complete`);
+  return result;
 }
 
 export function getProjectByFilename(projectFilename: string): Project | null {

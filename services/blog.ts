@@ -9,7 +9,10 @@ const postsDirectory = join(process.cwd(), "content/blog/");
 
 function getPostFilenames(): string[] {
   console.log(`reading post directory: ${postsDirectory}`);
-  return fs.readdirSync(postsDirectory);
+  // return fs.readdirSync(postsDirectory);
+  const result = fs.readdirSync(postsDirectory);
+  console.log(`reading post directory complete`);
+  return result;
 }
 
 export function getPostByFilename(postFilename: string): Post | null {
