@@ -1,5 +1,5 @@
 import * as React from "react";
-import { GetStaticPropsResult, GetStaticPathsResult } from "next";
+import type { GetStaticProps, GetStaticPaths } from "next";
 import Link from "next/link";
 import uniq from "lodash/uniq";
 
@@ -40,28 +40,24 @@ const TagPage = ({ posts, tag }: Props): React.ReactElement => {
     </BlogLayout>
   );
 };
-type Params = {
-  params: {
-    tag: string;
-  };
-};
 
-export async function getStaticProps({
-  params,
-}: Params): Promise<GetStaticPropsResult<Props>> {
-  console.log(`getStaticProps: blog tag ${params.tag}`);
+export const getStaticProps = (async (context) => {
+  const { params } = context;
+  const tag = (params!.tag || "") as string;
+  console.log(`getStaticProps: blog tag ${tag}`);
   const allPostsMatchingTag = getAllPosts().filter((post) => {
-    return post.tags.includes(params.tag);
+    return post.tags.includes(tag);
   });
 
   return {
     props: {
-      tag: params.tag,
+      tag: tag,
       posts: allPostsMatchingTag,
     },
   };
-}
-export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+}) satisfies GetStaticProps;
+
+export const getStaticPaths = (async () => {
   console.log("getStaticPaths: blog tags");
   const posts = getAllPosts();
   const allTags = uniq(posts.map((post) => post.tags).flat());
@@ -75,6 +71,6 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
     paths,
     fallback: false,
   };
-}
+}) satisfies GetStaticPaths;
 
 export default TagPage;

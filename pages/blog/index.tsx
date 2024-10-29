@@ -1,5 +1,5 @@
 import * as React from "react";
-import { GetStaticPropsResult } from "next";
+import type { GetStaticProps } from "next";
 import Link from "next/link";
 
 import { BlogLayout } from "../../layouts";
@@ -44,7 +44,7 @@ const BlogIndex = ({ allPosts }: Props): React.ReactElement => {
   );
 };
 
-export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
+export const getStaticProps = (async () => {
   console.log("getStaticProps: blog index");
   const allPosts = getAllPosts();
   const allListedPosts = allPosts.filter((post) => !post.delisted);
@@ -52,6 +52,6 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
   return {
     props: { allPosts: allListedPosts },
   };
-}
+}) satisfies GetStaticProps;
 
 export default BlogIndex;

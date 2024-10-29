@@ -1,5 +1,5 @@
 import React from "react";
-import { GetStaticPropsResult } from "next";
+import type { GetStaticProps } from "next";
 import Link from "next/link";
 
 import { BlogLayout } from "../../../layouts";
@@ -49,9 +49,7 @@ const CategoriesIndexPage = ({
   );
 };
 
-export async function getStaticProps(): Promise<
-  GetStaticPropsResult<CategoriesIndexPageProps>
-> {
+export const getStaticProps = (async () => {
   console.log("getStaticProps: blog category index");
   const allPosts = getAllPosts();
   const categoryCounts = getCategoryCountsFromPosts(allPosts);
@@ -59,6 +57,6 @@ export async function getStaticProps(): Promise<
   return {
     props: { categoryCounts },
   };
-}
+}) satisfies GetStaticProps;
 
 export default CategoriesIndexPage;
