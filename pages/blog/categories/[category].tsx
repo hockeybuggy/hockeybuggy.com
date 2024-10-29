@@ -61,6 +61,7 @@ export async function getStaticProps({
   };
 }
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+  console.log("getStaticPaths: blog categories");
   const posts = getAllPosts();
   const allCategories = uniq(posts.map((post) => post.categories).flat());
   const paths = allCategories.map((category) => {

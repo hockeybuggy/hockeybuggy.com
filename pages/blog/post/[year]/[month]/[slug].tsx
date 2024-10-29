@@ -81,7 +81,7 @@ const BlogPostPage = ({ post, html, excerpt }: Props): React.ReactElement => {
                     <Link href={`/blog/categories/${tag}`}>{tag}</Link>
                   </span>
                 )),
-                ", ",
+                ", "
               )}
             </div>
 
@@ -93,7 +93,7 @@ const BlogPostPage = ({ post, html, excerpt }: Props): React.ReactElement => {
                     <Link href={`/blog/tags/${tag}`}>{tag}</Link>
                   </span>
                 )),
-                ", ",
+                ", "
               )}
             </div>
           </div>
@@ -133,6 +133,7 @@ export async function getStaticProps({
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+  console.log("getStaticPaths: blog posts");
   const posts = getAllPosts();
   const paths = posts.map((post) => {
     return {
