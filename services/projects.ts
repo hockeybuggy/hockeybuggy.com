@@ -7,23 +7,33 @@ import { Project } from "../models/project";
 
 const projectDirectory = join(process.cwd(), "content/projects/");
 
+let projectFilenamesCache: Array<string> | null = null;
+const projectCache: Record<string, Project> = {};
+
 function getProjectFilenames(): string[] {
+  if (projectFilenamesCache) {
+    return projectFilenamesCache;
+  }
   console.log(`reading projests directory: ${projectDirectory}`);
-  // return fs.readdirSync(projectDirectory);
   const result = fs.readdirSync(projectDirectory);
   console.log(`reading project directory complete`);
+  projectFilenamesCache = result;
   return result;
 }
 
 export function getProjectByFilename(projectFilename: string): Project | null {
   const projectFilenameWithoutSuffix = projectFilename.replace(/\.md$/, "");
+  if (projectCache[projectFilename]) {
+    return projectCache[projectFilename];
+  }
+
   const fullPath = join(projectDirectory, `${projectFilenameWithoutSuffix}.md`);
   console.log("reading project file");
   const fileContents = fs.readFileSync(fullPath, "utf8");
   console.log("reading project file complete");
   const { data, content } = matter(fileContents);
 
-  return {
+  const result = {
     projectFilename: projectFilename,
     content: content,
     bannerImageName: data["bannerImageName"],
@@ -33,6 +43,10 @@ export function getProjectByFilename(projectFilename: string): Project | null {
     title: data["title"],
     github: data["github"] || null,
   };
+
+  projectCache[projectFilename] = result;
+
+  return result;
 }
 
 export function getAllProjects(): Project[] {

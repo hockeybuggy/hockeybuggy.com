@@ -7,16 +7,27 @@ import { Post } from "../models/blog";
 
 const postsDirectory = join(process.cwd(), "content/blog/");
 
+let postFilenamesCache: Array<string> | null = null;
+const postCache: Record<string, Post> = {};
+
 function getPostFilenames(): string[] {
+  if (postFilenamesCache) {
+    return postFilenamesCache;
+  }
   console.log(`reading post directory: ${postsDirectory}`);
-  // return fs.readdirSync(postsDirectory);
   const result = fs.readdirSync(postsDirectory);
   console.log(`reading post directory complete`);
+  postFilenamesCache = result;
   return result;
 }
 
 export function getPostByFilename(postFilename: string): Post | null {
   const postFilenameWithoutSuffix = postFilename.replace(/\.md$/, "");
+
+  if (postCache[postFilename]) {
+    return postCache[postFilename];
+  }
+
   const fullPath = join(postsDirectory, `${postFilenameWithoutSuffix}.md`);
   console.log("reading blog file");
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -26,7 +37,7 @@ export function getPostByFilename(postFilename: string): Post | null {
   const isoEditDate = data["edit_date"] || null;
   const date = parseISO(isoDate);
 
-  return {
+  const result = {
     postFilename: postFilename,
     slug: data["slug"],
     title: data["title"],
@@ -40,6 +51,10 @@ export function getPostByFilename(postFilename: string): Post | null {
     tags: data.tags || [],
     categories: data.categories || [],
   };
+
+  postCache[postFilename] = result;
+
+  return result;
 }
 
 export function getAllPosts(): Post[] {
