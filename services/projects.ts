@@ -18,7 +18,9 @@ function getProjectFilenames(): string[] {
 export function getProjectByFilename(projectFilename: string): Project | null {
   const projectFilenameWithoutSuffix = projectFilename.replace(/\.md$/, "");
   const fullPath = join(projectDirectory, `${projectFilenameWithoutSuffix}.md`);
+  console.log("reading project file");
   const fileContents = fs.readFileSync(fullPath, "utf8");
+  console.log("reading project file complete");
   const { data, content } = matter(fileContents);
 
   return {

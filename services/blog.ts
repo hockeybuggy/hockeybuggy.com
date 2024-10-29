@@ -18,7 +18,9 @@ function getPostFilenames(): string[] {
 export function getPostByFilename(postFilename: string): Post | null {
   const postFilenameWithoutSuffix = postFilename.replace(/\.md$/, "");
   const fullPath = join(postsDirectory, `${postFilenameWithoutSuffix}.md`);
+  console.log("reading blog file");
   const fileContents = fs.readFileSync(fullPath, "utf8");
+  console.log("reading blog file complete");
   const { data, content } = matter(fileContents);
   const isoDate = data["date"];
   const isoEditDate = data["edit_date"] || null;
