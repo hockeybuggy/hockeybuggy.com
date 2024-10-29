@@ -1,5 +1,5 @@
 import * as React from "react";
-import { GetStaticPropsResult, GetStaticPathsResult } from "next";
+import type { GetStaticProps, GetStaticPaths } from "next";
 import Link from "next/link";
 
 import { BlogLayout } from "../../../../../layouts";
@@ -105,19 +105,11 @@ const BlogPostPage = ({ post, html, excerpt }: Props): React.ReactElement => {
   );
 };
 
-type Params = {
-  params: {
-    year: string;
-    month: string;
-    slug: string;
-  };
-};
-
-export async function getStaticProps({
-  params,
-}: Params): Promise<GetStaticPropsResult<Props>> {
-  console.log(`getStaticProps: blog post ${params.slug}`);
-  const post = getPostBySlug(params.slug)!;
+export const getStaticProps = (async (context) => {
+  const { params } = context;
+  const slug = (params!.slug || "") as string;
+  console.log(`getStaticProps: blog post ${slug}`);
+  const post = getPostBySlug(slug)!;
   const html = await markdownToHtml(post.content);
   const excerpt = await markdownToHtmlExcerpt(post.content);
 
@@ -130,9 +122,9 @@ export async function getStaticProps({
       excerpt,
     },
   };
-}
+}) satisfies GetStaticProps;
 
-export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+export const getStaticPaths = (async () => {
   console.log("getStaticPaths: blog posts");
   const posts = getAllPosts();
   const paths = posts.map((post) => {
@@ -149,6 +141,6 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
     paths,
     fallback: false,
   };
-}
+}) satisfies GetStaticPaths;
 
 export default BlogPostPage;

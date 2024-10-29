@@ -1,5 +1,5 @@
 import * as React from "react";
-import { GetStaticPropsResult, GetStaticPathsResult } from "next";
+import type { GetStaticProps, GetStaticPaths } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { getPlaiceholder } from "plaiceholder";
@@ -83,23 +83,15 @@ const ProjectPage = ({
   );
 };
 
-type Params = {
-  params: {
-    year: string;
-    month: string;
-    slug: string;
-  };
-};
-
-export async function getStaticProps({
-  params,
-}: Params): Promise<GetStaticPropsResult<Props>> {
-  console.log(`getStaticProps: projects ${params.slug}`);
-  const project = getProjectBySlug(params.slug)!;
+export const getStaticProps = (async (context) => {
+  const { params } = context;
+  const slug = (params!.slug || "") as string;
+  console.log(`getStaticProps: projects ${slug}`);
+  const project = getProjectBySlug(slug)!;
   const html = await markdownToHtml(project.content);
   const excerpt = await markdownToHtmlExcerpt(project.content);
   const { base64, img } = await getPlaiceholder(
-    `/../content/images/${project.bannerImageName}`
+    `/../content/images/${project.bannerImageName}`,
   );
 
   return {
@@ -113,9 +105,9 @@ export async function getStaticProps({
       imgProps: img,
     },
   };
-}
+}) satisfies GetStaticProps;
 
-export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+export const getStaticPaths = (async () => {
   console.log("getStaticPaths: projects");
   const projects = getAllProjects();
   const paths = projects.map((project) => {
@@ -131,6 +123,6 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
     paths,
     fallback: false,
   };
-}
+}) satisfies GetStaticPaths;
 
 export default ProjectPage;

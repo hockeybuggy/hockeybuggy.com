@@ -1,5 +1,5 @@
 import * as React from "react";
-import { GetStaticPropsResult, GetStaticPathsResult } from "next";
+import type { GetStaticProps, GetStaticPaths } from "next";
 import Link from "next/link";
 import uniq from "lodash/uniq";
 
@@ -39,28 +39,23 @@ const CategoryPage = ({ posts, category }: Props): React.ReactElement => {
     </BlogLayout>
   );
 };
-type Params = {
-  params: {
-    category: string;
-  };
-};
-
-export async function getStaticProps({
-  params,
-}: Params): Promise<GetStaticPropsResult<Props>> {
-  console.log(`getStaticProps: blog category ${params.category}`);
+export const getStaticProps = (async (context) => {
+  const { params } = context;
+  const category = (params!.category || "") as string;
+  console.log(`getStaticProps: blog category ${category}`);
   const allPostsMatchingCategory = getAllPosts().filter((post) => {
-    return post.categories.includes(params.category);
+    return post.categories.includes(category);
   });
 
   return {
     props: {
-      category: params.category,
+      category,
       posts: allPostsMatchingCategory,
     },
   };
-}
-export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+}) satisfies GetStaticProps;
+
+export const getStaticPaths = (async () => {
   console.log("getStaticPaths: blog categories");
   const posts = getAllPosts();
   const allCategories = uniq(posts.map((post) => post.categories).flat());
@@ -75,6 +70,6 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
     paths,
     fallback: false,
   };
-}
+}) satisfies GetStaticPaths;
 
 export default CategoryPage;

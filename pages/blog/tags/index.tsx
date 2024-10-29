@@ -1,5 +1,5 @@
 import React from "react";
-import { GetStaticPropsResult } from "next";
+import type { GetStaticProps } from "next";
 import Link from "next/link";
 
 import { BlogLayout } from "../../../layouts";
@@ -50,9 +50,7 @@ const TagsIndexPage = ({
   );
 };
 
-export async function getStaticProps(): Promise<
-  GetStaticPropsResult<TagsIndexPageProps>
-> {
+export const getStaticProps = (async () => {
   console.log("getStaticProps: blog tags index");
   const allPosts = getAllPosts();
   // Filter to posts that have the tags
@@ -61,6 +59,6 @@ export async function getStaticProps(): Promise<
   return {
     props: { tagCounts },
   };
-}
+}) satisfies GetStaticProps;
 
 export default TagsIndexPage;

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { GetStaticPropsResult } from "next";
+import type { GetStaticProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getPlaiceholder } from "plaiceholder";
@@ -93,7 +93,7 @@ const ProjectsIndex = ({
   );
 };
 
-export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
+export const getStaticProps = (async () => {
   console.log("getStaticProps: projects index");
   const projects = getAllProjects();
 
@@ -119,6 +119,6 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
   return {
     props: { projects, projectExcerpts, projectImages },
   };
-}
+}) satisfies GetStaticProps;
 
 export default ProjectsIndex;
