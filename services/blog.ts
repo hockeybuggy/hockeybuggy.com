@@ -8,6 +8,7 @@ import { Post } from "../models/blog";
 const postsDirectory = join(process.cwd(), "content/blog/");
 
 function getPostFilenames(): string[] {
+  console.log(`reading post directory: ${postsDirectory}`);
   return fs.readdirSync(postsDirectory);
 }
 

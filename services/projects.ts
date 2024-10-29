@@ -8,6 +8,7 @@ import { Project } from "../models/project";
 const projectDirectory = join(process.cwd(), "content/projects/");
 
 function getProjectFilenames(): string[] {
+  console.log(`reading projests directory: ${projectDirectory}`);
   return fs.readdirSync(projectDirectory);
 }
 
