@@ -108,7 +108,6 @@ const BlogPostPage = ({ post, html, excerpt }: Props): React.ReactElement => {
 export const getStaticProps = (async (context) => {
   const { params } = context;
   const slug = (params!.slug || "") as string;
-  console.log(`getStaticProps: blog post ${slug}`);
   const post = getPostBySlug(slug)!;
   const html = await markdownToHtml(post.content);
   const excerpt = await markdownToHtmlExcerpt(post.content);
@@ -125,7 +124,6 @@ export const getStaticProps = (async (context) => {
 }) satisfies GetStaticProps;
 
 export const getStaticPaths = (async () => {
-  console.log("getStaticPaths: blog posts");
   const posts = getAllPosts();
   const paths = posts.map((post) => {
     return {

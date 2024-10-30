@@ -14,9 +14,7 @@ function getProjectFilenames(): string[] {
   if (projectFilenamesCache) {
     return projectFilenamesCache;
   }
-  console.log(`reading projests directory: ${projectDirectory}`);
   const result = fs.readdirSync(projectDirectory);
-  console.log(`reading project directory complete`);
   projectFilenamesCache = result;
   return result;
 }
@@ -28,9 +26,7 @@ export function getProjectByFilename(projectFilename: string): Project | null {
   }
 
   const fullPath = join(projectDirectory, `${projectFilenameWithoutSuffix}.md`);
-  console.log("reading project file");
   const fileContents = fs.readFileSync(fullPath, "utf8");
-  console.log("reading project file complete");
   const { data, content } = matter(fileContents);
 
   const result = {

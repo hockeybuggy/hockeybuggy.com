@@ -42,7 +42,6 @@ const CategoryPage = ({ posts, category }: Props): React.ReactElement => {
 export const getStaticProps = (async (context) => {
   const { params } = context;
   const category = (params!.category || "") as string;
-  console.log(`getStaticProps: blog category ${category}`);
   const allPostsMatchingCategory = getAllPosts().filter((post) => {
     return post.categories.includes(category);
   });
@@ -56,7 +55,6 @@ export const getStaticProps = (async (context) => {
 }) satisfies GetStaticProps;
 
 export const getStaticPaths = (async () => {
-  console.log("getStaticPaths: blog categories");
   const posts = getAllPosts();
   const allCategories = uniq(posts.map((post) => post.categories).flat());
   const paths = allCategories.map((category) => {
@@ -64,7 +62,6 @@ export const getStaticPaths = (async () => {
       params: { category },
     };
   });
-  console.log("getStaticPaths: blog categories after");
 
   return {
     paths,

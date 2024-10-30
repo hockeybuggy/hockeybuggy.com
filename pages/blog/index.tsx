@@ -45,7 +45,6 @@ const BlogIndex = ({ allPosts }: Props): React.ReactElement => {
 };
 
 export const getStaticProps = (async () => {
-  console.log("getStaticProps: blog index");
   const allPosts = getAllPosts();
   const allListedPosts = allPosts.filter((post) => !post.delisted);
 
