@@ -86,7 +86,6 @@ const ProjectPage = ({
 export const getStaticProps = (async (context) => {
   const { params } = context;
   const slug = (params!.slug || "") as string;
-  console.log(`getStaticProps: projects ${slug}`);
   const project = getProjectBySlug(slug)!;
   const html = await markdownToHtml(project.content);
   const excerpt = await markdownToHtmlExcerpt(project.content);
@@ -108,7 +107,6 @@ export const getStaticProps = (async (context) => {
 }) satisfies GetStaticProps;
 
 export const getStaticPaths = (async () => {
-  console.log("getStaticPaths: projects");
   const projects = getAllProjects();
   const paths = projects.map((project) => {
     return {
@@ -117,7 +115,6 @@ export const getStaticPaths = (async () => {
       },
     };
   });
-  console.log("getStaticPaths: projects after");
 
   return {
     paths,

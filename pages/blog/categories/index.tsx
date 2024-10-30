@@ -50,7 +50,6 @@ const CategoriesIndexPage = ({
 };
 
 export const getStaticProps = (async () => {
-  console.log("getStaticProps: blog category index");
   const allPosts = getAllPosts();
   const categoryCounts = getCategoryCountsFromPosts(allPosts);
 

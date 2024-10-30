@@ -44,7 +44,6 @@ const TagPage = ({ posts, tag }: Props): React.ReactElement => {
 export const getStaticProps = (async (context) => {
   const { params } = context;
   const tag = (params!.tag || "") as string;
-  console.log(`getStaticProps: blog tag ${tag}`);
   const allPostsMatchingTag = getAllPosts().filter((post) => {
     return post.tags.includes(tag);
   });
@@ -58,7 +57,6 @@ export const getStaticProps = (async (context) => {
 }) satisfies GetStaticProps;
 
 export const getStaticPaths = (async () => {
-  console.log("getStaticPaths: blog tags");
   const posts = getAllPosts();
   const allTags = uniq(posts.map((post) => post.tags).flat());
   const paths = allTags.map((tag) => {

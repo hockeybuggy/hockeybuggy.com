@@ -29,7 +29,7 @@ const IndexPage = (): React.ReactElement => {
         <div className="avatar">
           <Image
             src={douglasPaddling}
-            alt="The website author wearing sunglasses a blue hat and shirt a red life jacket."
+            alt="The website's author wearing sunglasses a blue hat and shirt a red life jacket."
             style={{
               maxWidth: "100%",
               height: "auto",

@@ -14,9 +14,7 @@ function getPostFilenames(): string[] {
   if (postFilenamesCache) {
     return postFilenamesCache;
   }
-  console.log(`reading post directory: ${postsDirectory}`);
   const result = fs.readdirSync(postsDirectory);
-  console.log(`reading post directory complete`);
   postFilenamesCache = result;
   return result;
 }
@@ -29,9 +27,7 @@ export function getPostByFilename(postFilename: string): Post | null {
   }
 
   const fullPath = join(postsDirectory, `${postFilenameWithoutSuffix}.md`);
-  console.log("reading blog file");
   const fileContents = fs.readFileSync(fullPath, "utf8");
-  console.log("reading blog file complete");
   const { data, content } = matter(fileContents);
   const isoDate = data["date"];
   const isoEditDate = data["edit_date"] || null;
