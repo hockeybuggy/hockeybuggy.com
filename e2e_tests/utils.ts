@@ -1,12 +1,14 @@
 import { KnownDevices } from "puppeteer";
 
-const iPhone = KnownDevices["iPhone 6"];
-
 /* This helper function takes a Puppetter `page` and a `url` and loads the
  * page, responding when all requests have completed.
  */
-const loadPage = async (page: any, url: string) => {
-  await page.emulate(iPhone);
+const loadPage = async (
+  page: any,
+  url: string,
+  device?: "iPhone 6" | "iPad Pro",
+) => {
+  await page.emulate(KnownDevices[device || "iPhone 6"]);
   const response = await page.goto(url, {
     waitUntil: "networkidle2",
   });

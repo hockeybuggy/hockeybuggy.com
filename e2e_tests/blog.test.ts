@@ -117,11 +117,6 @@ describe("/blog (Blog index Page)", () => {
     await loadPage(page, BLOG_PAGE.url);
 
     expect(errors).toEqual([]);
-
-    // Not related to this specific assertion but while we're here:
-    await page.screenshot({
-      path: `e2e_tests/screenshots/blog_index_page.png`,
-    });
   });
 
   it("should have links to many blog posts", async () => {
@@ -143,6 +138,48 @@ describe("/blog (Blog index Page)", () => {
     );
 
     expect(blogPosts).toEqual(indexListedBlogPosts);
+  });
+
+  describe("screenshots", () => {
+    test("iPhone light", async () => {
+      await loadPage(page, BLOG_PAGE.url, "iPhone 6");
+      await page.emulateMediaFeatures([
+        { name: "prefers-color-scheme", value: "light" },
+      ]);
+      await page.screenshot({
+        path: `e2e_tests/screenshots/blog_index_page__iPhone_light.png`,
+      });
+    });
+
+    test("iPhone dark", async () => {
+      await loadPage(page, BLOG_PAGE.url, "iPhone 6");
+      await page.emulateMediaFeatures([
+        { name: "prefers-color-scheme", value: "dark" },
+      ]);
+      await page.screenshot({
+        path: `e2e_tests/screenshots/blog_index_page__iPhone_dark.png`,
+      });
+    });
+
+    test("iPad light", async () => {
+      await loadPage(page, BLOG_PAGE.url, "iPad Pro");
+      await page.emulateMediaFeatures([
+        { name: "prefers-color-scheme", value: "light" },
+      ]);
+      await page.screenshot({
+        path: `e2e_tests/screenshots/blog_index_page__iPad_light.png`,
+      });
+    });
+
+    test("iPad dark", async () => {
+      await loadPage(page, BLOG_PAGE.url, "iPad Pro");
+      await page.emulateMediaFeatures([
+        { name: "prefers-color-scheme", value: "dark" },
+      ]);
+      await page.screenshot({
+        path: `e2e_tests/screenshots/blog_index_page__iPad_dark.png`,
+      });
+    });
   });
 });
 
@@ -172,11 +209,6 @@ describe("/blog/tags (Blog tags index Page)", () => {
     await loadPage(page, TAGS_PAGE.url);
 
     expect(errors).toEqual([]);
-
-    // Not related to this specific assertion but while we're here:
-    await page.screenshot({
-      path: `e2e_tests/screenshots/tags_index_page.png`,
-    });
   });
 
   it("should have a title", async () => {
@@ -194,6 +226,48 @@ describe("/blog/tags (Blog tags index Page)", () => {
       });
     });
     expect(tagLinks).toEqual(expectedTagLinks);
+  });
+
+  describe("screenshots", () => {
+    test("iPhone light", async () => {
+      await loadPage(page, TAGS_PAGE.url, "iPhone 6");
+      await page.emulateMediaFeatures([
+        { name: "prefers-color-scheme", value: "light" },
+      ]);
+      await page.screenshot({
+        path: `e2e_tests/screenshots/blog_tags_index_page__iPhone_light.png`,
+      });
+    });
+
+    test("iPhone dark", async () => {
+      await loadPage(page, TAGS_PAGE.url, "iPhone 6");
+      await page.emulateMediaFeatures([
+        { name: "prefers-color-scheme", value: "dark" },
+      ]);
+      await page.screenshot({
+        path: `e2e_tests/screenshots/blog_tags_index_page__iPhone_dark.png`,
+      });
+    });
+
+    test("iPad light", async () => {
+      await loadPage(page, TAGS_PAGE.url, "iPad Pro");
+      await page.emulateMediaFeatures([
+        { name: "prefers-color-scheme", value: "light" },
+      ]);
+      await page.screenshot({
+        path: `e2e_tests/screenshots/blog_tags_index_page__iPad_light.png`,
+      });
+    });
+
+    test("iPad dark", async () => {
+      await loadPage(page, TAGS_PAGE.url, "iPad Pro");
+      await page.emulateMediaFeatures([
+        { name: "prefers-color-scheme", value: "dark" },
+      ]);
+      await page.screenshot({
+        path: `e2e_tests/screenshots/blog_tags_index_page__iPad_dark.png`,
+      });
+    });
   });
 });
 
@@ -235,11 +309,6 @@ describe("/blog/categories (Blog categories index Page)", () => {
     await loadPage(page, CATEGORIES_PAGE.url);
 
     expect(errors).toEqual([]);
-
-    // Not related to this specific assertion but while we're here:
-    await page.screenshot({
-      path: `e2e_tests/screenshots/categories_index_page.png`,
-    });
   });
 
   it("should have a title", async () => {
@@ -257,6 +326,48 @@ describe("/blog/categories (Blog categories index Page)", () => {
       });
     });
     expect(categoryLinks).toEqual(expectedCategoryLinks);
+  });
+
+  describe("screenshots", () => {
+    test("iPhone light", async () => {
+      await loadPage(page, CATEGORIES_PAGE.url, "iPhone 6");
+      await page.emulateMediaFeatures([
+        { name: "prefers-color-scheme", value: "light" },
+      ]);
+      await page.screenshot({
+        path: `e2e_tests/screenshots/blog_categories_index_page__iPhone_light.png`,
+      });
+    });
+
+    test("iPhone dark", async () => {
+      await loadPage(page, CATEGORIES_PAGE.url, "iPhone 6");
+      await page.emulateMediaFeatures([
+        { name: "prefers-color-scheme", value: "dark" },
+      ]);
+      await page.screenshot({
+        path: `e2e_tests/screenshots/blog_categories_index_page__iPhone_dark.png`,
+      });
+    });
+
+    test("iPad light", async () => {
+      await loadPage(page, CATEGORIES_PAGE.url, "iPad Pro");
+      await page.emulateMediaFeatures([
+        { name: "prefers-color-scheme", value: "light" },
+      ]);
+      await page.screenshot({
+        path: `e2e_tests/screenshots/blog_categories_index_page__iPad_light.png`,
+      });
+    });
+
+    test("iPad dark", async () => {
+      await loadPage(page, CATEGORIES_PAGE.url, "iPad Pro");
+      await page.emulateMediaFeatures([
+        { name: "prefers-color-scheme", value: "dark" },
+      ]);
+      await page.screenshot({
+        path: `e2e_tests/screenshots/blog_categories_index_page__iPad_dark.png`,
+      });
+    });
   });
 });
 
