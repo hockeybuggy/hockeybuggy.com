@@ -1,4 +1,8 @@
 module.exports = {
   reactStrictMode: true,
-  staticPageGenerationTimeout: 180,
+  staticPageGenerationTimeout: 60,
+  experimental: {
+    workerThreads: false,
+    cpus: 1,
+  },
 };
