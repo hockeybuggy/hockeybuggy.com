@@ -34,6 +34,48 @@ const expectedProjects = [
 ];
 
 describe("/projects (Projects index Page)", () => {
+  describe("screenshots", () => {
+    test("iPhone light", async () => {
+      await loadPage(page, PROJECTS_PAGE.url, "iPhone 6");
+      await page.emulateMediaFeatures([
+        { name: "prefers-color-scheme", value: "light" },
+      ]);
+      await page.screenshot({
+        path: `e2e_tests/screenshots/projects_index_page__iPhone_light.png`,
+      });
+    });
+
+    test("iPhone dark", async () => {
+      await loadPage(page, PROJECTS_PAGE.url, "iPhone 6");
+      await page.emulateMediaFeatures([
+        { name: "prefers-color-scheme", value: "dark" },
+      ]);
+      await page.screenshot({
+        path: `e2e_tests/screenshots/projects_index_page__iPhone_dark.png`,
+      });
+    });
+
+    test("iPad light", async () => {
+      await loadPage(page, PROJECTS_PAGE.url, "iPad Pro");
+      await page.emulateMediaFeatures([
+        { name: "prefers-color-scheme", value: "light" },
+      ]);
+      await page.screenshot({
+        path: `e2e_tests/screenshots/projects_index_page__iPad_light.png`,
+      });
+    });
+
+    test("iPad dark", async () => {
+      await loadPage(page, PROJECTS_PAGE.url, "iPad Pro");
+      await page.emulateMediaFeatures([
+        { name: "prefers-color-scheme", value: "dark" },
+      ]);
+      await page.screenshot({
+        path: `e2e_tests/screenshots/projects_index_page__iPad_dark.png`,
+      });
+    });
+  });
+
   it("should load without error", async () => {
     const errors: Array<{ errorMessage: string }> = [];
     page.on("console", (msg) => {
@@ -45,11 +87,6 @@ describe("/projects (Projects index Page)", () => {
     await loadPage(page, PROJECTS_PAGE.url);
 
     expect(errors).toEqual([]);
-
-    // Not related to this specific assertion but while we're here:
-    await page.screenshot({
-      path: `e2e_tests/screenshots/projects_index_page.png`,
-    });
   });
 
   it("should have links to many projects", async () => {
