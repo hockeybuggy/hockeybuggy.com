@@ -1517,12 +1517,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/classnames@npm:^2.3.1":
-  version: 2.3.1
-  resolution: "@types/classnames@npm:2.3.1"
+"@types/classnames@npm:^2.3.4":
+  version: 2.3.4
+  resolution: "@types/classnames@npm:2.3.4"
   dependencies:
     classnames: "npm:*"
-  checksum: 10c0/6b71e5220aa3f04dbe1eba910f7755b880a2c6e3ba0ebf71fe73db99d58628022de06340a029c97db093e31d7981bc695b6c2ce65b2a58492d245e2cbe44a47d
+  checksum: 10c0/25de08662e5c68314d23527671a29c2125e399c015d67ffd4b304aa3330f1aacd452bcc74964e04eaad35999c4d474ded4fbb8c4c920026e43783f76560d6b0c
   languageName: node
   linkType: hard
 
@@ -4283,7 +4283,7 @@ __metadata:
   dependencies:
     "@eslint/eslintrc": "npm:^3.1.0"
     "@eslint/js": "npm:^9.12.0"
-    "@types/classnames": "npm:^2.3.1"
+    "@types/classnames": "npm:^2.3.4"
     "@types/expect-puppeteer": "npm:^5.0.6"
     "@types/jest": "npm:^29.5.12"
     "@types/jest-environment-puppeteer": "npm:^5.0.6"
