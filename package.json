@@ -28,7 +28,7 @@
     "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
     "markdown-it": "^14.1.0",
-    "markdown-it-anchor": "^8.6.7",
+    "markdown-it-anchor": "^9.2.0",
     "markdown-it-prism": "^2.3.0",
     "next": "^14.2.15",
     "normalize.css": "^8.0.1",
