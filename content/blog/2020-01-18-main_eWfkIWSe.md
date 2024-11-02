@@ -2,7 +2,7 @@
 categories:
 - misc
 date: "2020-01-18T00:00:00-05:00"
-edit_date: "2020-12-30T00:00:00-05:00"
+edit_date: "2024-11-02T00:00:00-05:00"
 slug: experimenting-with-protobufs-generated-types-in-rust
 tags:
 - development
@@ -11,15 +11,16 @@ tags:
 title: Experimenting with Protobufs generated types in Rust
 ---
 
+> Edit (2024-11-02): This post has been updated to use the latest version of the dependencies.
+
 This past week I was thinking about what it would take to design and build a
-home heating monitoring and control system. A "normal" mid-week thought. I was
-imagining something like a small computer in each room that would have a
-thermometer on radiator and thermometer measuring the ambient air temperature.
-These smaller computers would send messages into a "central" computer that
-would record things and turn radiators on and off. These computers would be on
-a separate physical network from other devices in the house and would not be
-internet connected (because having your house not work when the internet is
-down sounds super frustrating).
+home heating monitoring and control system. I was imagining something like a
+small computer in each room that would have a thermometer on radiator and
+thermometer measuring the ambient air temperature. These smaller computers
+would send messages into a "central" computer that would record things and turn
+radiators on and off. These computers would be on a separate physical network
+from other devices in the house and would not be internet connected (because
+having your house not work when the internet is down sounds super frustrating).
 
 These smaller computers will need to encode the information in some format and
 send it to the central computer. Being a web developer I reached for familiar
@@ -52,17 +53,26 @@ retrospect, I didn't look into
 [other](https://github.com/stepancheg/rust-protobuf)
 [options](https://github.com/tafia/quick-protobuf).
 
-I started off by installing Prost by adding this to my `Cargo.toml`:
+I started off by creating new rust project with two executables.
+
+```shell
+cargo init --lib
+mkdir src/bin
+touch src/bin/server.rs
+touch src/bin/fake_thermostat.rs
+```
+
+Next I install Prost by adding this to my `Cargo.toml`:
 
 ```toml
 [dependencies]
-prost = "0.7"
+prost = "0.13"
 
 [build-dependencies]
-prost-build = "0.7"
+prost-build = "0.13"
 ```
 
-Then creating a minimal `.proto` file called `src/messages.proto`:
+Then created a minimal `.proto` file called `src/messages.proto`:
 
 ```protobuf
 syntax = "proto3";
@@ -76,9 +86,11 @@ message ThermostatState {
 }
 ```
 
-After that followed the instructions for using `prost-build` to generate a
-struct from the Protobuf definition. That included adding the following to the
-`Cargo.toml`:
+In order for us to compile the protobufs we'll need `protoc` (the protobuf
+compiler installed).
+
+Next we're using `prost-build` to generate a struct from the Protobuf
+definition. We add the following to the `Cargo.toml`:
 
 ```toml
 build = "src/build.rs"
@@ -95,7 +107,7 @@ fn main() {
 }
 ```
 
-This file compiles are of the Protobufs in the first argument and outputs the
+This file compiles all of the Protobufs in the first argument and outputs the
 generated code to the second argument. That means that it will output a Rust
 file that looks like this:
 
@@ -121,6 +133,15 @@ pub mod messages {
 }
 ```
 
+In the `Cargo.toml` we'll add a section that will make this available to the
+executables with the name `home_auto` (since we're dealing with thermostats).
+
+```toml
+[lib]
+name = "home_auto"
+path = "src/lib.rs"
+```
+
 The `struct` can then be constructed an used as a return type normally: 
 
 ```rust
@@ -132,11 +153,10 @@ pub fn create_thermostat_state(name: String) -> messages::ThermostatState {
 ```
 
 
-[PROST]: https://github.com/danburkert/prost
+[PROST]: https://github.com/tokio-rs/prost
 
 
 ## Encoding and decoding
-
 
 Now that we are able to generate Rust code from the Protobufs we next want to
 send them from one system to another.
@@ -144,9 +164,18 @@ send them from one system to another.
 ### Sending
 
 To send a HTTP POST I reached for the
-[`reqwest`](https://docs.rs/crate/reqwest/0.10.1) package (again didn't do a
+[`reqwest`](https://docs.rs/reqwest/latest/reqwest) package (again didn't do a
 ton of research, just picked a dependency that looked good enough). I was then
-able to construct a Protobuf, encode it, then send it as a request body:
+able to construct a Protobuf, encode it, then send it as a request body.
+
+To the `dependencies` of the `Cargo.toml`:
+
+```toml
+reqwest = { version = "0.12" }
+tokio = { version = "1", features = ["full"] }
+```
+
+In the `src/bin/fake_thermostat.rs` file:
 
 ```rust
 use reqwest;
@@ -175,29 +204,34 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 ```
 
 The documentation for [`encode` can be found
-here.](https://docs.rs/prost/0.6.1/prost/trait.Message.html#method.encode).
+here.](https://docs.rs/prost/latest/prost/trait.Message.html#method.encode).
 
 
 ### Receiving
 
 The next step was getting something serving HTTP requests running on
 `localhost:8080`. To do this I also picked a dependency somewhat arbitrarily
-and used [`warp`](https://docs.rs/crate/warp/0.2.0).
+and used [`warp`](https://docs.rs/warp/latest/warp/).
+
+To the `dependencies` in the `Cargo.toml`:
+
+```toml
+warp = "0.3"
+```
+
+And then in `src/bin/server.rs`:
 
 
 ```rust
-use bytes;
+use prost;
 use tokio;
 use warp::Filter;
-
-// This trait is required to call `ThermostatState::decode`
-use prost::Message;
 
 #[tokio::main]
 async fn main() {
     let route = warp::body::content_length_limit(1024 * 32)
         .and(warp::body::bytes())
-        .map(|bytes: bytes::Bytes| {
+        .map(|bytes: prost::bytes::Bytes| {
             println!("bytes = {:?}", bytes);
             let msg = home_auto::messages::ThermostatState::decode(bytes).unwrap();
             println!("msg = {:?}", msg);
@@ -215,14 +249,27 @@ if this was meant to be long living code).
 
 ### Results
 
-Each time the first program is run the second program will print:
+We can run each program with:
+
+```shell
+cargo run --bin server
+```
+
+And in another shell:
+
+```
+cargo run --bin fake_thermostat
+```
+
+Each time the `fake_thermostat` program is run the `server` program will print:
 
 ```plaintext
 bytes = b"\n\x03foo"
 msg = ThermostatState { name: "foo", air_temp: 0.0, rad_temp: 0.0 }
 ```
 
-The first bit is the binary format sent over the wire and the second is the `std::fmt::Debug` of the generated `struct`.
+The first line is the binary format sent over the wire and the second is the
+`std::fmt::Debug` of the generated `struct`.
 
 Which is pretty neat!
 
