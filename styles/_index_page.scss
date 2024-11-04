@@ -10,13 +10,25 @@
     position: relative;
     left: 0;
     top: 0;
+    width: 20rem;
+    height: auto;
+    padding: 0;
   }
 
-  .placeholder {
+  #avatar-outline {
+    border-radius: 50%;
     position: absolute;
     left: 0;
     top: 0;
     z-index: -1;
+    display: block;
+  }
+
+  #avatar-placeholder {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -2;
     display: block;
     width: 20rem;
     height: auto;
