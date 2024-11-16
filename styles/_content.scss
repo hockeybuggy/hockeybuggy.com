@@ -104,6 +104,14 @@ img {
   width: 100%;
 }
 
+.small-centered-image {
+  width: max(25%, 400px);
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  box-shadow: 5px 5px 10px 2px $dark-alt-bg-color;
+}
+
 .icon {
   display: inline-block;
 }
