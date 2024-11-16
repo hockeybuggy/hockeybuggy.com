@@ -2,7 +2,10 @@ import MarkdownIt from "markdown-it";
 import prism from "markdown-it-prism";
 import anchor from "markdown-it-anchor";
 
-const md = new MarkdownIt();
+const md = new MarkdownIt({
+  html: true,
+});
+
 md.use(prism, {
   defaultLangugage: "plaintext",
 });
