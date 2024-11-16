@@ -1,6 +1,6 @@
 ---
-title: Making a fancy loading screen
-slug: "fancy-loading-screen"
+title: Making a fancy loading state
+slug: "fancy-loading-state"
 date: "2024-11-15"
 tags:
 - development
