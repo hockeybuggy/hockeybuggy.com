@@ -7,6 +7,11 @@ import { loadPage } from "./utils";
 // blog posts load.
 const expectedBlogPosts = [
   {
+    postDate: "2024-11-15",
+    postTitle: "Making a fancy loading state",
+    postPathName: "/blog/post/2024/11/fancy-loading-state",
+  },
+  {
     postDate: "2021-12-26",
     postTitle: "Switching to Next.js",
     postPathName: "/blog/post/2021/12/switching-to-next-js",
