@@ -65,7 +65,7 @@
     "puppeteer": "^23.9.0",
     "sass": "^1.81.0",
     "ts-jest": "^29.2.5",
-    "typescript": "^5.2.2",
+    "typescript": "^5.7.2",
     "typescript-eslint": "^8.10.0"
   },
   "packageManager": "yarn@4.5.0"
