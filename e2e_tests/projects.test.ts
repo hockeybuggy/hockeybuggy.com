@@ -40,9 +40,10 @@ describe("/projects (Projects index Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "light" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/projects_index_page__iPhone_light.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
 
     test("iPhone dark", async () => {
@@ -50,9 +51,10 @@ describe("/projects (Projects index Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "dark" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/projects_index_page__iPhone_dark.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
 
     test("iPad light", async () => {
@@ -60,9 +62,10 @@ describe("/projects (Projects index Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "light" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/projects_index_page__iPad_light.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
 
     test("iPad dark", async () => {
@@ -70,9 +73,10 @@ describe("/projects (Projects index Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "dark" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/projects_index_page__iPad_dark.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
   });
 
