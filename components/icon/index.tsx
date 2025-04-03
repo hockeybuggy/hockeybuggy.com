@@ -9,6 +9,7 @@ import folderIcon from "./svgs/folder";
 import linkIcon from "./svgs/link";
 import creativeCommonsIcon from "./svgs/creativeCommons";
 import githubIcon from "./svgs/github";
+import blueskyIcon from "./svgs/bluesky";
 
 /* eslint-disable no-unused-vars */
 enum IconNames {
@@ -21,6 +22,7 @@ enum IconNames {
   Tag,
 
   GitHub,
+  Bluesky,
   CreativeCommons,
 }
 
@@ -53,6 +55,8 @@ function iconSvgByName(name: IconNames): React.ReactElement {
       return creativeCommonsIcon();
     case IconNames.GitHub:
       return githubIcon();
+    case IconNames.Bluesky:
+      return blueskyIcon();
   }
   exhasutiveCheck(name);
 }

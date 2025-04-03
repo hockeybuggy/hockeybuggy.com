@@ -15,6 +15,11 @@ const social = [
     iconName: Icon.Names.GitHub,
   },
   {
+    label: "Bluesky",
+    link: "https://bsky.app/profile/hockeybuggy.bsky.social",
+    iconName: Icon.Names.Bluesky,
+  },
+  {
     label: "Email",
     link: "mailto:hockeybuggy@gmail.com",
     iconName: Icon.Names.Email,
@@ -68,7 +73,7 @@ const IndexPage = (): React.ReactElement => {
                     name={socialSite.iconName}
                     size={Icon.Sizes.Large}
                     aria-hidden="true"
-                    label=""
+                    label={"Icon for " + socialSite.label}
                   />
                 </a>
               </li>
