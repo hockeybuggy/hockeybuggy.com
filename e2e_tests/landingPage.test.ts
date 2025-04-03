@@ -20,6 +20,36 @@ describe("/ (Landing Page)", () => {
     expect(await page.title()).toEqual(LANDING_PAGE.expected.title);
   });
 
+  it("should have GitHub social link with proper attributes", async () => {
+    await loadPage(page, LANDING_PAGE.url);
+
+    const githubLink = await page.$('a[aria-label="GitHub"]');
+    expect(githubLink).not.toBeNull();
+
+    const href = await githubLink?.evaluate((el) => el.getAttribute("href"));
+    expect(href).toBe("https://github.com/hockeybuggy");
+  });
+
+  it("should have Bluesky social link with proper attributes", async () => {
+    await loadPage(page, LANDING_PAGE.url);
+
+    const blueskyLink = await page.$('a[aria-label="Bluesky"]');
+    expect(blueskyLink).not.toBeNull();
+
+    const href = await blueskyLink?.evaluate((el) => el.getAttribute("href"));
+    expect(href).toBe("https://bsky.app/profile/hockeybuggy.bsky.social");
+  });
+
+  it("should have Email social link with proper attributes", async () => {
+    await loadPage(page, LANDING_PAGE.url);
+
+    const emailLink = await page.$('a[aria-label="Email"]');
+    expect(emailLink).not.toBeNull();
+
+    const href = await emailLink?.evaluate((el) => el.getAttribute("href"));
+    expect(href).toBe("mailto:hockeybuggy@gmail.com");
+  });
+
   describe("screenshots", () => {
     test("iPhone light", async () => {
       await loadPage(page, LANDING_PAGE.url, "iPhone 6");
