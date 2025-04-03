@@ -151,9 +151,10 @@ describe("/blog (Blog index Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "light" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/blog_index_page__iPhone_light.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
 
     test("iPhone dark", async () => {
@@ -161,9 +162,10 @@ describe("/blog (Blog index Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "dark" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/blog_index_page__iPhone_dark.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
 
     test("iPad light", async () => {
@@ -171,9 +173,10 @@ describe("/blog (Blog index Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "light" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/blog_index_page__iPad_light.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
 
     test("iPad dark", async () => {
@@ -181,9 +184,10 @@ describe("/blog (Blog index Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "dark" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/blog_index_page__iPad_dark.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
   });
 });
@@ -239,9 +243,10 @@ describe("/blog/tags (Blog tags index Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "light" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/blog_tags_index_page__iPhone_light.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
 
     test("iPhone dark", async () => {
@@ -249,9 +254,10 @@ describe("/blog/tags (Blog tags index Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "dark" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/blog_tags_index_page__iPhone_dark.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
 
     test("iPad light", async () => {
@@ -259,9 +265,10 @@ describe("/blog/tags (Blog tags index Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "light" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/blog_tags_index_page__iPad_light.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
 
     test("iPad dark", async () => {
@@ -269,9 +276,10 @@ describe("/blog/tags (Blog tags index Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "dark" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/blog_tags_index_page__iPad_dark.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
   });
 });
@@ -339,9 +347,10 @@ describe("/blog/categories (Blog categories index Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "light" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/blog_categories_index_page__iPhone_light.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
 
     test("iPhone dark", async () => {
@@ -349,9 +358,10 @@ describe("/blog/categories (Blog categories index Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "dark" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/blog_categories_index_page__iPhone_dark.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
 
     test("iPad light", async () => {
@@ -359,9 +369,10 @@ describe("/blog/categories (Blog categories index Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "light" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/blog_categories_index_page__iPad_light.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
 
     test("iPad dark", async () => {
@@ -369,9 +380,10 @@ describe("/blog/categories (Blog categories index Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "dark" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/blog_categories_index_page__iPad_dark.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
   });
 });

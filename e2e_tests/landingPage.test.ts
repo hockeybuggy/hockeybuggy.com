@@ -26,9 +26,10 @@ describe("/ (Landing Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "light" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/landing_page__iPhone_light.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
 
     test("iPhone dark", async () => {
@@ -36,9 +37,10 @@ describe("/ (Landing Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "dark" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/landing_page__iPhone_dark.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
 
     test("iPad light", async () => {
@@ -46,9 +48,10 @@ describe("/ (Landing Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "light" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/landing_page__iPad_light.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
 
     test("iPad dark", async () => {
@@ -56,9 +59,10 @@ describe("/ (Landing Page)", () => {
       await page.emulateMediaFeatures([
         { name: "prefers-color-scheme", value: "dark" },
       ]);
-      await page.screenshot({
+      const screenshot = await page.screenshot({
         path: `e2e_tests/screenshots/landing_page__iPad_dark.png`,
       });
+      expect(screenshot).toBeTruthy();
     });
   });
 });
