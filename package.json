@@ -41,7 +41,7 @@
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.23.0",
     "@types/classnames": "^2.3.4",
     "@types/expect-puppeteer": "^5.0.6",
