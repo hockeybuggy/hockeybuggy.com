@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.23.0",
+    "@eslint/js": "^9.28.0",
     "@types/classnames": "^2.3.4",
     "@types/expect-puppeteer": "^5.0.6",
     "@types/jest": "^29.5.14",
