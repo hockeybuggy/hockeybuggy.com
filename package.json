@@ -33,7 +33,7 @@
     "next": "^15.3.3",
     "normalize.css": "^8.0.1",
     "plaiceholder": "^2.5.0",
-    "query-string": "^9.1.0",
+    "query-string": "^9.2.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "sharp": "^0.34.2",
