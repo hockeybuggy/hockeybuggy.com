@@ -23,7 +23,7 @@
     "add": "^2.0.6",
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
-    "feed": "^4.2.2",
+    "feed": "^5.1.0",
     "globals": "^16.3.0",
     "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
