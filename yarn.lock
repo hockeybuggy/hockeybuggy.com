@@ -1974,12 +1974,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:19.1.6":
-  version: 19.1.6
-  resolution: "@types/react@npm:19.1.6"
+"@types/react@npm:19.2.2":
+  version: 19.2.2
+  resolution: "@types/react@npm:19.2.2"
   dependencies:
     csstype: "npm:^3.0.2"
-  checksum: 10c0/8b10b198e28997b3c57559750f8bcf5ae7b33c554b16b6f4fe2ece1d4de6a2fc8cb53e7effe08ec9cb939d2f479eb97c5e08aac2cf83b10a90164fe451cc8ea2
+  checksum: 10c0/f830b1204aca4634ce3c6cb3477b5d3d066b80a4dd832a4ee0069acb504b6debd2416548a43a11c1407c12bc60e2dc6cf362934a18fe75fe06a69c0a98cba8ab
   languageName: node
   linkType: hard
 
@@ -4960,7 +4960,7 @@ __metadata:
     "@types/lodash": "npm:^4.17.20"
     "@types/markdown-it": "npm:^14.1.2"
     "@types/node": "npm:16.11.56"
-    "@types/react": "npm:19.1.6"
+    "@types/react": "npm:19.2.2"
     "@types/react-dom": "npm:19.1.5"
     "@types/react-helmet": "npm:^6.1.11"
     add: "npm:^2.0.6"
@@ -4987,7 +4987,7 @@ __metadata:
     prettier: "npm:^3.6.2"
     puppeteer: "npm:^24.18.0"
     query-string: "npm:^9.2.1"
-    react: "npm:^19.1.0"
+    react: "npm:^19.2.0"
     react-dom: "npm:^19.1.0"
     sass: "npm:^1.89.2"
     sharp: "npm:^0.34.2"
@@ -7678,10 +7678,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^19.1.0":
-  version: 19.1.0
-  resolution: "react@npm:19.1.0"
-  checksum: 10c0/530fb9a62237d54137a13d2cfb67a7db6a2156faed43eecc423f4713d9b20c6f2728b026b45e28fcd72e8eadb9e9ed4b089e99f5e295d2f0ad3134251bdd3698
+"react@npm:^19.2.0":
+  version: 19.2.0
+  resolution: "react@npm:19.2.0"
+  checksum: 10c0/1b6d64eacb9324725bfe1e7860cb7a6b8a34bc89a482920765ebff5c10578eb487e6b46b2f0df263bd27a25edbdae2c45e5ea5d81ae61404301c1a7192c38330
   languageName: node
   linkType: hard
 
