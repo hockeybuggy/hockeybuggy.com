@@ -14,6 +14,12 @@ tsconfig.tsbuildinfo
 /.next/
 /out/
 
+# Rust build artifacts
+/ssg/target/
+
+# Static site output
+/dist/
+
 # We generate the following files via the prebuild script
 public/sitemap.xml
 public/blog/index.xml

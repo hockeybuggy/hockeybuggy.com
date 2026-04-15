@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Categories</h1>
+<ul>
+  {% for cat in categories %}
+  <li><a href="{{ cat.url }}">{{ cat.name }} ({{ cat.count }})</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

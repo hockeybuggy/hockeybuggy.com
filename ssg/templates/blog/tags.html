@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Tags</h1>
+<ul>
+  {% for tag in tags %}
+  <li><a href="{{ tag.url }}">{{ tag.name }} ({{ tag.count }})</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

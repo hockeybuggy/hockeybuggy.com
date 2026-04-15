@@ -1,7 +1,6 @@
 [build]
   command = "yarn build"
-  functions = "lambda"
-  publish = ".next"
+  publish = "dist"
 
 [dev]
   autoLaunch = false
