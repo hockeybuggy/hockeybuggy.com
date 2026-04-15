@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<article>
+  <header>
+    <h1 class="post-title">{{ project_title }}</h1>
+    <div class="post-meta">
+      {% if github %}
+      <div>
+        <a aria-label="Project's GitHub page" href="{{ github }}">View on GitHub</a>
+      </div>
+      {% endif %}
+    </div>
+  </header>
+  {% if banner_image_url %}
+  <div class="banner-image-container">
+    <img
+      alt="{{ banner_alt_text }}"
+      src="{{ banner_image_url }}"
+      style="max-width:100%;height:auto;"
+    />
+  </div>
+  {% endif %}
+  <section>{{ html_content | safe }}</section>
+  <hr />
+</article>
+{% endblock %}
