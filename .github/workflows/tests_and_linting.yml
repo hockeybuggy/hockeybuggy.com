@@ -6,21 +6,10 @@ jobs:
   rust-checks:
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v4
-    - name: Install Rust toolchain
-      uses: dtolnay/rust-toolchain@stable
+    - uses: actions/checkout@v5
+    - uses: ./.github/actions/rust-setup
       with:
         components: rustfmt, clippy
-    - name: Cache Cargo registry and build artifacts
-      uses: actions/cache@v4
-      with:
-        path: |
-          ~/.cargo/registry
-          ~/.cargo/git
-          ${{ github.workspace }}/ssg/target
-        key: ${{ runner.os }}-cargo-${{ hashFiles('ssg/Cargo.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-cargo-
     - name: cargo fmt
       run: cargo fmt --manifest-path ssg/Cargo.toml --check
     - name: cargo clippy
@@ -32,7 +21,7 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - uses: ./.github/actions/build-site
 
 
@@ -40,7 +29,7 @@ jobs:
     needs: build
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - uses: ./.github/actions/shared-setup
     - uses: ./.github/actions/build-site
     - name: Run Tests
@@ -54,7 +43,7 @@ jobs:
     needs: build
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - uses: ./.github/actions/shared-setup
     - uses: ./.github/actions/build-site
     - name: Run Tests
@@ -62,7 +51,7 @@ jobs:
         CI: true
       run: |
         yarn run test:e2e --verbose
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v5
       with:
         name: e2e_test_screenshots
         path: e2e_tests/screenshots
