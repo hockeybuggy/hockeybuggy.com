@@ -1,6 +1,9 @@
 [build]
-  command = "yarn build"
+  command = "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain stable --profile minimal && . \"$HOME/.cargo/env\" && yarn build"
   publish = "dist"
+
+[build.environment]
+  RUST_BACKTRACE = "1"
 
 [dev]
   autoLaunch = false
