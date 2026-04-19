@@ -32,5 +32,4 @@ runs:
       env:
         CI: "true"
       shell: bash
-      run: |
-        yarn run build
+      run: cargo run --release --manifest-path ssg/Cargo.toml
