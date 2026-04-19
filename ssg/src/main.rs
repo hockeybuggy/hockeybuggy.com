@@ -18,7 +18,7 @@ fn main() -> Result<()> {
     let projects = content::projects::load_all_projects().context("Loading projects")?;
     println!("  {} posts, {} projects", posts.len(), projects.len());
 
-    // Generate sitemap → public/ (prebuild tests read from here)
+    // Generate sitemap → public/
     let sitemap_xml = sitemap::generate_sitemap(&posts, &projects);
     fs::create_dir_all("public").context("Creating public/")?;
     fs::write("public/sitemap.xml", &sitemap_xml).context("Writing public/sitemap.xml")?;

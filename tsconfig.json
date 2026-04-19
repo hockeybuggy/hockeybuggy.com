@@ -13,6 +13,6 @@
     "strict": true,
     "target": "es2019"
   },
-  "include": ["prebuild_tests/**/*.ts", "e2e_tests/**/*.ts"],
+  "include": ["e2e_tests/**/*.ts"],
   "exclude": ["node_modules", "dist", "ssg/target"]
 }

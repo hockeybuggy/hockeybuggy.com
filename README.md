@@ -21,9 +21,9 @@ rendered through [MiniJinja](https://docs.rs/minijinja) templates in
 
 - A Rust toolchain (stable) to build the site. `rustup` is the easiest way to
   install it.
-- Node and [`yarn`](https://yarnpkg.com/) to run the Jest-based prebuild and
-  end-to-end tests. This README assumes [`fnm`](https://github.com/Schniz/fnm)
-  is used but any node installer works.
+- Node and [`yarn`](https://yarnpkg.com/) to run the Jest-based end-to-end
+  tests. This README assumes [`fnm`](https://github.com/Schniz/fnm) is used but
+  any node installer works.
 
 
 ## Making Changes
@@ -61,11 +61,8 @@ To serve the built site locally for browsing or running the e2e tests against:
 
 ### Running the tests
 
-Prebuild checks (validates the generated sitemap):
-
-    yarn test:prebuild
-
-Headless browser end-to-end tests against the built `dist/`:
+Headless browser end-to-end tests against the built `dist/` (includes sitemap
+validation):
 
     ./scripts/test
 

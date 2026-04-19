@@ -32,10 +32,9 @@ fully static site built by a small custom Rust static site generator in
 
 ### Testing
 
-- `prebuild_tests/` — Jest tests that validate generated artifacts (e.g. the
-  sitemap). Run with `yarn test:prebuild` after a build.
 - `e2e_tests/` — Puppeteer-driven Jest tests that hit the built site served by
-  `serve_static.js`. Run with `yarn test:e2e` (or `./scripts/test`).
+  `serve_static.js`, including validation of generated artifacts like the
+  sitemap. Run with `yarn test:e2e` (or `./scripts/test`).
 
 ## Development Workflow
 
@@ -46,7 +45,6 @@ fully static site built by a small custom Rust static site generator in
 | Build the site | `yarn build` |
 | Dev build (debug) | `yarn dev` |
 | Serve built `dist/` | `yarn start` |
-| Prebuild tests | `yarn test:prebuild` |
 | E2E tests | `yarn test:e2e` |
 | Rust tests | `cargo test --manifest-path ssg/Cargo.toml` |
 | Rust format check | `cargo fmt --manifest-path ssg/Cargo.toml --check` |
@@ -57,7 +55,7 @@ fully static site built by a small custom Rust static site generator in
 1. Use `./scripts/new_post` to scaffold a Markdown file under `content/`.
 2. Fill in the frontmatter (title, date, tags, categories) and the body.
 3. Run `yarn build` and browse the result via `yarn start`.
-4. `yarn test:prebuild` will verify the sitemap picks up the new post.
+4. `yarn test:e2e` will verify the sitemap picks up the new post.
 
 ## Coding Standards
 
@@ -85,6 +83,6 @@ fully static site built by a small custom Rust static site generator in
 - `content/` — Markdown source for blog posts and projects.
 - `public/` — Raw static files copied into the build (CNAME, robots.txt, etc.).
 - `dist/` — Build output (gitignored, produced by `yarn build`).
-- `prebuild_tests/` — Jest tests that run against the built `dist/`.
-- `e2e_tests/` — Puppeteer end-to-end tests.
+- `e2e_tests/` — Puppeteer end-to-end tests, including artifact validation
+  (sitemap, etc.).
 - `scripts/` — Helper scripts (new post, dev server, test runner).
