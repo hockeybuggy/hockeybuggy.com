@@ -52,8 +52,7 @@ fn main() -> Result<()> {
 
     // Copy nav.js → dist/assets/nav.js
     fs::create_dir_all(dist.join("assets")).context("Creating dist/assets/")?;
-    fs::copy("ssg/assets/nav.js", dist.join("assets/nav.js"))
-        .context("Copying nav.js")?;
+    fs::copy("ssg/assets/nav.js", dist.join("assets/nav.js")).context("Copying nav.js")?;
 
     // Build template environment
     let env = render::build_env().context("Building template environment")?;
@@ -63,14 +62,33 @@ fn main() -> Result<()> {
 
     write_page(dist, "index.html", render::pages::render_index(&env)?)?;
     write_page(dist, "404.html", render::pages::render_404(&env)?)?;
-    write_page(dist, "blog/index.html", render::pages::render_blog_index(&env, &posts)?)?;
-    write_page(dist, "blog/tags/index.html", render::pages::render_tags_index(&env, &posts)?)?;
-    write_page(dist, "blog/categories/index.html", render::pages::render_categories_index(&env, &posts)?)?;
-    write_page(dist, "projects/index.html", render::pages::render_projects_index(&env, &projects)?)?;
+    write_page(
+        dist,
+        "blog/index.html",
+        render::pages::render_blog_index(&env, &posts)?,
+    )?;
+    write_page(
+        dist,
+        "blog/tags/index.html",
+        render::pages::render_tags_index(&env, &posts)?,
+    )?;
+    write_page(
+        dist,
+        "blog/categories/index.html",
+        render::pages::render_categories_index(&env, &posts)?,
+    )?;
+    write_page(
+        dist,
+        "projects/index.html",
+        render::pages::render_projects_index(&env, &projects)?,
+    )?;
 
     // Blog posts
     for post in &posts {
-        let path = format!("blog/post/{}/{}/{}/index.html", post.year, post.month, post.slug);
+        let path = format!(
+            "blog/post/{}/{}/{}/index.html",
+            post.year, post.month, post.slug
+        );
         write_page(dist, &path, render::pages::render_blog_post(&env, post)?)?;
     }
 
@@ -78,20 +96,35 @@ fn main() -> Result<()> {
     let all_tags: HashSet<String> = posts.iter().flat_map(|p| p.tags.iter().cloned()).collect();
     for tag in &all_tags {
         let path = format!("blog/tags/{}/index.html", url::to_slug(tag));
-        write_page(dist, &path, render::pages::render_tag_page(&env, tag, &posts)?)?;
+        write_page(
+            dist,
+            &path,
+            render::pages::render_tag_page(&env, tag, &posts)?,
+        )?;
     }
 
     // Category pages
-    let all_cats: HashSet<String> = posts.iter().flat_map(|p| p.categories.iter().cloned()).collect();
+    let all_cats: HashSet<String> = posts
+        .iter()
+        .flat_map(|p| p.categories.iter().cloned())
+        .collect();
     for cat in &all_cats {
         let path = format!("blog/categories/{}/index.html", url::to_slug(cat));
-        write_page(dist, &path, render::pages::render_category_page(&env, cat, &posts)?)?;
+        write_page(
+            dist,
+            &path,
+            render::pages::render_category_page(&env, cat, &posts)?,
+        )?;
     }
 
     // Project pages
     for project in &projects {
         let path = format!("project/{}/index.html", project.slug);
-        write_page(dist, &path, render::pages::render_project_page(&env, project)?)?;
+        write_page(
+            dist,
+            &path,
+            render::pages::render_project_page(&env, project)?,
+        )?;
     }
 
     println!("Build complete → dist/");

@@ -62,13 +62,9 @@ pub fn load_all_projects() -> Result<Vec<Project>> {
         if path.extension().and_then(|e| e.to_str()) != Some("md") {
             continue;
         }
-        let filename = path
-            .file_name()
-            .unwrap()
-            .to_string_lossy()
-            .into_owned();
-        let raw = fs::read_to_string(&path)
-            .with_context(|| format!("Reading {}", path.display()))?;
+        let filename = path.file_name().unwrap().to_string_lossy().into_owned();
+        let raw =
+            fs::read_to_string(&path).with_context(|| format!("Reading {}", path.display()))?;
         let project = parse_project(&filename, &raw)?;
         projects.push(project);
     }

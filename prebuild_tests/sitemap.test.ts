@@ -3,7 +3,7 @@ import type { XMLDocument } from "libxmljs";
 import { parseXmlAsync } from "libxmljs";
 
 async function loadSitemap() {
-  const file = await open("./public/sitemap.xml");
+  const file = await open("./dist/sitemap.xml");
 
   const document = parseXmlAsync(await file.readFile());
 

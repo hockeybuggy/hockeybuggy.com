@@ -11,26 +11,39 @@ pub fn generate_sitemap(posts: &[Post], projects: &[Project]) -> String {
     let mut entries: Vec<UrlEntry> = Vec::new();
 
     // Homepage
-    entries.push(UrlEntry { loc: BASE_URL.to_string(), lastmod: None });
+    entries.push(UrlEntry {
+        loc: BASE_URL.to_string(),
+        lastmod: None,
+    });
 
     // Blog index
-    entries.push(UrlEntry { loc: format!("{BASE_URL}/blog"), lastmod: None });
+    entries.push(UrlEntry {
+        loc: format!("{BASE_URL}/blog"),
+        lastmod: None,
+    });
 
     // All blog posts (including delisted — they exist as pages)
     for post in posts {
         entries.push(UrlEntry {
-            loc: format!("{BASE_URL}{}", url::url_for_post(&post.year, &post.month, &post.slug)),
+            loc: format!(
+                "{BASE_URL}{}",
+                url::url_for_post(&post.year, &post.month, &post.slug)
+            ),
             lastmod: Some(post.iso_date.clone()),
         });
     }
 
     // Categories index
-    entries.push(UrlEntry { loc: format!("{BASE_URL}/blog/categories"), lastmod: None });
+    entries.push(UrlEntry {
+        loc: format!("{BASE_URL}/blog/categories"),
+        lastmod: None,
+    });
 
     // Per-category pages
     let mut categories: Vec<String> = {
         let mut seen = std::collections::HashSet::new();
-        posts.iter()
+        posts
+            .iter()
             .flat_map(|p| p.categories.iter().cloned())
             .filter(|c| seen.insert(c.clone()))
             .collect()
@@ -44,12 +57,16 @@ pub fn generate_sitemap(posts: &[Post], projects: &[Project]) -> String {
     }
 
     // Tags index
-    entries.push(UrlEntry { loc: format!("{BASE_URL}/blog/tags"), lastmod: None });
+    entries.push(UrlEntry {
+        loc: format!("{BASE_URL}/blog/tags"),
+        lastmod: None,
+    });
 
     // Per-tag pages
     let mut tags: Vec<String> = {
         let mut seen = std::collections::HashSet::new();
-        posts.iter()
+        posts
+            .iter()
             .flat_map(|p| p.tags.iter().cloned())
             .filter(|t| seen.insert(t.clone()))
             .collect()
@@ -63,7 +80,10 @@ pub fn generate_sitemap(posts: &[Post], projects: &[Project]) -> String {
     }
 
     // Projects index
-    entries.push(UrlEntry { loc: format!("{BASE_URL}/projects"), lastmod: None });
+    entries.push(UrlEntry {
+        loc: format!("{BASE_URL}/projects"),
+        lastmod: None,
+    });
 
     // Per-project pages
     for project in projects {
@@ -73,10 +93,7 @@ pub fn generate_sitemap(posts: &[Post], projects: &[Project]) -> String {
         });
     }
 
-    let url_elements: String = entries
-        .iter()
-        .map(|e| render_url(e))
-        .collect();
+    let url_elements: String = entries.iter().map(render_url).collect();
 
     format!(
         r#"<?xml version="1.0" encoding="UTF-8"?>
@@ -93,9 +110,6 @@ fn render_url(entry: &UrlEntry) -> String {
             entry.loc
         )
     } else {
-        format!(
-            "\n    <url>\n      <loc>{}</loc>\n    </url>",
-            entry.loc
-        )
+        format!("\n    <url>\n      <loc>{}</loc>\n    </url>", entry.loc)
     }
 }

@@ -9,10 +9,7 @@ pub fn generate_feed(posts: &[Post]) -> String {
         .map(|p| format!("{}T00:00:00Z", p.iso_date))
         .unwrap_or_else(|| "1970-01-01T00:00:00Z".to_string());
 
-    let entries: String = posts
-        .iter()
-        .map(|post| render_entry(post))
-        .collect();
+    let entries: String = posts.iter().map(render_entry).collect();
 
     format!(
         r#"<?xml version="1.0" encoding="utf-8"?>
@@ -34,7 +31,10 @@ pub fn generate_feed(posts: &[Post]) -> String {
 }
 
 fn render_entry(post: &Post) -> String {
-    let post_url = format!("{BASE_URL}{}", url::url_for_post(&post.year, &post.month, &post.slug));
+    let post_url = format!(
+        "{BASE_URL}{}",
+        url::url_for_post(&post.year, &post.month, &post.slug)
+    );
     let updated = format!("{}T00:00:00Z", post.iso_date);
     let content_html = markdown_to_html(&post.content);
     let title = escape_xml(&post.title);
