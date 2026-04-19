@@ -5,23 +5,11 @@ description: "Used to share steps between jobs that build the static site."
 runs:
   using: "composite"
   steps:
-    - name: Install Rust toolchain
-      uses: dtolnay/rust-toolchain@stable
-
-    - name: Cache Cargo registry and build artifacts
-      uses: actions/cache@v4
-      with:
-        path: |
-          ~/.cargo/registry
-          ~/.cargo/git
-          ${{ github.workspace }}/ssg/target
-        key: ${{ runner.os }}-cargo-${{ hashFiles('ssg/Cargo.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-cargo-
+    - uses: ./.github/actions/rust-setup
 
     - name: Cache site build output
       id: cache-site-build
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: |
           ${{ github.workspace }}/dist
