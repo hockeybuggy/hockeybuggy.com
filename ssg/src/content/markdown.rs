@@ -1,4 +1,4 @@
-use pulldown_cmark::{html, Options, Parser};
+use pulldown_cmark::{Options, Parser, html};
 
 /// Render full markdown to HTML, removing the excerpt marker.
 pub fn markdown_to_html(markdown: &str) -> String {
