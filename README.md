@@ -46,6 +46,9 @@ You can also use flags to set date or title:
 
     ./scripts/new_post --title "great title" --date 2014-12-15
 
+When adding a new post, also update the `expectedBlogPosts` list in
+`e2e_tests/blog.test.ts` so the end-to-end tests know about it.
+
 
 ### Build the site
 
