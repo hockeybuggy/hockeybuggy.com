@@ -3001,6 +3001,7 @@ __metadata:
     dotenv: "npm:^17.4.2"
     jest: "npm:^30.3.0"
     jest-puppeteer: "npm:^11.0.0"
+    jest-util: "npm:^30.0.0"
     puppeteer: "npm:^24.41.0"
     ts-jest: "npm:^29.4.9"
     typescript: "npm:^6.0.3"
@@ -3758,7 +3759,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-util@npm:30.3.0":
+"jest-util@npm:30.3.0, jest-util@npm:^30.0.0":
   version: 30.3.0
   resolution: "jest-util@npm:30.3.0"
   dependencies:
