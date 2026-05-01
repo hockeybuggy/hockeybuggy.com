@@ -20,7 +20,7 @@
     "jest": "^30.3.0",
     "jest-puppeteer": "^11.0.0",
     "jest-util": "^30.0.0",
-    "puppeteer": "^24.41.0",
+    "puppeteer": "^24.42.0",
     "ts-jest": "^29.4.9",
     "typescript": "^6.0.3"
   },
