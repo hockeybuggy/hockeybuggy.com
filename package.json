@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "build": "cargo run --release --manifest-path ssg/Cargo.toml",
-    "dev": "cargo run --manifest-path ssg/Cargo.toml",
+    "dev": "node dev_server.js",
     "start": "node serve_static.js",
     "test:e2e": "JEST_PUPPETEER_CONFIG=e2e_tests/jest-puppeteer.config.js jest --runInBand -c 'e2e_tests/jest.config.js'"
   },

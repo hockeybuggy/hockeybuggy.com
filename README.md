@@ -57,7 +57,11 @@ Build the site with the Rust SSG (output goes to `dist/`):
     yarn build
     # or directly: cargo run --release --manifest-path ssg/Cargo.toml
 
-To serve the built site locally for browsing or running the e2e tests against:
+To serve the built site locally with live-reload while authoring content:
+
+    yarn dev
+
+To serve the built site locally without live-reload for testing or running the e2e tests against:
 
     yarn start
 
