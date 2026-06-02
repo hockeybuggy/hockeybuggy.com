@@ -21,7 +21,7 @@
     "jest-puppeteer": "^11.0.0",
     "jest-util": "^30.0.0",
     "puppeteer": "^24.42.0",
-    "ts-jest": "^29.4.9",
+    "ts-jest": "^29.4.11",
     "typescript": "^6.0.3"
   },
   "packageManager": "yarn@4.5.0"
