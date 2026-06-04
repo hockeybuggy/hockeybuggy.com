@@ -1,8 +1,8 @@
+import { test, expect } from '@playwright/test';
 import { LANDING_PAGE } from "./pages";
-import { loadPage } from "./utils";
 
-describe("/ (Landing Page)", () => {
-  it("should load without error", async () => {
+test.describe("/ (Landing Page)", () => {
+  test("should load without error", async ({ page }) => {
     const errors: Array<{ errorMessage: string }> = [];
     page.on("console", (msg) => {
       if (msg.type() === "error") {
@@ -10,89 +10,66 @@ describe("/ (Landing Page)", () => {
       }
     });
 
-    await loadPage(page, LANDING_PAGE.url);
-
+    const response = await page.goto(LANDING_PAGE.url);
+    expect(response?.ok()).toBeTruthy();
     expect(errors).toEqual([]);
   });
 
-  it("should have a title", async () => {
-    await loadPage(page, LANDING_PAGE.url);
-    expect(await page.title()).toEqual(LANDING_PAGE.expected.title);
+  test("should have a title", async ({ page }) => {
+    await page.goto(LANDING_PAGE.url);
+    await expect(page).toHaveTitle(LANDING_PAGE.expected.title);
   });
 
-  it("should have GitHub social link with proper attributes", async () => {
-    await loadPage(page, LANDING_PAGE.url);
-
-    const githubLink = await page.$('a[aria-label="GitHub"]');
-    expect(githubLink).not.toBeNull();
-
-    const href = await githubLink?.evaluate((el) => el.getAttribute("href"));
-    expect(href).toBe("https://github.com/hockeybuggy");
+  test("should have GitHub social link with proper attributes", async ({ page }) => {
+    await page.goto(LANDING_PAGE.url);
+    await expect(page.locator('a[aria-label="GitHub"]')).toHaveAttribute('href', 'https://github.com/hockeybuggy');
   });
 
-  it("should have Bluesky social link with proper attributes", async () => {
-    await loadPage(page, LANDING_PAGE.url);
-
-    const blueskyLink = await page.$('a[aria-label="Bluesky"]');
-    expect(blueskyLink).not.toBeNull();
-
-    const href = await blueskyLink?.evaluate((el) => el.getAttribute("href"));
-    expect(href).toBe("https://bsky.app/profile/hockeybuggy.bsky.social");
+  test("should have Bluesky social link with proper attributes", async ({ page }) => {
+    await page.goto(LANDING_PAGE.url);
+    await expect(page.locator('a[aria-label="Bluesky"]')).toHaveAttribute('href', 'https://bsky.app/profile/hockeybuggy.bsky.social');
   });
 
-  it("should have Email social link with proper attributes", async () => {
-    await loadPage(page, LANDING_PAGE.url);
-
-    const emailLink = await page.$('a[aria-label="Email"]');
-    expect(emailLink).not.toBeNull();
-
-    const href = await emailLink?.evaluate((el) => el.getAttribute("href"));
-    expect(href).toBe("mailto:hockeybuggy@gmail.com");
+  test("should have Email social link with proper attributes", async ({ page }) => {
+    await page.goto(LANDING_PAGE.url);
+    await expect(page.locator('a[aria-label="Email"]')).toHaveAttribute('href', 'mailto:hockeybuggy@gmail.com');
   });
 
-  describe("screenshots", () => {
-    test("iPhone light", async () => {
-      await loadPage(page, LANDING_PAGE.url, "iPhone 6");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "light" },
-      ]);
-      const screenshot = await page.screenshot({
+  test.describe("screenshots", () => {
+    test("iPhone light", async ({ page }) => {
+      await page.setViewportSize({ width: 375, height: 667 });
+      await page.emulateMedia({ colorScheme: "light" });
+      await page.goto(LANDING_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/landing_page__iPhone_light.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
 
-    test("iPhone dark", async () => {
-      await loadPage(page, LANDING_PAGE.url, "iPhone 6");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "dark" },
-      ]);
-      const screenshot = await page.screenshot({
+    test("iPhone dark", async ({ page }) => {
+      await page.setViewportSize({ width: 375, height: 667 });
+      await page.emulateMedia({ colorScheme: "dark" });
+      await page.goto(LANDING_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/landing_page__iPhone_dark.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
 
-    test("iPad light", async () => {
-      await loadPage(page, LANDING_PAGE.url, "iPad Pro");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "light" },
-      ]);
-      const screenshot = await page.screenshot({
+    test("iPad light", async ({ page }) => {
+      await page.setViewportSize({ width: 1024, height: 1366 });
+      await page.emulateMedia({ colorScheme: "light" });
+      await page.goto(LANDING_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/landing_page__iPad_light.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
 
-    test("iPad dark", async () => {
-      await loadPage(page, LANDING_PAGE.url, "iPad Pro");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "dark" },
-      ]);
-      const screenshot = await page.screenshot({
+    test("iPad dark", async ({ page }) => {
+      await page.setViewportSize({ width: 1024, height: 1366 });
+      await page.emulateMedia({ colorScheme: "dark" });
+      await page.goto(LANDING_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/landing_page__iPad_dark.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
   });
 });

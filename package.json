@@ -10,18 +10,12 @@
     "build": "cargo run --release --manifest-path ssg/Cargo.toml",
     "dev": "node dev_server.js",
     "start": "node serve_static.js",
-    "test:e2e": "JEST_PUPPETEER_CONFIG=e2e_tests/jest-puppeteer.config.js jest --runInBand -c 'e2e_tests/jest.config.js'"
+    "test:e2e": "playwright test"
   },
   "devDependencies": {
-    "@types/jest": "^30.0.0",
-    "@types/jest-environment-puppeteer": "^5.0.6",
+    "@playwright/test": "^1.60.0",
     "@types/node": "^25.6.0",
     "dotenv": "^17.4.2",
-    "jest": "^30.3.0",
-    "jest-puppeteer": "^11.0.0",
-    "jest-util": "^30.0.0",
-    "puppeteer": "^24.42.0",
-    "ts-jest": "^29.4.11",
     "typescript": "^6.0.3"
   },
   "packageManager": "yarn@4.5.0"

@@ -1,42 +1,39 @@
-const BASE_URL = "http://localhost:4000";
-
 const LANDING_PAGE = {
-  url: `${BASE_URL}/`,
+  url: `/`,
   expected: {
     title: "The personal website of Douglas Anderson",
   },
 };
 
 const BLOG_PAGE = {
-  url: `${BASE_URL}/blog`,
+  url: `/blog`,
   expected: {
     title: "Blog",
   },
 };
 
 const TAGS_PAGE = {
-  url: `${BASE_URL}/blog/tags`,
+  url: `/blog/tags`,
   expected: {
     title: "Tags",
   },
 };
 
 const CATEGORIES_PAGE = {
-  url: `${BASE_URL}/blog/categories`,
+  url: `/blog/categories`,
   expected: {
     title: "Categories",
   },
 };
 
 const PROJECTS_PAGE = {
-  url: `${BASE_URL}/projects`,
+  url: `/projects`,
   expected: {
     title: "Projects",
   },
 };
 
 export {
-  BASE_URL,
   BLOG_PAGE,
   CATEGORIES_PAGE,
   LANDING_PAGE,

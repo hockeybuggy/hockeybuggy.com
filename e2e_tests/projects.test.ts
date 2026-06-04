@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-var-requires, @typescript-eslint/no-unused-vars */
-import { BASE_URL, PROJECTS_PAGE } from "./pages";
-import { loadPage } from "./utils";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { test, expect } from '@playwright/test';
+import { PROJECTS_PAGE } from "./pages";
 
 const expectedProjects = [
   {
@@ -33,54 +33,46 @@ const expectedProjects = [
   },
 ];
 
-describe("/projects (Projects index Page)", () => {
-  describe("screenshots", () => {
-    test("iPhone light", async () => {
-      await loadPage(page, PROJECTS_PAGE.url, "iPhone 6");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "light" },
-      ]);
-      const screenshot = await page.screenshot({
+test.describe("/projects (Projects index Page)", () => {
+  test.describe("screenshots", () => {
+    test("iPhone light", async ({ page }) => {
+      await page.setViewportSize({ width: 375, height: 667 });
+      await page.emulateMedia({ colorScheme: "light" });
+      await page.goto(PROJECTS_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/projects_index_page__iPhone_light.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
 
-    test("iPhone dark", async () => {
-      await loadPage(page, PROJECTS_PAGE.url, "iPhone 6");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "dark" },
-      ]);
-      const screenshot = await page.screenshot({
+    test("iPhone dark", async ({ page }) => {
+      await page.setViewportSize({ width: 375, height: 667 });
+      await page.emulateMedia({ colorScheme: "dark" });
+      await page.goto(PROJECTS_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/projects_index_page__iPhone_dark.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
 
-    test("iPad light", async () => {
-      await loadPage(page, PROJECTS_PAGE.url, "iPad Pro");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "light" },
-      ]);
-      const screenshot = await page.screenshot({
+    test("iPad light", async ({ page }) => {
+      await page.setViewportSize({ width: 1024, height: 1366 });
+      await page.emulateMedia({ colorScheme: "light" });
+      await page.goto(PROJECTS_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/projects_index_page__iPad_light.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
 
-    test("iPad dark", async () => {
-      await loadPage(page, PROJECTS_PAGE.url, "iPad Pro");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "dark" },
-      ]);
-      const screenshot = await page.screenshot({
+    test("iPad dark", async ({ page }) => {
+      await page.setViewportSize({ width: 1024, height: 1366 });
+      await page.emulateMedia({ colorScheme: "dark" });
+      await page.goto(PROJECTS_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/projects_index_page__iPad_dark.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
   });
 
-  it("should load without error", async () => {
+  test("should load without error", async ({ page }) => {
     const errors: Array<{ errorMessage: string }> = [];
     page.on("console", (msg) => {
       if (msg.type() === "error") {
@@ -88,19 +80,19 @@ describe("/projects (Projects index Page)", () => {
       }
     });
 
-    await loadPage(page, PROJECTS_PAGE.url);
-
+    const response = await page.goto(PROJECTS_PAGE.url);
+    expect(response?.ok()).toBeTruthy();
     expect(errors).toEqual([]);
   });
 
-  it("should have links to many projects", async () => {
-    await loadPage(page, PROJECTS_PAGE.url);
+  test("should have links to many projects", async ({ page }) => {
+    await page.goto(PROJECTS_PAGE.url);
 
     const projects = await page.$$eval("article", (articles) =>
       articles.map((article) => {
         const postTitle = article.querySelector("h2")?.textContent;
         const postUrl = new URL(
-          (article.querySelector(".read-more a") as unknown as any)?.href || "",
+          (article.querySelector(".read-more a") as HTMLAnchorElement)?.href || "http://localhost:4000",
         );
         const postPathName = postUrl.pathname;
         return { postTitle, postPathName };
@@ -110,16 +102,9 @@ describe("/projects (Projects index Page)", () => {
   });
 });
 
-const projects = expectedProjects.map((project) => [
-  project.postPathName,
-  project.postTitle,
-]);
-describe.each(projects)("%s", (pathName, title) => {
-  const fullUrl = `${BASE_URL}${pathName}`;
-
-  it("should have a title", async () => {
-    await loadPage(page, fullUrl);
-
-    expect(await page.title()).toEqual(`Project: ${title}`);
+for (const project of expectedProjects) {
+  test(`Project detail: ${project.postPathName}`, async ({ page }) => {
+    await page.goto(project.postPathName);
+    await expect(page).toHaveTitle(`Project: ${project.postTitle}`);
   });
-});
+}
