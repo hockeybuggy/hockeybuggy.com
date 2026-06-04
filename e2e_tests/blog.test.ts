@@ -1,10 +1,7 @@
-/* eslint-disable no-unused-vars */
-import { CATEGORIES_PAGE, TAGS_PAGE, BASE_URL, BLOG_PAGE } from "./pages";
-import { loadPage } from "./utils";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { test, expect } from '@playwright/test';
+import { CATEGORIES_PAGE, TAGS_PAGE, BLOG_PAGE } from "./pages";
 
-// It seems a litte weird to manage this list of blog posts here in the tests.
-// This is done in order to use `describe.each` and ensure that each of the
-// blog posts load.
 const expectedBlogPosts = [
   {
     postDate: "2026-04-19",
@@ -115,8 +112,8 @@ const expectedCategoryLinks = [
   "/blog/categories/zsh",
 ];
 
-describe("/blog (Blog index Page)", () => {
-  it("should load without error", async () => {
+test.describe("/blog (Blog index Page)", () => {
+  test("should load without error", async ({ page }) => {
     const errors: Array<{ errorMessage: string }> = [];
     page.on("console", (msg) => {
       if (msg.type() === "error") {
@@ -124,25 +121,24 @@ describe("/blog (Blog index Page)", () => {
       }
     });
 
-    await loadPage(page, BLOG_PAGE.url);
-
+    const response = await page.goto(BLOG_PAGE.url);
+    expect(response?.ok()).toBeTruthy();
     expect(errors).toEqual([]);
   });
 
-  it("should have links to many blog posts", async () => {
-    await loadPage(page, BLOG_PAGE.url);
+  test("should have links to many blog posts", async ({ page }) => {
+    await page.goto(BLOG_PAGE.url);
 
     const blogPosts = await page.$$eval("article", (articles) =>
       articles.map((article) => {
         const postTitle = article.querySelector("h2")?.textContent;
-        const postUrl = new URL(article.querySelector("a")?.href || "");
+        const postUrl = new URL((article.querySelector("a") as HTMLAnchorElement)?.href || "http://localhost:4000");
         const postPathName = postUrl.pathname;
         const postDate = article.querySelector("time")?.dateTime;
         return { postTitle, postPathName, postDate };
       }),
     );
 
-    // Some blog posts can be found in the tags, and categories but not in the main index.
     const indexListedBlogPosts = expectedBlogPosts.filter(
       (blog) => !blog.isDelisted,
     );
@@ -150,69 +146,54 @@ describe("/blog (Blog index Page)", () => {
     expect(blogPosts).toEqual(indexListedBlogPosts);
   });
 
-  describe("screenshots", () => {
-    test("iPhone light", async () => {
-      await loadPage(page, BLOG_PAGE.url, "iPhone 6");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "light" },
-      ]);
-      const screenshot = await page.screenshot({
+  test.describe("screenshots", () => {
+    test("iPhone light", async ({ page }) => {
+      await page.setViewportSize({ width: 375, height: 667 });
+      await page.emulateMedia({ colorScheme: "light" });
+      await page.goto(BLOG_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/blog_index_page__iPhone_light.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
 
-    test("iPhone dark", async () => {
-      await loadPage(page, BLOG_PAGE.url, "iPhone 6");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "dark" },
-      ]);
-      const screenshot = await page.screenshot({
+    test("iPhone dark", async ({ page }) => {
+      await page.setViewportSize({ width: 375, height: 667 });
+      await page.emulateMedia({ colorScheme: "dark" });
+      await page.goto(BLOG_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/blog_index_page__iPhone_dark.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
 
-    test("iPad light", async () => {
-      await loadPage(page, BLOG_PAGE.url, "iPad Pro");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "light" },
-      ]);
-      const screenshot = await page.screenshot({
+    test("iPad light", async ({ page }) => {
+      await page.setViewportSize({ width: 1024, height: 1366 });
+      await page.emulateMedia({ colorScheme: "light" });
+      await page.goto(BLOG_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/blog_index_page__iPad_light.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
 
-    test("iPad dark", async () => {
-      await loadPage(page, BLOG_PAGE.url, "iPad Pro");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "dark" },
-      ]);
-      const screenshot = await page.screenshot({
+    test("iPad dark", async ({ page }) => {
+      await page.setViewportSize({ width: 1024, height: 1366 });
+      await page.emulateMedia({ colorScheme: "dark" });
+      await page.goto(BLOG_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/blog_index_page__iPad_dark.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
   });
 });
 
-const blogPosts = expectedBlogPosts.map((blogPost) => [
-  blogPost.postPathName,
-  blogPost.postTitle,
-]);
-describe.each(blogPosts)("%s", (pathName, title) => {
-  const fullUrl = `${BASE_URL}${pathName}`;
-
-  it("should have a title", async () => {
-    await loadPage(page, fullUrl);
-
-    expect(await page.title()).toEqual(`${title}`);
+for (const blogPost of expectedBlogPosts) {
+  test(`Blog post: ${blogPost.postPathName}`, async ({ page }) => {
+    await page.goto(blogPost.postPathName);
+    await expect(page).toHaveTitle(`${blogPost.postTitle}`);
   });
-});
+}
 
-describe("/blog/tags (Blog tags index Page)", () => {
-  it("should load without error", async () => {
+test.describe("/blog/tags (Blog tags index Page)", () => {
+  test("should load without error", async ({ page }) => {
     const errors: Array<{ errorMessage: string }> = [];
     page.on("console", (msg) => {
       if (msg.type() === "error") {
@@ -220,103 +201,95 @@ describe("/blog/tags (Blog tags index Page)", () => {
       }
     });
 
-    await loadPage(page, TAGS_PAGE.url);
-
+    const response = await page.goto(TAGS_PAGE.url);
+    expect(response?.ok()).toBeTruthy();
     expect(errors).toEqual([]);
   });
 
-  it("should have a title", async () => {
-    await loadPage(page, TAGS_PAGE.url);
-    expect(await page.title()).toEqual(TAGS_PAGE.expected.title);
+  test("should have a title", async ({ page }) => {
+    await page.goto(TAGS_PAGE.url);
+    await expect(page).toHaveTitle(TAGS_PAGE.expected.title);
   });
 
-  it("should have links to many tags", async () => {
-    await loadPage(page, TAGS_PAGE.url);
+  test("should have links to many tags", async ({ page }) => {
+    await page.goto(TAGS_PAGE.url);
 
     const tagLinks = await page.$$eval(".content li", (items) => {
       return items.map((item) => {
-        const postUrl = new URL(item.querySelector("a")?.href || "");
+        const postUrl = new URL((item.querySelector("a") as HTMLAnchorElement)?.href || "http://localhost:4000");
         return postUrl.pathname;
       });
     });
     expect(tagLinks).toEqual(expectedTagLinks);
   });
 
-  describe("screenshots", () => {
-    test("iPhone light", async () => {
-      await loadPage(page, TAGS_PAGE.url, "iPhone 6");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "light" },
-      ]);
-      const screenshot = await page.screenshot({
+  test.describe("screenshots", () => {
+    test("iPhone light", async ({ page }) => {
+      await page.setViewportSize({ width: 375, height: 667 });
+      await page.emulateMedia({ colorScheme: "light" });
+      await page.goto(TAGS_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/blog_tags_index_page__iPhone_light.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
 
-    test("iPhone dark", async () => {
-      await loadPage(page, TAGS_PAGE.url, "iPhone 6");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "dark" },
-      ]);
-      const screenshot = await page.screenshot({
+    test("iPhone dark", async ({ page }) => {
+      await page.setViewportSize({ width: 375, height: 667 });
+      await page.emulateMedia({ colorScheme: "dark" });
+      await page.goto(TAGS_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/blog_tags_index_page__iPhone_dark.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
 
-    test("iPad light", async () => {
-      await loadPage(page, TAGS_PAGE.url, "iPad Pro");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "light" },
-      ]);
-      const screenshot = await page.screenshot({
+    test("iPad light", async ({ page }) => {
+      await page.setViewportSize({ width: 1024, height: 1366 });
+      await page.emulateMedia({ colorScheme: "light" });
+      await page.goto(TAGS_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/blog_tags_index_page__iPad_light.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
 
-    test("iPad dark", async () => {
-      await loadPage(page, TAGS_PAGE.url, "iPad Pro");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "dark" },
-      ]);
-      const screenshot = await page.screenshot({
+    test("iPad dark", async ({ page }) => {
+      await page.setViewportSize({ width: 1024, height: 1366 });
+      await page.emulateMedia({ colorScheme: "dark" });
+      await page.goto(TAGS_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/blog_tags_index_page__iPad_dark.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
   });
 });
 
-describe.each(expectedTagLinks)("%s", (pathName) => {
-  const fullUrl = `${BASE_URL}${pathName}`;
-  const [_1, _2, title] = pathName.split("/").filter((x) => x !== "");
+for (const pathName of expectedTagLinks) {
+  const parts = pathName.split("/").filter((x) => x !== "");
+  const title = parts[parts.length - 1];
+  
+  test.describe(`Tag detail: ${pathName}`, () => {
+    test(`should have a title including ${title}`, async ({ page }) => {
+      await page.goto(pathName);
+      await expect(page).toHaveTitle(`Tag: ${title}`);
+    });
 
-  beforeAll(async () => {
-    await loadPage(page, fullUrl);
-  });
+    test(`should have links to existing blog posts`, async ({ page }) => {
+      await page.goto(pathName);
+      const blogPostLinks = await page.$$eval(".content li", (items) => {
+        return items.map((item) => {
+          const postUrl = new URL((item.querySelector("a") as HTMLAnchorElement)?.href || "http://localhost:4000");
+          return postUrl.pathname;
+        });
+      });
 
-  it(`should have a title including ${title}`, async () => {
-    expect(await page.title()).toEqual(`Tag: ${title}`);
-  });
-
-  it(`should have links to existing blog posts`, async () => {
-    const blogPostLinks = await page.$$eval(".content li", (items) => {
-      return items.map((item) => {
-        const postUrl = new URL(item.querySelector("a")?.href || "");
-        return postUrl.pathname;
+      blogPostLinks.forEach((link) => {
+        expect(allBlogPostPaths).toContain(link);
       });
     });
-
-    blogPostLinks.forEach((link) => {
-      expect(allBlogPostPaths).toContain(link);
-    });
   });
-});
+}
 
-describe("/blog/categories (Blog categories index Page)", () => {
-  it("should load without error", async () => {
+test.describe("/blog/categories (Blog categories index Page)", () => {
+  test("should load without error", async ({ page }) => {
     const errors: Array<{ errorMessage: string }> = [];
     page.on("console", (msg) => {
       if (msg.type() === "error") {
@@ -324,97 +297,89 @@ describe("/blog/categories (Blog categories index Page)", () => {
       }
     });
 
-    await loadPage(page, CATEGORIES_PAGE.url);
-
+    const response = await page.goto(CATEGORIES_PAGE.url);
+    expect(response?.ok()).toBeTruthy();
     expect(errors).toEqual([]);
   });
 
-  it("should have a title", async () => {
-    await loadPage(page, CATEGORIES_PAGE.url);
-    expect(await page.title()).toEqual(CATEGORIES_PAGE.expected.title);
+  test("should have a title", async ({ page }) => {
+    await page.goto(CATEGORIES_PAGE.url);
+    await expect(page).toHaveTitle(CATEGORIES_PAGE.expected.title);
   });
 
-  it("should have links to many categories", async () => {
-    await loadPage(page, CATEGORIES_PAGE.url);
+  test("should have links to many categories", async ({ page }) => {
+    await page.goto(CATEGORIES_PAGE.url);
 
     const categoryLinks = await page.$$eval(".content li", (items) => {
       return items.map((item) => {
-        const postUrl = new URL(item.querySelector("a")?.href || "");
+        const postUrl = new URL((item.querySelector("a") as HTMLAnchorElement)?.href || "http://localhost:4000");
         return postUrl.pathname;
       });
     });
     expect(categoryLinks).toEqual(expectedCategoryLinks);
   });
 
-  describe("screenshots", () => {
-    test("iPhone light", async () => {
-      await loadPage(page, CATEGORIES_PAGE.url, "iPhone 6");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "light" },
-      ]);
-      const screenshot = await page.screenshot({
+  test.describe("screenshots", () => {
+    test("iPhone light", async ({ page }) => {
+      await page.setViewportSize({ width: 375, height: 667 });
+      await page.emulateMedia({ colorScheme: "light" });
+      await page.goto(CATEGORIES_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/blog_categories_index_page__iPhone_light.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
 
-    test("iPhone dark", async () => {
-      await loadPage(page, CATEGORIES_PAGE.url, "iPhone 6");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "dark" },
-      ]);
-      const screenshot = await page.screenshot({
+    test("iPhone dark", async ({ page }) => {
+      await page.setViewportSize({ width: 375, height: 667 });
+      await page.emulateMedia({ colorScheme: "dark" });
+      await page.goto(CATEGORIES_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/blog_categories_index_page__iPhone_dark.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
 
-    test("iPad light", async () => {
-      await loadPage(page, CATEGORIES_PAGE.url, "iPad Pro");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "light" },
-      ]);
-      const screenshot = await page.screenshot({
+    test("iPad light", async ({ page }) => {
+      await page.setViewportSize({ width: 1024, height: 1366 });
+      await page.emulateMedia({ colorScheme: "light" });
+      await page.goto(CATEGORIES_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/blog_categories_index_page__iPad_light.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
 
-    test("iPad dark", async () => {
-      await loadPage(page, CATEGORIES_PAGE.url, "iPad Pro");
-      await page.emulateMediaFeatures([
-        { name: "prefers-color-scheme", value: "dark" },
-      ]);
-      const screenshot = await page.screenshot({
+    test("iPad dark", async ({ page }) => {
+      await page.setViewportSize({ width: 1024, height: 1366 });
+      await page.emulateMedia({ colorScheme: "dark" });
+      await page.goto(CATEGORIES_PAGE.url);
+      await page.screenshot({
         path: `e2e_tests/screenshots/blog_categories_index_page__iPad_dark.png`,
       });
-      expect(screenshot).toBeTruthy();
     });
   });
 });
 
-describe.each(expectedCategoryLinks)("%s", (pathName) => {
-  const fullUrl = `${BASE_URL}${pathName}`;
-  const [_1, _2, title] = pathName.split("/").filter((x) => x !== "");
+for (const pathName of expectedCategoryLinks) {
+  const parts = pathName.split("/").filter((x) => x !== "");
+  const title = parts[parts.length - 1];
 
-  beforeAll(async () => {
-    await loadPage(page, fullUrl);
-  });
+  test.describe(`Category detail: ${pathName}`, () => {
+    test(`should have a title including ${title}`, async ({ page }) => {
+      await page.goto(pathName);
+      await expect(page).toHaveTitle(`Category: ${title}`);
+    });
 
-  it(`should have a title including ${title}`, async () => {
-    expect(await page.title()).toEqual(`Category: ${title}`);
-  });
+    test(`should have links to existing blog posts`, async ({ page }) => {
+      await page.goto(pathName);
+      const blogPostLinks = await page.$$eval(".content li", (items) => {
+        return items.map((item) => {
+          const postUrl = new URL((item.querySelector("a") as HTMLAnchorElement)?.href || "http://localhost:4000");
+          return postUrl.pathname;
+        });
+      });
 
-  it(`should have links to existing blog posts`, async () => {
-    const blogPostLinks = await page.$$eval(".content li", (items) => {
-      return items.map((item) => {
-        const postUrl = new URL(item.querySelector("a")?.href || "");
-        return postUrl.pathname;
+      blogPostLinks.forEach((link) => {
+        expect(allBlogPostPaths).toContain(link);
       });
     });
-
-    blogPostLinks.forEach((link) => {
-      expect(allBlogPostPaths).toContain(link);
-    });
   });
-});
+}

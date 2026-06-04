@@ -1,5 +1,4 @@
-import { BASE_URL, LANDING_PAGE } from "./pages";
-import { loadPage } from "./utils";
+import { test, expect, Page } from '@playwright/test';
 
 type SitemapUrl = { name: string; lastmod: string | null };
 
@@ -10,8 +9,8 @@ type SitemapData = {
   urls: Array<SitemapUrl>;
 };
 
-async function fetchSitemap(): Promise<SitemapData> {
-  await loadPage(page, LANDING_PAGE.url);
+async function fetchSitemap(page: Page): Promise<SitemapData> {
+  await page.goto('/');
 
   return await page.evaluate(async (sitemapUrl: string) => {
     const response = await fetch(sitemapUrl);
@@ -33,31 +32,31 @@ async function fetchSitemap(): Promise<SitemapData> {
       namespaceURI: doc.documentElement.namespaceURI,
       urls,
     };
-  }, `${BASE_URL}/sitemap.xml`);
+  }, '/sitemap.xml');
 }
 
-describe("Sitemap", () => {
-  it("should have a version and encoding", async () => {
-    const subject = await fetchSitemap();
+test.describe("Sitemap", () => {
+  test("should have a version and encoding", async ({ page }) => {
+    const subject = await fetchSitemap(page);
     expect(subject.xmlVersion).toEqual("1.0");
     expect(subject.xmlEncoding).toEqual("UTF-8");
   });
 
-  it("should have a schema listed", async () => {
-    const subject = await fetchSitemap();
+  test("should have a schema listed", async ({ page }) => {
+    const subject = await fetchSitemap(page);
     expect(subject.namespaceURI).toEqual(
       "http://www.sitemaps.org/schemas/sitemap/0.9",
     );
   });
 
-  it("should have pages for the index", async () => {
-    const subject = await fetchSitemap();
+  test("should have pages for the index", async ({ page }) => {
+    const subject = await fetchSitemap(page);
     const urlNames = subject.urls.map((url) => url.name);
     expect(urlNames).toContain("https://hockeybuggy.com");
   });
 
-  it("should have pages for the blog", async () => {
-    const subject = await fetchSitemap();
+  test("should have pages for the blog", async ({ page }) => {
+    const subject = await fetchSitemap(page);
     const urlNames = subject.urls.map((url) => url.name);
     expect(urlNames).toContain("https://hockeybuggy.com/blog");
 
@@ -85,8 +84,8 @@ describe("Sitemap", () => {
     expect(blogCategoriesPages.length).toBeGreaterThan(4);
   });
 
-  it("should have pages for the project", async () => {
-    const subject = await fetchSitemap();
+  test("should have pages for the project", async ({ page }) => {
+    const subject = await fetchSitemap(page);
     const urlNames = subject.urls.map((url) => url.name);
     expect(urlNames).toContain("https://hockeybuggy.com/projects");
 
