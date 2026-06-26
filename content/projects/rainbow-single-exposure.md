@@ -16,20 +16,20 @@ For this project I borrowed my partner's SLR camera that allowed for manual
 control of the exposure length and turned it to the maximum. The small tripod I
 had could hold up the weight of the camera.
 
-![A picture of A Nikon SLR camera next a ring of LEDs. The ring is not illuminated.][CAMERA_LIGHT_OFF]
+![A picture of A Nikon SLR camera next to a ring of LEDs. The ring is not illuminated.][CAMERA_LIGHT_OFF]
 
 For a light source I used a [NeoPixel
-Ring](https://www.adafruit.com/product/1586) which is a circle of RBG LEDs that
+Ring](https://www.adafruit.com/product/1586) which is a circle of RGB LEDs that
 can be controlled with a single serial line.
 
-![A picture of A Nikon SLR camera next a ring of LEDs. The ring is illuminated bright red.][CAMERA_LIGHT_ON]
+![A picture of A Nikon SLR camera next to a ring of LEDs. The ring is illuminated bright red.][CAMERA_LIGHT_ON]
 
-I connected this to a Arduino Nano. I connected this to the USB port of my
+I connected this to an Arduino Nano. I connected this to the USB port of my
 computer which had limited output so I only connected the outer ring of LEDs.
 The program I wrote turned the light on some colour, waited some amount of
 time, then turned the light off.
 
-By turning the light on an off different colours with a long exposure I was
+By turning the light on and off different colours with a long exposure I was
 able to achieve the effect seen above.
 
 [CAMERA_LIGHT_ON]: /static/img/projects/rainbow-single-exposure/camera-light-on.jpg
