@@ -80,7 +80,7 @@ const expectedBlogPosts = [
   },
   {
     postDate: "2013-01-31",
-    postTitle: "A new a stylish look around the site. Thanks to sass",
+    postTitle: "A new and stylish look around the site. Thanks to sass",
     postPathName: "/blog/post/2013/01/adding-sass-files",
     isDelisted: true,
   },
