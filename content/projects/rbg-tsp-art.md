@@ -3,16 +3,16 @@ title: RGB Traveling Salesperson Art
 slug: "rgb-tsp-art"
 order: 50
 bannerImageName: "projects/rgb-tsp-art/banner.png"
-bannerAltText: "A close up image of a face drawn with 3 continous lines; one red line one blue line and one green line. The face is the face of Douglas."
+bannerAltText: "A close up image of a face drawn with 3 continuous lines; one red line one blue line and one green line. The face is the face of Douglas."
 ---
 
 This is a creative project that I am very proud of and isn't software.
-Traveling Salesperson is problem when "given a list of cities what is the
+Traveling Salesperson is a problem when "given a list of cities what is the
 shortest distance between them". The lines generated this way have a nice
-quality where the they very rarely intersect. This means that you can create a
-stippled version of an image and create a image that looks like a single line
+quality where they very rarely intersect. This means that you can create a
+stippled version of an image and create an image that looks like a single line
 version of the original image. I used this approach on a colour component
-version of an image and produced image that I eventually plotted using a XY pen
+version of an image and produced an image that I eventually plotted using an XY pen
 plotter.
 
 <!-- excerpt -->
@@ -21,13 +21,13 @@ plotter.
 
 The software that I use for creating the stippled svgs that can be sent to the
 plotting software is [StippleGen](https://wiki.evilmadscientist.com/StippleGen)
-pby Evil Mad Scientist Laboratories.
+by Evil Mad Scientist Laboratories.
 
 ![An example of the software using the face of Grace Kelly][STIPPLE_GEN]
 
 [STIPPLE_GEN]: https://evilmadscience.s3.amazonaws.com/wiki/eggbot/stipplegen/v2docs/grace2k-newframe.png
 
-This is a program written using the Processing framwork and it allows for a few
+This is a program written using the Processing framework and it allows for a few
 different controls. The primary control to play with when creating an svg
 suitable for plotting is the number of stipples desired. The program has two phases:
 
@@ -48,7 +48,7 @@ The plotter has some problems. The software struggles sometimes to error when
 importing some svgs, but will instead silently error. The plotter's pen
 mechanism can be finicky.
 
-![An image of a person in a stripped shirt using a stippled art style.][STIPPLED_PERSON]
+![An image of a person in a striped shirt using a stippled art style.][STIPPLED_PERSON]
 
 [STIPPLED_PERSON]: /static/img/projects/rgb-tsp-art/stippled-person.png
 
@@ -58,7 +58,7 @@ mechanism can be finicky.
 
 ## RGB art
 
-You made an RBG image by using some image editing software to split the image
+You made an RGB image by using some image editing software to split the image
 into different bands of colours (I suppose it doesn't need to be Red, Green,
 and Blue if you have an image that has some specific highlight colours).
 
