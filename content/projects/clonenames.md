@@ -4,7 +4,7 @@ slug: "clonenames"
 order: 70
 github: "https://github.com/hockeybuggy/clonenames"
 bannerImageName: "projects/clonenames/banner.png"
-bannerAltText: "An image of a clode of the game Codenames."
+bannerAltText: "An image of a clone of the game Codenames."
 ---
 
 A clone of the board game "Codenames". This project was in order to get
@@ -17,7 +17,7 @@ archived the public repo.
 <!-- excerpt -->
 
 
-The game involves two teams with one team member giving clues of what works
+The game involves two teams with one team member giving clues of what words
 should and should not be selected by their team. The game ends when either team
 has either guessed all of their clues or has selected the assassin word.
 
@@ -30,7 +30,7 @@ function. This function just places the new record into the FaunaDB database.
 
 The player will then be redirected to a specific page for the game. This page's
 URL can be shared with friends and many people can play the game. As players
-make guesses and select cards turns flip back and fourth. Players who are the
+make guesses and select cards turns flip back and forth. Players who are the
 clue givers can flip a toggle and see what each of the card's factions are.
 
 When a player makes a change to the game state (e.g. selecting a card, ending a
@@ -80,14 +80,14 @@ The yellow background is an odd choice.
 
 There are some things I liked about this project as well:
 
-### It was fun to write (and good escapeism)
+### It was fun to write (and good escapism)
 
 This was at the start of the pandemic and I wanted to play with Redux Sagas and
 TypeScript.
 
 ### The conditional update in the database limits possible race conditions
 
-The choice of database wasn't a big deal, but I was happy with FaundaDB. It
+The choice of database wasn't a big deal, but I was happy with FaunaDB. It
 worked well and had documentation that I valued.
 
 ### The Redux code has types
@@ -98,7 +98,7 @@ as well as [the actions have a
 type](https://github.com/hockeybuggy/clonenames/blob/main/src/state/actions.ts#L26)
 
 This means that when accessing data in the frontend the development tools can
-help you tell if the data exists and what it's shape is. It can also tell you
+help you tell if the data exists and what its shape is. It can also tell you
 when dispatching actions that you're passing all of the values you should be
 passing. For example:
 
@@ -114,5 +114,5 @@ would no longer be met.
 
 ## Demo!
 
-The game is currently [deployed and accessible](https://clonenames.hockeybuggy.com/] if you would like to try it.
+The game is currently [deployed and accessible](https://clonenames.hockeybuggy.com/) if you would like to try it.
 
