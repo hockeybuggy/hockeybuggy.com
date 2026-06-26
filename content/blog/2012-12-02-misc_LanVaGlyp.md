@@ -13,10 +13,10 @@ tags:
 title: Taking this site live
 ---
 
-It is finally time to publish this website. I do not imagine that it is anyway
+It is finally time to publish this website. I do not imagine that it is in any way
 complete. However I really do want to have something existent up and online.
 
-Things that still need to happened for the site is it still needs a slightly
+Things that still need to happen for the site is it still needs a slightly
 nicer colour scheme. I however do not really have an overwhelmingly strong
 sense of style. 
 
