@@ -15,7 +15,7 @@ title: Experimenting with Protobufs generated types in Rust
 
 This past week I was thinking about what it would take to design and build a
 home heating monitoring and control system. I was imagining something like a
-small computer in each room that would have a thermometer on radiator and
+small computer in each room that would have a thermometer on the radiator and a
 thermometer measuring the ambient air temperature. These smaller computers
 would send messages into a "central" computer that would record things and turn
 radiators on and off. These computers would be on a separate physical network
@@ -34,14 +34,14 @@ a plain text format I decided to try using Protobufs.
 ## What is a Protobuf
 
 Protobufs are short for "Protocol buffers" and are a Google created mechanism
-for serializing structured data into a binary format. They work be having
+for serializing structured data into a binary format. They work by having
 defined message types in `.proto` files. These files can then be used by
 various programming languages to generate a language appropriate binding that
 can be used to encode and decode messages.
 
 The documentation on [why you might want to use
 Protobufs](https://developers.google.com/protocol-buffers/docs/overview#whynotxml)
-does a good job of explaining their advantages. Using Protobufs have some
+does a good job of explaining their advantages. Using Protobufs has some
 trade-offs that likely make them not the most appropriate format for a hobby
 home automation project (such as not being human readable), but here we are.
 
@@ -142,7 +142,7 @@ name = "home_auto"
 path = "src/lib.rs"
 ```
 
-The `struct` can then be constructed an used as a return type normally: 
+The `struct` can then be constructed and used as a return type normally: 
 
 ```rust
 pub fn create_thermostat_state(name: String) -> messages::ThermostatState {
@@ -280,6 +280,6 @@ This was a fun thing to try out and I feel like I learned a few things from the 
 
 1. You could generate Rust structs from preexisting Protobufs allowing a typed boundary between languages.
 2. Tooling to this approach (as is) is imperfect since the generated file only exists at compile time.
-2. Async/Await in rust is wonderful and I am grateful of people's hard work to make it happen.
+2. Async/Await in rust is wonderful and I am grateful for people's hard work to make it happen.
 
 I could picture reaching for Protobufs again in the future.
