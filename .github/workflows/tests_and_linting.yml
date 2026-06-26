@@ -33,7 +33,7 @@ jobs:
     - uses: ./.github/actions/shared-setup
     - uses: ./.github/actions/build-site
     - name: Install Playwright browsers
-      run: npx playwright install --with-deps chromium
+      run: yarn playwright install --with-deps chromium
     - name: Run Tests
       env:
         CI: true
