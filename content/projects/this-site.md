@@ -8,7 +8,7 @@ bannerAltText: "A screenshot of the header of this website."
 ---
 
 
-This my personal website is a place I use to try out new things. This project
+This, my personal website, is a place I use to try out new things. This project
 has been running in some form or another for a little over 10 years now.
 
 <!-- excerpt -->
@@ -23,8 +23,8 @@ don't really remember). I believe that the very first version of the site was a
 static HTML page. At the time I was learning some basic HTML, PHP, and cgi-bin
 Perl with my uncle.
 
-The first version of the site I can find was one from 2nd year when I was in my
-second year University. If you look at the [Internet
+The first version of the site I can find was one from when I was in my
+second year of University. If you look at the [Internet
 archive](https://web.archive.org/web/20110207131733/http://hockeybuggy.com/underconstruction.html)
 it has a (now cliché) "under construction" message.
 
@@ -43,17 +43,17 @@ option at the time.
 The next year I ported the content to Jekyll: [Again I wrote about
 it](/blog/post/2013/09/migrated-to-jekyll). I did this because I was finding
 Pelican difficult to setup on new machines (I don't remember why). At the time
-Jekyll was supported by GitHub pages which was attractive to be because I
+Jekyll was supported by GitHub pages which was attractive to me because I
 didn't want to spend money hosting the site while I was in university (not that
 I would seek it out now).
 
-Jekyll worked well for a while. This was a time where a wrote more by writing
+Jekyll worked well for a while. This was a time where I wrote more by writing
 about cool things I learned from Wikipedia (I have taken these posts down
 because I wasn't particularly proud of the quality of the writing). After a
 while the site sat dormant. In the beginning this was because I wasn't
 interested in adding to it, but later it was because I was finding it difficult
 to setup Jekyll (mostly because I never got fully comfortable with the Ruby
-ecosystem.
+ecosystem).
 
 To address the "burden of setup problem" I switched the static site to Hugo:
 [And I wrote about it](/blog/post/2019/09/migrated-to-hugo). I did this because
@@ -88,5 +88,5 @@ implementation was possible.
 
 I don't really have specific plans for the site. I like having a place to try
 out new ideas with low stakes and it will continue to be used for that purpose.
-I will also use the site to improve my writing, which like all skills, require
+I will also use the site to improve my writing, which, like all skills, requires
 practice.
