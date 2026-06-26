@@ -38,7 +38,7 @@ kind).
 ### Switching to Vundle
 
 For a long time, downloading the plugins I use for Vim was handled by [Tim
-Pope's][TPOPE] [Pathogen][PATHOGEN]. It's is a really great way to keep plugins
+Pope's][TPOPE] [Pathogen][PATHOGEN]. It's a really great way to keep plugins
 out of your dotfiles revision history, but it's not perfect. The problem is
 that it relies on git submodules, and git submodules [kinda][GITSUB1]
 [suck][GITSUB2].
@@ -47,12 +47,12 @@ that it relies on git submodules, and git submodules [kinda][GITSUB1]
 
 For quite some time I used custom statusline that was simple but did the job
 quite well. It communicated things like which git branch was active and which
-buffer was active. It's only issue was that it was sometimes difficult to see
+buffer was active. Its only issue was that it was sometimes difficult to see
 what mode Vim was in my peripheral vision.
 
 In a 'the grass looks greener over there' sort of move I switched to
 [airline][AIRLINE]. It not only solves the problem of losing track of modes but
-It also helps keep track of which is the current split window. As iceing on the
+it also helps keep track of which is the current split window. As icing on the
 cake, it also tells me which line has trailing white-space or mixed
 indentation.
 
@@ -61,7 +61,7 @@ indentation.
 ### Spellfile
 
 I am really bad at spelling. While English may be my first language I am pretty
-sure I am more proficient in several programing languages. Thankfully Vim can
+sure I am more proficient in several programming languages. Thankfully Vim can
 help me compensate for my shortcomings with `:set spell`. Once spelling is
 turned on misspellings are highlighted and can be managed with the following
 normal mode mappings:
@@ -78,11 +78,11 @@ Take that Microsoft Office.
 
 ### Completions
 
-One my favorite feature of Vim is it's approach to completions. Some IDEs like
+One of my favorite features of Vim is its approach to completions. Some IDEs like
 Visual Studio and Eclipse have tab completion which try to produce a list of
 things you might mean to type (like function names in the project. While this
 can be nice sometimes, it is **CRAZY** distracting. Vim will only give you a
-completion list when you ask for it and Vim has a number of different list you
+completion list when you ask for it and Vim has a number of different lists you
 can choose from. From insert mode type:
 
 - `<CTRL-n>`: Generic Complete
@@ -109,7 +109,7 @@ the differences between the American and Canadian pronunciation of the letter
 While I might have come to use zsh for the wrong reasons, I think that I have stayed
 for the right ones. One of the most visually apparent is the **multi-line prompts**
 (you can see an example of it in the right pane of the image at the top). I
-really like having a multi-line prompt since I means that a lot of information
+really like having a multi-line prompt since it means that a lot of information
 can be shown on the top line and long commands can still be typed on the second
 line.
 
@@ -205,7 +205,7 @@ Nifty.
 
 When you use Vim within a Tmux Session the line between Vim *Windows* and Tmux
 *Panes* can get pretty blurred; Sometimes blurred to a frustrating degree.
-Trying to remember whither you need to type `<CTRL-a> h` or `<CTRL-w> h` when
+Trying to remember whether you need to type `<CTRL-a> h` or `<CTRL-w> h` when
 you simply want to move to the right can get tiring.
 
 A really cool person called [Chris Toomey][CHRIS] created
@@ -225,11 +225,11 @@ this cleverly named section.
 I really hate the caps lock key; I hate it almost to the point where I have
 considered writing tirades about how useless it is. I've almost disowned my
 sister over her persistence in keeping her caps lock key. But instead, I am
-gonna quickly rant about here. Feel free to skip it.
+gonna quickly rant about it here. Feel free to skip it.
 
 `<rant>`
 
-Caps lock keys are artifacts from they days when pressing a key on a keyboard
+Caps lock keys are artifacts from the days when pressing a key on a keyboard
 provided the energy to swing a little letter clad hammer aggressively at a
 piece of paper. To type an uppercase letter, the shift key would lift a tray of
 keys to change to a different set of hammers, so holding the shift key down
@@ -239,20 +239,20 @@ uppercase tray into place and pressing it again would lower it again.
 
 These days are long gone, but the key is not. Many computer users (without a
 disability) are able to type while holding the shift key if they really need
-too. Since I am able to, I opt to use one of the best placed keys on the
+to. Since I am able to, I opt to use one of the best placed keys on the
 keyboard for something useful: Another control key.
 
 Since I use Tmux and Vim so much, having a better placed control key is really
 useful. When I am chording control with a key on the bottom row I use the left
-control key and when chording with a 'home' row, or an top row key I use the
+control key and when chording with a 'home' row, or a top row key I use the
 "Caps Lock" key. It's pretty great.
 
 `</rant>`
 
 ### Terminal
 
-While looking at a lot of other peoples configurations, I realized a lot of
-other people using [iTerm2][ITERM2]. However, since I used Linux rather than OS
+While looking at a lot of other people's configurations, I realized a lot of
+other people were using [iTerm2][ITERM2]. However, since I used Linux rather than OS
 X, I have to use another terminal: [urxvt][URXVT]. It doesn't have the fancy
 GUI that iTerm2 has to configure the terminal, which is fine for normal use
 since I don't have to change options much once I have found a comfortable
