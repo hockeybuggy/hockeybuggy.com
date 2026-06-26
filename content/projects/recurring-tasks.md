@@ -4,7 +4,7 @@ slug: "recurring-tasks"
 order: 40
 github: "https://github.com/hockeybuggy/recurring_tasks"
 bannerImageName: "projects/recurring-tasks/banner.png"
-bannerAltText: "An screenshot of an image of a email received from a 'recurring' email address. The is a list of upcoming tasks."
+bannerAltText: "A screenshot of an image of an email received from a 'recurring' email address. There is a list of upcoming tasks."
 ---
 
 A tool to periodically send myself emails of recurring tasks. A calendar app
@@ -15,10 +15,10 @@ I wanted and writing this was quite fun.
 
 This little utility is something I wrote for myself in Rust. It's split into
 two parts: a [public repo](https://github.com/hockeybuggy/recurring_tasks) and
-a private repo. The public repo contains executable that when run will read a
+a private repo. The public repo contains an executable that when run will read a
 file called `tasks.toml` and generate a `subject.txt` and `body.html` output.
 
-The `tasks.toml` file will looks something like this:
+The `tasks.toml` file will look something like this:
 
 ```toml
 timezone = "America/Toronto"
