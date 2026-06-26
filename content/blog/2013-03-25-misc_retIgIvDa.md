@@ -24,9 +24,9 @@ most of the time when moving around.
 
 After reading [Practical Vim](https://pragprog.com/book/dnvim/practical-vim)
 I started to use more word-wise operations (e.g. w,e,b,ge).
-The word-wise motions moves the cursor around based on word
+The word-wise motions move the cursor around based on word
 characters(a-zA-Z0-9). While
-this is much much faster then the hjkl motions, they feel slow when you know
+this is much much faster than the hjkl motions, they feel slow when you know
 where in the text you want to go. The word-wise motions feel like they grind to
 a halt when they hit URLs because of how many sub "word" a URL is made of.
 
@@ -42,9 +42,9 @@ thought I should share it here.
 
 ![An image I made explaining some of the character-wise motions][FASTER_THAN_WORDWISE_IMG]
 
-These commands are complimented by the ; command that repeats the most recent
-motion. This becomes useful if you trying to move to a character and fall short
-because you did not see another closer occurrence of a character. Rather then
+These commands are complemented by the ; command that repeats the most recent
+motion. This becomes useful if you're trying to move to a character and fall short
+because you did not see another closer occurrence of a character. Rather than
 retyping the motion and the character (two things) you can just hit the ; key
 to repeat (one thing). As one of the goals of using Vim is to avoid repetition
 we should try to remember to use the ; command.
