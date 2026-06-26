@@ -11,9 +11,9 @@ tags:
 title: Vim splitting shortcuts
 ---
 
-I have a quite a few leader mapped keys in my `.vimrc`, and I use some of them.
+I have quite a few leader mapped keys in my `.vimrc`, and I use some of them.
 The mapping that I use the most is to split the vim window to an existing
-buffer buffer. If I wanted to split to file I have already opened, and I know
+buffer. If I wanted to split to a file I have already opened, and I know
 the buffer number is 2, I could type:
 
 <div class="keysequence">
@@ -41,7 +41,7 @@ The mappings [look like this][MAPPINGS_IN_SITU]:
 When I first made the mapping, I used `-` for horizontal splits and `|` for
 vertical split, since each of those characters look like the type of split they
 produce. This ended up being annoying since `-` does not need a
-shift and `|` does. To make typing them more constant I settled on `\` since
+shift and `|` does. To make typing them more consistent I settled on `\` since
 it's the lowercase `|`.
 
 ## Open buffer in a new tab
