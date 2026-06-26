@@ -23,11 +23,11 @@ The most recent change to [this site was moving from Hugo to
 Gatsby](/blog/post/2020/05/switching-to-gatsby). That
 previous move was moving towards something more familiar with using React since
 I have been using React for the day jobs for the past few years. After moving
-to Gastsby I found that I didn't like the GraphQL parts of making changes to
-the site. I think that this difficultly was largely from my own lack of
+to Gatsby I found that I didn't like the GraphQL parts of making changes to
+the site. I think that this difficulty was largely from my own lack of
 experience with the technology.
 
-Another reason for the switch was the generated TypeScript types generated from
+Another reason for the switch was the TypeScript types generated from
 the GraphQL types were large and change superficially frequently making it more
 difficult to use.
 
