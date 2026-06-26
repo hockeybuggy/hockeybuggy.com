@@ -10,14 +10,14 @@ bannerAltText: "A green ball sitting on a reflective black and white checkered f
 Following along with the book [The Ray Tracer
 Challenge](https://pragprog.com/titles/jbtracer/) by Jamis Buck. This book is a
 follow along test-driven guide to creating a ray tracing 3D renderer, and I am
-follow along in Rust.
+following along in Rust.
 
 <!-- excerpt -->
 
 A ray tracer works by casting "rays" away from the camera, bouncing off objects
 in scenes. These objects calculate the colour the ray should produce based on
-the proprerties of the object (e.g. is it reflective?, does it have opacity?,
-does it refact?, does it have a colour) and the lighting in the scene.
+the properties of the object (e.g. is it reflective?, does it have opacity?,
+does it refract?, does it have a colour) and the lighting in the scene.
 
 I have found this project to be fun because it has a visual element that you
 created nearly from scratch yourself. At one point in this project's life it
@@ -25,7 +25,7 @@ could only render files called `.ppm` files which are pixel by pixel images and
 there was no library code. Now the only libraries I use in this project are:
 
 - [`image`](https://crates.io/crates/image): Used to render jpegs of the rendered canvases
-- [`criterion`](https://crates.io/crates/criterion): Uses to benchmark the performance of the rendering (because it can be quite slow when there are a lot of pixels in an image)
+- [`criterion`](https://crates.io/crates/criterion): Used to benchmark the performance of the rendering (because it can be quite slow when there are a lot of pixels in an image)
 - [`assert_approx_eq`](https://crates.io/crates/assert_approx_eq): Used to make fuzzy assertions on floating point numbers
 
 ---
@@ -62,7 +62,7 @@ you to get that test to pass (and often tells you how to make it pass).
     }
 ```
 
-Because of this book structure you feel like your making gradual progress even
+Because of this book structure you feel like you're making gradual progress even
 in the early part of the book while you're still working on foundations (which
 is where the test above comes from).
 
@@ -70,7 +70,7 @@ is where the test above comes from).
 
 ![The first object rendered; a pink sphere][FIRST_SPHERE]
 
-The pink sphere is the first object I rendered (by following to book of
+The pink sphere is the first object I rendered (by following the book of
 course). Here you can see the "three kinds of lighting" that computer graphics
 often uses to emulate realistic looking lighting: specular, diffuse, and
 ambient (here: the specular is the "reflection of the white lighting source",
