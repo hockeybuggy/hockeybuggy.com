@@ -22,7 +22,7 @@ with React compared to the Hugo templating. It feels nice to use similar tools
 to what I use day to day and feel like I have more control over the look of the
 site.
 
-I first worked with Gatsby for a friends wedding website and was really pleased
+I first worked with Gatsby for a friend's wedding website and was really pleased
 with it. It's got some very impressive things built in like prefetching links,
 and image preprocessing (with cool things like "blur up" where the image first
 loads as a minimal blurry base64 equivalent while the full image loads). One of
@@ -38,7 +38,7 @@ help keep up with that there are systems like Dependabot which will open PRs on
 the GitHub repo periodically. Normally it's up to people to review these and
 merge the changes.
 
-For this repo I decided to try our a service called
+For this repo I decided to try out a service called
 [Mergify](https://mergify.io/). It will read a configuration with a set of
 rules and will merge dependency pull requests without any human interaction if
 the tests pass!
@@ -51,9 +51,9 @@ this was opened by a bot and merged by a bot once the tests passed.
 ### End to End tests
 
 The "automatic dependency updates" could be a really good way for this site to
-break without noticing nice not every dependency is a non-breaking change. In
+break without noticing since not every dependency is a non-breaking change. In
 order to catch the site breaking before merging these changes in this static
-site now has tests that fires up a headless browser and checks that the page renders.
+site now has tests that fire up a headless browser and check that the page renders.
 
 This project has a [GitHub
 action](https://github.com/hockeybuggy/hockeybuggy.com/actions?query=workflow%3A%22end+to+end+tests%22+branch%3Amaster)
@@ -63,8 +63,8 @@ various pages. These are collected as build artifacts.
 
 ## Wrapping up
 
-Hugo had some really good things going for it. I will miss it's single
-executable (since setting up a node environment can occasionally by tricky).
+Hugo had some really good things going for it. I will miss its single
+executable (since setting up a node environment can occasionally be tricky).
 Thanks to the contributors of Hugo as well as the authors of the `hugo-coder`
 theme that I recreated here.
 
