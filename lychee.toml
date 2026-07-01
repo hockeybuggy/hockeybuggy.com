@@ -1,0 +1,25 @@
+# Config for the dead-link checker (scripts/check-links, CI link-check jobs).
+# See: https://lychee.cli.rs/formats/#config-file
+
+# Resolve directory links (e.g. `/blog/`) against index.html when checking
+# the built site locally.
+index_files = ["index.html"]
+
+# Don't flag loopback/localhost addresses (e.g. the http://localhost:8080
+# example used in a blog post about local development).
+exclude_loopback = true
+
+# Known false positives and out-of-scope URLs:
+exclude = [
+    # XML/SVG namespace URIs, not real links.
+    '^https?://www\.w3\.org/',
+    '^https?://www\.sitemaps\.org/',
+]
+
+# Many sites block the default lychee/reqwest user agent.
+user_agent = "Mozilla/5.0 (compatible; hockeybuggy.com link-check)"
+
+# Be a little more tolerant of slow/rate-limited hosts.
+timeout = 20
+retry_wait_time = 5
+max_retries = 3

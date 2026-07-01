@@ -35,6 +35,14 @@ fully static site built by a small custom Rust static site generator in
 - `e2e_tests/` — Puppeteer-driven Jest tests that hit the built site served by
   `serve_static.js`, including validation of generated artifacts like the
   sitemap. Run with `yarn test:e2e` (or `./scripts/test`).
+- **Link checking:** [`lychee`](https://lychee.cli.rs) checks the built site
+  (`dist/`) for dead links, configured via `lychee.toml`. Run locally with
+  `./scripts/check-links` (internal links only, offline) or
+  `./scripts/check-links --external` (also checks external URLs over the
+  network). Internal links are checked on every push (`link-check` job);
+  external links are checked weekly (`.github/workflows/link-check-external.yml`)
+  and reported via a GitHub issue rather than failing the build, since
+  networked checks are flaky.
 
 ## Development Workflow
 
@@ -49,6 +57,7 @@ fully static site built by a small custom Rust static site generator in
 | Rust tests | `cargo test --manifest-path ssg/Cargo.toml` |
 | Rust format check | `cargo fmt --manifest-path ssg/Cargo.toml --check` |
 | Rust lints | `cargo clippy --manifest-path ssg/Cargo.toml -- -D warnings` |
+| Check for dead links | `./scripts/check-links` (add `--external` for network checks) |
 
 ### Adding a New Blog Post
 
@@ -85,4 +94,4 @@ fully static site built by a small custom Rust static site generator in
 - `dist/` — Build output (gitignored, produced by `yarn build`).
 - `e2e_tests/` — Puppeteer end-to-end tests, including artifact validation
   (sitemap, etc.).
-- `scripts/` — Helper scripts (new post, dev server, test runner).
+- `scripts/` — Helper scripts (new post, dev server, test runner, link checker).
