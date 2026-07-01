@@ -24,6 +24,8 @@ rendered through [MiniJinja](https://docs.rs/minijinja) templates in
 - Node and [`yarn`](https://yarnpkg.com/) to run the Jest-based end-to-end
   tests. This README assumes [`fnm`](https://github.com/Schniz/fnm) is used but
   any node installer works.
+- [`lychee`](https://lychee.cli.rs) to check for dead links (`brew install
+  lychee` or `cargo install lychee`).
 
 
 ## Making Changes
@@ -96,6 +98,21 @@ Rust-side unit tests and lints:
     cargo test
     cargo fmt --check
     cargo clippy -- -D warnings
+
+
+### Checking links
+
+Check the built site for dead links (internal links only, no network access):
+
+    ./scripts/check-links
+
+To also check external URLs over the network:
+
+    ./scripts/check-links --external
+
+Internal links are checked on every push and block CI. External links are
+checked weekly and reported as a GitHub issue instead of failing the build,
+since networked checks are inherently flaky.
 
 
 ### Deployment

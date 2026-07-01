@@ -12,6 +12,7 @@ See `AGENTS.md` for a full architecture overview.
 - Run single E2E test: `JEST_PUPPETEER_CONFIG=e2e_tests/jest-puppeteer.config.js jest --runInBand -c 'e2e_tests/jest.config.js' -t 'test name'`
 - Rust tests: `cargo test --manifest-path ssg/Cargo.toml`
 - Rust format / lint: `cargo fmt --manifest-path ssg/Cargo.toml --check` and `cargo clippy --manifest-path ssg/Cargo.toml -- -D warnings`
+- Check for dead links: `./scripts/check-links` (internal only, offline) or `./scripts/check-links --external` (also checks external URLs); requires `lychee` (`brew install lychee`)
 
 ## Code Style Guidelines
 - Rust SSG lives under `ssg/`. Run `cargo fmt` and `cargo clippy` before committing Rust changes.

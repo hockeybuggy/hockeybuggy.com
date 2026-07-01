@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Checks the built site for dead links using lychee (https://lychee.cli.rs).
+#
+# By default only internal links are checked, offline against the built
+# `dist/` directory (fast, deterministic, safe to run on every push).
+# Pass --external to also check external URLs over the network.
+
+if ! command -v lychee >/dev/null 2>&1; then
+    echo "==> lychee is not installed." >&2
+    echo "    Install it with: brew install lychee" >&2
+    echo "    or:              cargo install lychee" >&2
+    exit 1
+fi
+
+MODE="internal"
+if [[ "${1:-}" == "--external" ]]; then
+    MODE="external"
+fi
+
+echo "==> Building site"
+yarn run build
+
+LYCHEE_ARGS=(--root-dir "$PWD/dist" --config lychee.toml 'dist/**/*.html')
+if [[ "$MODE" == "internal" ]]; then
+    echo "==> Checking internal links (offline)"
+    lychee --offline "${LYCHEE_ARGS[@]}"
+else
+    echo "==> Checking internal and external links"
+    lychee "${LYCHEE_ARGS[@]}"
+fi
