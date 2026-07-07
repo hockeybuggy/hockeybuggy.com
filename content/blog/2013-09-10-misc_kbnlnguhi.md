@@ -39,10 +39,8 @@ of the files in the root of the project.
 ## New Face
 
 So now that I have to redo all of my markup I figured it was time for a new
-face for the site. I keep the same colour scheme(borrowed from:[here][COLOUR])
-and added some icons in the footer.
+face for the site.
 
 [PELICAN]: https://docs.getpelican.com
 [JEKYLL]: https://jekyllrb.com
 [GITHUB]: https://pages.github.com
-[COLOUR]: https://bit.ly/9oo0N3
