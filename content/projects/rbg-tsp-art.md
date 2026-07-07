@@ -40,7 +40,8 @@ or the route between stipples.
 ## Plotter
 
 The plotter that I am using is a [MakeBlock XY Plotter Robot
-Kit](https://www.makeblock.com/project/xy-plotter-robot-kit). This plotter
+Kit](https://web.archive.org/web/20230306200404/https://www.makeblock.com/project/xy-plotter-robot-kit).
+This plotter
 comes with some software called `mDraw` which I used to control the plotter
 from a computer.
 
