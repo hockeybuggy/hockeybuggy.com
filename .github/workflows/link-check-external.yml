@@ -9,7 +9,9 @@ on:
 
 jobs:
   link-check-external:
-    runs-on: ubuntu-22.04
+    # ubuntu-24.04 (glibc 2.39): the unpinned lychee release now requires a
+    # newer glibc than ubuntu-22.04 (glibc 2.35) provides.
+    runs-on: ubuntu-24.04
     permissions:
       issues: write
     steps:
