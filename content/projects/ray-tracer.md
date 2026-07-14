@@ -27,6 +27,7 @@ there was no library code. Now the only libraries I use in this project are:
 - [`image`](https://crates.io/crates/image): Used to render jpegs of the rendered canvases
 - [`criterion`](https://crates.io/crates/criterion): Used to benchmark the performance of the rendering (because it can be quite slow when there are a lot of pixels in an image)
 - [`assert_approx_eq`](https://crates.io/crates/assert_approx_eq): Used to make fuzzy assertions on floating point numbers
+- [`serde`](https://crates.io/crates/serde) and [`toml`](https://crates.io/crates/toml): Used to read scenes and animations described in TOML files
 
 ---
 
@@ -94,9 +95,26 @@ project's readme](https://github.com/hockeybuggy/ray_tracer#worlds)
 
 ---
 
-I haven't quite finished the book yet at this point (2023-02-18). There are a
-few more chapters that I haven't gotten to yet, but I am quite content with
-where the project is now and may never choose to "finish".
+The project has come a long way since those first spheres. Beyond planes and
+spheres it can now render cubes, cylinders and cones, groups of shapes, triangle
+meshes imported from OBJ models, and objects combined with constructive solid
+geometry (CSG). It also gained texture mapping (including a skybox), area lights
+that cast soft shadows, and bounding volume hierarchies to keep all of that fast
+enough to render. Scenes no longer have to be described in Rust either: a
+`render` binary reads a scene from a TOML file and writes a PNG, and an
+`animate` binary turns a TOML animation into a sequence of frames. The
+[project's readme has a
+gallery](https://github.com/hockeybuggy/ray_tracer#gallery) of what it can
+render.
+
+---
+
+This started as a follow-along of the book, and I've since worked through the
+later chapters — cubes, cylinders and cones, groups, triangles and OBJ models,
+and on through constructive solid geometry (chapter 16). Even so, it remains an
+ongoing hobby project that may never be formally "done": there are always more
+bonus chapters to try, more scenes to render, and more Rust to learn along the
+way.
 
 
 [FIRST_SPHERE]: /static/img/projects/ray-tracer/first_sphere.jpg

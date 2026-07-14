@@ -76,12 +76,35 @@ For every commit it uses [Puppeteer](https://github.com/puppeteer/puppeteer) to
 check that pages render, don't log any errors to the console, and take screen
 shots.
 
+After Gatsby I ported the site to `Next.js`: [I wrote about
+it](/blog/post/2021/12/switching-to-next-js). I did this because I got a chance
+to use it at work and enjoyed it. Since this was already a React based site
+converting it from the Gatsby implementation was possible.
+
+Most recently I replaced Next.js with a small custom static site generator that
+I wrote myself: [I wrote about
+it](/blog/post/2026/04/custom-static-site-generator). I did this because the
+site is a low-stakes place to try things and I wanted to see what building my
+own generator would be like rather than reaching for another off-the-shelf
+framework.
+
 
 ### Today
 
-Today this uses `Next.js`. I got a chance to use it at work and enjoyed it.
-Since this was already a React based site converting it from the Gatsby
-implementation was possible.
+Today the site is built by a small custom static site generator written in Rust
+that lives in the `ssg/` directory of the repository. The content, both blog
+posts and these project pages, is authored as Markdown files with YAML
+frontmatter under `content/`. The generator parses that Markdown with
+`pulldown-cmark` and renders the pages using MiniJinja templates. The styles are
+written in Sass and compiled with `grass` as part of the build. The finished
+site is written to `dist/`, which is what Netlify publishes.
+
+I kept the parts of the previous incarnations that I liked. The end to end tests
+still use Puppeteer and Jest to check that the built pages render without logging
+errors to the console. I also added a step that uses
+[`lychee`](https://lychee.cli.rs) to check the site for dead links. None of this
+is fancy, but that suits the site: it is a low-stakes place for me to try things,
+and writing my own generator was one of those things.
 
 
 ## Plans for the future
