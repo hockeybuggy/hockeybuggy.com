@@ -21,9 +21,9 @@ rendered through [MiniJinja](https://docs.rs/minijinja) templates in
 
 - A Rust toolchain (stable) to build the site. `rustup` is the easiest way to
   install it.
-- Node and [`yarn`](https://yarnpkg.com/) to run the Jest-based end-to-end
-  tests. This README assumes [`fnm`](https://github.com/Schniz/fnm) is used but
-  any node installer works.
+- Node 22 (see `.node-version`) and [`yarn`](https://yarnpkg.com/) for Playwright
+  tests and Cloudflare's Wrangler CLI. This README assumes
+  [`fnm`](https://github.com/Schniz/fnm) is used but any node installer works.
 - [`lychee`](https://lychee.cli.rs) to check for dead links (`brew install
   lychee` or `cargo install lychee`).
 
@@ -117,6 +117,92 @@ since networked checks are inherently flaky.
 
 ### Deployment
 
-This site is hosted on Netlify. To deploy just push to the main branch on GitHub:
+The live site remains on Netlify, which deploys pushes to `main`. Keep its build
+settings, custom domains and `netlify.toml` until the Cloudflare migration has
+been verified. There is no automatic Cloudflare deployment workflow.
 
-    git push origin main
+#### Local Cloudflare preview
+
+[Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/)
+serves the generated `dist/` directly, without a Worker script. Asset requests
+are free; this configuration does not require a paid Workers plan.
+
+    fnm use
+    corepack enable
+    yarn install --immutable
+    yarn preview:cloudflare
+
+Open <http://127.0.0.1:8787>. This builds once and starts Wrangler's local asset
+runtime; restart it after editing source files. The existing `yarn dev` remains
+available for live-reload authoring. No Cloudflare account or login is needed
+for local preview.
+
+Routing is configured in `wrangler.jsonc`: extensionless pages have no trailing
+slash, missing resources return the generated `404.html` with status 404, and
+`public/_redirects` preserves the 13 legacy blog redirects, including their
+trailing-slash variants. The Rust build copies this file into `dist/`.
+
+Run the focused hosting tests and validate the deployment without publishing:
+
+    yarn test:cloudflare
+    WRANGLER_SEND_METRICS=false yarn deploy:cloudflare --dry-run
+
+The tests start a separate local Wrangler instance on port 8788. They cover
+redirect destinations and query strings, slash normalization, pages, assets,
+the Atom feed, sitemap and custom 404s. A configuration guard prevents adding
+Worker code or domain bindings without revisiting this preview-only setup.
+Both preview and deployment scripts build first; use these scripts rather than
+calling `wrangler deploy` directly against potentially stale `dist/` output.
+
+#### Remote preview — requires approval
+
+Confirm the intended Cloudflare account and that the Worker name `hockeybuggy`
+is available before the first deployment; deploying an existing name updates
+that Worker. Then, with approval:
+
+    yarn wrangler login
+    yarn deploy:cloudflare
+
+This publishes to `https://hockeybuggy.<account-subdomain>.workers.dev`, not to
+`hockeybuggy.com`. It is a public preview. No custom domains or routes are
+configured. Never commit API tokens or local credential files.
+
+Verify pages, CSS/JS/images, `/blog/index.xml`, `/sitemap.xml`, all legacy
+redirects (also with query strings), slash normalization and an unknown URL's
+404 status before approving a custom-domain cutover. Feed and sitemap URLs
+remain on `https://hockeybuggy.com`, not the preview hostname.
+
+#### Website cutover — separate approval
+
+Do not attach custom domains during preparation or remote-preview testing.
+The static asset `_redirects` format [does not support domain-level redirects](https://developers.cloudflare.com/workers/static-assets/redirects/),
+so Netlify's `www` canonicalization must be replaced separately.
+
+At the approved cutover, create a Free Cloudflare Single Redirect scoped to
+these two website hosts only:
+
+- Match expression:
+  `(http.host in {"hockeybuggy.com" "www.hockeybuggy.com"} and (http.host eq "www.hockeybuggy.com" or not ssl))`
+- Dynamic target: `concat("https://hockeybuggy.com", http.request.uri.path)`
+- Status: `301`; **Preserve query string** enabled.
+
+The source DNS records must be proxied for the rule to run. Do not change
+zone-wide redirect settings or proxy unrelated subdomains. Attach the reviewed
+Workers custom domains for `hockeybuggy.com` and `www.hockeybuggy.com`, replacing
+only their existing Netlify CNAME records when required by Cloudflare. Review
+and update Wrangler's route configuration and the preview-only configuration
+guard together so subsequent deployments retain the approved domain bindings.
+
+Check valid TLS, HTTP-to-HTTPS, `www`-to-apex (including paths and queries),
+legacy redirects, feed and 404 behavior against the real domains. Leave
+Netlify available during the observation period.
+
+To roll back, remove these Workers custom-domain bindings, disable the new
+redirect rule, and restore DNS-only CNAMEs:
+
+- `@` → `apex-loadbalancer.netlify.com`
+- `www` → `hockeybuggy.netlify.com`
+
+Keep Netlify's custom-domain associations and certificates available. DNS
+caches and certificate issuance can delay recovery. Do not change nameservers,
+email records, other subdomains or other Netlify sites as part of this cutover.

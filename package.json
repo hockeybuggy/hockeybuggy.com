@@ -10,13 +10,17 @@
     "build": "cargo run --release --manifest-path ssg/Cargo.toml",
     "dev": "node dev_server.js",
     "start": "node serve_static.js",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "preview:cloudflare": "yarn build && wrangler dev --local --ip 127.0.0.1",
+    "deploy:cloudflare": "yarn build && wrangler deploy",
+    "test:cloudflare": "node --test cloudflare_tests/config.test.cjs && playwright test --config playwright.cloudflare.config.ts"
   },
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "@types/node": "^25.6.0",
     "dotenv": "^17.4.2",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "wrangler": "4.136.1"
   },
   "packageManager": "yarn@4.5.0"
 }

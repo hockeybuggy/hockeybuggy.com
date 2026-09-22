@@ -8,7 +8,6 @@ tsconfig.tsbuildinfo
 !.github/
 
 .yarn
-.yarnrc.yml
 
 # Rust build artifacts
 /ssg/target/
@@ -25,3 +24,7 @@ public/blog/index.xml
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+/.wrangler/
+.dev.vars*
+.env*
