@@ -237,6 +237,17 @@ Completed locally on 2026-09-21:
 - `git diff --check` passed. The main checkout remains clean. No full repository test suite was run.
 - Read-only `wrangler whoami` reports no authentication. The next external step needs the owner's Cloudflare login, account/Worker-name confirmation and approval for a public workers.dev preview. Do not use an anonymous temporary account as a workaround.
 
+## Remote preview verification — 2026-09-22
+
+After the owner completed `wrangler login`, read-only account checks confirmed the intended account and that no `hockeybuggy` Worker existed. Published the assets-only configuration with `CI=true WRANGLER_SEND_METRICS=false yarn deploy:cloudflare`.
+
+- Preview: https://hockeybuggy.hockeybuggy.workers.dev
+- Worker version: `6c47dfb1-ef74-49fc-b1af-7f404fcdb200`
+- Uploaded 86 static assets; `_redirects` is routing metadata, not a public asset.
+- Reused all 24 hosting tests against the remote preview, plus the existing landing-page browser smoke test: **25 passed**. The temporary remote Playwright configuration is under the ignored `.wrangler/` directory.
+- Checked live DNS and HTTPS after deployment: apex still resolves to Netlify's `75.2.60.5` and `99.83.231.61`; `www` remains `hockeybuggy.netlify.com`; the live homepage returns HTTP 200 from Netlify.
+- No custom domains, DNS records, redirect rules, paid services, Git pushes or merges were changed. The production cutover remains a separate approval checkpoint.
+
 ## References
 
 - https://developers.cloudflare.com/workers/static-assets/get-started/
