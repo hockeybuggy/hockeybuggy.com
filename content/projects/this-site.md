@@ -97,7 +97,7 @@ posts and these project pages, is authored as Markdown files with YAML
 frontmatter under `content/`. The generator parses that Markdown with
 `pulldown-cmark` and renders the pages using MiniJinja templates. The styles are
 written in Sass and compiled with `grass` as part of the build. The finished
-site is written to `dist/`, which is what Netlify publishes.
+site is written to `dist/`, which is served by Cloudflare.
 
 I kept the parts of the previous incarnations that I liked. The end to end tests
 still use Puppeteer and Jest to check that the built pages render without logging
