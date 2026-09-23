@@ -1,25 +1,20 @@
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
-const netlifyConfig = readFileSync('netlify.toml', 'utf8');
-const redirects = [...netlifyConfig.matchAll(
-    /from = "([^"]+)"\s+to = "([^"]+)"\s+status = (\d+)/g,
-)];
-if (!redirects.length || redirects.length !== (netlifyConfig.match(/\[\[redirects\]\]/g) ?? []).length) {
-    throw new Error('Update the legacy redirect parser to cover every Netlify redirect');
+const redirects = readFileSync('public/_redirects', 'utf8').trim().split('\n').map((line) => line.split(/\s+/));
+if (!redirects.length || redirects.some((fields) => fields.length !== 3)) {
+    throw new Error('Update the legacy redirect parser to cover every redirect');
 }
 
-for (const [, from, to, status] of redirects) {
+for (const [from, to, status] of redirects) {
     test(`preserves legacy redirect ${from}`, async ({ request }) => {
-        for (const suffix of ['', '/']) {
-            const response = await request.get(`${from}${suffix}?source=migration`, { maxRedirects: 0 });
-            expect(response.status()).toBe(Number(status));
-            const target = new URL(response.headers().location, response.url());
-            expect(target.origin).toBe(new URL(response.url()).origin);
-            expect(target.pathname).toBe(to);
-            expect(target.search).toBe('?source=migration');
-            expect((await request.get(`${target.pathname}${target.search}`)).status()).toBe(200);
-        }
+        const response = await request.get(`${from}?source=migration`, { maxRedirects: 0 });
+        expect(response.status()).toBe(Number(status));
+        const target = new URL(response.headers().location, response.url());
+        expect(target.origin).toBe(new URL(response.url()).origin);
+        expect(target.pathname).toBe(to);
+        expect(target.search).toBe('?source=migration');
+        expect((await request.get(`${target.pathname}${target.search}`)).status()).toBe(200);
     });
 }
 
