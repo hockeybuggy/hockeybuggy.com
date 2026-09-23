@@ -125,10 +125,6 @@ production account; the temporary DNS/redirect migration token is not suitable.
 The job verifies the account and existing Worker before publishing. Credentials
 are supplied only to that step, not to the site build.
 
-Netlify remains configured as a rollback destination and still builds pushes
-to `main`; keep its build settings, custom domains and `netlify.toml` during
-the observation period.
-
 #### Local Cloudflare preview
 
 [Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/)
@@ -149,7 +145,7 @@ Routing is configured in `wrangler.jsonc`: extensionless pages have no trailing
 slash, missing resources return the generated `404.html` with status 404, and
 `public/_redirects` preserves the 13 legacy blog redirects, including their
 trailing-slash variants. The Rust build copies this file into `dist/`.
-`public/_headers` preserves Netlify's one-year HSTS policy for this site without
+`public/_headers` sets a one-year HSTS policy for this site without
 changing zone-wide security settings.
 
 Run the focused hosting tests and validate the deployment without publishing:
@@ -200,22 +196,6 @@ This zone rule is managed separately from Wrangler. The static asset
 `_redirects` format [does not support domain-level redirects](https://developers.cloudflare.com/workers/static-assets/redirects/).
 The website hosts are proxied through their Workers custom-domain bindings;
 other subdomains and email records must retain their existing settings.
-
-#### Rollback to Netlify
-
-Remove only these two Workers custom-domain bindings, disable the canonical
-redirect rule, and restore DNS-only CNAMEs:
-
-- `@` → `apex-loadbalancer.netlify.com`
-- `www` → `hockeybuggy.netlify.com`
-
-Disable the CI deployment job before rollback. Also remove the production
-routes from `wrangler.jsonc` and update its configuration guard before deploying
-the Worker again, otherwise a later deployment will reattach the domains.
-Keep Netlify's custom-domain associations and certificates available.
-DNS caches and certificate issuance can delay
-recovery. Do not change nameservers, email records, other subdomains or other
-Netlify sites as part of rollback.
 
 The [migration record](docs/plans/2026-09-21-cloudflare-static-assets.md)
 contains the preview and production verification results.
