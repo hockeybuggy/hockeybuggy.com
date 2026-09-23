@@ -14,6 +14,8 @@ exclude = [
     # XML/SVG namespace URIs, not real links.
     '^https?://www\.w3\.org/',
     '^https?://www\.sitemaps\.org/',
+    # Live, but intermittently 403s automated requests.
+    '^https://inkscape\.org/',
 ]
 
 # Many sites block the default lychee/reqwest user agent.
