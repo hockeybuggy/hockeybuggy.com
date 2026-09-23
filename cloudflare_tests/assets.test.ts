@@ -31,6 +31,11 @@ for (const path of ['/', '/blog', '/projects', '/blog/post/2020/05/switching-to-
     });
 }
 
+test('preserves the HTTPS transport policy', async ({ request }) => {
+    const response = await request.get('/');
+    expect(response.headers()['strict-transport-security']).toBe('max-age=31536000');
+});
+
 test('normalizes directory URLs without trailing slashes', async ({ request }) => {
     for (const path of ['/blog/', '/blog/index.html']) {
         const response = await request.get(path, { maxRedirects: 0 });

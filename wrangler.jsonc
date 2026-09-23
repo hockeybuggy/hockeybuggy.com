@@ -3,6 +3,10 @@
   "name": "hockeybuggy",
   "compatibility_date": "2026-09-21",
   "workers_dev": true,
+  "routes": [
+    { "pattern": "hockeybuggy.com", "custom_domain": true },
+    { "pattern": "www.hockeybuggy.com", "custom_domain": true }
+  ],
   "send_metrics": false,
   "assets": {
     "directory": "./dist",

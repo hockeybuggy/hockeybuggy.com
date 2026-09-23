@@ -1,5 +1,7 @@
 # Cloudflare Static Assets Implementation Plan
 
+**Current status:** The approved production cutover completed on 2026-09-22 local time (2026-09-23 UTC). The initial plan below is historical; use the deployment section in `README.md` for current operating instructions. `yarn deploy:cloudflare` now updates the live website.
+
 > **For implementors:** Work through tasks using the executing-plans skill when human checkpoints are requested.
 
 **Goal:** Prepare the existing Rust-generated site for an explicitly approved, preview-first Cloudflare deployment without changing live hosting or DNS.
@@ -247,6 +249,27 @@ After the owner completed `wrangler login`, read-only account checks confirmed t
 - Reused all 24 hosting tests against the remote preview, plus the existing landing-page browser smoke test: **25 passed**. The temporary remote Playwright configuration is under the ignored `.wrangler/` directory.
 - Checked live DNS and HTTPS after deployment: apex still resolves to Netlify's `75.2.60.5` and `99.83.231.61`; `www` remains `hockeybuggy.netlify.com`; the live homepage returns HTTP 200 from Netlify.
 - No custom domains, DNS records, redirect rules, paid services, Git pushes or merges were changed. The production cutover remains a separate approval checkpoint.
+
+## Approved production cutover — 2026-09-22 local / 2026-09-23 UTC
+
+The owner approved switching the apex and `www`, then supplied a zone-scoped migration token through 1Password. The token was injected into API commands in memory; its value was not printed or stored in the repository. Wrangler's existing OAuth login handled Worker deployment and domain bindings.
+
+- Took a DNS and redirect-ruleset snapshot before mutation. There were 12 DNS records and no Single Redirect entry-point ruleset.
+- Created the website-only HTTP/`www` canonical redirect described in `README.md`. Ruleset: `815ae0218d584e5d8fcc3dba5f84631b`; rule: `c7b2b87a315a43749407386a6e7e5d1d`.
+- Cloudflare rejected attachment while the two externally managed Netlify CNAMEs existed. No custom domains were attached by that attempt. Removed only those two backed-up CNAMEs in one DNS batch and immediately redeployed, with a prepared automatic Netlify rollback on deployment failure. The retry succeeded, so rollback was not needed.
+- Both `hockeybuggy.com` and `www.hockeybuggy.com` are now custom domains of the `hockeybuggy` Worker. `wrangler.jsonc` and its configuration guard explicitly retain only these two approved domain bindings.
+- Preserved the previous `Strict-Transport-Security: max-age=31536000` response policy via `public/_headers`. A failing header test reproduced its absence before the change. The first immediate post-deployment check still saw the old edge response; a subsequent check confirmed the header on both production and workers.dev. No zone-wide HSTS setting was changed.
+- Final deployed Worker version: `c3e4e71b-76b0-4f4c-b127-54d7e73eabbb`.
+- Final verification: all 25 local hosting tests plus the configuration guard passed; all 26 production checks (25 request tests and one browser smoke test) passed; the scoped TypeScript check and `git diff --check` passed. HTTPS was checked with normal certificate validation, including direct requests to the authoritative Cloudflare address to avoid old Netlify DNS caches.
+- HTTP apex, HTTP `www`, and HTTPS `www` all returned 301 to the HTTPS apex with path and query string intact.
+- API comparison confirmed all 10 other DNS records, including apex TXT, SendGrid, Nabu Casa and SMS, were unchanged. No records in other zones were modified. Netlify's site and custom-domain associations remain available for rollback.
+- No paid services, Git pushes or merges were performed. Cloudflare deployments remain manual; the workers.dev address serves the same active deployment as production, not an isolated staging environment.
+
+Rollback evidence and the prepared rollback helper are stored outside the worktree at:
+
+`/Users/douglas/Downloads/cloudflare-dns-migration-2026-09-21/hockeybuggy-cutover-2026-09-22/`
+
+That owner-only directory contains `before.json`, `after.json`, `created-redirect-ruleset.json` and `rollback.py`, with no credentials. The helper requires the zone token injected as `CF_MIGRATION_SECRET`, an authenticated Wrangler session, and execution from the website repository. Token expiry or revocation may require renewed authorization. Do not run the rollback helper unless reverting the cutover is intended; after rollback remove the production routes from local configuration before deploying again.
 
 ## References
 

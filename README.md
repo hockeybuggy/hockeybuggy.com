@@ -117,9 +117,10 @@ since networked checks are inherently flaky.
 
 ### Deployment
 
-The live site remains on Netlify, which deploys pushes to `main`. Keep its build
-settings, custom domains and `netlify.toml` until the Cloudflare migration has
-been verified. There is no automatic Cloudflare deployment workflow.
+The live site is hosted on Cloudflare Workers Static Assets. Deployments are
+manual: pushes to `main` do not deploy to Cloudflare. Netlify remains configured
+as a rollback destination and still builds pushes to `main`; keep its build
+settings, custom domains and `netlify.toml` during the observation period.
 
 #### Local Cloudflare preview
 
@@ -141,6 +142,8 @@ Routing is configured in `wrangler.jsonc`: extensionless pages have no trailing
 slash, missing resources return the generated `404.html` with status 404, and
 `public/_redirects` preserves the 13 legacy blog redirects, including their
 trailing-slash variants. The Rust build copies this file into `dist/`.
+`public/_headers` preserves Netlify's one-year HSTS policy for this site without
+changing zone-wide security settings.
 
 Run the focused hosting tests and validate the deployment without publishing:
 
@@ -149,60 +152,58 @@ Run the focused hosting tests and validate the deployment without publishing:
 
 The tests start a separate local Wrangler instance on port 8788. They cover
 redirect destinations and query strings, slash normalization, pages, assets,
-the Atom feed, sitemap and custom 404s. A configuration guard prevents adding
-Worker code or domain bindings without revisiting this preview-only setup.
+the Atom feed, sitemap and custom 404s. A configuration guard keeps this
+assets-only and limits domain bindings to `hockeybuggy.com` and `www`.
 Both preview and deployment scripts build first; use these scripts rather than
 calling `wrangler deploy` directly against potentially stale `dist/` output.
 
-#### Remote preview — requires approval
+#### Production deployment
 
-Confirm the intended Cloudflare account and that the Worker name `hockeybuggy`
-is available before the first deployment; deploying an existing name updates
-that Worker. Then, with approval:
+Confirm the intended Cloudflare account with `yarn wrangler whoami`. If needed,
+authenticate with `yarn wrangler login`. After testing, deploy with:
 
-    yarn wrangler login
     yarn deploy:cloudflare
 
-This publishes to `https://hockeybuggy.<account-subdomain>.workers.dev`, not to
-`hockeybuggy.com`. It is a public preview. No custom domains or routes are
-configured. Never commit API tokens or local credential files.
+**This updates the live website**, including both custom domains in
+`wrangler.jsonc`. The Worker is named `hockeybuggy`.
+<https://hockeybuggy.hockeybuggy.workers.dev> serves the same active deployment;
+it is not an isolated staging environment. Use local preview for preparation,
+or arrange a separate version preview before publishing unreviewed changes.
+Never commit API tokens or local credential files.
 
-Verify pages, CSS/JS/images, `/blog/index.xml`, `/sitemap.xml`, all legacy
-redirects (also with query strings), slash normalization and an unknown URL's
-404 status before approving a custom-domain cutover. Feed and sitemap URLs
-remain on `https://hockeybuggy.com`, not the preview hostname.
+After deploying, verify pages, CSS/JS/images, `/blog/index.xml`, `/sitemap.xml`,
+legacy redirects (also with query strings), slash normalization and an unknown
+URL's 404 status. Feed and sitemap URLs remain on `https://hockeybuggy.com`.
 
-#### Website cutover — separate approval
+#### Canonical host redirect
 
-Do not attach custom domains during preparation or remote-preview testing.
-The static asset `_redirects` format [does not support domain-level redirects](https://developers.cloudflare.com/workers/static-assets/redirects/),
-so Netlify's `www` canonicalization must be replaced separately.
-
-At the approved cutover, create a Free Cloudflare Single Redirect scoped to
-these two website hosts only:
+A Free Cloudflare Single Redirect handles HTTP-to-HTTPS and `www`-to-apex,
+scoped only to these two website hosts:
 
 - Match expression:
   `(http.host in {"hockeybuggy.com" "www.hockeybuggy.com"} and (http.host eq "www.hockeybuggy.com" or not ssl))`
 - Dynamic target: `concat("https://hockeybuggy.com", http.request.uri.path)`
 - Status: `301`; **Preserve query string** enabled.
 
-The source DNS records must be proxied for the rule to run. Do not change
-zone-wide redirect settings or proxy unrelated subdomains. Attach the reviewed
-Workers custom domains for `hockeybuggy.com` and `www.hockeybuggy.com`, replacing
-only their existing Netlify CNAME records when required by Cloudflare. Review
-and update Wrangler's route configuration and the preview-only configuration
-guard together so subsequent deployments retain the approved domain bindings.
+This zone rule is managed separately from Wrangler. The static asset
+`_redirects` format [does not support domain-level redirects](https://developers.cloudflare.com/workers/static-assets/redirects/).
+The website hosts are proxied through their Workers custom-domain bindings;
+other subdomains and email records must retain their existing settings.
 
-Check valid TLS, HTTP-to-HTTPS, `www`-to-apex (including paths and queries),
-legacy redirects, feed and 404 behavior against the real domains. Leave
-Netlify available during the observation period.
+#### Rollback to Netlify
 
-To roll back, remove these Workers custom-domain bindings, disable the new
+Remove only these two Workers custom-domain bindings, disable the canonical
 redirect rule, and restore DNS-only CNAMEs:
 
 - `@` → `apex-loadbalancer.netlify.com`
 - `www` → `hockeybuggy.netlify.com`
 
-Keep Netlify's custom-domain associations and certificates available. DNS
-caches and certificate issuance can delay recovery. Do not change nameservers,
-email records, other subdomains or other Netlify sites as part of this cutover.
+Also remove the production routes from `wrangler.jsonc` and update its
+configuration guard before deploying the Worker again, otherwise a later
+deployment will reattach the domains. Keep Netlify's custom-domain associations
+and certificates available. DNS caches and certificate issuance can delay
+recovery. Do not change nameservers, email records, other subdomains or other
+Netlify sites as part of rollback.
+
+The [migration record](docs/plans/2026-09-21-cloudflare-static-assets.md)
+contains the preview and production verification results.
