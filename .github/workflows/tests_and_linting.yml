@@ -67,3 +67,42 @@ jobs:
           --config lychee.toml
           './dist/**/*.html'
         fail: true
+
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [rust-checks, build, run-end-to-end-tests, link-check]
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    concurrency:
+      group: cloudflare-production
+      cancel-in-progress: false
+    steps:
+    - uses: actions/checkout@v5
+    - uses: ./.github/actions/shared-setup
+    - uses: ./.github/actions/build-site
+    - name: Check deployment revision
+      id: revision
+      shell: bash
+      run: |
+        latest_sha=$(git ls-remote origin refs/heads/main | cut -f1)
+        if [ "$latest_sha" = "$GITHUB_SHA" ]; then
+          echo "current=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "Skipping deployment: main has a newer commit." >> "$GITHUB_STEP_SUMMARY"
+        fi
+    - name: Deploy to Cloudflare
+      if: steps.revision.outputs.current == 'true'
+      env:
+        CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        WRANGLER_SEND_METRICS: "false"
+      run: |
+        test -n "$CLOUDFLARE_API_TOKEN"
+        if [ "$CLOUDFLARE_ACCOUNT_ID" != "726f1369a47436d0572ed49705aaf86a" ]; then
+          echo "::error::CLOUDFLARE_ACCOUNT_ID does not match the production account."
+          exit 1
+        fi
+        yarn wrangler deployments list --name hockeybuggy
+        yarn wrangler deploy

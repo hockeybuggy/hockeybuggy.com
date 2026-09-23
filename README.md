@@ -117,10 +117,20 @@ since networked checks are inherently flaky.
 
 ### Deployment
 
-The live site is hosted on Cloudflare Workers Static Assets. Deployments are
-manual: pushes to `main` do not deploy to Cloudflare. Netlify remains configured
-as a rollback destination and still builds pushes to `main`; keep its build
-settings, custom domains and `netlify.toml` during the observation period.
+The live site is hosted on Cloudflare Workers Static Assets. Pushes to `main`
+deploy automatically after the Rust checks, build, end-to-end tests, Cloudflare
+routing tests and link checks pass. Other branches never deploy. Production
+jobs are serialized and skip commits that are no longer the tip of `main`.
+
+GitHub Actions uses the repository secrets `CLOUDFLARE_ACCOUNT_ID` and
+`CLOUDFLARE_API_TOKEN`. The token must authorize Workers deployment in the
+production account; the temporary DNS/redirect migration token is not suitable.
+The job verifies the account and existing Worker before publishing. Credentials
+are supplied only to that step, not to the site build.
+
+Netlify remains configured as a rollback destination and still builds pushes
+to `main`; keep its build settings, custom domains and `netlify.toml` during
+the observation period.
 
 #### Local Cloudflare preview
 
@@ -159,8 +169,12 @@ calling `wrangler deploy` directly against potentially stale `dist/` output.
 
 #### Production deployment
 
-Confirm the intended Cloudflare account with `yarn wrangler whoami`. If needed,
-authenticate with `yarn wrangler login`. After testing, deploy with:
+Normally, push to `main` and let CI test and deploy the site. CI publishes the
+`dist/` produced by the shared build action using `yarn wrangler deploy`.
+
+For an explicit manual deployment, confirm the intended Cloudflare account
+with `yarn wrangler whoami`. If needed, authenticate with `yarn wrangler login`.
+After testing, deploy with:
 
     yarn deploy:cloudflare
 
@@ -198,10 +212,11 @@ redirect rule, and restore DNS-only CNAMEs:
 - `@` → `apex-loadbalancer.netlify.com`
 - `www` → `hockeybuggy.netlify.com`
 
-Also remove the production routes from `wrangler.jsonc` and update its
-configuration guard before deploying the Worker again, otherwise a later
-deployment will reattach the domains. Keep Netlify's custom-domain associations
-and certificates available. DNS caches and certificate issuance can delay
+Disable the CI deployment job before rollback. Also remove the production
+routes from `wrangler.jsonc` and update its configuration guard before deploying
+the Worker again, otherwise a later deployment will reattach the domains.
+Keep Netlify's custom-domain associations and certificates available.
+DNS caches and certificate issuance can delay
 recovery. Do not change nameservers, email records, other subdomains or other
 Netlify sites as part of rollback.
 
