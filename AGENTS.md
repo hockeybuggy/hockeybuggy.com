@@ -27,8 +27,8 @@ fully static site built by a small custom Rust static site generator in
 4. **Styles:** Sass sources under [`styles/`](./styles) are compiled with
    `grass` during the build. Static JS assets live under
    [`ssg/assets/`](./ssg/assets).
-5. **Output:** The full site is written to `dist/`, which is what Netlify
-   publishes.
+5. **Output:** The full site is written to `dist/`, which is published to
+   Cloudflare Workers Static Assets.
 
 ### Testing
 

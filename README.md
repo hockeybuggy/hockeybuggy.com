@@ -1,8 +1,5 @@
-[![Netlify Status][netlify-status]][netlify]
 [![Tests][tests-status]][tests]
 
-[netlify-status]: https://img.shields.io/netlify/b608e87e-8c67-45b6-b677-58bbeee9e11c
-[netlify]: https://app.netlify.com/sites/hockeybuggy/deploys
 [tests-status]: https://github.com/hockeybuggy/hockeybuggy.com/actions/workflows/tests_and_linting.yml/badge.svg
 [tests]: https://github.com/hockeybuggy/hockeybuggy.com/actions/workflows/tests_and_linting.yml
 
