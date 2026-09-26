@@ -32,7 +32,7 @@ fully static site built by a small custom Rust static site generator in
 
 ### Testing
 
-- `e2e_tests/` — Puppeteer-driven Jest tests that hit the built site served by
+- `e2e_tests/` — Playwright tests that hit the built site served by
   `serve_static.js`, including validation of generated artifacts like the
   sitemap. Run with `yarn test:e2e` (or `./scripts/test`).
 - **Link checking:** [`lychee`](https://lychee.cli.rs) checks the built site
@@ -54,6 +54,7 @@ fully static site built by a small custom Rust static site generator in
 | Dev build (debug) | `yarn dev` |
 | Serve built `dist/` | `yarn start` |
 | E2E tests | `yarn test:e2e` |
+| Single E2E test | `yarn test:e2e -g 'test name'` |
 | Rust tests | `cargo test --manifest-path ssg/Cargo.toml` |
 | Rust format check | `cargo fmt --manifest-path ssg/Cargo.toml --check` |
 | Rust lints | `cargo clippy --manifest-path ssg/Cargo.toml -- -D warnings` |
@@ -82,8 +83,10 @@ fully static site built by a small custom Rust static site generator in
 
 ### Test code (TypeScript)
 
-- The remaining `.ts` in this repo is Jest test code. Keep it simple; avoid
-  pulling in heavy dependencies.
+- The remaining `.ts` in this repo is Playwright test code. Keep it simple;
+  avoid pulling in heavy dependencies.
+- Follow the surrounding TypeScript style. Use semantic, accessible markup
+  in templates and update tests when modifying functionality.
 
 ## Directory Map
 
@@ -92,6 +95,6 @@ fully static site built by a small custom Rust static site generator in
 - `content/` — Markdown source for blog posts and projects.
 - `public/` — Raw static files copied into the build (CNAME, robots.txt, etc.).
 - `dist/` — Build output (gitignored, produced by `yarn build`).
-- `e2e_tests/` — Puppeteer end-to-end tests, including artifact validation
+- `e2e_tests/` — Playwright end-to-end tests, including artifact validation
   (sitemap, etc.).
 - `scripts/` — Helper scripts (new post, dev server, test runner, link checker).
