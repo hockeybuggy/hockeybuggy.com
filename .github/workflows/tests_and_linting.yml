@@ -78,6 +78,8 @@ jobs:
     concurrency:
       group: cloudflare-production
       cancel-in-progress: false
+    outputs:
+      deployed: ${{ steps.revision.outputs.current }}
     steps:
     - uses: actions/checkout@v5
     - uses: ./.github/actions/shared-setup
@@ -106,3 +108,33 @@ jobs:
         fi
         yarn wrangler deployments list --name hockeybuggy
         yarn wrangler deploy
+
+
+  notify-deploy:
+    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [rust-checks, build, run-end-to-end-tests, link-check, deploy]
+    runs-on: ubuntu-24.04
+    permissions: {}
+    steps:
+    - name: Post to #prj-hockeybuggy-com
+      env:
+        WEBHOOK_URL: ${{ secrets.DISCORD_DEPLOY_WEBHOOK_URL }}
+        NEEDS: ${{ toJSON(needs) }}
+        DEPLOYED: ${{ needs.deploy.outputs.deployed }}
+        COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+        COMMIT_URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}
+        RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      run: |
+        test -n "$WEBHOOK_URL"
+        failed=$(jq -r '[to_entries[] | select(.value.result == "failure" or .value.result == "cancelled") | .key] | join(", ")' <<<"$NEEDS")
+        commit="[${GITHUB_SHA::7}]($COMMIT_URL)"
+        if [ -n "$failed" ]; then
+          content="🔴 Deploy of $commit failed at \`$failed\` · [run]($RUN_URL)"
+        elif [ "$DEPLOYED" = "true" ]; then
+          content="🚀 Deployed $commit — ${COMMIT_MESSAGE%%$'\n'*} · [run]($RUN_URL)"
+        else
+          exit 0
+        fi
+        # flags 4 suppresses link embeds, so each deploy stays one line.
+        jq -n --arg content "$content" '{content: $content, flags: 4, allowed_mentions: {parse: []}}' \
+          | curl -fsS -H 'Content-Type: application/json' --data @- "$WEBHOOK_URL"
