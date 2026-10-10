@@ -3,6 +3,7 @@ title: Clonenames
 edit_date: "2023-07-17"
 slug: "clonenames"
 order: 70
+delisted: true
 github: "https://github.com/hockeybuggy/clonenames"
 bannerImageName: "projects/clonenames/banner.png"
 bannerAltText: "An image of a clone of the game Codenames."
@@ -113,7 +114,9 @@ The TypeScript compiler would complain since [this
 type](https://github.com/hockeybuggy/clonenames/blob/200f335f21ffd17038837854aaeae2bd73c73e57/src/state/actions.ts#L28)
 would no longer be met.
 
-## Demo!
+## Demo
 
-The game is currently [deployed and accessible](https://clonenames.hockeybuggy.com/) if you would like to try it.
+The game used to be deployed at `clonenames.hockeybuggy.com`, but FaunaDB shut
+down in May 2025 so the backend no longer works and games can't be created or
+loaded.
 
