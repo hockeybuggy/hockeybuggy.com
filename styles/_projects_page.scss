@@ -1,6 +1,12 @@
 .project-modified-date {
   margin-top: 0.5rem;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #707070;
+
+  @media (prefers-color-scheme: dark) {
+    color: #a0a0a0;
+  }
 }
 
 // List page

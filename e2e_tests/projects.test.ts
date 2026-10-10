@@ -122,6 +122,22 @@ test.describe("/projects (Projects index Page)", () => {
   });
 });
 
+for (const colorScheme of ["light", "dark"] as const) {
+  test(`Modified dates use smaller text (${colorScheme})`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme });
+    await page.setViewportSize({ width: colorScheme === "light" ? 1440 : 375, height: 900 });
+
+    for (const route of [PROJECTS_PAGE.url, expectedProjects[0].postPathName]) {
+      await page.goto(route);
+      const sizes = await page.locator(".project-modified-date").first().evaluate((element) => ({
+        date: parseFloat(getComputedStyle(element).fontSize),
+        body: parseFloat(getComputedStyle(document.body).fontSize),
+      }));
+      expect(sizes.date).toBeLessThanOrEqual(sizes.body * 0.75);
+    }
+  });
+}
+
 for (const project of expectedProjects) {
   test(`Project detail: ${project.postPathName}`, async ({ page }) => {
     await page.goto(project.postPathName);
