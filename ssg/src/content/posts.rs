@@ -1,20 +1,9 @@
 use anyhow::{Context, Result};
-use chrono::{DateTime, Datelike, FixedOffset, NaiveDate};
+use chrono::Datelike;
 use serde::{Deserialize, Serialize};
 use std::fs;
 
-/// Parse "YYYY-MM-DD" or full RFC3339 datetime; returns the UTC calendar date.
-fn parse_date(s: &str) -> Result<NaiveDate> {
-    if s.contains('T') {
-        let dt = DateTime::<FixedOffset>::parse_from_rfc3339(s)
-            .with_context(|| format!("RFC3339 parse failed for '{s}'"))?;
-        // Convert to UTC so year/month/day are timezone-stable
-        Ok(dt.with_timezone(&chrono::Utc).date_naive())
-    } else {
-        NaiveDate::parse_from_str(s, "%Y-%m-%d")
-            .with_context(|| format!("Date parse failed for '{s}'"))
-    }
-}
+use super::date::parse_date;
 
 #[derive(Debug, Deserialize)]
 struct PostFrontmatter {
@@ -65,13 +54,19 @@ fn parse_post(filename: &str, raw: &str) -> Result<Post> {
     let date = parse_date(&fm.date)
         .with_context(|| format!("Invalid date '{}' in {filename}", fm.date))?;
     let iso_date = format!("{:04}-{:02}-{:02}", date.year(), date.month(), date.day());
+    let edit_date = fm
+        .edit_date
+        .as_deref()
+        .map(parse_date)
+        .transpose()
+        .with_context(|| format!("Invalid edit_date in {filename}"))?;
 
     Ok(Post {
         filename: filename.to_string(),
         title: fm.title.unwrap_or_else(|| fm.slug.clone()),
         slug: fm.slug,
         iso_date,
-        iso_edit_date: fm.edit_date,
+        iso_edit_date: edit_date.map(|date| date.to_string()),
         year: format!("{:04}", date.year()),
         month: format!("{:02}", date.month()),
         day: format!("{:02}", date.day()),
@@ -123,6 +118,26 @@ impl Post {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn edit_dates_are_normalized() {
+        for (value, expected) in [
+            ("2026-02-28", "2026-02-28"),
+            ("2014-10-03T23:30:00-04:00", "2014-10-04"),
+        ] {
+            let raw =
+                format!("---\nslug: example\ndate: 2014-01-01\nedit_date: \"{value}\"\n---\nBody.");
+            let post = parse_post("example.md", &raw).unwrap();
+            assert_eq!(post.iso_edit_date.as_deref(), Some(expected));
+        }
+    }
+
+    #[test]
+    fn invalid_edit_dates_are_rejected() {
+        let raw = "---\nslug: example\ndate: 2014-01-01\nedit_date: 2026-02-30\n---\nBody.";
+        let error = parse_post("example.md", raw).unwrap_err();
+        assert!(format!("{error:#}").contains("edit_date"));
+    }
 
     #[test]
     fn parse_simple_post() {

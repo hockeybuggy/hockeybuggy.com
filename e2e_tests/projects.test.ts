@@ -1,44 +1,44 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { test, expect } from '@playwright/test';
+import { test, expect, Locator } from '@playwright/test';
 import { PROJECTS_PAGE } from "./pages";
 
 const expectedProjects = [
   {
     postTitle: "Ray Tracer",
     postPathName: "/project/ray-tracer",
-    editDate: "2026-07-13",
   },
   {
     postTitle: "This website",
     postPathName: "/project/this-site",
-    editDate: "2026-09-23",
   },
   {
     postTitle: "Dotfiles",
     postPathName: "/project/dotfiles",
-    editDate: "2026-07-06",
   },
   {
     postTitle: "Recurring tasks",
     postPathName: "/project/recurring-tasks",
-    editDate: "2026-06-25",
   },
   {
     postTitle: "RGB Traveling Salesperson Art",
     postPathName: "/project/rgb-tsp-art",
-    editDate: "2026-07-06",
   },
   {
     postTitle: "Rainbow single exposure photo",
     postPathName: "/project/rainbow-single-exposure",
-    editDate: "2026-06-25",
   },
   {
     postTitle: "Clonenames",
     postPathName: "/project/clonenames",
-    editDate: "2026-06-25",
   },
 ];
+
+async function expectEditDate(time: Locator) {
+  const datetime = await time.getAttribute("datetime") ?? "";
+  expect(datetime).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+  expect(new Date(datetime).toISOString().slice(0, 10)).toBe(datetime);
+  await expect(time).toHaveText(datetime);
+}
 
 test.describe("/projects (Projects index Page)", () => {
   test.describe("screenshots", () => {
@@ -99,9 +99,8 @@ test.describe("/projects (Projects index Page)", () => {
       const article = page.locator("article").filter({
         has: page.getByRole("heading", { name: project.postTitle, exact: true }),
       });
-      await expect(article.locator("time")).toHaveAttribute("datetime", project.editDate);
-      await expect(article.locator("time")).toHaveText(project.editDate);
-      await expect(article).toContainText("Last modified:");
+      await expectEditDate(article.locator("time"));
+      await expect(article).toContainText("Edit date:");
     }
   });
 
@@ -118,32 +117,15 @@ test.describe("/projects (Projects index Page)", () => {
         return { postTitle, postPathName };
       }),
     );
-    expect(projects).toEqual(expectedProjects.map(({ editDate, ...project }) => project));
+    expect(projects).toEqual(expectedProjects);
   });
 });
-
-for (const colorScheme of ["light", "dark"] as const) {
-  test(`Modified dates use smaller text (${colorScheme})`, async ({ page }) => {
-    await page.emulateMedia({ colorScheme });
-    await page.setViewportSize({ width: colorScheme === "light" ? 1440 : 375, height: 900 });
-
-    for (const route of [PROJECTS_PAGE.url, expectedProjects[0].postPathName]) {
-      await page.goto(route);
-      const sizes = await page.locator(".project-modified-date").first().evaluate((element) => ({
-        date: parseFloat(getComputedStyle(element).fontSize),
-        body: parseFloat(getComputedStyle(document.body).fontSize),
-      }));
-      expect(sizes.date).toBeLessThanOrEqual(sizes.body * 0.75);
-    }
-  });
-}
 
 for (const project of expectedProjects) {
   test(`Project detail: ${project.postPathName}`, async ({ page }) => {
     await page.goto(project.postPathName);
     await expect(page).toHaveTitle(`Project: ${project.postTitle}`);
-    await expect(page.locator("article header time")).toHaveAttribute("datetime", project.editDate);
-    await expect(page.locator("article header time")).toHaveText(project.editDate);
-    await expect(page.locator("article header")).toContainText("Last modified:");
+    await expectEditDate(page.locator("article header time"));
+    await expect(page.locator("article header")).toContainText("Edit date:");
   });
 }

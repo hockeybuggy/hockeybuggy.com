@@ -1,4 +1,5 @@
 use anyhow::Result;
+use chrono::NaiveDate;
 use minijinja::Environment;
 use serde::Serialize;
 use std::collections::HashMap;
@@ -33,7 +34,7 @@ struct TagSummary {
 struct ProjectSummary {
     title: String,
     url: String,
-    iso_edit_date: Option<String>,
+    iso_edit_date: Option<NaiveDate>,
     excerpt_html: String,
     banner_image_url: Option<String>,
     banner_alt_text: String,
@@ -248,7 +249,7 @@ pub fn render_projects_index(env: &Environment, projects: &[Project]) -> Result<
         .map(|p| ProjectSummary {
             title: p.title.clone(),
             url: p.url_path(),
-            iso_edit_date: p.iso_edit_date.clone(),
+            iso_edit_date: p.iso_edit_date,
             excerpt_html: markdown::markdown_to_excerpt(&p.content),
             banner_image_url: p.banner_image_name.as_deref().map(banner_url),
             banner_alt_text: p.banner_alt_text.clone(),
@@ -281,7 +282,7 @@ pub fn render_project_page(env: &Environment, project: &Project) -> Result<Strin
             show_rss_link => false,
             project_title => project.title.clone(),
             project_slug => project.slug.clone(),
-            iso_edit_date => project.iso_edit_date.clone(),
+            iso_edit_date => project.iso_edit_date,
             github => project.github.clone(),
             banner_image_url => project.banner_image_name.as_deref().map(banner_url),
             banner_alt_text => project.banner_alt_text.clone(),
@@ -301,4 +302,31 @@ pub fn render_404(env: &Environment) -> Result<String> {
             show_rss_link => false,
         },
     )
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn projects_without_edit_dates_omit_modified_labels() {
+        let project = Project {
+            filename: "example.md".to_string(),
+            title: "Example".to_string(),
+            slug: "example".to_string(),
+            order: 1,
+            iso_edit_date: None,
+            github: None,
+            banner_image_name: None,
+            banner_alt_text: String::new(),
+            content: "Body.".to_string(),
+        };
+        let env = crate::render::build_env().unwrap();
+        let index = render_projects_index(&env, std::slice::from_ref(&project)).unwrap();
+        let detail = render_project_page(&env, &project).unwrap();
+
+        for html in [index, detail] {
+            assert!(!html.contains("Edit date:"));
+        }
+    }
 }

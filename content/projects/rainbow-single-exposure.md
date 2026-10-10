@@ -1,6 +1,6 @@
 ---
 title: Rainbow single exposure photo
-edit_date: "2026-06-25"
+edit_date: "2020-12-29"
 slug: "rainbow-single-exposure"
 order: 60
 bannerImageName: "projects/rainbow-single-exposure/banner.jpg"

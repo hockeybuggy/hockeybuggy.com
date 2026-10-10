@@ -2,10 +2,10 @@
   margin-top: 0.5rem;
   font-size: 1.2rem;
   line-height: 1.5;
-  color: #707070;
+  color: $light-muted-fg-color;
 
   @media (prefers-color-scheme: dark) {
-    color: #a0a0a0;
+    color: $dark-muted-fg-color;
   }
 }
 
