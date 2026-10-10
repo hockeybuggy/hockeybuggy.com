@@ -246,6 +246,7 @@ pub fn render_category_page(env: &Environment, category: &str, posts: &[Post]) -
 pub fn render_projects_index(env: &Environment, projects: &[Project]) -> Result<String> {
     let summaries: Vec<ProjectSummary> = projects
         .iter()
+        .filter(|p| !p.delisted)
         .map(|p| ProjectSummary {
             title: p.title.clone(),
             url: p.url_path(),
@@ -316,6 +317,7 @@ mod tests {
             slug: "example".to_string(),
             order: 1,
             iso_edit_date: None,
+            delisted: false,
             github: None,
             banner_image_name: None,
             banner_alt_text: String::new(),

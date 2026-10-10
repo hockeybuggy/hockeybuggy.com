@@ -30,8 +30,12 @@ const expectedProjects = [
   {
     postTitle: "Clonenames",
     postPathName: "/project/clonenames",
+    isDelisted: true,
   },
 ];
+const indexListedProjects = expectedProjects.filter(
+  (project) => !project.isDelisted,
+);
 
 async function expectEditDate(time: Locator) {
   const datetime = await time.getAttribute("datetime") ?? "";
@@ -95,7 +99,7 @@ test.describe("/projects (Projects index Page)", () => {
   test("should show each project's last modified date", async ({ page }) => {
     await page.goto(PROJECTS_PAGE.url);
 
-    for (const project of expectedProjects) {
+    for (const project of indexListedProjects) {
       const article = page.locator("article").filter({
         has: page.getByRole("heading", { name: project.postTitle, exact: true }),
       });
@@ -117,7 +121,7 @@ test.describe("/projects (Projects index Page)", () => {
         return { postTitle, postPathName };
       }),
     );
-    expect(projects).toEqual(expectedProjects);
+    expect(projects).toEqual(indexListedProjects);
   });
 });
 

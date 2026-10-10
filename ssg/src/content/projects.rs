@@ -12,6 +12,7 @@ struct ProjectFrontmatter {
     order: i32,
     #[serde(alias = "editDate")]
     edit_date: Option<String>,
+    delisted: Option<bool>,
     github: Option<String>,
     #[serde(rename = "bannerImageName")]
     banner_image_name: Option<String>,
@@ -26,6 +27,7 @@ pub struct Project {
     pub slug: String,
     pub order: i32,
     pub iso_edit_date: Option<NaiveDate>,
+    pub delisted: bool,
     pub github: Option<String>,
     pub banner_image_name: Option<String>,
     pub banner_alt_text: String,
@@ -58,6 +60,7 @@ fn parse_project(filename: &str, raw: &str) -> Result<Project> {
         slug: fm.slug,
         order: fm.order,
         iso_edit_date: edit_date,
+        delisted: fm.delisted.unwrap_or(false),
         github: fm.github,
         banner_image_name: fm.banner_image_name,
         banner_alt_text: fm.banner_alt_text.unwrap_or_default(),
