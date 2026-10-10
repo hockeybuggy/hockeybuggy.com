@@ -6,30 +6,37 @@ const expectedProjects = [
   {
     postTitle: "Ray Tracer",
     postPathName: "/project/ray-tracer",
+    editDate: "2026-07-13",
   },
   {
     postTitle: "This website",
     postPathName: "/project/this-site",
+    editDate: "2026-09-23",
   },
   {
     postTitle: "Dotfiles",
     postPathName: "/project/dotfiles",
+    editDate: "2026-07-06",
   },
   {
     postTitle: "Recurring tasks",
     postPathName: "/project/recurring-tasks",
+    editDate: "2026-06-25",
   },
   {
     postTitle: "RGB Traveling Salesperson Art",
     postPathName: "/project/rgb-tsp-art",
+    editDate: "2026-07-06",
   },
   {
     postTitle: "Rainbow single exposure photo",
     postPathName: "/project/rainbow-single-exposure",
+    editDate: "2026-06-25",
   },
   {
     postTitle: "Clonenames",
     postPathName: "/project/clonenames",
+    editDate: "2026-06-25",
   },
 ];
 
@@ -85,6 +92,19 @@ test.describe("/projects (Projects index Page)", () => {
     expect(errors).toEqual([]);
   });
 
+  test("should show each project's last modified date", async ({ page }) => {
+    await page.goto(PROJECTS_PAGE.url);
+
+    for (const project of expectedProjects) {
+      const article = page.locator("article").filter({
+        has: page.getByRole("heading", { name: project.postTitle, exact: true }),
+      });
+      await expect(article.locator("time")).toHaveAttribute("datetime", project.editDate);
+      await expect(article.locator("time")).toHaveText(project.editDate);
+      await expect(article).toContainText("Last modified:");
+    }
+  });
+
   test("should have links to many projects", async ({ page }) => {
     await page.goto(PROJECTS_PAGE.url);
 
@@ -98,7 +118,7 @@ test.describe("/projects (Projects index Page)", () => {
         return { postTitle, postPathName };
       }),
     );
-    expect(projects).toEqual(expectedProjects);
+    expect(projects).toEqual(expectedProjects.map(({ editDate, ...project }) => project));
   });
 });
 
@@ -106,5 +126,8 @@ for (const project of expectedProjects) {
   test(`Project detail: ${project.postPathName}`, async ({ page }) => {
     await page.goto(project.postPathName);
     await expect(page).toHaveTitle(`Project: ${project.postTitle}`);
+    await expect(page.locator("article header time")).toHaveAttribute("datetime", project.editDate);
+    await expect(page.locator("article header time")).toHaveText(project.editDate);
+    await expect(page.locator("article header")).toContainText("Last modified:");
   });
 }

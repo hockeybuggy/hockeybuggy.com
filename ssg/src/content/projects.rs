@@ -1,4 +1,5 @@
 use anyhow::{Context, Result};
+use chrono::NaiveDate;
 use serde::{Deserialize, Serialize};
 use std::fs;
 
@@ -7,6 +8,7 @@ struct ProjectFrontmatter {
     title: Option<String>,
     slug: String,
     order: i32,
+    edit_date: Option<NaiveDate>,
     github: Option<String>,
     #[serde(rename = "bannerImageName")]
     banner_image_name: Option<String>,
@@ -20,6 +22,7 @@ pub struct Project {
     pub title: String,
     pub slug: String,
     pub order: i32,
+    pub iso_edit_date: Option<String>,
     pub github: Option<String>,
     pub banner_image_name: Option<String>,
     pub banner_alt_text: String,
@@ -45,6 +48,7 @@ fn parse_project(filename: &str, raw: &str) -> Result<Project> {
         title: fm.title.unwrap_or_else(|| fm.slug.clone()),
         slug: fm.slug,
         order: fm.order,
+        iso_edit_date: fm.edit_date.map(|date| date.to_string()),
         github: fm.github,
         banner_image_name: fm.banner_image_name,
         banner_alt_text: fm.banner_alt_text.unwrap_or_default(),
@@ -77,5 +81,31 @@ pub fn load_all_projects() -> Result<Vec<Project>> {
 impl Project {
     pub fn url_path(&self) -> String {
         crate::url::url_for_project(&self.slug)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn invalid_edit_dates_are_rejected() {
+        let raw = "---\nslug: example\norder: 1\nedit_date: 2026-02-30\n---\nBody.";
+        assert!(parse_project("example.md", raw).is_err());
+    }
+
+    #[test]
+    fn projects_without_edit_dates_omit_modified_labels() {
+        let project =
+            parse_project("example.md", "---\nslug: example\norder: 1\n---\nBody.").unwrap();
+        let env = crate::render::build_env().unwrap();
+        let index =
+            crate::render::pages::render_projects_index(&env, std::slice::from_ref(&project))
+                .unwrap();
+        let detail = crate::render::pages::render_project_page(&env, &project).unwrap();
+
+        for html in [index, detail] {
+            assert!(!html.contains("Last modified:"));
+        }
     }
 }

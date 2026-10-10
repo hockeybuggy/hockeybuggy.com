@@ -1,5 +1,6 @@
 ---
 title: RGB Traveling Salesperson Art
+edit_date: "2026-07-06"
 slug: "rgb-tsp-art"
 order: 50
 bannerImageName: "projects/rgb-tsp-art/banner.png"
