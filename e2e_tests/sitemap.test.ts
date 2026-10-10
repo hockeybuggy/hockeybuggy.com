@@ -94,5 +94,10 @@ test.describe("Sitemap", () => {
       projectPagePattern.test(url.name),
     );
     expect(projectPages.length).toBeGreaterThan(5);
+    for (const project of projectPages) {
+      await page.goto(new URL(project.name).pathname);
+      const editDate = await page.locator("article header time").getAttribute("datetime");
+      expect(project.lastmod).toBe(editDate);
+    }
   });
 });

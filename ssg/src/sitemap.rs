@@ -89,7 +89,7 @@ pub fn generate_sitemap(posts: &[Post], projects: &[Project]) -> String {
     for project in projects {
         entries.push(UrlEntry {
             loc: format!("{BASE_URL}{}", url::url_for_project(&project.slug)),
-            lastmod: None,
+            lastmod: project.iso_edit_date.map(|date| date.to_string()),
         });
     }
 

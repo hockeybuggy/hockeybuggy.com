@@ -1,6 +1,6 @@
 ---
 title: Clonenames
-edit_date: "2026-06-25"
+edit_date: "2023-07-17"
 slug: "clonenames"
 order: 70
 github: "https://github.com/hockeybuggy/clonenames"

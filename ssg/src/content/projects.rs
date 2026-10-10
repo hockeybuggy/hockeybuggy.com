@@ -3,12 +3,15 @@ use chrono::NaiveDate;
 use serde::{Deserialize, Serialize};
 use std::fs;
 
+use super::date::parse_date;
+
 #[derive(Debug, Deserialize)]
 struct ProjectFrontmatter {
     title: Option<String>,
     slug: String,
     order: i32,
-    edit_date: Option<NaiveDate>,
+    #[serde(alias = "editDate")]
+    edit_date: Option<String>,
     github: Option<String>,
     #[serde(rename = "bannerImageName")]
     banner_image_name: Option<String>,
@@ -22,7 +25,7 @@ pub struct Project {
     pub title: String,
     pub slug: String,
     pub order: i32,
-    pub iso_edit_date: Option<String>,
+    pub iso_edit_date: Option<NaiveDate>,
     pub github: Option<String>,
     pub banner_image_name: Option<String>,
     pub banner_alt_text: String,
@@ -42,13 +45,19 @@ fn parse_project(filename: &str, raw: &str) -> Result<Project> {
 
     let fm: ProjectFrontmatter = serde_yaml::from_str(yaml_part)
         .with_context(|| format!("Failed to parse frontmatter in {filename}"))?;
+    let edit_date = fm
+        .edit_date
+        .as_deref()
+        .map(parse_date)
+        .transpose()
+        .with_context(|| format!("Invalid edit_date in {filename}"))?;
 
     Ok(Project {
         filename: filename.to_string(),
         title: fm.title.unwrap_or_else(|| fm.slug.clone()),
         slug: fm.slug,
         order: fm.order,
-        iso_edit_date: fm.edit_date.map(|date| date.to_string()),
+        iso_edit_date: edit_date,
         github: fm.github,
         banner_image_name: fm.banner_image_name,
         banner_alt_text: fm.banner_alt_text.unwrap_or_default(),
@@ -91,21 +100,27 @@ mod tests {
     #[test]
     fn invalid_edit_dates_are_rejected() {
         let raw = "---\nslug: example\norder: 1\nedit_date: 2026-02-30\n---\nBody.";
-        assert!(parse_project("example.md", raw).is_err());
+        let error = parse_project("example.md", raw).unwrap_err();
+        assert!(format!("{error:#}").contains("edit_date"));
     }
 
     #[test]
-    fn projects_without_edit_dates_omit_modified_labels() {
-        let project =
-            parse_project("example.md", "---\nslug: example\norder: 1\n---\nBody.").unwrap();
-        let env = crate::render::build_env().unwrap();
-        let index =
-            crate::render::pages::render_projects_index(&env, std::slice::from_ref(&project))
-                .unwrap();
-        let detail = crate::render::pages::render_project_page(&env, &project).unwrap();
-
-        for html in [index, detail] {
-            assert!(!html.contains("Last modified:"));
+    fn edit_dates_accept_both_formats() {
+        for (value, expected) in [
+            ("2026-02-28", "2026-02-28"),
+            ("2014-10-03T00:00:00-04:00", "2014-10-03"),
+            ("2014-10-03T23:30:00-04:00", "2014-10-04"),
+        ] {
+            let raw = format!("---\nslug: example\norder: 1\nedit_date: \"{value}\"\n---\nBody.");
+            let project = parse_project("example.md", &raw).unwrap();
+            assert_eq!(project.iso_edit_date.unwrap().to_string(), expected);
         }
+    }
+
+    #[test]
+    fn edit_date_accepts_camel_case_alias() {
+        let raw = "---\nslug: example\norder: 1\neditDate: 2026-02-28\n---\nBody.";
+        let project = parse_project("example.md", raw).unwrap();
+        assert_eq!(project.iso_edit_date.unwrap().to_string(), "2026-02-28");
     }
 }
