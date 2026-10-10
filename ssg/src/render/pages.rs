@@ -33,6 +33,7 @@ struct TagSummary {
 struct ProjectSummary {
     title: String,
     url: String,
+    iso_edit_date: Option<String>,
     excerpt_html: String,
     banner_image_url: Option<String>,
     banner_alt_text: String,
@@ -247,6 +248,7 @@ pub fn render_projects_index(env: &Environment, projects: &[Project]) -> Result<
         .map(|p| ProjectSummary {
             title: p.title.clone(),
             url: p.url_path(),
+            iso_edit_date: p.iso_edit_date.clone(),
             excerpt_html: markdown::markdown_to_excerpt(&p.content),
             banner_image_url: p.banner_image_name.as_deref().map(banner_url),
             banner_alt_text: p.banner_alt_text.clone(),
@@ -279,6 +281,7 @@ pub fn render_project_page(env: &Environment, project: &Project) -> Result<Strin
             show_rss_link => false,
             project_title => project.title.clone(),
             project_slug => project.slug.clone(),
+            iso_edit_date => project.iso_edit_date.clone(),
             github => project.github.clone(),
             banner_image_url => project.banner_image_name.as_deref().map(banner_url),
             banner_alt_text => project.banner_alt_text.clone(),

@@ -1,5 +1,6 @@
 ---
 title: This website
+edit_date: "2026-09-23"
 slug: "this-site"
 order: 20
 github: "https://github.com/hockeybuggy/hockeybuggy.com"

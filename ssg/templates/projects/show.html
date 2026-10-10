@@ -4,6 +4,11 @@
   <header>
     <h1 class="post-title">{{ project_title }}</h1>
     <div class="post-meta">
+      {% if iso_edit_date %}
+      <div class="project-modified-date">
+        Last modified: <time datetime="{{ iso_edit_date }}">{{ iso_edit_date }}</time>
+      </div>
+      {% endif %}
       {% if github %}
       <div>
         <a aria-label="Project's GitHub page" href="{{ github }}">View on GitHub</a>

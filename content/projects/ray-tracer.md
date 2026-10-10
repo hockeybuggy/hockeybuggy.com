@@ -1,5 +1,6 @@
 ---
 title: Ray Tracer
+edit_date: "2026-07-13"
 slug: "ray-tracer"
 order: 10
 github: "https://github.com/hockeybuggy/ray_tracer"

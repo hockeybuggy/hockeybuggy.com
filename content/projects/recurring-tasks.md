@@ -1,5 +1,6 @@
 ---
 title: Recurring tasks
+edit_date: "2026-06-25"
 slug: "recurring-tasks"
 order: 40
 github: "https://github.com/hockeybuggy/recurring_tasks"

@@ -1,5 +1,6 @@
 ---
 title: Dotfiles
+edit_date: "2026-07-06"
 slug: "dotfiles"
 order: 30
 github: "https://github.com/hockeybuggy/dotfiles"
