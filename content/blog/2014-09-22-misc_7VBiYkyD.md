@@ -284,4 +284,4 @@ I have a pretty cool configuration.
 [VIMTMUXNAVIGATOR]: https://github.com/christoomey/vim-tmux-navigator
 
 [ITERM2]: https://iterm2.com/
-[URXVT]: https://wiki.archlinux.org/index.php/rxvt-unicode
+[URXVT]: https://wiki.archlinux.org/title/Rxvt-unicode
