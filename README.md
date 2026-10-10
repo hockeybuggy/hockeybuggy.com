@@ -29,7 +29,7 @@ rendered through [MiniJinja](https://docs.rs/minijinja) templates in
 
 Download the repository and install test dependencies:
 
-    git clone git@github.com/hockeybuggy/hockeybuggy.com.git
+    git clone git@github.com:hockeybuggy/hockeybuggy.com.git
     fnm use
     corepack enable
     yarn install
@@ -84,10 +84,9 @@ To view the tests running in slow motion:
 
     SLOWMO=100 HEADLESS=false ./scripts/test
 
-The tests will also run for every CI build. It will also upload the screenshots
-it takes as artifacts. You can find the artifacts by clicking the `...` [on a
-workflow](https://github.com/hockeybuggy/hockeybuggy.com/actions?query=workflow%3A%22end+to+end+tests%22+branch%3Amain)
-and downloading the `zip` file.
+CI runs these on every push and uploads the Playwright report and screenshots
+as the `playwright-report` artifact on each
+[workflow run](https://github.com/hockeybuggy/hockeybuggy.com/actions/workflows/tests_and_linting.yml).
 
 Rust-side unit tests and lints:
 
@@ -99,103 +98,94 @@ Rust-side unit tests and lints:
 
 ### Checking links
 
-Check the built site for dead links (internal links only, no network access):
+Build the site and check it for broken internal links (no network needed):
 
     ./scripts/check-links
 
-To also check external URLs over the network:
+To check external links too:
 
     ./scripts/check-links --external
 
-Internal links are checked on every push and block CI. External links are
-checked weekly and reported as a GitHub issue instead of failing the build,
-since networked checks are inherently flaky.
+CI checks internal links on every push. External links break for reasons
+outside this repo, so CI checks them once a week and opens an issue instead of
+failing the build.
 
 
-### Deployment
+## Deployment
 
-The live site is hosted on Cloudflare Workers Static Assets. Pushes to `main`
-deploy automatically after the Rust checks, build, end-to-end tests, Cloudflare
-routing tests and link checks pass. Other branches never deploy. Production
-jobs are serialized and skip commits that are no longer the tip of `main`.
+The site is hosted on
+[Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/),
+which serves `dist/` as-is with no Worker code. It fits in the free plan.
 
-GitHub Actions uses the repository secrets `CLOUDFLARE_ACCOUNT_ID` and
-`CLOUDFLARE_API_TOKEN`. The token must authorize Workers deployment in the
-production account; the temporary DNS/redirect migration token is not suitable.
-The job verifies the account and existing Worker before publishing. Credentials
-are supplied only to that step, not to the site build.
+Pushing to `main` deploys the site once CI passes. Other branches run the
+checks but never deploy. Deploys run one at a time, and a deploy is skipped if
+a newer commit has already landed on `main`.
 
-#### Local Cloudflare preview
 
-[Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/)
-serves the generated `dist/` directly, without a Worker script. Asset requests
-are free; this configuration does not require a paid Workers plan.
+### Previewing locally
 
-    fnm use
-    corepack enable
-    yarn install --immutable
+`yarn start` serves `dist/` with a plain Node server that doesn't apply
+Cloudflare's redirects or trailing-slash handling. To see the site the way
+Cloudflare will serve it:
+
     yarn preview:cloudflare
 
-Open <http://127.0.0.1:8787>. This builds once and starts Wrangler's local asset
-runtime; restart it after editing source files. The existing `yarn dev` remains
-available for live-reload authoring. No Cloudflare account or login is needed
-for local preview.
+Then open <http://127.0.0.1:8787>. It builds once, so restart it after
+changing anything. No Cloudflare account is needed.
 
-Routing is configured in `wrangler.jsonc`: extensionless pages have no trailing
-slash, missing resources return the generated `404.html` with status 404, and
-`public/_redirects` preserves the 13 legacy blog redirects, including their
-trailing-slash variants. The Rust build copies this file into `dist/`.
-`public/_headers` sets a one-year HSTS policy for this site without
-changing zone-wide security settings.
-
-Run the focused hosting tests and validate the deployment without publishing:
+The hosting tests start their own copy of the same local server and check the
+old blog redirects, trailing slashes, assets, headers and the 404 page:
 
     yarn test:cloudflare
-    WRANGLER_SEND_METRICS=false yarn deploy:cloudflare --dry-run
 
-The tests start a separate local Wrangler instance on port 8788. They cover
-redirect destinations and query strings, slash normalization, pages, assets,
-the Atom feed, sitemap and custom 404s. A configuration guard keeps this
-assets-only and limits domain bindings to `hockeybuggy.com` and `www`.
-Both preview and deployment scripts build first; use these scripts rather than
-calling `wrangler deploy` directly against potentially stale `dist/` output.
 
-#### Production deployment
+### Deploying by hand
 
-Normally, push to `main` and let CI test and deploy the site. CI publishes the
-`dist/` produced by the shared build action using `yarn wrangler deploy`.
+This shouldn't normally be needed. If CI can't deploy, make sure you're logged
+in to the right Cloudflare account, then deploy from your machine:
 
-For an explicit manual deployment, confirm the intended Cloudflare account
-with `yarn wrangler whoami`. If needed, authenticate with `yarn wrangler login`.
-After testing, deploy with:
-
+    yarn wrangler whoami    # or `yarn wrangler login`
     yarn deploy:cloudflare
 
-**This updates the live website**, including both custom domains in
-`wrangler.jsonc`. The Worker is named `hockeybuggy`.
-<https://hockeybuggy.hockeybuggy.workers.dev> serves the same active deployment;
-it is not an isolated staging environment. Use local preview for preparation,
-or arrange a separate version preview before publishing unreviewed changes.
-Never commit API tokens or local credential files.
+This rebuilds `dist/` and publishes it straight to production. Use it rather
+than `wrangler deploy`, which would publish whatever is already in `dist/`.
+<https://hockeybuggy.hockeybuggy.workers.dev> serves the same deployment, so
+it isn't a staging site.
 
-After deploying, verify pages, CSS/JS/images, `/blog/index.xml`, `/sitemap.xml`,
-legacy redirects (also with query strings), slash normalization and an unknown
-URL's 404 status. Feed and sitemap URLs remain on `https://hockeybuggy.com`.
+To check the configuration without publishing anything:
 
-#### Canonical host redirect
+    yarn deploy:cloudflare --dry-run
 
-A Free Cloudflare Single Redirect handles HTTP-to-HTTPS and `www`-to-apex,
-scoped only to these two website hosts:
+
+### Where the hosting is configured
+
+- `wrangler.jsonc`: the Worker name, the `hockeybuggy.com` and
+  `www.hockeybuggy.com` domains, trailing-slash handling and the 404 page.
+  `cloudflare_tests/config.test.cjs` fails if domains or Worker code are
+  added, so update it on purpose when changing this.
+- `public/_redirects`: redirects from old blog URLs.
+- `public/_headers`: the HSTS header.
+- `.github/workflows/tests_and_linting.yml`: the deploy job. It needs the
+  `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` repository secrets (the
+  token needs permission to deploy Workers), and posts the result to Discord
+  using `DISCORD_DEPLOY_WEBHOOK_URL`.
+- The Cloudflare dashboard: the redirect to `https://hockeybuggy.com`,
+  described below.
+
+
+### Redirecting to `https://hockeybuggy.com`
+
+`_redirects` can't redirect between hostnames, so HTTP-to-HTTPS and
+`www`-to-apex are handled by a Single Redirect rule in the Cloudflare
+dashboard. If it ever needs to be recreated:
 
 - Match expression:
   `(http.host in {"hockeybuggy.com" "www.hockeybuggy.com"} and (http.host eq "www.hockeybuggy.com" or not ssl))`
 - Dynamic target: `concat("https://hockeybuggy.com", http.request.uri.path)`
-- Status: `301`; **Preserve query string** enabled.
+- Status `301`, with **Preserve query string** enabled.
 
-This zone rule is managed separately from Wrangler. The static asset
-`_redirects` format [does not support domain-level redirects](https://developers.cloudflare.com/workers/static-assets/redirects/).
-The website hosts are proxied through their Workers custom-domain bindings;
-other subdomains and email records must retain their existing settings.
+The rule only matches the two website hostnames, so other subdomains and email
+records aren't affected.
 
-The [migration record](docs/plans/2026-09-21-cloudflare-static-assets.md)
-contains the preview and production verification results.
+The [Cloudflare migration notes](docs/plans/2026-09-21-cloudflare-static-assets.md)
+cover how this was set up and verified.
