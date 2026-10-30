@@ -14,4 +14,4 @@ grass = { version = "0.13", default-features = false }
 minijinja = { version = "2", features = ["loader"] }
 pulldown-cmark = "0.13"
 serde = { version = "1", features = ["derive"] }
-serde_yaml = "0.9"
+serde-saphyr = "2"
