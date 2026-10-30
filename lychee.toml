@@ -16,6 +16,9 @@ exclude = [
     '^https?://www\.sitemaps\.org/',
     # Live, but intermittently 403s automated requests.
     '^https://inkscape\.org/',
+    # Wayback Machine snapshots are immutable, and the archive 503s
+    # requests from CI runners.
+    '^https://web\.archive\.org/',
 ]
 
 # Many sites block the default lychee/reqwest user agent.
