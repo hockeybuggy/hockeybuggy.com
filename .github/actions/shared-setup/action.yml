@@ -7,9 +7,15 @@ runs:
   steps:
     - uses: actions/checkout@v5
 
-    - name: Enable Corepack
+    - uses: actions/setup-node@v5
+      with:
+        node-version-file: .node-version
+
+    - name: Install and enable Corepack
       shell: bash
-      run: corepack enable
+      run: |
+        npm install -g corepack@0.36.0
+        corepack enable
 
     - uses: actions/setup-node@v5
       with:

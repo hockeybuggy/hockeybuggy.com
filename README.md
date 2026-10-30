@@ -18,7 +18,7 @@ rendered through [MiniJinja](https://docs.rs/minijinja) templates in
 
 - A Rust toolchain (stable) to build the site. `rustup` is the easiest way to
   install it.
-- Node 22 (see `.node-version`) and [`yarn`](https://yarnpkg.com/) for Playwright
+- Node 26 (see `.node-version`) and [`yarn`](https://yarnpkg.com/) for Playwright
   tests and Cloudflare's Wrangler CLI. This README assumes
   [`fnm`](https://github.com/Schniz/fnm) is used but any node installer works.
 - [`lychee`](https://lychee.cli.rs) to check for dead links (`brew install
@@ -31,6 +31,7 @@ Download the repository and install test dependencies:
 
     git clone git@github.com:hockeybuggy/hockeybuggy.com.git
     fnm use
+    npm install -g corepack@0.36.0
     corepack enable
     yarn install
 
