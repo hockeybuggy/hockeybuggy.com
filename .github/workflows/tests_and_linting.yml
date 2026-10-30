@@ -6,7 +6,7 @@ jobs:
   rust-checks:
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
     - uses: ./.github/actions/rust-setup
       with:
         components: rustfmt, clippy
@@ -21,7 +21,7 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
     - uses: ./.github/actions/build-site
 
 
@@ -29,7 +29,7 @@ jobs:
     needs: build
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
     - uses: ./.github/actions/shared-setup
     - uses: ./.github/actions/build-site
     - name: Install Playwright browsers
@@ -56,7 +56,7 @@ jobs:
     # newer glibc than ubuntu-22.04 (glibc 2.35) provides.
     runs-on: ubuntu-24.04
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
     - uses: ./.github/actions/build-site
     - name: Check internal links
       uses: lycheeverse/lychee-action@v2
@@ -81,7 +81,7 @@ jobs:
     outputs:
       deployed: ${{ steps.revision.outputs.current }}
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
     - uses: ./.github/actions/shared-setup
     - uses: ./.github/actions/build-site
     - name: Check deployment revision
