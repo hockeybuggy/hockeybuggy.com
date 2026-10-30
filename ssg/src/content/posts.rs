@@ -45,7 +45,7 @@ fn parse_post(filename: &str, raw: &str) -> Result<Post> {
         .unwrap_or(content_part)
         .to_string();
 
-    let fm: PostFrontmatter = serde_yaml::from_str(yaml_part)
+    let fm: PostFrontmatter = yaml_serde::from_str(yaml_part)
         .with_context(|| format!("Failed to parse frontmatter in {filename}"))?;
 
     // Support both "YYYY-MM-DD" and full RFC3339 "YYYY-MM-DDTHH:MM:SS±HH:MM".
