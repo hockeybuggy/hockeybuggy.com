@@ -45,7 +45,7 @@ fn parse_project(filename: &str, raw: &str) -> Result<Project> {
         .unwrap_or(content_part)
         .to_string();
 
-    let fm: ProjectFrontmatter = serde_yaml::from_str(yaml_part)
+    let fm: ProjectFrontmatter = yaml_serde::from_str(yaml_part)
         .with_context(|| format!("Failed to parse frontmatter in {filename}"))?;
     let edit_date = fm
         .edit_date
