@@ -10,6 +10,7 @@ runs:
     - uses: actions/setup-node@v5
       with:
         node-version-file: .node-version
+        package-manager-cache: false
 
     - name: Install and enable Corepack
       shell: bash
