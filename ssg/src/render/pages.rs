@@ -1,6 +1,6 @@
 use anyhow::Result;
 use chrono::NaiveDate;
-use minijinja::Environment;
+use minijinja::{Environment, Value, value::Serde};
 use serde::Serialize;
 use std::collections::HashMap;
 
@@ -43,7 +43,7 @@ struct ProjectSummary {
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 
-fn render<S: Serialize>(env: &Environment, tpl: &str, ctx: S) -> Result<String> {
+fn render(env: &Environment, tpl: &str, ctx: Value) -> Result<String> {
     let tmpl = env.get_template(tpl)?;
     Ok(tmpl.render(ctx)?)
 }
@@ -97,7 +97,7 @@ pub fn render_blog_index(env: &Environment, posts: &[Post]) -> Result<String> {
             pathname => "/blog/",
             class => "",
             show_rss_link => true,
-            posts => summaries,
+            posts => Serde(&summaries),
         },
     )
 }
@@ -134,8 +134,8 @@ pub fn render_blog_post(env: &Environment, post: &Post) -> Result<String> {
             iso_edit_date => post.iso_edit_date.clone(),
             human_date => post.human_date(),
             human_edit_date => post.human_edit_date(),
-            categories => categories_links,
-            tags => tags_links,
+            categories => Serde(&categories_links),
+            tags => Serde(&tags_links),
             html_content => html_content,
         },
     )
@@ -166,7 +166,7 @@ pub fn render_tags_index(env: &Environment, posts: &[Post]) -> Result<String> {
             pathname => "/blog/tags/",
             class => "",
             show_rss_link => true,
-            tags => tags,
+            tags => Serde(&tags),
         },
     )
 }
@@ -187,7 +187,7 @@ pub fn render_tag_page(env: &Environment, tag: &str, posts: &[Post]) -> Result<S
             class => "",
             show_rss_link => true,
             tag => tag,
-            posts => post_links,
+            posts => Serde(&post_links),
         },
     )
 }
@@ -217,7 +217,7 @@ pub fn render_categories_index(env: &Environment, posts: &[Post]) -> Result<Stri
             pathname => "/blog/categories/",
             class => "",
             show_rss_link => true,
-            categories => categories,
+            categories => Serde(&categories),
         },
     )
 }
@@ -238,7 +238,7 @@ pub fn render_category_page(env: &Environment, category: &str, posts: &[Post]) -
             class => "",
             show_rss_link => true,
             category => category,
-            posts => post_links,
+            posts => Serde(&post_links),
         },
     )
 }
@@ -266,7 +266,7 @@ pub fn render_projects_index(env: &Environment, projects: &[Project]) -> Result<
             pathname => "/projects/",
             class => "projects",
             show_rss_link => false,
-            projects => summaries,
+            projects => Serde(&summaries),
         },
     )
 }
@@ -283,7 +283,7 @@ pub fn render_project_page(env: &Environment, project: &Project) -> Result<Strin
             show_rss_link => false,
             project_title => project.title.clone(),
             project_slug => project.slug.clone(),
-            iso_edit_date => project.iso_edit_date,
+            iso_edit_date => Serde(&project.iso_edit_date),
             github => project.github.clone(),
             banner_image_url => project.banner_image_name.as_deref().map(banner_url),
             banner_alt_text => project.banner_alt_text.clone(),
