@@ -16,6 +16,8 @@ exclude = [
     '^https?://www\.sitemaps\.org/',
     # Live, but intermittently 403s automated requests.
     '^https://inkscape\.org/',
+    # Live, but Cloudflare answers CI runners with 406 Not Acceptable.
+    '^https://thoughtbot\.com/',
     # Wayback Machine snapshots are immutable, and the archive 503s
     # requests from CI runners.
     '^https://web\.archive\.org/',
