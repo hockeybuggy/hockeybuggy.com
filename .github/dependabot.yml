@@ -7,6 +7,8 @@ updates:
       interval: monthly
       time: "10:00"
     open-pull-requests-limit: 10
+    cooldown:
+      default-days: 7
 
   - package-ecosystem: cargo
     directory: "/ssg"
@@ -14,6 +16,8 @@ updates:
       interval: monthly
       time: "10:00"
     open-pull-requests-limit: 10
+    cooldown:
+      default-days: 7
 
   - package-ecosystem: github-actions
     directory: "/"
@@ -21,3 +25,5 @@ updates:
       interval: monthly
       time: "10:00"
     open-pull-requests-limit: 10
+    cooldown:
+      default-days: 7
